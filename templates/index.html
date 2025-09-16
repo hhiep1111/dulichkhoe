@@ -51,8 +51,6 @@
         this.querySelector("div").style.display = "none";
     });
 </script>
-
-
     <section>
         {% if page == "home" %}
             {% for p in data.places %}
@@ -86,7 +84,34 @@
             <button type="submit">{{ "Gửi" if lang=="vi" else ("Submit" if lang=="en" else "보내기") }}</button>
         </form>
     </section>
+<section>
+    <h2>💬 {{ "Bình luận" if lang=="vi" else ("Comments" if lang=="en" else "댓글") }}</h2>
+    <form action="/comment" method="post" enctype="multipart/form-data" style="max-width:600px; margin:auto; background:#fff; padding:20px; border-radius:10px; box-shadow:0 0 8px #ccc;">
+        <label>
+            {{ "Tên" if lang=="vi" else ("Name" if lang=="en" else "이름") }}:<br>
+            <input type="text" name="name" required style="width:100%; padding:8px; margin:5px 0;">
+        </label><br>
 
+        <label>
+            Email:<br>
+            <input type="email" name="email" required style="width:100%; padding:8px; margin:5px 0;">
+        </label><br>
+
+        <label>
+            {{ "Bình luận" if lang=="vi" else ("Comment" if lang=="en" else "댓글") }}:<br>
+            <textarea name="comment" rows="4" required style="width:100%; padding:8px; margin:5px 0;"></textarea>
+        </label><br>
+
+        <label>
+            {{ "Ảnh minh họa" if lang=="vi" else ("Attach Image" if lang=="en" else "사진 첨부") }}:<br>
+            <input type="file" name="image" accept="image/*" style="margin:5px 0;">
+        </label><br>
+
+        <button type="submit" style="background:#2e8b57; color:white; padding:10px 15px; border:none; border-radius:5px; cursor:pointer;">
+            {{ "Gửi" if lang=="vi" else ("Submit" if lang=="en" else "보내기") }}
+        </button>
+    </form>
+</section>
     <footer>
         <p>&copy; 2025 Du lịch Khỏe</p>
         <p>
