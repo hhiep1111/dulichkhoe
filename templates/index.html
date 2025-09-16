@@ -2,49 +2,80 @@
 <html lang="{{ lang }}">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ data.title }}</title>
-    <!-- CSS vẫn nằm trực tiếp trong static -->
-    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        body { font-family: Arial, sans-serif; background: #f5faff; margin: 0; padding: 0; }
+        header { background: #2e8b57; color: white; padding: 20px; text-align: center; }
+        nav { text-align: center; background: #006400; padding: 10px; }
+        nav a { color: white; margin: 0 10px; text-decoration: none; }
+        nav a:hover { text-decoration: underline; }
+        section { padding: 20px; }
+        .card { background: white; border-radius: 10px; box-shadow: 0 0 8px #ccc; margin-bottom: 20px; overflow: hidden; }
+        .card img { width: 100%; height: 250px; object-fit: cover; }
+        .card-content { padding: 15px; }
+        ul { background: #fff3cd; padding: 15px; border-radius: 8px; }
+        footer { background: #2e8b57; color: white; text-align: center; padding: 15px; }
+        form { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 8px #ccc; }
+        form input, form textarea { width: 100%; padding: 10px; margin: 5px 0; border-radius: 5px; border: 1px solid #ccc; }
+        form button { background: #2e8b57; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+        form button:hover { background: #006400; }
+    </style>
 </head>
 <body>
-    <!-- Menu -->
+    <header>
+        <h1>{{ data.title }}</h1>
+        <p>{{ data.intro }}</p>
+    </header>
+
     <nav>
-        <a href="/">Home</a> | 
-        <a href="/about">About Us</a> | 
-        <a href="/tips?lang={{ lang }}">Tips</a> | 
-        <a href="/?lang=vi">VI</a> | 
-        <a href="/?lang=en">EN</a> | 
+        <a href="/?lang={{ lang }}">Home</a> |
+        <a href="/about?lang={{ lang }}">About Us</a> |
+        <a href="/tips?lang={{ lang }}">Tips</a> |
+        <a href="/?lang=vi">VI</a> |
+        <a href="/?lang=en">EN</a> |
         <a href="/?lang=kr">KR</a>
     </nav>
 
-    <h1>{{ data.title }}</h1>
-    <p>{{ data.intro }}</p>
+    <section>
+        {% if page == "home" %}
+            {% for p in data.places %}
+            <div class="card">
+                <img src="/static/images/{{ p.img }}" alt="{{ p.name }}">
+                <div class="card-content">
+                    <h2>{{ p.name }}</h2>
+                    <p>{{ p.desc }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        {% elif page == "about" %}
+            <h2>{{ "Giới thiệu" if lang=="vi" else ("About Me" if lang=="en" else "소개") }}</h2>
+            <p>{{ data.about }}</p>
+        {% elif page == "tips" %}
+            <h2>⚠️ {{ "Lưu ý" if lang=="vi" else ("Travel Tips" if lang=="en" else "여행 유의사항") }}</h2>
+            <ul>
+                {% for w in data.warn %}
+                <li>{{ w }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </section>
 
-    <h2>Địa điểm</h2>
-    <div>
-        {% for place in data.places %}
-        <div>
-            <h3>{{ place.name }}</h3>
-            <!-- cập nhật đúng đường dẫn ảnh -->
-            <img src="/static/images/{{ place.img }}" alt="{{ place.name }}" width="200">
-            <p>{{ place.desc }}</p>
-        </div>
-        {% endfor %}
-    </div>
+    <section>
+        <h2>{{ "Bình luận" if lang=="vi" else ("Comments" if lang=="en" else "댓글") }}</h2>
+        <form method="post" action="/comment">
+            <input type="text" name="name" placeholder="{{ 'Tên' if lang=='vi' else ('Name' if lang=='en' else '이름') }}" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="comment" rows="4" placeholder="{{ 'Nội dung bình luận' if lang=='vi' else ('Your comment' if lang=='en' else '댓글 내용') }}" required></textarea>
+            <button type="submit">{{ "Gửi" if lang=="vi" else ("Submit" if lang=="en" else "보내기") }}</button>
+        </form>
+    </section>
 
-    <hr>
-    <!-- Comment form -->
-    <h2>Bình luận</h2>
-    <form action="/comment" method="post">
-        <label>Tên: <input type="text" name="name" required></label><br>
-        <label>Email: <input type="email" name="email" required></label><br>
-        <label>Bình luận: <textarea name="message" required></textarea></label><br>
-        <button type="submit">Gửi</button>
-    </form>
-
-    <h3>Các bình luận trước:</h3>
-    {% for c in comments %}
-        <p><b>{{ c.name }}</b> ({{ c.email }}): {{ c.message }}</p>
-    {% endfor %}
+    <footer>
+        <p>&copy; 2025 Du lịch Khỏe</p>
+        <p>
+            🌐 <a href="/?lang=vi">VI</a> | <a href="/?lang=en">EN</a> | <a href="/?lang=kr">KR</a>
+        </p>
+    </footer>
 </body>
 </html>
