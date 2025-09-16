@@ -101,6 +101,12 @@ async def home(request: Request, lang: str = "vi"):
         "index.html",
         {"request": request, "data": content[lang], "lang": lang, "comments": comments}
     )
+# Tạo thư mục uploads nếu chưa có
+os.makedirs("uploads", exist_ok=True)
+
+# Mount static và uploads
+app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 
 # ---------------- COMMENT ----------------
 @app.post("/comment")
@@ -149,3 +155,5 @@ async def delete_comment(id: str = Form(...), token: str = Form(...)):
     conn.close()
 
     return RedirectResponse(url="/", status_code=303)
+
+
