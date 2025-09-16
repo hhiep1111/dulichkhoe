@@ -10,16 +10,34 @@
         nav { text-align: center; background: #006400; padding: 10px; }
         nav a { color: white; margin: 0 10px; text-decoration: none; }
         nav a:hover { text-decoration: underline; }
+        nav .dropdown { position: relative; display: inline-block; }
+        nav .dropdown-content {
+            display: none;
+            position: absolute;
+            background: #006400;
+            padding: 5px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+        nav .dropdown-content a {
+            display: block;
+            color: white;
+            padding: 5px;
+        }
         section { padding: 20px; }
         .card { background: white; border-radius: 10px; box-shadow: 0 0 8px #ccc; margin-bottom: 20px; overflow: hidden; }
         .card img { width: 100%; height: 250px; object-fit: cover; }
         .card-content { padding: 15px; }
         ul { background: #fff3cd; padding: 15px; border-radius: 8px; }
         footer { background: #2e8b57; color: white; text-align: center; padding: 15px; }
-        form { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 8px #ccc; }
+        form { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 8px #ccc; margin-top: 15px; }
         form input, form textarea { width: 100%; padding: 10px; margin: 5px 0; border-radius: 5px; border: 1px solid #ccc; }
         form button { background: #2e8b57; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
         form button:hover { background: #006400; }
+        .comment-box { background:#f9f9f9; border:1px solid #ddd; padding:10px; margin-bottom:10px; border-radius:8px; }
+        .comment-box img { max-width:100%; border-radius:5px; margin-top:8px; }
+        .delete-btn { background:#dc3545; color:white; padding:5px 10px; border:none; border-radius:5px; cursor:pointer; }
+        .delete-btn:hover { background:#a71d2a; }
     </style>
 </head>
 <body>
@@ -33,23 +51,23 @@
         <a href="/?lang={{ lang }}">{{ data.menu.home }}</a> |
         <a href="/about?lang={{ lang }}">{{ data.menu.about }}</a> |
         <a href="/tips?lang={{ lang }}">{{ data.menu.tips }}</a> |
-        <span style="position: relative; display: inline-block;">
+        <div class="dropdown">
             <a href="#">{{ data.menu.lang }} ▼</a>
-            <div style="display: none; position: absolute; background: #006400; padding: 5px; border-radius: 5px;">
-                <a href="/?lang=vi" style="display:block; color:white; padding:5px;">Tiếng Việt</a>
-                <a href="/?lang=en" style="display:block; color:white; padding:5px;">English</a>
-                <a href="/?lang=kr" style="display:block; color:white; padding:5px;">한국어</a>
+            <div class="dropdown-content">
+                <a href="/?lang=vi">Tiếng Việt</a>
+                <a href="/?lang=en">English</a>
+                <a href="/?lang=kr">한국어</a>
             </div>
-        </span>
+        </div>
     </nav>
 
     <script>
-        // Dropdown cho mục Ngôn ngữ
-        document.querySelector("nav span").addEventListener("mouseenter", function() {
-            this.querySelector("div").style.display = "block";
+        // Hiện/ẩn dropdown khi hover
+        document.querySelector(".dropdown").addEventListener("mouseenter", function() {
+            this.querySelector(".dropdown-content").style.display = "block";
         });
-        document.querySelector("nav span").addEventListener("mouseleave", function() {
-            this.querySelector("div").style.display = "none";
+        document.querySelector(".dropdown").addEventListener("mouseleave", function() {
+            this.querySelector(".dropdown-content").style.display = "none";
         });
     </script>
 
@@ -112,17 +130,17 @@
         <!-- Danh sách comment -->
         <div style="max-width:600px; margin:20px auto;">
             {% for c in comments %}
-            <div style="background:#f9f9f9; border:1px solid #ddd; padding:10px; margin-bottom:10px; border-radius:8px;">
+            <div class="comment-box">
                 <p><strong>{{ c.name }}</strong> ({{ c.email }})</p>
                 <p>{{ c.text }}</p>
                 {% if c.img %}
-                    <img src="/uploads/{{ c.img }}" alt="Comment Image" style="max-width:100%; border-radius:5px;">
+                    <img src="/uploads/{{ c.img }}" alt="Comment Image">
                 {% endif %}
                 <!-- Nút Xóa -->
                 <form action="/delete_comment" method="post" style="margin-top:5px;">
                     <input type="hidden" name="id" value="{{ c.id }}">
                     <input type="hidden" name="token" value="{{ c.token }}">
-                    <button type="submit" style="background:#dc3545; color:white; padding:5px 10px; border:none; border-radius:5px; cursor:pointer;">
+                    <button type="submit" class="delete-btn">
                         {{ "Xóa" if lang=="vi" else ("Delete" if lang=="en" else "삭제") }}
                     </button>
                 </form>
