@@ -1,18 +1,20 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Form
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, RedirectResponse
 
 app = FastAPI()
 
-# Gắn static để load ảnh
+# Static để load ảnh, CSS
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 templates = Jinja2Templates(directory="templates")
 
+# Lưu trữ comment tạm thời (sau có thể dùng DB)
+comments = []
+
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request, lang: str = "vi"):
-    # Nội dung đa ngôn ngữ
     content = {
         "vi": {
             "title": "Du lịch Khỏe - Đồng bằng Sông Cửu Long",
@@ -57,5 +59,20 @@ async def home(request: Request, lang: str = "vi"):
             ]
         }
     }
+    return templates.TemplateResponse("index.html", {
+        "request": request, 
+        "data": content[lang], 
+        "lang": lang, 
+        "comments": comments
+    })
 
-    return templates.TemplateResponse("index.html", {"request": request, "data": content[lang], "lang": lang})
+
+@app.get("/about", response_class=HTMLResponse)
+async def about(request: Request):
+    return templates.TemplateResponse("about.html", {"request": request})
+
+
+@app.post("/comment")
+async def add_comment(request: Request, name: str = Form(...), email: str = Form(...), message: str = Form(...)):
+    comments.append({"name": name, "email": email, "message": message})
+    return RedirectResponse(url="/", status_code=303)
