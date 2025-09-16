@@ -88,9 +88,9 @@
             <p>{{ data.about }}</p>
         {% elif page == "tips" %}
             <h2>⚠️ {{ "Lưu ý" if lang=="vi" else ("Travel Tips" if lang=="en" else "여행 유의사항") }}</h2>
-            <ul>
+            <ul style="list-style-type: none; padding-left: 0;">
                 {% for w in data.warn %}
-                <li>{{ w }}</li>
+            <li>{{ w }}</li>
                 {% endfor %}
             </ul>
         {% endif %}
