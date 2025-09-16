@@ -54,9 +54,27 @@ content = {
             {"name": "Miếu Bà Chúa Xứ Núi Sam (An Giang)", "img": "angiang.jpg", "desc": "Điểm đến tâm linh nổi tiếng, kết hợp với cảnh núi non hùng vĩ."},
         ],
         "warn": [
-            "Không xả rác xuống sông.",
-            "Hạn chế chen lấn ở chợ nổi.",
-            "Luôn hỏi giá trước khi mua đồ lưu niệm."
+            "1. Trước khi đi",
+                "Tìm hiểu thông tin điểm đến: thời tiết, phong tục, tình hình an ninh, phương tiện di chuyển.",
+                "Chuẩn bị giấy tờ: CMND/CCCD, hộ chiếu, vé máy bay/tàu xe, bảo hiểm du lịch (nếu có).",
+                "Sao lưu giấy tờ: chụp ảnh hoặc lưu bản scan để phòng khi thất lạc.",
+                "Kiểm tra sức khỏe: mang theo thuốc cá nhân, giấy tờ y tế cần thiết.",
+            "2. Khi di chuyển",
+                "Không để hành lý xa tầm mắt, đặc biệt ở sân bay, bến xe, ga tàu.",
+                "Giữ đồ có giá trị bên người (tiền, điện thoại, hộ chiếu).",
+                "Chọn phương tiện uy tín: taxi, xe công nghệ, hoặc phương tiện công cộng chính thống.",
+            "3. Khi lưu trú",
+                "Chọn khách sạn/nhà nghỉ an toàn: có đánh giá tốt, hệ thống an ninh.",
+                "Khóa cửa cẩn thận khi ra ngoài và cả khi ở trong phòng.",
+                "Không tiết lộ số phòng với người lạ.",
+            "4. Khi tham quan",
+                "Không mang theo quá nhiều tiền mặt hoặc đồ quý giá.",
+                "Cẩn thận với túi xách, balo ở nơi đông người (chợ, lễ hội, bến xe).",
+                "Tuân thủ quy định địa phương: không xả rác, không leo trèo nguy hiểm, tôn trọng văn hóa bản địa.",
+                "Luôn đi theo nhóm nếu ở nơi vắng vẻ hoặc không quen thuộc.",
+            "5. An toàn công nghệ",
+                "Không dùng Wi-Fi công cộng để giao dịch tài chính.",
+                "Cẩn thận khi chia sẻ vị trí trên mạng xã hội để tránh kẻ xấu lợi dụng."
         ]
     },
     "en": {
