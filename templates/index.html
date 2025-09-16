@@ -102,17 +102,18 @@
             <h2>{{ "Giới thiệu" if lang=="vi" else ("About Me" if lang=="en" else "소개") }}</h2>
             <p>{{ data.about }}</p>
         {% elif page == "tips" %}
-            <h2>⚠️ {{ "Lưu ý" if lang=="vi" else ("Travel Tips" if lang=="en" else "여행 유의사항") }}</h2>
-            <ul class="tips-list">
-                {% for w in data.warn %}
-                    {% if w.startswith("1.") or w.startswith("2.") or w.startswith("3.") or w.startswith("4.") or w.startswith("5.") %}
-                        <li class="num">{{ w }}</li>
-                    {% else %}
-                        <li>{{ w }}</li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        {% endif %}
+    <h2>⚠️ {{ "Lưu ý" if lang=="vi" else ("Travel Tips" if lang=="en" else "여행 유의사항") }}</h2>
+    <ul class="tips-list">
+        {% for w in data.warn %}
+            {% set first_char = w.strip()[0] %}
+            {% if first_char.isdigit() %}
+                <li class="num">{{ w }}</li>
+            {% else %}
+                <li>{{ w }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    {% endif %}
     </section>
 
     <!-- Bình luận -->
