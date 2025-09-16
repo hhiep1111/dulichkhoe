@@ -131,6 +131,43 @@ async def about(request: Request, lang: str = "vi"):
 async def tips(request: Request, lang: str = "vi"):
     return await home(request, lang=lang, page="tips")
 
+# ---------------- GET COMMENT PAGE ----------------
+@app.get("/comment", response_class=HTMLResponse)
+async def get_comments(request: Request, lang: str = "vi"):
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    c.execute("SELECT id, name, email, text, img, token FROM comments")
+    rows = c.fetchall()
+    conn.close()
+
+    comments = [
+        {"id": r[0], "name": r[1], "email": r[2], "text": r[3], "img": r[4], "token": r[5]}
+        for r in rows
+    ]
+
+    return templates.TemplateResponse(
+        "index.html",
+        {
+            "request": request,
+            "data": {
+                "title": "Bình luận",
+                "intro": "Xem các bình luận từ người dùng",
+                "menu": {
+                    "home": "Trang chủ",
+                    "about": "Giới thiệu",
+                    "tips": "Lưu ý",
+                    "lang": "Ngôn ngữ"
+                },
+                "about": "Trang web chia sẻ du lịch.",
+                "places": [],
+                "warn": []
+            },
+            "lang": lang,
+            "page": "comments",
+            "comments": comments
+        }
+    )
+
 # ---------------- COMMENT ----------------
 @app.post("/comment")
 async def add_comment(
