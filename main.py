@@ -47,7 +47,7 @@ content = {
             "tips": "Lưu ý",
             "lang": "Ngôn ngữ"
         },
-        "about": "Xin chào, tôi là Hiep, người yêu thích du lịch và văn hóa miền Tây.",
+        "about": "Xin chào, chúng ta là những người yêu thích du lịch và văn hóa miền Tây.",
         "places": [
             {"name": "Chợ nổi Cái Răng (Cần Thơ)", "img": "cantho.jpg", "desc": "Trải nghiệm chợ nổi buổi sáng, thưởng thức bún riêu và trái cây trên ghe."},
             {"name": "Phú Quốc (Kiên Giang)", "img": "phuquoc.jpg", "desc": "Thiên đường biển đảo với bãi cát trắng, nước trong xanh và hải sản tươi ngon."},
@@ -68,7 +68,7 @@ content = {
             "tips": "Tips",
             "lang": "Language"
         },
-        "about": "Hello, I'm Hiep, a travel enthusiast passionate about Mekong Delta culture.",
+        "about": "Hello, we are people who love traveling and Western culture.",
         "places": [
             {"name": "Cai Rang Floating Market (Can Tho)", "img": "cantho.jpg", "desc": "Experience the morning floating market with noodles and fresh fruits."},
             {"name": "Phu Quoc Island (Kien Giang)", "img": "phuquoc.jpg", "desc": "A paradise with white sand beaches, clear water, and fresh seafood."},
@@ -89,7 +89,7 @@ content = {
             "tips": "여행 유의사항",
             "lang": "언어"
         },
-        "about": "안녕하세요, 저는 메콩델타 여행과 문화를 좋아하는 히엡입니다.",
+        "about": "안녕하세요, 저희는 여행과 서양 문화를 사랑하는 사람들입니다.",
         "places": [
             {"name": "까이랑 수상시장 (껀터)", "img": "cantho.jpg", "desc": "아침 수상시장에서 국수와 신선한 과일을 즐기세요."},
             {"name": "푸꾸옥 섬 (끼엔장)", "img": "phuquoc.jpg", "desc": "하얀 모래 해변과 맑은 바다, 신선한 해산물의 천국."},
