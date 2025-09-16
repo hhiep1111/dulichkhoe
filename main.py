@@ -7,7 +7,6 @@ app = FastAPI()
 
 # Static files
 app.mount("/static", StaticFiles(directory="static"), name="static")
-
 templates = Jinja2Templates(directory="templates")
 
 # Dữ liệu đa ngôn ngữ
@@ -25,7 +24,8 @@ content = {
             "Không xả rác xuống sông.",
             "Hạn chế chen lấn ở chợ nổi.",
             "Luôn hỏi giá trước khi mua đồ lưu niệm."
-        ]
+        ],
+        "menu": {"home": "Trang chủ", "about": "Giới thiệu", "tips": "Lưu ý", "lang": "Ngôn ngữ"}
     },
     "en": {
         "title": "Healthy Travel - Mekong Delta",
@@ -40,7 +40,8 @@ content = {
             "Do not litter in rivers.",
             "Avoid crowding in floating markets.",
             "Always ask the price before shopping souvenirs."
-        ]
+        ],
+        "menu": {"home": "Home", "about": "About Us", "tips": "Tips", "lang": "Language"}
     },
     "kr": {
         "title": "건강 여행 - 메콩델타",
@@ -55,7 +56,8 @@ content = {
             "강에 쓰레기를 버리지 마세요.",
             "수상시장에서 혼잡을 피하세요.",
             "기념품을 살 때 반드시 가격을 확인하세요."
-        ]
+        ],
+        "menu": {"home": "홈", "about": "소개", "tips": "유의사항", "lang": "언어"}
     }
 }
 
