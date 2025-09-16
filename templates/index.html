@@ -28,29 +28,32 @@
         <p>{{ data.intro }}</p>
     </header>
 
+    <!-- Menu -->
     <nav>
-    <a href="/?lang={{ lang }}">{{ data.menu.home }}</a> |
-    <a href="/about?lang={{ lang }}">{{ data.menu.about }}</a> |
-    <a href="/tips?lang={{ lang }}">{{ data.menu.tips }}</a> |
-    <span style="position: relative; display: inline-block;">
-        <a href="#">{{ data.menu.lang }} ▼</a>
-        <div style="display: none; position: absolute; background: #006400; padding: 5px; border-radius: 5px;">
-            <a href="/?lang=vi" style="display:block; color:white; padding:5px;">Tiếng Việt</a>
-            <a href="/?lang=en" style="display:block; color:white; padding:5px;">English</a>
-            <a href="/?lang=kr" style="display:block; color:white; padding:5px;">한국어</a>
-        </div>
-    </span>
-</nav>
+        <a href="/?lang={{ lang }}">{{ data.menu.home }}</a> |
+        <a href="/about?lang={{ lang }}">{{ data.menu.about }}</a> |
+        <a href="/tips?lang={{ lang }}">{{ data.menu.tips }}</a> |
+        <span style="position: relative; display: inline-block;">
+            <a href="#">{{ data.menu.lang }} ▼</a>
+            <div style="display: none; position: absolute; background: #006400; padding: 5px; border-radius: 5px;">
+                <a href="/?lang=vi" style="display:block; color:white; padding:5px;">Tiếng Việt</a>
+                <a href="/?lang=en" style="display:block; color:white; padding:5px;">English</a>
+                <a href="/?lang=kr" style="display:block; color:white; padding:5px;">한국어</a>
+            </div>
+        </span>
+    </nav>
 
-<script>
-    // Dropdown cho mục Ngôn ngữ
-    document.querySelector("nav span").addEventListener("mouseenter", function() {
-        this.querySelector("div").style.display = "block";
-    });
-    document.querySelector("nav span").addEventListener("mouseleave", function() {
-        this.querySelector("div").style.display = "none";
-    });
-</script>
+    <script>
+        // Dropdown cho mục Ngôn ngữ
+        document.querySelector("nav span").addEventListener("mouseenter", function() {
+            this.querySelector("div").style.display = "block";
+        });
+        document.querySelector("nav span").addEventListener("mouseleave", function() {
+            this.querySelector("div").style.display = "none";
+        });
+    </script>
+
+    <!-- Nội dung chính -->
     <section>
         {% if page == "home" %}
             {% for p in data.places %}
@@ -75,43 +78,60 @@
         {% endif %}
     </section>
 
+    <!-- Bình luận -->
     <section>
-        <h2>{{ "Bình luận" if lang=="vi" else ("Comments" if lang=="en" else "댓글") }}</h2>
-        <form method="post" action="/comment">
-            <input type="text" name="name" placeholder="{{ 'Tên' if lang=='vi' else ('Name' if lang=='en' else '이름') }}" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <textarea name="comment" rows="4" placeholder="{{ 'Nội dung bình luận' if lang=='vi' else ('Your comment' if lang=='en' else '댓글 내용') }}" required></textarea>
-            <button type="submit">{{ "Gửi" if lang=="vi" else ("Submit" if lang=="en" else "보내기") }}</button>
+        <h2>💬 {{ "Bình luận" if lang=="vi" else ("Comments" if lang=="en" else "댓글") }}</h2>
+
+        <!-- Form comment -->
+        <form action="/comment" method="post" enctype="multipart/form-data" style="max-width:600px; margin:auto;">
+            <label>
+                {{ "Tên" if lang=="vi" else ("Name" if lang=="en" else "이름") }}:<br>
+                <input type="text" name="name" required>
+            </label><br>
+
+            <label>
+                Email:<br>
+                <input type="email" name="email" required>
+            </label><br>
+
+            <label>
+                {{ "Bình luận" if lang=="vi" else ("Comment" if lang=="en" else "댓글") }}:<br>
+                <textarea name="comment" rows="4" required></textarea>
+            </label><br>
+
+            <label>
+                {{ "Ảnh minh họa" if lang=="vi" else ("Attach Image" if lang=="en" else "사진 첨부") }}:<br>
+                <input type="file" name="image" accept="image/*">
+            </label><br>
+
+            <button type="submit">
+                {{ "Gửi" if lang=="vi" else ("Submit" if lang=="en" else "보내기") }}
+            </button>
         </form>
+
+        <!-- Danh sách comment -->
+        <div style="max-width:600px; margin:20px auto;">
+            {% for c in comments %}
+            <div style="background:#f9f9f9; border:1px solid #ddd; padding:10px; margin-bottom:10px; border-radius:8px;">
+                <p><strong>{{ c.name }}</strong> ({{ c.email }})</p>
+                <p>{{ c.text }}</p>
+                {% if c.img %}
+                    <img src="/uploads/{{ c.img }}" alt="Comment Image" style="max-width:100%; border-radius:5px;">
+                {% endif %}
+                <!-- Nút Xóa -->
+                <form action="/delete_comment" method="post" style="margin-top:5px;">
+                    <input type="hidden" name="id" value="{{ c.id }}">
+                    <input type="hidden" name="token" value="{{ c.token }}">
+                    <button type="submit" style="background:#dc3545; color:white; padding:5px 10px; border:none; border-radius:5px; cursor:pointer;">
+                        {{ "Xóa" if lang=="vi" else ("Delete" if lang=="en" else "삭제") }}
+                    </button>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
     </section>
-<section>
-    <h2>💬 {{ "Bình luận" if lang=="vi" else ("Comments" if lang=="en" else "댓글") }}</h2>
-    <form action="/comment" method="post" enctype="multipart/form-data" style="max-width:600px; margin:auto; background:#fff; padding:20px; border-radius:10px; box-shadow:0 0 8px #ccc;">
-        <label>
-            {{ "Tên" if lang=="vi" else ("Name" if lang=="en" else "이름") }}:<br>
-            <input type="text" name="name" required style="width:100%; padding:8px; margin:5px 0;">
-        </label><br>
 
-        <label>
-            Email:<br>
-            <input type="email" name="email" required style="width:100%; padding:8px; margin:5px 0;">
-        </label><br>
-
-        <label>
-            {{ "Bình luận" if lang=="vi" else ("Comment" if lang=="en" else "댓글") }}:<br>
-            <textarea name="comment" rows="4" required style="width:100%; padding:8px; margin:5px 0;"></textarea>
-        </label><br>
-
-        <label>
-            {{ "Ảnh minh họa" if lang=="vi" else ("Attach Image" if lang=="en" else "사진 첨부") }}:<br>
-            <input type="file" name="image" accept="image/*" style="margin:5px 0;">
-        </label><br>
-
-        <button type="submit" style="background:#2e8b57; color:white; padding:10px 15px; border:none; border-radius:5px; cursor:pointer;">
-            {{ "Gửi" if lang=="vi" else ("Submit" if lang=="en" else "보내기") }}
-        </button>
-    </form>
-</section>
+    <!-- Footer -->
     <footer>
         <p>&copy; 2025 Du lịch Khỏe</p>
         <p>
