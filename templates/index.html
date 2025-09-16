@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ data.title }}</title>
+    <!-- CSS vẫn nằm trực tiếp trong static -->
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
@@ -24,7 +25,8 @@
         {% for place in data.places %}
         <div>
             <h3>{{ place.name }}</h3>
-            <img src="/static/{{ place.img }}" alt="{{ place.name }}" width="200">
+            <!-- cập nhật đúng đường dẫn ảnh -->
+            <img src="/static/images/{{ place.img }}" alt="{{ place.name }}" width="200">
             <p>{{ place.desc }}</p>
         </div>
         {% endfor %}
