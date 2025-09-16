@@ -131,6 +131,35 @@ async def about(request: Request, lang: str = "vi"):
 async def tips(request: Request, lang: str = "vi"):
     return await home(request, lang=lang, page="tips")
 
+# ---------------- COMMENT (POST) ----------------
+@app.post("/comment")
+async def add_comment(
+    request: Request,
+    name: str = Form(...),
+    email: str = Form(...),
+    comment: str = Form(...),
+    image: UploadFile = File(None),
+):
+    img_filename = None
+    if image:
+        os.makedirs("uploads", exist_ok=True)
+        img_filename = f"{uuid.uuid4()}_{image.filename}"
+        with open(os.path.join("uploads", img_filename), "wb") as f:
+            f.write(await image.read())
+
+    comment_id = str(uuid.uuid4())
+    token = str(uuid.uuid4())
+
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    c.execute("INSERT INTO comments (id, name, email, text, img, token) VALUES (?, ?, ?, ?, ?, ?)",
+              (comment_id, name, email, comment, img_filename, token))
+    conn.commit()
+    conn.close()
+
+    # 🔴 Sau khi thêm xong thì redirect về /comment (không redirect về /)
+    return RedirectResponse(url="/comment", status_code=303)
+    
 # ---------------- GET COMMENT PAGE ----------------
 @app.get("/comment", response_class=HTMLResponse)
 async def get_comments(request: Request, lang: str = "vi"):
@@ -167,34 +196,6 @@ async def get_comments(request: Request, lang: str = "vi"):
             "comments": comments
         }
     )
-
-# ---------------- COMMENT ----------------
-@app.post("/comment")
-async def add_comment(
-    request: Request,
-    name: str = Form(...),
-    email: str = Form(...),
-    comment: str = Form(...),
-    image: UploadFile = File(None),
-):
-    img_filename = None
-    if image:
-        os.makedirs("uploads", exist_ok=True)
-        img_filename = f"{uuid.uuid4()}_{image.filename}"
-        with open(os.path.join("uploads", img_filename), "wb") as f:
-            f.write(await image.read())
-
-    comment_id = str(uuid.uuid4())
-    token = str(uuid.uuid4())
-
-    conn = sqlite3.connect(DB_FILE)
-    c = conn.cursor()
-    c.execute("INSERT INTO comments (id, name, email, text, img, token) VALUES (?, ?, ?, ?, ?, ?)",
-              (comment_id, name, email, comment, img_filename, token))
-    conn.commit()
-    conn.close()
-
-    return RedirectResponse(url="/", status_code=303)
 
 # ---------------- DELETE COMMENT ----------------
 @app.post("/delete_comment")
