@@ -29,13 +29,29 @@
     </header>
 
     <nav>
-        <a href="/?lang={{ lang }}">Home</a> |
-        <a href="/about?lang={{ lang }}">About Us</a> |
-        <a href="/tips?lang={{ lang }}">Tips</a> |
-        <a href="/?lang=vi">VI</a> |
-        <a href="/?lang=en">EN</a> |
-        <a href="/?lang=kr">KR</a>
-    </nav>
+    <a href="/?lang={{ lang }}">{{ data.menu.home }}</a> |
+    <a href="/about?lang={{ lang }}">{{ data.menu.about }}</a> |
+    <a href="/tips?lang={{ lang }}">{{ data.menu.tips }}</a> |
+    <span style="position: relative; display: inline-block;">
+        <a href="#">{{ data.menu.lang }} ▼</a>
+        <div style="display: none; position: absolute; background: #006400; padding: 5px; border-radius: 5px;">
+            <a href="/?lang=vi" style="display:block; color:white; padding:5px;">Tiếng Việt</a>
+            <a href="/?lang=en" style="display:block; color:white; padding:5px;">English</a>
+            <a href="/?lang=kr" style="display:block; color:white; padding:5px;">한국어</a>
+        </div>
+    </span>
+</nav>
+
+<script>
+    // Dropdown cho mục Ngôn ngữ
+    document.querySelector("nav span").addEventListener("mouseenter", function() {
+        this.querySelector("div").style.display = "block";
+    });
+    document.querySelector("nav span").addEventListener("mouseleave", function() {
+        this.querySelector("div").style.display = "none";
+    });
+</script>
+
 
     <section>
         {% if page == "home" %}
