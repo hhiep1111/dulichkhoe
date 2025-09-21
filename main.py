@@ -76,9 +76,7 @@ content = {
     "Không dùng Wi-Fi công cộng để giao dịch tài chính.",
     "Cẩn thận khi chia sẻ vị trí trên mạng xã hội để tránh kẻ xấu lợi dụng."
 ]
-    },
-
-    "checklist": [
+        "checklist": [
     {"title": "Quần áo", "items": [
         "Đồ lót","Tất","Vớ/bít tất","Áo blouse","Áo (tops)","Quần, jeans, legging",
         "Chân váy","Váy đầm","Đồ ngủ","Mũ ngủ","Khăn tắm","Áo cardigan","Áo khoác",
@@ -99,7 +97,8 @@ content = {
         "Dép tông","Sandals","Kính mát","Sarong","Mũ hoặc nón","Áo khoác nhẹ chống nắng",
         "Áo khoác nhẹ hoặc cardigan","Khăn choàng","Đồ bơm hơi bãi biển","Đồ chơi & trò chơi bãi biển"
     ]}
-],
+]
+    },
 
     "en": {
         "title": "Healthy Travel - Mekong Delta",
@@ -139,8 +138,8 @@ content = {
 "         Do not use public Wi-Fi for financial transactions.",
 "         Be careful when sharing your location on social networks to avoid bad guys taking advantage."
         ]
-    },
-    "checklist": [
+
+        "checklist": [
     {"title": "Clothes", "items": [
         "Underwear","Socks","Stockings / tights","Blouses","Tops","Pants, jeans, leggings",
         "Skirts","Dresses","Pajamas","Sleeping cap","Towels","Cardigan","Coat",
@@ -161,8 +160,8 @@ content = {
         "Flip flops","Sandals","Sunglasses","Sarong","Hat or cap","Light anorak",
         "Light coat or cardigan","Shawl","Beach inflatables","Beach toys and games"
     ]}
-],
-
+]
+    },
     "kr": {
         "title": "건강 여행 - 메콩델타",
         "intro": "메콩델타 탐험: 강, 음식, 독특한 문화.",
