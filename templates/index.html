@@ -212,54 +212,60 @@
     </section>
 
     <!-- Bình luận -->
-    <section>
-        <h2>💬 {{ "Bình luận" if lang=="vi" else ("Comments" if lang=="en" else "댓글") }}</h2>
+<section>
+    <h2>💬 {{ "Bình luận" if lang=="vi" else ("Comments" if lang=="en" else "댓글") }}</h2>
 
-        <form action="/comment" method="post" enctype="multipart/form-data" style="max-width:600px; margin:auto;">
-            <label>
-                {{ "Tên" if lang=="vi" else ("Name" if lang=="en" else "이름") }}:<br>
-                <input type="text" name="name" required>
-            </label><br>
+    <form action="/comment" method="post" enctype="multipart/form-data" style="max-width:600px; margin:auto;">
+        <label>
+            {{ "Tên" if lang=="vi" else ("Name" if lang=="en" else "이름") }}:<br>
+            <input type="text" name="name" required>
+        </label><br>
 
-            <label>
-                Email:<br>
-                <input type="email" name="email" required>
-            </label><br>
+        <label>Email:<br>
+            <input type="email" name="email" required>
+        </label><br>
 
-            <label>
-                {{ "Bình luận" if lang=="vi" else ("Comment" if lang=="en" else "댓글") }}:<br>
-                <textarea name="comment" rows="4" required></textarea>
-            </label><br>
+        <label>{{ "Bình luận" if lang=="vi" else ("Comment" if lang=="en" else "댓글") }}:<br>
+            <textarea name="comment" rows="4" required></textarea>
+        </label><br>
 
-            <label>
-                {{ "Ảnh minh họa" if lang=="vi" else ("Attach Image" if lang=="en" else "사진 첨부") }}:<br>
-                <input type="file" name="image" accept="image/*">
-            </label><br>
+        <label>{{ "Ảnh minh họa" if lang=="vi" else ("Attach Image" if lang=="en" else "사진 첨부") }}:<br>
+            <input type="file" name="image" accept="image/*">
+        </label><br>
 
-            <button type="submit">
-                {{ "Gửi" if lang=="vi" else ("Submit" if lang=="en" else "보내기") }}
-            </button>
-        </form>
+        <button type="submit">
+            {{ "Gửi" if lang=="vi" else ("Submit" if lang=="en" else "보내기") }}
+        </button>
+    </form>
 
-        <div style="max-width:600px; margin:20px auto;">
-            {% for c in comments %}
-            <div class="comment-box">
-                <p><strong>{{ c.name }}</strong> ({{ c.email }})</p>
-                <p>{{ c.text }}</p>
-                {% if c.img %}
-                    <img src="/uploads/{{ c.img }}" alt="Comment Image">
-                {% endif %}
-                <form action="/delete_comment" method="post" style="margin-top:5px;">
-                    <input type="hidden" name="id" value="{{ c.id }}">
-                    <input type="hidden" name="token" value="{{ c.token }}">
-                    <button type="submit" class="delete-btn">
-                        {{ "Xóa" if lang=="vi" else ("Delete" if lang=="en" else "삭제") }}
-                    </button>
-                </form>
-            </div>
-            {% endfor %}
+    <div style="max-width:600px; margin:20px auto;">
+        {% for c in comments %}
+        <div class="comment-box">
+            <p><strong>{{ c.name }}</strong></p>
+
+            {% if is_admin %}
+                <p style="font-size:12px; color:gray;">📧 {{ c.email }}</p>
+            {% endif %}
+
+            <p>{{ c.text }}</p>
+
+            {% if c.img %}
+                <img src="/uploads/{{ c.img }}" alt="Comment Image">
+            {% endif %}
+
+            {% if is_admin or c.token %}
+            <form action="/delete_comment" method="post" style="margin-top:5px;">
+                <input type="hidden" name="id" value="{{ c.id }}">
+                <input type="hidden" name="token" value="{{ c.token }}">
+                <button type="submit" class="delete-btn">
+                    {{ "Xóa" if lang=="vi" else ("Delete" if lang=="en" else "삭제") }}
+                </button>
+            </form>
+            {% endif %}
         </div>
-    </section>
+        {% endfor %}
+    </div>
+</section>
 
     <footer>
         <p>&copy; 2025 Du lịch Khỏe</p>
