@@ -40,7 +40,6 @@
             box-shadow: 0 0 12px rgba(0,0,0,0.18);
         }
         .checklist-overlay {
-            /* lớp nền nhạt phía trong để chữ rõ hơn */
             background: rgba(255,255,255,0.86);
             padding: 18px;
             border-radius: 10px;
@@ -84,7 +83,6 @@
             height: 18px;
         }
 
-        /* small screen */
         @media (max-width: 800px) {
             .checklist-grid { grid-template-columns: 1fr; }
             header h1 { font-size: 20px; }
@@ -124,7 +122,6 @@
     </nav>
 
     <script>
-        // Hiện/ẩn dropdown khi hover
         document.querySelector(".dropdown").addEventListener("mouseenter", function() {
             this.querySelector(".dropdown-content").style.display = "block";
         });
@@ -159,18 +156,19 @@
                 <div class="checklist-overlay">
                     <div class="checklist-grid">
                         {% for section in data.checklist %}
+                        {% set section_index = loop.index0 %}
                         <div class="checklist-section">
                             <h3>{{ section.title }}</h3>
                             <ul>
                                 {% for item in section["items"] %}
-                                {% set cid = 'chk_' ~ lang ~ '_' ~ loop.parent.index0 ~ '_' ~ loop.index0 %}
+                                    {% set cid = 'chk_' ~ lang ~ '_' ~ section_index ~ '_' ~ loop.index0 %}
                                     <li>
-                                    <label for="{{ cid }}">
-                                    <input type="checkbox" id="{{ cid }}">
-                                        {{ item }}
+                                        <label for="{{ cid }}">
+                                            <input type="checkbox" id="{{ cid }}">
+                                            {{ item }}
                                         </label>
                                     </li>
-                                        {% endfor %}
+                                {% endfor %}
                             </ul>
                         </div>
                         {% endfor %}
@@ -179,7 +177,6 @@
             </div>
 
             <script>
-                // Lưu trạng thái checkbox vào localStorage (per language)
                 document.addEventListener('DOMContentLoaded', function() {
                     const lang = "{{ lang }}";
                     document.querySelectorAll('.checklist-section input[type="checkbox"]').forEach(cb => {
@@ -188,7 +185,7 @@
                         try {
                             const stored = localStorage.getItem(key);
                             if (stored === '1') cb.checked = true;
-                        } catch(e) { /* localStorage có thể bị chặn, bỏ qua */ }
+                        } catch(e) {}
                         cb.addEventListener('change', function() {
                             try {
                                 if (cb.checked) localStorage.setItem(key, '1');
@@ -200,7 +197,6 @@
             </script>
 
             {% else %}
-                <!-- Fallback: nếu không có checklist thì hiển thị warn text (cũ) -->
                 <ul class="tips-list">
                     {% for w in data.warn %}
                         {% set first_char = w.strip()[0] %}
@@ -219,7 +215,6 @@
     <section>
         <h2>💬 {{ "Bình luận" if lang=="vi" else ("Comments" if lang=="en" else "댓글") }}</h2>
 
-        <!-- Form comment -->
         <form action="/comment" method="post" enctype="multipart/form-data" style="max-width:600px; margin:auto;">
             <label>
                 {{ "Tên" if lang=="vi" else ("Name" if lang=="en" else "이름") }}:<br>
@@ -246,7 +241,6 @@
             </button>
         </form>
 
-        <!-- Danh sách comment -->
         <div style="max-width:600px; margin:20px auto;">
             {% for c in comments %}
             <div class="comment-box">
@@ -255,7 +249,6 @@
                 {% if c.img %}
                     <img src="/uploads/{{ c.img }}" alt="Comment Image">
                 {% endif %}
-                <!-- Nút Xóa -->
                 <form action="/delete_comment" method="post" style="margin-top:5px;">
                     <input type="hidden" name="id" value="{{ c.id }}">
                     <input type="hidden" name="token" value="{{ c.token }}">
@@ -268,7 +261,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2025 Du lịch Khỏe</p>
         <p>
