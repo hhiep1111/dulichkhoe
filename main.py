@@ -245,7 +245,6 @@ content = {
 }
 
 # ---------------- HOME ----------------
-# ---------------- HOME ----------------
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request, lang: str = "vi", page: str = "home"):
     # Kiểm tra admin từ query param hoặc header (tuỳ setup)
@@ -279,7 +278,9 @@ async def about(request: Request, lang: str = "vi"):
     return await home(request, lang=lang, page="about")
 
 @app.get("/tips", response_class=HTMLResponse)
-async def tips(request: Request, lang:
+async def tips(request: Request, lang: str = "vi"):
+    return await home(request, lang=lang, page="tips")
+
 
 # ---------------- COMMENT (POST) ----------------
 @app.post("/comment")
