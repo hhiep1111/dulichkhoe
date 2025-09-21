@@ -1,10 +1,11 @@
 import os
 import uuid
 import sqlite3
-from fastapi import FastAPI, Request, Form, UploadFile, File
+from fastapi import FastAPI, Request, Form, UploadFile, File, Depends
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from fastapi.responses import HTMLResponse, RedirectResponse
+from fastapi.responses import HTMLResponse, RedirectResponse, PlainTextResponse
+from fastapi.security import HTTPBasic, HTTPBasicCredentials
 
 app = FastAPI()
 
@@ -15,6 +16,10 @@ app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 templates = Jinja2Templates(directory="templates")
 
 DB_FILE = "comments.db"
+ADMIN_USER = os.getenv("ADMIN_USER", "admin")
+ADMIN_PASS = os.getenv("ADMIN_PASS", "123456")
+
+security = HTTPBasic()
 
 # ---------------- INIT DB ----------------
 def init_db():
@@ -35,6 +40,9 @@ def init_db():
     conn.close()
 
 init_db()
+# ---------------- HELPER: Check admin ----------------
+def is_admin_user(credentials: HTTPBasicCredentials = Depends(security)):
+    return credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS
 
 # ---------------- DATA ----------------
 content = {
@@ -228,7 +236,10 @@ content = {
 
 # ---------------- HOME ----------------
 @app.get("/", response_class=HTMLResponse)
-async def home(request: Request, lang: str = "vi", page: str = "home"):
+async def home(request: Request, lang: str = "vi", page: str = "home", credentials: HTTPBasicCredentials = Depends(security)):
+    # Kiểm tra admin
+    is_admin = credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS
+
     # Lấy comments từ DB
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
@@ -243,16 +254,23 @@ async def home(request: Request, lang: str = "vi", page: str = "home"):
 
     return templates.TemplateResponse(
         "index.html",
-        {"request": request, "data": content[lang], "lang": lang, "page": page, "comments": comments}
+        {
+            "request": request,
+            "data": content[lang],
+            "lang": lang,
+            "page": page,
+            "comments": comments,
+            "is_admin": is_admin,
+        }
     )
 
 @app.get("/about", response_class=HTMLResponse)
-async def about(request: Request, lang: str = "vi"):
-    return await home(request, lang=lang, page="about")
+async def about(request: Request, lang: str = "vi", credentials: HTTPBasicCredentials = Depends(security)):
+    return await home(request, lang=lang, page="about", credentials=credentials)
 
 @app.get("/tips", response_class=HTMLResponse)
-async def tips(request: Request, lang: str = "vi"):
-    return await home(request, lang=lang, page="tips")
+async def tips(request: Request, lang: str = "vi", credentials: HTTPBasicCredentials = Depends(security)):
+    return await home(request, lang=lang, page="tips", credentials=credentials)
 
 # ---------------- COMMENT (POST) ----------------
 @app.post("/comment")
@@ -264,7 +282,7 @@ async def add_comment(
     image: UploadFile = File(None),
 ):
     img_filename = None
-    if image:
+    if image and image.filename:
         os.makedirs("uploads", exist_ok=True)
         img_filename = f"{uuid.uuid4()}_{image.filename}"
         with open(os.path.join("uploads", img_filename), "wb") as f:
@@ -280,12 +298,13 @@ async def add_comment(
     conn.commit()
     conn.close()
 
-    # 🔴 Sau khi thêm xong thì redirect về /comment (không redirect về /)
     return RedirectResponse(url="/comment", status_code=303)
     
 # ---------------- GET COMMENT PAGE ----------------
 @app.get("/comment", response_class=HTMLResponse)
-async def get_comments(request: Request, lang: str = "vi"):
+async def get_comments(request: Request, lang: str = "vi", credentials: HTTPBasicCredentials = Depends(security)):
+    is_admin = credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS
+
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
     c.execute("SELECT id, name, email, text, img, token FROM comments")
@@ -317,18 +336,22 @@ async def get_comments(request: Request, lang: str = "vi"):
             },
             "lang": lang,
             "page": "comments",
-            "comments": comments
+            "comments": comments,
+            "is_admin": is_admin,
         }
     )
 
 # ---------------- DELETE COMMENT ----------------
 @app.post("/delete_comment")
-async def delete_comment(id: str = Form(...), token: str = Form(...)):
+async def delete_comment(id: str = Form(...), token: str = Form(...), credentials: HTTPBasicCredentials = Depends(security)):
+    is_admin = credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS
+
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
     c.execute("SELECT token, img FROM comments WHERE id=?", (id,))
     row = c.fetchone()
-    if row and row[0] == token:
+
+    if row and (row[0] == token or is_admin):
         if row[1]:
             img_path = os.path.join("uploads", row[1])
             if os.path.exists(img_path):
@@ -337,4 +360,4 @@ async def delete_comment(id: str = Form(...), token: str = Form(...)):
         conn.commit()
     conn.close()
 
-    return RedirectResponse(url="/", status_code=303)
+    return RedirectResponse(url="/comment", status_code=303)
