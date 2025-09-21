@@ -1,11 +1,12 @@
 import os
 import uuid
 import sqlite3
-from fastapi import FastAPI, Request, Form, UploadFile, File, Depends
+from fastapi import FastAPI, Request, Form, UploadFile, File, Depends, BackgroundTasks
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
+import smtplib
 
 app = FastAPI()
 
@@ -22,30 +23,37 @@ ADMIN_PASS = os.getenv("ADMIN_PASS", "123456")
 security = HTTPBasic()
 
 # ---------------- INIT DB ----------------
-def init_db():
-    os.makedirs("uploads", exist_ok=True)  # tạo thư mục uploads nếu chưa có
-    conn = sqlite3.connect(DB_FILE)
-    c = conn.cursor()
-    c.execute("""
-        CREATE TABLE IF NOT EXISTS comments (
-            id TEXT PRIMARY KEY,
-            name TEXT,
-            email TEXT,
-            text TEXT,
-            img TEXT,
-            token TEXT,
-            status TEXT DEFAULT 'active'
-        )
-    """)
-    conn.commit()
-    conn.close()
-
-init_db()
+os.makedirs("uploads", exist_ok=True)
+conn = sqlite3.connect(DB_FILE)
+c = conn.cursor()
+c.execute("""
+    CREATE TABLE IF NOT EXISTS comments (
+        id TEXT PRIMARY KEY,
+        name TEXT,
+        email TEXT,
+        text TEXT,
+        img TEXT,
+        token TEXT,
+        status TEXT DEFAULT 'pending'
+    )
+""")
+conn.commit()
+conn.close()
 
 # ---------------- HELPER: Check admin ----------------
 def is_admin_user(credentials: HTTPBasicCredentials = Depends(security)):
     return credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS
 
+def send_email(to_email: str, link: str):
+    try:
+        server = smtplib.SMTP("smtp.gmail.com", 587)
+        server.starttls()
+        server.login("your_email@gmail.com", "your_password")
+        msg = f"Subject: Xác nhận email\n\nClick link để xác nhận: {link}"
+        server.sendmail("your_email@gmail.com", to_email, msg)
+        server.quit()
+    except Exception as e:
+        print("Error sending email:", e)
 # ---------------- DATA ----------------
 content = {
     "vi": {
@@ -238,56 +246,33 @@ content = {
 
 # ---------------- HOME ----------------
 @app.get("/", response_class=HTMLResponse)
-async def home(
-    request: Request,
-    lang: str = "vi",
-    page: str = "home",
-    credentials: HTTPBasicCredentials = Depends(security)
-):
-    is_admin = credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS
-
-    # Lấy comments từ DB (chỉ lấy comment đã active)
+async def home(request: Request, lang: str = "vi", page: str = "home"):
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("SELECT id, name, email, text, img, token FROM comments WHERE status='active'")
+    c.execute("SELECT id, name, text, img, token FROM comments WHERE status='active'")
     rows = c.fetchall()
     conn.close()
 
-    comments = []
-    for r in rows:
-        comments.append({
-            "id": r[0],
-            "name": r[1],
-            # Ẩn email khi không phải admin
-            "email": r[2] if is_admin else None,
-            "text": r[3],
-            "img": r[4],
-            "token": r[5]
-        })
+    comments = [{"id": r[0], "name": r[1], "text": r[2], "img": r[3], "token": r[4]} for r in rows]
 
     return templates.TemplateResponse(
         "index.html",
-        {"request": request, "data": content[lang], "lang": lang, "page": page,
-         "comments": comments, "is_admin": is_admin}
+        {"request": request, "data": content[lang], "lang": lang, "page": page, "comments": comments, "is_admin": False}
     )
 
 @app.get("/about", response_class=HTMLResponse)
-async def about(request: Request, lang: str = "vi", credentials: HTTPBasicCredentials = Depends(security)):
-    return await home(request, lang=lang, page="about", credentials=credentials)
+async def about(request: Request, lang: str = "vi"):
+    return await home(request, lang=lang, page="about")
 
 @app.get("/tips", response_class=HTMLResponse)
-async def tips(request: Request, lang: str = "vi", credentials: HTTPBasicCredentials = Depends(security)):
-    return await home(request, lang=lang, page="tips", credentials=credentials)
+async def tips(request: Request, lang: str = "vi"):
+    return await home(request, lang=lang, page="tips")
 
 # ---------------- COMMENT (POST) ----------------
 @app.post("/comment")
-async def add_comment(
-    request: Request,
-    name: str = Form(...),
-    email: str = Form(...),
-    comment: str = Form(...),
-    image: UploadFile = File(None),
-):
+async def add_comment(request: Request, background_tasks: BackgroundTasks,
+                      name: str = Form(...), email: str = Form(...),
+                      comment: str = Form(...), image: UploadFile = File(None)):
     img_filename = None
     if image and image.filename:
         os.makedirs("uploads", exist_ok=True)
@@ -301,37 +286,25 @@ async def add_comment(
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
     c.execute("INSERT INTO comments (id, name, email, text, img, token, status) VALUES (?, ?, ?, ?, ?, ?, ?)",
-              (comment_id, name, email, comment, img_filename, token, "active"))  # sau này có thể đổi "pending"
+              (comment_id, name, email, comment, img_filename, token, "pending"))
     conn.commit()
     conn.close()
+
+    verify_link = f"http://localhost:8000/verify_email?token={token}"
+    background_tasks.add_task(send_email, email, verify_link)
 
     return RedirectResponse(url="/comment", status_code=303)
     
 # ---------------- GET COMMENT PAGE ----------------
 @app.get("/comment", response_class=HTMLResponse)
-async def get_comments(
-    request: Request,
-    lang: str = "vi",
-    credentials: HTTPBasicCredentials = Depends(security)
-):
-    is_admin = credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS
-
+async def get_comments(request: Request, lang: str = "vi"):
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("SELECT id, name, email, text, img, token FROM comments WHERE status='active'")
+    c.execute("SELECT id, name, text, img, token FROM comments WHERE status='active'")
     rows = c.fetchall()
     conn.close()
 
-    comments = []
-    for r in rows:
-        comments.append({
-            "id": r[0],
-            "name": r[1],
-            "email": r[2] if is_admin else None,
-            "text": r[3],
-            "img": r[4],
-            "token": r[5]
-        })
+    comments = [{"id": r[0], "name": r[1], "text": r[2], "img": r[3], "token": r[4]} for r in rows]
 
     return templates.TemplateResponse(
         "index.html",
@@ -340,12 +313,7 @@ async def get_comments(
             "data": {
                 "title": "Bình luận",
                 "intro": "Xem các bình luận từ người dùng",
-                "menu": {
-                    "home": "Trang chủ",
-                    "about": "Giới thiệu",
-                    "tips": "Lưu ý",
-                    "lang": "Ngôn ngữ"
-                },
+                "menu": content["vi"]["menu"],
                 "about": "Trang web chia sẻ du lịch.",
                 "places": [],
                 "warn": [],
@@ -354,17 +322,14 @@ async def get_comments(
             "lang": lang,
             "page": "comments",
             "comments": comments,
-            "is_admin": is_admin,
+            "is_admin": False,
         }
     )
 
 # ---------------- DELETE COMMENT ----------------
 @app.post("/delete_comment")
-async def delete_comment(
-    id: str = Form(...),
-    token: str = Form(...),
-    credentials: HTTPBasicCredentials = Depends(security)
-):
+async def delete_comment(id: str = Form(...), token: str = Form(...),
+                         credentials: HTTPBasicCredentials = Depends(security)):
     is_admin = credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS
 
     conn = sqlite3.connect(DB_FILE)
