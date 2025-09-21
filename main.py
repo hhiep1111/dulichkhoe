@@ -77,6 +77,30 @@ content = {
     "Cẩn thận khi chia sẻ vị trí trên mạng xã hội để tránh kẻ xấu lợi dụng."
 ]
     },
+
+    "checklist": [
+    {"title": "Quần áo", "items": [
+        "Đồ lót","Tất","Vớ/bít tất","Áo blouse","Áo (tops)","Quần, jeans, legging",
+        "Chân váy","Váy đầm","Đồ ngủ","Mũ ngủ","Khăn tắm","Áo cardigan","Áo khoác",
+        "Đồ bơi: áo tắm, kính bơi, mũ, dép tông",
+        "Đồ tập: áo ngực thể thao, quần short, áo tập, giày tập"
+    ]},
+    {"title": "Phụ kiện", "items": [
+        "Giày đi bộ","Giày cao gót hoặc đế xuồng","Sneakers","Thắt lưng",
+        "Trang sức không đắt giá","Phụ kiện tóc","Mũ hoặc nón","Kính đọc sách",
+        "Kính mát","Túi xách, ba lô, ví cầm tay","Ô/dù"
+    ]},
+    {"title": "Mùa đông", "items": [
+        "Áo len","Mũ len","Khăn quàng","Găng tay","Áo khoác ấm",
+        "Tất giữ nhiệt","Đồ lót giữ nhiệt","Boots/Ủng"
+    ]},
+    {"title": "Mùa hè", "items": [
+        "Quần short","Áo nhẹ, áo thun","Đồ bơi, bikini, áo bơi","Khăn tắm biển",
+        "Dép tông","Sandals","Kính mát","Sarong","Mũ hoặc nón","Áo khoác nhẹ chống nắng",
+        "Áo khoác nhẹ hoặc cardigan","Khăn choàng","Đồ bơm hơi bãi biển","Đồ chơi & trò chơi bãi biển"
+    ]}
+],
+
     "en": {
         "title": "Healthy Travel - Mekong Delta",
         "intro": "Explore the Mekong Delta: waterways, cuisine, and unique culture.",
@@ -116,6 +140,29 @@ content = {
 "         Be careful when sharing your location on social networks to avoid bad guys taking advantage."
         ]
     },
+    "checklist": [
+    {"title": "Clothes", "items": [
+        "Underwear","Socks","Stockings / tights","Blouses","Tops","Pants, jeans, leggings",
+        "Skirts","Dresses","Pajamas","Sleeping cap","Towels","Cardigan","Coat",
+        "Swimwear: swimsuit, goggles, cap, flip-flops",
+        "Gymwear: sports bra, shorts, tops, gym shoes"
+    ]},
+    {"title": "Accessories", "items": [
+        "Walking shoes","Heels or wedges","Sneakers","Belts",
+        "Non-valuable jewelry","Hair accessories","Hats or caps","Reading glasses",
+        "Sunglasses","Handbag, rucksack, clutch purse","Umbrella"
+    ]},
+    {"title": "Winter", "items": [
+        "Sweaters","Woolen hat","Scarf","Gloves","Warm coat",
+        "Thermal socks","Thermal underwear","Boots"
+    ]},
+    {"title": "Summer", "items": [
+        "Shorts","Light tops / tee-shirts","Swimsuit, bikini, swim shirt","Beach towels",
+        "Flip flops","Sandals","Sunglasses","Sarong","Hat or cap","Light anorak",
+        "Light coat or cardigan","Shawl","Beach inflatables","Beach toys and games"
+    ]}
+],
+
     "kr": {
         "title": "건강 여행 - 메콩델타",
         "intro": "메콩델타 탐험: 강, 음식, 독특한 문화.",
@@ -154,7 +201,30 @@ content = {
 "        금융 거래 시 공용 Wi-Fi를 사용하지 마십시오.",
 "        소셜 네트워크에 위치를 공유할 때는 악의적인 공격에 주의하십시오."
         ]
+        "checklist": [
+    {"title": "의류", "items": [
+        "속옷","양말","스타킹/타이즈","블라우스","상의","바지, 청바지, 레깅스",
+        "치마","드레스","잠옷","수면모","수건","가디건","코트",
+        "수영복: 수영복, 고글, 모자, 플립플랍",
+        "운동복: 스포츠 브라, 반바지, 상의, 운동화"
+    ]},
+    {"title": "액세서리", "items": [
+        "워킹화","힐 또는 웨지","스니커즈","벨트",
+        "값비싸지 않은 장신구","머리 장식","모자","돋보기 안경",
+        "선글라스","핸드백, 배낭, 클러치","우산"
+    ]},
+    {"title": "겨울", "items": [
+        "스웨터","울 모자","스카프","장갑","따뜻한 코트",
+        "보온 양말","보온 내의","부츠"
+    ]},
+    {"title": "여름", "items": [
+        "반바지","가벼운 상의/티셔츠","수영복, 비키니, 수영 셔츠","비치 타월",
+        "플립플랍","샌들","선글라스","사롱","모자","가벼운 아노락",
+        "가벼운 코트 또는 가디건","숄","비치 인플레이터블","비치 장난감 및 게임"
+    ]}
+]
     }
+    
 }
 
 # ---------------- HOME ----------------
