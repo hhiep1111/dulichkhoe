@@ -75,7 +75,7 @@ content = {
     "5. An toàn công nghệ",
     "Không dùng Wi-Fi công cộng để giao dịch tài chính.",
     "Cẩn thận khi chia sẻ vị trí trên mạng xã hội để tránh kẻ xấu lợi dụng."
-]
+],
         "checklist": [
     {"title": "Quần áo", "items": [
         "Đồ lót","Tất","Vớ/bít tất","Áo blouse","Áo (tops)","Quần, jeans, legging",
@@ -137,7 +137,7 @@ content = {
 "     5. Technology safety",
 "         Do not use public Wi-Fi for financial transactions.",
 "         Be careful when sharing your location on social networks to avoid bad guys taking advantage."
-        ]
+        ],
 
         "checklist": [
     {"title": "Clothes", "items": [
@@ -199,7 +199,7 @@ content = {
 "    5. 기술 안전",
 "        금융 거래 시 공용 Wi-Fi를 사용하지 마십시오.",
 "        소셜 네트워크에 위치를 공유할 때는 악의적인 공격에 주의하십시오."
-        ]
+        ],
         "checklist": [
     {"title": "의류", "items": [
         "속옷","양말","스타킹/타이즈","블라우스","상의","바지, 청바지, 레깅스",
