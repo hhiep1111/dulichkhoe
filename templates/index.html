@@ -162,15 +162,15 @@
                         <div class="checklist-section">
                             <h3>{{ section.title }}</h3>
                             <ul>
-                                {% for item in section.items %}
-                                    {% set cid = 'chk_' ~ lang ~ '_' ~ loop.parent.index0 ~ '_' ~ loop.index0 %}
-                                <li>
+                                {% for item in section["items"] %}
+                                {% set cid = 'chk_' ~ lang ~ '_' ~ loop.parent.index0 ~ '_' ~ loop.index0 %}
+                                    <li>
                                     <label for="{{ cid }}">
-                                        <input type="checkbox" id="{{ cid }}">
+                                    <input type="checkbox" id="{{ cid }}">
                                         {{ item }}
-                                    </label>
-                                </li>
-                                {% endfor %}
+                                        </label>
+                                    </li>
+                                        {% endfor %}
                             </ul>
                         </div>
                         {% endfor %}
