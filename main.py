@@ -312,7 +312,8 @@ async def get_comments(request: Request, lang: str = "vi"):
                 },
                 "about": "Trang web chia sẻ du lịch.",
                 "places": [],
-                "warn": []
+                "warn": [],
+                "checklist": []
             },
             "lang": lang,
             "page": "comments",
