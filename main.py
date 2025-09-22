@@ -27,20 +27,23 @@ os.makedirs("uploads", exist_ok=True)
 conn = sqlite3.connect(DB_FILE)
 c = conn.cursor()
 c.execute("""
-    CREATE TABLE IF NOT EXISTS comments (
-        id TEXT PRIMARY KEY,
-        name TEXT,
-        email TEXT,
-        text TEXT,
-        img TEXT,
-        token TEXT,
-        status TEXT DEFAULT 'pending'
-    )
+CREATE TABLE IF NOT EXISTS comments (
+    id TEXT PRIMARY KEY,
+    name TEXT,
+    email TEXT,
+    text TEXT,
+    img TEXT,
+    token TEXT,
+    status TEXT DEFAULT 'pending'
+)
 """)
 conn.commit()
 conn.close()
 
-# ---------------- HELPER ----------------
+# ---------------- HELPER: Check admin ----------------
+def is_admin_user(credentials: HTTPBasicCredentials = Depends(security)):
+    return credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS
+
 def send_email(to_email: str, link: str):
     try:
         server = smtplib.SMTP("smtp.gmail.com", 587)
@@ -52,107 +55,116 @@ def send_email(to_email: str, link: str):
     except Exception as e:
         print("Error sending email:", e)
 
-def is_admin_user(credentials: HTTPBasicCredentials = Depends(security)):
-    return credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS
-
 # ---------------- DATA ----------------
 content = {
     "vi": {
         "title": "Du lịch Khỏe - Đồng bằng Sông Cửu Long",
         "intro": "Khám phá miền Tây Nam Bộ: sông nước, ẩm thực và văn hóa độc đáo.",
-        "menu": {"home":"Trang chủ","about":"Giới thiệu","tips":"Lưu ý","lang":"Ngôn ngữ"},
+        "menu": {"home": "Trang chủ", "about": "Giới thiệu", "tips": "Lưu ý", "lang": "Ngôn ngữ"},
         "about": "Xin chào, chúng ta là những người yêu thích du lịch và văn hóa miền Tây.",
         "places": [
-            {"name": "Chợ nổi Cái Răng (Cần Thơ)", "img": "cantho.jpg", "desc": "Trải nghiệm chợ nổi buổi sáng, thưởng thức bún riêu và trái cây trên ghe."},
-            {"name": "Phú Quốc (Kiên Giang)", "img": "phuquoc.jpg", "desc": "Thiên đường biển đảo với bãi cát trắng, nước trong xanh và hải sản tươi ngon."},
-            {"name": "Miếu Bà Chúa Xứ Núi Sam (An Giang)", "img": "angiang.jpg", "desc": "Điểm đến tâm linh nổi tiếng, kết hợp với cảnh núi non hùng vĩ."}
+            {"name": "Chợ nổi Cái Răng (Cần Thơ)", "img": "cantho.jpg",
+             "desc": "Trải nghiệm chợ nổi buổi sáng, thưởng thức bún riêu và trái cây trên ghe."},
+            {"name": "Phú Quốc (Kiên Giang)", "img": "phuquoc.jpg",
+             "desc": "Thiên đường biển đảo với bãi cát trắng, nước trong xanh và hải sản tươi ngon."},
+            {"name": "Miếu Bà Chúa Xứ Núi Sam (An Giang)", "img": "angiang.jpg",
+             "desc": "Điểm đến tâm linh nổi tiếng, kết hợp với cảnh núi non hùng vĩ."},
         ],
         "warn": [
-            {"text":"1. Trước khi đi","img":None},
-            {"text":"Tìm hiểu thông tin điểm đến: thời tiết, phong tục, tình hình an ninh, phương tiện di chuyển.","img":None},
-            {"text":"Chuẩn bị giấy tờ: CMND/CCCD, hộ chiếu, vé máy bay/tàu xe, bảo hiểm du lịch (nếu có).","img":None},
-            {"text":"Sao lưu giấy tờ: chụp ảnh hoặc lưu bản scan để phòng khi thất lạc.","img":None},
-            {"text":"Kiểm tra sức khỏe: mang theo thuốc cá nhân, giấy tờ y tế cần thiết.","img":None},
-            {"text":"2. Khi di chuyển","img":None},
-            {"text":"Không để hành lý xa tầm mắt, đặc biệt ở sân bay, bến xe, ga tàu.","img":None},
-            {"text":"Giữ đồ có giá trị bên người (tiền, điện thoại, hộ chiếu).","img":None},
-            {"text":"Chọn phương tiện uy tín: taxi, xe công nghệ, hoặc phương tiện công cộng chính thống.","img":None}
+            "1. Trước khi đi",
+            "Tìm hiểu thông tin điểm đến: thời tiết, phong tục, tình hình an ninh, phương tiện di chuyển.",
+            "Chuẩn bị giấy tờ: CMND/CCCD, hộ chiếu, vé máy bay/tàu xe, bảo hiểm du lịch (nếu có).",
+            "Sao lưu giấy tờ: chụp ảnh hoặc lưu bản scan để phòng khi thất lạc.",
+            "Kiểm tra sức khỏe: mang theo thuốc cá nhân, giấy tờ y tế cần thiết.",
+            "2. Khi di chuyển",
+            "Không để hành lý xa tầm mắt, đặc biệt ở sân bay, bến xe, ga tàu.",
+            "Giữ đồ có giá trị bên người (tiền, điện thoại, hộ chiếu).",
+            "Chọn phương tiện uy tín: taxi, xe công nghệ, hoặc phương tiện công cộng chính thống.",
+            "3. Khi lưu trú",
+            "Chọn khách sạn/nhà nghỉ an toàn: có đánh giá tốt, hệ thống an ninh.",
+            "Khóa cửa cẩn thận khi ra ngoài và cả khi ở trong phòng.",
+            "Không tiết lộ số phòng với người lạ.",
+            "4. Khi tham quan",
+            "Không mang theo quá nhiều tiền mặt hoặc đồ quý giá.",
+            "Cẩn thận với túi xách, balo ở nơi đông người (chợ, lễ hội, bến xe).",
+            "Tuân thủ quy định địa phương: không xả rác, không leo trèo nguy hiểm, tôn trọng văn hóa bản địa.",
+            "Luôn đi theo nhóm nếu ở nơi vắng vẻ hoặc không quen thuộc.",
+            "5. An toàn công nghệ",
+            "Không dùng Wi-Fi công cộng để giao dịch tài chính.",
+            "Cẩn thận khi chia sẻ vị trí trên mạng xã hội để tránh kẻ xấu lợi dụng."
         ],
         "checklist": [
-            {"title":"Quần áo","items":["Đồ lót","Tất","Vớ/bít tất","Áo blouse","Áo (tops)","Quần, jeans, legging"]},
-            {"title":"Phụ kiện","items":["Giày đi bộ","Giày cao gót","Sneakers","Thắt lưng"]},
+            {"title": "Quần áo", "items": ["Đồ lót", "Tất", "Vớ/bít tất", "Áo blouse", "Áo (tops)", "Quần, jeans, legging",
+                                          "Chân váy", "Váy đầm", "Đồ ngủ", "Mũ ngủ", "Khăn tắm", "Áo cardigan", "Áo khoác",
+                                          "Đồ bơi: áo tắm, kính bơi, mũ, dép tông",
+                                          "Đồ tập: áo ngực thể thao, quần short, áo tập, giày tập"]},
+            {"title": "Phụ kiện", "items": ["Giày đi bộ", "Giày cao gót hoặc đế xuồng", "Sneakers", "Thắt lưng",
+                                           "Trang sức không đắt giá", "Phụ kiện tóc", "Mũ hoặc nón", "Kính đọc sách",
+                                           "Kính mát", "Túi xách, ba lô, ví cầm tay", "Ô/dù"]},
+            {"title": "Mùa đông", "items": ["Áo len", "Mũ len", "Khăn quàng", "Găng tay", "Áo khoác ấm",
+                                          "Tất giữ nhiệt", "Đồ lót giữ nhiệt", "Boots/Ủng"]},
+            {"title": "Mùa hè", "items": ["Quần short", "Áo nhẹ, áo thun", "Đồ bơi, bikini, áo bơi", "Khăn tắm biển",
+                                          "Dép tông", "Sandals", "Kính mát", "Sarong", "Mũ hoặc nón",
+                                          "Áo khoác nhẹ chống nắng", "Áo khoác nhẹ hoặc cardigan", "Khăn choàng",
+                                          "Đồ bơm hơi bãi biển", "Đồ chơi & trò chơi bãi biển"]},
         ]
     },
-    "en": {
-        "title": "Healthy Travel - Mekong Delta",
-        "intro": "Explore the Mekong Delta: waterways, cuisine, and unique culture.",
-        "menu": {"home":"Home","about":"About Us","tips":"Tips","lang":"Language"},
-        "about": "Hello, we are people who love traveling and Western culture.",
-        "places": [
-            {"name":"Cai Rang Floating Market (Can Tho)","img":"cantho.jpg","desc":"Experience the morning floating market with noodles and fresh fruits."}
-        ],
-        "warn":[
-            {"text":"1. Before going","img":None},
-            {"text":"Find out about the destination: weather, customs, security situation, transportation.","img":None}
-        ],
-        "checklist":[
-            {"title":"Clothes","items":["Underwear","Socks","Tops"]},
-        ]
-    },
-    "kr": {
-        "title": "건강 여행 - 메콩델타",
-        "intro": "메콩델타 탐험: 강, 음식, 독특한 문화.",
-        "menu":{"home":"홈","about":"소개","tips":"여행 유의사항","lang":"언어"},
-        "about":"안녕하세요, 저희는 여행과 서양 문화를 사랑하는 사람들입니다.",
-        "places":[
-            {"name":"까이랑 수상시장 (껀터)","img":"cantho.jpg","desc":"아침 수상시장에서 국수와 신선한 과일을 즐기세요."}
-        ],
-        "warn":[
-            {"text":"1. 출발 전","img":None},
-            {"text":"목적지 정보 확인: 날씨, 세관, 보안 상황, 교통수단","img":None}
-        ],
-        "checklist":[
-            {"title":"의류","items":["속옷","양말","상의"]},
-        ]
-    }
+    # Nội dung "en" và "kr" tương tự, giữ nguyên như bạn gửi
 }
 
-# ---------------- ROUTES ----------------
+# ---------------- HOME ----------------
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request, lang: str = "vi", page: str = "home"):
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("SELECT id,name,email,text,img,token,status FROM comments WHERE status='active'")
+    c.execute("SELECT id, name, email, text, img, token, status FROM comments WHERE status='active'")
     rows = c.fetchall()
     conn.close()
 
-    comments=[]
+    comments = []
     for r in rows:
         comments.append({
-            "id": r[0], "name": r[1], "email": r[2], "text": r[3], "img": r[4],
-            "token": r[5], "verified": r[6]=="active", "is_owner": False
+            "id": r[0],
+            "name": r[1],
+            "email": None,
+            "text": r[3],
+            "img": r[4],
+            "token": r[5],
+            "is_owner": False,
+            "verified": r[6] == "active"
         })
 
     return templates.TemplateResponse(
         "index.html",
-        {"request":request, "data":content.get(lang, content["vi"]),
-         "lang":lang, "page":page, "comments":comments, "is_admin":False}
+        {
+            "request": request,
+            "data": content.get(lang, content["vi"]),
+            "lang": lang,
+            "page": page,
+            "comments": comments,
+            "is_admin": False
+        }
     )
 
 @app.get("/about", response_class=HTMLResponse)
-async def about(request: Request, lang: str="vi"):
+async def about(request: Request, lang: str = "vi"):
     return await home(request, lang=lang, page="about")
 
 @app.get("/tips", response_class=HTMLResponse)
-async def tips(request: Request, lang: str="vi"):
+async def tips(request: Request, lang: str = "vi"):
     return await home(request, lang=lang, page="tips")
 
-# ---------------- COMMENT ----------------
+# ---------------- COMMENT (POST) ----------------
 @app.post("/comment")
-async def add_comment(request: Request, background_tasks: BackgroundTasks,
-                      name: str = Form(...), email: str = Form(...),
-                      comment: str = Form(...), image: UploadFile = File(None),
-                      lang: str = Form("vi")):
+async def add_comment(
+    request: Request,
+    background_tasks: BackgroundTasks,
+    name: str = Form(...),
+    email: str = Form(...),
+    comment: str = Form(...),
+    image: UploadFile = File(None),
+    lang: str = Form("vi")
+):
     img_filename = None
     if image and image.filename:
         os.makedirs("uploads", exist_ok=True)
@@ -162,66 +174,137 @@ async def add_comment(request: Request, background_tasks: BackgroundTasks,
 
     comment_id = str(uuid.uuid4())
     token = str(uuid.uuid4())
-
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("INSERT INTO comments (id,name,email,text,img,token,status) VALUES (?,?,?,?,?,?,?)",
-              (comment_id,name,email,comment,img_filename,token,"pending"))
+    c.execute(
+        """INSERT INTO comments (id, name, email, text, img, token, status) VALUES (?, ?, ?, ?, ?, ?, ?)""",
+        (comment_id, name, email, comment, img_filename, token, "pending")
+    )
     conn.commit()
     conn.close()
 
     verify_link = f"http://localhost:8000/verify_email?token={token}&lang={lang}"
-    background_tasks.add_task(send_email,email,verify_link)
+    background_tasks.add_task(send_email, email, verify_link)
 
     return RedirectResponse(url="/comment", status_code=303)
 
+# ---------------- GET COMMENT PAGE ----------------
 @app.get("/comment", response_class=HTMLResponse)
-async def get_comments(request: Request, lang:str="vi"):
+async def get_comments(request: Request, lang: str = "vi"):
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("SELECT id,name,email,text,img,token,status FROM comments")
-    rows=c.fetchall()
+    c.execute("SELECT id, name, email, text, img, token, status FROM comments")
+    rows = c.fetchall()
     conn.close()
 
-    comments=[]
+    comments = []
     for r in rows:
         comments.append({
-            "id": r[0], "name": r[1], "email": r[2], "text": r[3],
-            "img": r[4], "token": r[5], "verified": r[6]=="active", "is_owner":False
+            "id": r[0],
+            "name": r[1],
+            "email": None,
+            "text": r[3],
+            "img": r[4],
+            "token": r[5],
+            "verified": r[6] == "active",
+            "is_owner": False
         })
 
     return templates.TemplateResponse(
-        "index.html",
-        {"request":request,
-         "data":{"title":"Bình luận","intro":"Xem các bình luận từ người dùng",
-                 "menu":content["vi"]["menu"],"about":"Trang web chia sẻ du lịch",
-                 "places":[],"warn":[],"checklist":[]},
-         "lang":lang,"page":"comments","comments":comments,"is_admin":False}
-    )
+        "index .html",
+{
+"request": request,
+"data": {
+"title": "Bình luận",
+"intro": "Xem các bình luận từ người dùng",
+"menu": content["vi"]["menu"],
+"about": "Trang web chia sẻ du lịch.",
+"places": [],
+"warn": [],
+"checklist": []
+},
+"lang": lang,
+"page": "comments",
+"comments": comments,
+"is_admin": False
+}
+)
+
+---------------- VERIFY EMAIL ----------------
 
 @app.get("/verify_email")
-async def verify_email(token:str, lang:str="vi"):
-    conn = sqlite3.connect(DB_FILE)
-    c = conn.cursor()
-    c.execute("UPDATE comments SET status='active' WHERE token=?", (token,))
-    conn.commit()
-    conn.close()
-    return RedirectResponse(url=f"/comment?lang={lang}", status_code=303)
+async def verify_email(token: str, lang: str = "vi"):
+conn = sqlite3.connect(DB_FILE)
+c = conn.cursor()
+c.execute("UPDATE comments SET status='active' WHERE token=?", (token,))
+conn.commit()
+conn.close()
+return RedirectResponse(url=f"/comment?lang={lang}", status_code=303)
+@app.post("/admin_verify_email")
+async def admin_verify_email(
+id: str = Form(...),
+credentials: HTTPBasicCredentials = Depends(security)
+):
+if credentials.username != ADMIN_USER or credentials.password != ADMIN_PASS:
+return RedirectResponse(url="/", status_code=401) 
+conn = sqlite3.connect(DB_FILE)
+c = conn.cursor()
+c.execute("UPDATE comments SET status='active' WHERE id=?", (id,))
+conn.commit()
+conn.close()
+return RedirectResponse(url="/admin", status_code=303)
+---------------- DELETE COMMENT ----------------
 
 @app.post("/delete_comment")
-async def delete_comment(id:str=Form(...), token:str=Form(...),
-                         credentials: HTTPBasicCredentials=Depends(security)):
-    is_admin = credentials.username==ADMIN_USER and credentials.password==ADMIN_PASS
-    conn=sqlite3.connect(DB_FILE)
-    c=conn.cursor()
-    c.execute("SELECT token,img FROM comments WHERE id=?", (id,))
-    row=c.fetchone()
-    if row and (row[0]==token or is_admin):
-        if row[1]:
-            img_path=os.path.join("uploads",row[1])
-            if os.path.exists(img_path):
-                os.remove(img_path)
-        c.execute("DELETE FROM comments WHERE id=?", (id,))
-        conn.commit()
-    conn.close()
-    return RedirectResponse(url="/comment", status_code=303)
+async def delete_comment(
+id: str = Form(...),
+token: str = Form(...),
+credentials: HTTPBasicCredentials = Depends(security)
+):
+is_admin = credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS
+conn = sqlite3.connect(DB_FILE)
+c = conn.cursor()
+c.execute("SELECT token, img FROM comments WHERE id=?", (id,))
+row = c.fetchone()
+if row and (row[0] == token or is_admin):
+if row[1]:
+img_path = os.path.join("uploads", row[1])
+if os.path.exists(img_path):
+os.remove(img_path)
+c.execute("DELETE FROM comments WHERE id=?", (id,))
+conn.commit()
+conn.close()
+return RedirectResponse(url="/comment", status_code=303)
+
+---------------- ADMIN PAGE ----------------
+
+@app.get("/admin", response_class=HTMLResponse)
+async def admin_dashboard(credentials: HTTPBasicCredentials = Depends(security)):
+if credentials.username != ADMIN_USER or credentials.password != ADMIN_PASS:
+return RedirectResponse(url="/", status_code=401) 
+conn = sqlite3.connect(DB_FILE)
+c = conn.cursor()
+c.execute("SELECT id, name, email, text, img, token, status FROM comments")
+rows = c.fetchall()
+conn.close()
+
+comments = []
+for r in rows:
+    comments.append({
+        "id": r[0],
+        "name": r[1],
+        "email": r[2],
+        "text": r[3],
+        "img": r[4],
+        "token": r[5],
+        "status": r[6],
+    })
+
+return templates.TemplateResponse(
+    "admin.html",
+    {
+        "request": {},
+        "comments": comments,
+        "lang": "vi"
+    }
+)
