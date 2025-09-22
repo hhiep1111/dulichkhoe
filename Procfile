@@ -1,1 +1,1 @@
-web: gunicorn main:app -w 2 -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:10000
+web: uvicorn main:app --host 0.0.0.0 --port 10000
