@@ -230,7 +230,7 @@ async def get_comments(request: Request, lang: str = "vi"):
 }
 )
 
----------------- VERIFY EMAIL ----------------
+#---------------- VERIFY EMAIL ----------------
 
 @app.get("/verify_email")
 async def verify_email(token: str, lang: str = "vi"):
