@@ -252,7 +252,7 @@ async def home(request: Request, lang: str = "vi", page: str = "home"):
 
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("SELECT id, name, email, text, img, token FROM comments WHERE status='active'")
+    c.execute("SELECT id, name, email, text, img, token, status FROM comments")    
     rows = c.fetchall()
     conn.close()
 
@@ -265,7 +265,8 @@ async def home(request: Request, lang: str = "vi", page: str = "home"):
             "text": r[3],
             "img": r[4],
             "token": r[5],
-            "is_owner": False  # user ko login → không xóa được
+            "is_owner": False,  # user ko login → không xóa được
+            "verified": r[6] == "active"
         })
 
     return templates.TemplateResponse(
@@ -290,7 +291,8 @@ async def add_comment(
     name: str = Form(...), 
     email: str = Form(...),
     comment: str = Form(...), 
-    image: UploadFile = File(None)
+    image: UploadFile = File(None),
+    lang: str = Form("vi")
 ):
     img_filename = None
     if image and image.filename:
@@ -313,7 +315,7 @@ async def add_comment(
     conn.close()
 
     # Gửi email verify
-    verify_link = f"http://localhost:8000/verify_email?token={token}"
+    verify_link = f"http://localhost:8000/verify_email?token={token}&lang={lang}"
     background_tasks.add_task(send_email, email, verify_link)
 
     return RedirectResponse(url="/comment", status_code=303)
@@ -321,10 +323,9 @@ async def add_comment(
 # ---------------- GET COMMENT PAGE ----------------
 @app.get("/comment", response_class=HTMLResponse)
 async def get_comments(request: Request, lang: str = "vi"):
-    # Lấy tất cả comment active
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("SELECT id, name, email, text, img, token FROM comments WHERE status='active'")
+    c.execute("SELECT id, name, email, text, img, token, status FROM comments")
     rows = c.fetchall()
     conn.close()
 
@@ -333,10 +334,12 @@ async def get_comments(request: Request, lang: str = "vi"):
         comments.append({
             "id": r[0],
             "name": r[1],
-            "email": None,  # user bình thường ko thấy email
+            "email": None,
             "text": r[3],
             "img": r[4],
             "token": r[5],
+            "verified": r[6] == "active",
+            "is_owner": False
         })
 
     return templates.TemplateResponse(
@@ -359,6 +362,16 @@ async def get_comments(request: Request, lang: str = "vi"):
         }
     )
 
+# ---------------- VERIFY EMAIL ----------------
+@app.get("/verify_email")
+async def verify_email(token: str, lang: str = "vi"):
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    c.execute("UPDATE comments SET status='active' WHERE token=?", (token,))
+    conn.commit()
+    conn.close()
+    return RedirectResponse(url=f"/comment?lang={lang}", status_code=303)
+
 # ---------------- DELETE COMMENT ----------------
 @app.post("/delete_comment")
 async def delete_comment(
@@ -366,7 +379,6 @@ async def delete_comment(
     token: str = Form(...),
     credentials: HTTPBasicCredentials = Depends(security)
 ):
-    # Chỉ admin mới xóa tất cả, user xóa comment của chính họ dựa vào token
     is_admin = credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS
 
     conn = sqlite3.connect(DB_FILE)
