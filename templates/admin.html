@@ -1,1 +1,69 @@
 
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page - {{ comments|length }} Comments</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5; }
+        h1 { color: #333; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 10px; border: 1px solid #ccc; text-align: left; }
+        th { background-color: #eee; }
+        img { max-width: 100px; }
+        form { display: inline; }
+        button { padding: 5px 10px; margin: 2px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <p>Total comments: {{ comments|length }}</p>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Text</th>
+                <th>Image</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for c in comments %}
+            <tr>
+                <td>{{ c.id }}</td>
+                <td>{{ c.name }}</td>
+                <td>{{ c.email }}</td>
+                <td>{{ c.text }}</td>
+                <td>
+                    {% if c.img %}
+                        <img src="/uploads/{{ c.img }}" alt="img">
+                    {% else %}
+                        -
+                    {% endif %}
+                </td>
+                <td>{{ c.status }}</td>
+                <td>
+    {% if c.status != 'active' %}
+        <form action="/admin_verify_email" method="post" style="display:inline;">
+            <input type="hidden" name="id" value="{{ c.id }}">
+            <button type="submit">Verify</button>
+        </form>
+    {% else %}
+        Verified
+    {% endif %}
+    <form action="/delete_comment" method="post" style="display:inline;">
+        <input type="hidden" name="id" value="{{ c.id }}">
+        <input type="hidden" name="token" value="{{ c.token }}">
+        <button type="submit">Delete</button>
+    </form>
+</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
