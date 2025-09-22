@@ -229,82 +229,91 @@ async def get_comments(request: Request, lang: str = "vi"):
 "is_admin": False
 }
 )
-
-#---------------- VERIFY EMAIL ----------------
-
+# ---------------- VERIFY EMAIL ----------------
 @app.get("/verify_email")
 async def verify_email(token: str, lang: str = "vi"):
-conn = sqlite3.connect(DB_FILE)
-c = conn.cursor()
-c.execute("UPDATE comments SET status='active' WHERE token=?", (token,))
-conn.commit()
-conn.close()
-return RedirectResponse(url=f"/comment?lang={lang}", status_code=303)
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    c.execute("UPDATE comments SET status='active' WHERE token=?", (token,))
+    conn.commit()
+    conn.close()
+    return RedirectResponse(url=f"/comment?lang={lang}", status_code=303)
+
+
 @app.post("/admin_verify_email")
 async def admin_verify_email(
-id: str = Form(...),
-credentials: HTTPBasicCredentials = Depends(security)
+    id: str = Form(...),
+    credentials: HTTPBasicCredentials = Depends(security)
 ):
-if credentials.username != ADMIN_USER or credentials.password != ADMIN_PASS:
-return RedirectResponse(url="/", status_code=401) 
-conn = sqlite3.connect(DB_FILE)
-c = conn.cursor()
-c.execute("UPDATE comments SET status='active' WHERE id=?", (id,))
-conn.commit()
-conn.close()
-return RedirectResponse(url="/admin", status_code=303)
----------------- DELETE COMMENT ----------------
+    if credentials.username != ADMIN_USER or credentials.password != ADMIN_PASS:
+        return RedirectResponse(url="/", status_code=401)
+
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    c.execute("UPDATE comments SET status='active' WHERE id=?", (id,))
+    conn.commit()
+    conn.close()
+    return RedirectResponse(url="/admin", status_code=303)
+
+
+# ---------------- DELETE COMMENT ----------------
 
 @app.post("/delete_comment")
 async def delete_comment(
-id: str = Form(...),
-token: str = Form(...),
-credentials: HTTPBasicCredentials = Depends(security)
+    id: str = Form(...),
+    token: str = Form(...),
+    credentials: HTTPBasicCredentials = Depends(security)
 ):
-is_admin = credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS
-conn = sqlite3.connect(DB_FILE)
-c = conn.cursor()
-c.execute("SELECT token, img FROM comments WHERE id=?", (id,))
-row = c.fetchone()
-if row and (row[0] == token or is_admin):
-if row[1]:
-img_path = os.path.join("uploads", row[1])
-if os.path.exists(img_path):
-os.remove(img_path)
-c.execute("DELETE FROM comments WHERE id=?", (id,))
-conn.commit()
-conn.close()
-return RedirectResponse(url="/comment", status_code=303)
+    is_admin = credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS
 
----------------- ADMIN PAGE ----------------
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    c.execute("SELECT token, img FROM comments WHERE id=?", (id,))
+    row = c.fetchone()
+
+    if row and (row[0] == token or is_admin):
+        if row[1]:
+            img_path = os.path.join("uploads", row[1])
+            if os.path.exists(img_path):
+                os.remove(img_path)
+        c.execute("DELETE FROM comments WHERE id=?", (id,))
+        conn.commit()
+
+    conn.close()
+    return RedirectResponse(url="/comment", status_code=303)
+
+
+# ---------------- ADMIN PAGE ----------------
 
 @app.get("/admin", response_class=HTMLResponse)
 async def admin_dashboard(credentials: HTTPBasicCredentials = Depends(security)):
-if credentials.username != ADMIN_USER or credentials.password != ADMIN_PASS:
-return RedirectResponse(url="/", status_code=401) 
-conn = sqlite3.connect(DB_FILE)
-c = conn.cursor()
-c.execute("SELECT id, name, email, text, img, token, status FROM comments")
-rows = c.fetchall()
-conn.close()
+    if credentials.username != ADMIN_USER or credentials.password != ADMIN_PASS:
+        return RedirectResponse(url="/", status_code=401)
 
-comments = []
-for r in rows:
-    comments.append({
-        "id": r[0],
-        "name": r[1],
-        "email": r[2],
-        "text": r[3],
-        "img": r[4],
-        "token": r[5],
-        "status": r[6],
-    })
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    c.execute("SELECT id, name, email, text, img, token, status FROM comments")
+    rows = c.fetchall()
+    conn.close()
 
-return templates.TemplateResponse(
-    "admin.html",
-    {
-        "request": {},
-        "comments": comments,
-        "lang": "vi"
-    }
-)
+    comments = []
+    for r in rows:
+        comments.append({
+            "id": r[0],
+            "name": r[1],
+            "email": r[2],
+            "text": r[3],
+            "img": r[4],
+            "token": r[5],
+            "status": r[6],
+        })
+
+    return templates.TemplateResponse(
+        "admin.html",
+        {
+            "request": {},
+            "comments": comments,
+            "lang": "vi"
+        }
+    )
+
