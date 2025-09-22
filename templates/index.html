@@ -96,14 +96,32 @@
             <h2>{{ "Giới thiệu" if lang=="vi" else ("About Me" if lang=="en" else "소개") }}</h2>
             <p>{{ data.about }}</p>
         {% elif page == "tips" %}
-            <div class="tips-heading">
-                <h2>⚠️ {{ "Lưu ý" if lang=="vi" else ("Travel Tips" if lang=="en" else "여행 유의사항") }}</h2>
-            </div>
-            {% if data.checklist %}
-            <div class="checklist-container">
-                <div class="checklist-overlay">
-                    <div class="checklist-grid">
-                        {% for section in data.checklist %}
+    <!-- Lưu ý / Travel Tips -->
+    <div class="tips-heading">
+        <h2>⚠️ {{ "Lưu ý" if lang=="vi" else ("Travel Tips" if lang=="en" else "여행 유의사항") }}</h2>
+    </div>
+    {% if data.warn %}
+        <ul class="tips-list">
+            {% for w in data.warn %}
+                {% set first_char = w.strip()[0] %}
+                {% if first_char.isdigit() %}
+                    <li class="num">{{ w }}</li>
+                {% else %}
+                    <li>{{ w }}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <!-- Check List -->
+    <div class="tips-heading">
+        <h2>✅ {{ "Check List" if lang=="vi" else ("Check List" if lang=="en" else "체크리스트") }}</h2>
+    </div>
+    {% if data.checklist %}
+        <div class="checklist-container">
+            <div class="checklist-overlay">
+                <div class="checklist-grid">
+                    {% for section in data.checklist %}
                         {% set section_index = loop.index0 %}
                         <div class="checklist-section">
                             <h3>{{ section.title }}</h3>
@@ -119,23 +137,11 @@
                                 {% endfor %}
                             </ul>
                         </div>
-                        {% endfor %}
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
-            {% else %}
-                <ul class="tips-list">
-                    {% for w in data.warn %}
-                        {% set first_char = w.strip()[0] %}
-                        {% if first_char.isdigit() %}
-                            <li class="num">{{ w }}</li>
-                        {% else %}
-                            <li>{{ w }}</li>
-                        {% endif %}
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        {% endif %}
+        </div>
+    {% endif %}
     </section>
 
     <!-- Bình luận -->
