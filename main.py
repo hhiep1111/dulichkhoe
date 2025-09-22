@@ -247,12 +247,9 @@ content = {
 # ---------------- HOME ----------------
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request, lang: str = "vi", page: str = "home"):
-    # Kiểm tra admin từ query param hoặc header (tuỳ setup)
-    is_admin = False  # mặc định False, bạn có thể thêm login admin sau
-
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("SELECT id, name, email, text, img, token, status FROM comments")    
+    c.execute("SELECT id, name, email, text, img, token, status FROM comments WHERE status='active'")
     rows = c.fetchall()
     conn.close()
 
@@ -261,17 +258,17 @@ async def home(request: Request, lang: str = "vi", page: str = "home"):
         comments.append({
             "id": r[0],
             "name": r[1],
-            "email": r[2] if is_admin else None,
+            "email": None,
             "text": r[3],
             "img": r[4],
             "token": r[5],
-            "is_owner": False,  # user ko login → không xóa được
+            "is_owner": False,
             "verified": r[6] == "active"
         })
 
     return templates.TemplateResponse(
         "index.html",
-        {"request": request, "data": content[lang], "lang": lang, "page": page, "comments": comments, "is_admin": is_admin}
+        {"request": request, "data": content.get(lang, content["vi"]), "lang": lang, "page": page, "comments": comments, "is_admin": False}
     )
 
 @app.get("/about", response_class=HTMLResponse)
@@ -282,15 +279,14 @@ async def about(request: Request, lang: str = "vi"):
 async def tips(request: Request, lang: str = "vi"):
     return await home(request, lang=lang, page="tips")
 
-
 # ---------------- COMMENT (POST) ----------------
 @app.post("/comment")
 async def add_comment(
-    request: Request, 
+    request: Request,
     background_tasks: BackgroundTasks,
-    name: str = Form(...), 
+    name: str = Form(...),
     email: str = Form(...),
-    comment: str = Form(...), 
+    comment: str = Form(...),
     image: UploadFile = File(None),
     lang: str = Form("vi")
 ):
@@ -304,7 +300,6 @@ async def add_comment(
     comment_id = str(uuid.uuid4())
     token = str(uuid.uuid4())
 
-    # Mặc định status = 'pending', chờ verify email
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
     c.execute("""
@@ -314,7 +309,6 @@ async def add_comment(
     conn.commit()
     conn.close()
 
-    # Gửi email verify
     verify_link = f"http://localhost:8000/verify_email?token={token}&lang={lang}"
     background_tasks.add_task(send_email, email, verify_link)
 
@@ -344,22 +338,8 @@ async def get_comments(request: Request, lang: str = "vi"):
 
     return templates.TemplateResponse(
         "index.html",
-        {
-            "request": request,
-            "data": {
-                "title": "Bình luận",
-                "intro": "Xem các bình luận từ người dùng",
-                "menu": content["vi"]["menu"],
-                "about": "Trang web chia sẻ du lịch.",
-                "places": [],
-                "warn": [],
-                "checklist": []
-            },
-            "lang": lang,
-            "page": "comments",
-            "comments": comments,
-            "is_admin": False,
-        }
+        {"request": request, "data": {"title":"Bình luận","intro":"Xem các bình luận từ người dùng","menu":content["vi"]["menu"],"about":"Trang web chia sẻ du lịch.","places":[],"warn":[],"checklist":[]}, 
+         "lang": lang, "page":"comments","comments":comments,"is_admin":False}
     )
 
 # ---------------- VERIFY EMAIL ----------------
@@ -375,7 +355,7 @@ async def verify_email(token: str, lang: str = "vi"):
 # ---------------- DELETE COMMENT ----------------
 @app.post("/delete_comment")
 async def delete_comment(
-    id: str = Form(...), 
+    id: str = Form(...),
     token: str = Form(...),
     credentials: HTTPBasicCredentials = Depends(security)
 ):
@@ -396,3 +376,32 @@ async def delete_comment(
     conn.close()
 
     return RedirectResponse(url="/comment", status_code=303)
+
+# ---------------- ADMIN PAGE ----------------
+@app.get("/admin", response_class=HTMLResponse)
+async def admin_page(request: Request, credentials: HTTPBasicCredentials = Depends(security), lang: str = "vi"):
+    if credentials.username != ADMIN_USER or credentials.password != ADMIN_PASS:
+        return RedirectResponse(url="/", status_code=303)
+
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    c.execute("SELECT id, name, email, text, img, token, status FROM comments")
+    rows = c.fetchall()
+    conn.close()
+
+    comments = []
+    for r in rows:
+        comments.append({
+            "id": r[0],
+            "name": r[1],
+            "email": r[2],
+            "text": r[3],
+            "img": r[4],
+            "token": r[5],
+            "status": r[6]
+        })
+
+    return templates.TemplateResponse(
+        "admin.html",
+        {"request": request, "comments": comments, "lang": lang, "is_admin": True}
+    )
