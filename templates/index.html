@@ -99,7 +99,6 @@
             <div class="tips-heading">
                 <h2>⚠️ {{ "Lưu ý" if lang=="vi" else ("Travel Tips" if lang=="en" else "여행 유의사항") }}</h2>
             </div>
-
             {% if data.checklist %}
             <div class="checklist-container">
                 <div class="checklist-overlay">
@@ -175,7 +174,18 @@
                 {% endif %}
 
                 {% if not c.verified %}
-                    <p class="pending">{{ "Comment chờ xác minh email" if lang=="vi" else ("Pending email verification" if lang=="en" else "이메일 확인 대기 중") }}</p>
+                    {% if is_admin %}
+                        <form action="/admin_verify_email" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="{{ c.id }}">
+                            <button type="submit">Verify</button>
+                        </form>
+                    {% else %}
+                        <p class="pending">
+                            {{ "Comment chờ xác minh email" if lang=="vi" else ("Pending email verification" if lang=="en" else "이메일 확인 대기 중") }}
+                        </p>
+                    {% endif %}
+                {% else %}
+                    <p class="pending">Verified</p>
                 {% endif %}
 
                 <p>{{ c.text }}</p>
