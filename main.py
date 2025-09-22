@@ -351,6 +351,19 @@ async def verify_email(token: str, lang: str = "vi"):
     conn.commit()
     conn.close()
     return RedirectResponse(url=f"/comment?lang={lang}", status_code=303)
+    
+@app.post("/admin_verify_email")
+async def admin_verify_email(id: str = Form(...), credentials: HTTPBasicCredentials = Depends(security)):
+    if credentials.username != ADMIN_USER or credentials.password != ADMIN_PASS:
+        return RedirectResponse(url="/", status_code=401)
+
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    c.execute("UPDATE comments SET status='active' WHERE id=?", (id,))
+    conn.commit()
+    conn.close()
+
+    return RedirectResponse(url="/admin", status_code=303)
 
 # ---------------- DELETE COMMENT ----------------
 @app.post("/delete_comment")
@@ -379,9 +392,9 @@ async def delete_comment(
 
 # ---------------- ADMIN PAGE ----------------
 @app.get("/admin", response_class=HTMLResponse)
-async def admin_page(request: Request, credentials: HTTPBasicCredentials = Depends(security), lang: str = "vi"):
+async def admin_dashboard(credentials: HTTPBasicCredentials = Depends(security)):
     if credentials.username != ADMIN_USER or credentials.password != ADMIN_PASS:
-        return RedirectResponse(url="/", status_code=303)
+        return RedirectResponse(url="/", status_code=401)
 
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
@@ -398,10 +411,10 @@ async def admin_page(request: Request, credentials: HTTPBasicCredentials = Depen
             "text": r[3],
             "img": r[4],
             "token": r[5],
-            "status": r[6]
+            "status": r[6],
         })
 
     return templates.TemplateResponse(
         "admin.html",
-        {"request": request, "comments": comments, "lang": lang, "is_admin": True}
+        {"request": {}, "comments": comments, "lang": "vi"}
     )
