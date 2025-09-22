@@ -211,7 +211,7 @@ async def get_comments(request: Request, lang: str = "vi"):
         })
 
     return templates.TemplateResponse(
-        "index .html",
+        "index.html",
 {
 "request": request,
 "data": {
