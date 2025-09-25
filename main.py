@@ -31,7 +31,7 @@ c.execute("""
     CREATE TABLE IF NOT EXISTS comments (
         id TEXT PRIMARY KEY,
         name TEXT,
-        text TEXT,
+        comment TEXT,
         img TEXT,
         token TEXT,
         status TEXT DEFAULT 'pending'
@@ -255,7 +255,7 @@ async def comment(
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
     c.execute(
-        "INSERT INTO comments (id, name, text, img, status, token) VALUES (?, ?, ?, ?, ?, ?)",
+        "INSERT INTO comments (id, name, comment, img, status, token) VALUES (?, ?, ?, ?, ?, ?)",
         (comment_id, name, comment, filename, "pending", token),
     )
     conn.commit()
@@ -280,7 +280,7 @@ async def admin(
 
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("SELECT id, name, text, img, status FROM comments")
+    c.execute("SELECT id, name, comment, img, status FROM comments")
     comments = c.fetchall()
     conn.close()
 
