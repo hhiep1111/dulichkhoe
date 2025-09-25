@@ -289,23 +289,34 @@ async def about(request: Request, lang: str = "vi"):
 @app.get("/tips", response_class=HTMLResponse)
 async def tips(request: Request, lang: str = "vi"):
     data = content.get(lang, content["vi"])
+    data.setdefault("warn", [])
+    data.setdefault("checklist", [])
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
     c.execute("SELECT id, name, email, comment, img, status FROM comments")
     rows = c.fetchall()
     conn.close()
 
-    comments = [dict_from_row(r) for r in rows]
+    comments = []
+    for row in rows:
+    comments.append({
+        "id": row[0],
+        "name": row[1],
+        "email": row[2],
+        "comment": row[3],
+        "img": row[4],
+        "status": row[5],
+    })
 
     return templates.TemplateResponse(
         "index.html",
         {
             "request": request,
             "data": data,
+            "page": "tips",
             "lang": lang,
             "comments": comments,
             "is_admin": False,
-            "page": "tips",   # 👈 quan trọng
         },
     )
 # ---------------- COMMENT ----------------
@@ -366,7 +377,7 @@ async def admin(
             "lang": lang,
             "comments": comments,
             "is_admin": True,
-            #"page": "home",
+            "page": "admin",
         },
     )
 
