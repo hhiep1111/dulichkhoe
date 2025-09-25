@@ -240,24 +240,32 @@
                 <li>{{ w }}</li>
             {% endfor %}
         </ul>      
-    {% elif page=="checklist" %}
-        <h2>📋 Checklist</h2>
-        {% for section in data["checklist"] %}
-            <div class="checklist-section">
-                <h3>{{ section["title"] }}</h3>
-                <ul>
-                    {% for item in section["items"] %}
-                        {% set cid = 'chk_' ~ lang ~ '_' ~ loop.parentloop.index0 ~ '_' ~ loop.index0 %}
-                        <li>
-                            <label>
-                                <input type="checkbox" id="{{ cid }}"> {{ item }}
-                            </label>
-                        </li>
-                    {% endfor %}
-                </ul>
+    {% elif page == "checklist" %}
+    <h2>📋 Checklist</h2>
+    <div class="checklist-container">
+        <div class="checklist-overlay">
+            <div class="checklist-grid">
+                {% for section in data.checklist %}
+                    {% set sidx = loop.index0 %}
+                    <div class="checklist-section">
+                        <h3>{{ section.title }}</h3>
+                        <ul>
+                            {% for item in section.items %}
+                                {% set iidx = loop.index0 %}
+                                <li>
+                                    <label>
+                                        <input type="checkbox" id="chk_{{ lang }}_{{ sidx }}_{{ iidx }}">
+                                        {{ item }}
+                                    </label>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endfor %}
             </div>
-        {% endfor %}
-    {% endif %}
+        </div>
+    </div>
+{% endif %}
 </section>
     
 <section>
