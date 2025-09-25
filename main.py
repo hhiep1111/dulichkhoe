@@ -31,7 +31,6 @@ c.execute("""
     CREATE TABLE IF NOT EXISTS comments (
         id TEXT PRIMARY KEY,
         name TEXT,
-        email TEXT,
         text TEXT,
         img TEXT,
         token TEXT,
@@ -49,9 +48,9 @@ def send_email(to_email: str, link: str):
     try:
         server = smtplib.SMTP("smtp.gmail.com", 587)
         server.starttls()
-        server.login("your_email@gmail.com", "your_password")
+        server.login(EMAIL_USER, EMAIL_PASS)
         msg = f"Subject: Xác nhận email\n\nClick link để xác nhận: {link}"
-        server.sendmail("your_email@gmail.com", to_email, msg)
+        server.sendmail(EMAIL_USER, to_email, msg)
         server.quit()
     except Exception as e:
         print("Error sending email:", e)
@@ -251,12 +250,13 @@ async def comment(
             buffer.write(await image.read())
 
     token = str(uuid.uuid4())
-
+    comment_id = str(uuid.uuid4())
+    
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
     c.execute(
-        "INSERT INTO comments (name, comment, image, status, token) VALUES (?, ?, ?, ?, ?)",
-        (name, comment, filename, "pending", token),
+        "INSERT INTO comments (id, name, text, img, status, token) VALUES (?, ?, ?, ?, ?, ?)",
+        (comment_id, name, comment, filename, "pending", token),
     )
     conn.commit()
     conn.close()
@@ -271,16 +271,14 @@ async def admin(
     credentials: HTTPBasicCredentials = Depends(security),
     lang: str = "vi",
 ):
-    if not (
-        credentials.username == "admin" and credentials.password == "password"
-    ):
+   if not (credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS):
         return HTMLResponse(content="Unauthorized", status_code=401)
 
     data = content.get(lang, content["vi"])
 
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("SELECT id, name, comment, image, status FROM comments")
+    c.execute("SELECT id, name, text, img, status FROM comments")
     comments = c.fetchall()
     conn.close()
 
@@ -289,17 +287,14 @@ async def admin(
         {"request": request, "data": data, "lang": lang, "comments": comments},
     )
 
-
 # ---------------- DELETE ----------------
 @app.get("/delete/{comment_id}")
 async def delete_comment(
-    comment_id: int,
+    comment_id: str,
     lang: str = "vi",
     credentials: HTTPBasicCredentials = Depends(security),
 ):
-    if not (
-        credentials.username == "admin" and credentials.password == "password"
-    ):
+    if not (credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS):
         return HTMLResponse(content="Unauthorized", status_code=401)
 
     conn = sqlite3.connect(DB_FILE)
@@ -312,6 +307,7 @@ async def delete_comment(
 
 
 # ---------------- VERIFY EMAIL ----------------
+
 @app.get("/verify_email")
 async def verify_email(token: str, lang: str = "vi"):
     conn = sqlite3.connect(DB_FILE)
@@ -320,17 +316,14 @@ async def verify_email(token: str, lang: str = "vi"):
     conn.commit()
     conn.close()
 
-    return RedirectResponse(url=f"/comment?lang={lang}", status_code=303)
-
+    return RedirectResponse(url=f"/?lang={lang}", status_code=303)
 
 @app.post("/admin_verify_email")
 async def admin_verify_email(
     id: str = Form(...),
     credentials: HTTPBasicCredentials = Depends(security),
 ):
-    if not (
-        credentials.username == "admin" and credentials.password == "password"
-    ):
+    if not (credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS):
         return HTMLResponse(content="Unauthorized", status_code=401)
 
     conn = sqlite3.connect(DB_FILE)
@@ -338,5 +331,6 @@ async def admin_verify_email(
     c.execute("UPDATE comments SET status='active' WHERE id=?", (id,))
     conn.commit()
     conn.close()
-
+    
     return RedirectResponse(url="/admin", status_code=303)
+    return RedirectResponse(url="/admin", status_codmin", status_code=303)
