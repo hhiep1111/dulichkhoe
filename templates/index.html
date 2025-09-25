@@ -278,6 +278,8 @@
         <h2>💬 {{ "Bình luận" if lang=="vi" else ("Comments" if lang=="en" else "댓글") }}</h2>
 
         <form action="/comment" method="post" enctype="multipart/form-data" style="max-width:600px; margin:auto;">
+            <input type="hidden" name="lang" value="{{ lang }}">
+
             <label>
                 {{ "Tên" if lang=="vi" else ("Name" if lang=="en" else "이름") }}:<br>
                 <input type="text" name="name" required>
