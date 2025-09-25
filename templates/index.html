@@ -216,7 +216,7 @@
         });
     </script>
 
-    <section>
+</section>
     {% if page=="home" %}
         {% for p in data.places %}
         <div class="card">
@@ -239,25 +239,24 @@
             {% for w in data["warn"] %}
                 <li>{{ w }}</li>
             {% endfor %}
-        </ul>
-        
+        </ul>      
     {% elif page=="checklist" %}
-        <h2>📋 Checklist</h2>
-        {% for section in data["checklist"] %}
-            <h3>{{ section["title"] }}</h3>
-            <ul>
-                {% for item in section["items"] %}
-                    {% set cid = 'chk_' ~ lang ~ '_' ~ loop.parent.loop.index0 ~ '_' ~ loop.index0 %}
-                    <li>
-                        <label>
-                            <input type="checkbox" id="{{ cid }}"> {{ item }}
-                        </label>
-                    </li>
-                {% endfor %}
-            </ul>
-        {% endfor %}
-    {% endif %}
-</section>
+    <h2>📋 Checklist</h2>
+    {% for section in data["checklist"] %}
+        <h3>{{ section["title"] }}</h3>
+        <ul>
+            {% for item in section["items"] %}
+                {% set cid = 'chk_' ~ lang ~ '_' ~ loop.parent.index0 ~ '_' ~ loop.index0 %}
+                <li>
+                    <label>
+                        <input type="checkbox" id="{{ cid }}"> {{ item }}
+                    </label>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+{% endif %}
+<section>
         <h2>💬 {{ "Bình luận" if lang=="vi" else ("Comments" if lang=="en" else "댓글") }}</h2>
 
         <form action="/comment" method="post" enctype="multipart/form-data" style="max-width:600px; margin:auto;">
@@ -307,11 +306,11 @@
                     {{ "Xóa" if lang=="vi" else ("Delete" if lang=="en" else "삭제") }}
                 </button>
             </form>
-    {% endif %}
-</div>
-{% endfor %}
+            {% endif %}
         </div>
-    </section>
+        {% endfor %}
+    </div>
+</section>
 
     <footer>
         <p>&copy; 2025 Du lịch Khỏe</p>
