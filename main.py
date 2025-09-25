@@ -16,32 +16,46 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 
 templates = Jinja2Templates(directory="templates")
-security = HTTPBasic()
 
 DB_FILE = "comments.db"
+ADMIN_USER = os.getenv("ADMIN_USER", "admin")
+ADMIN_PASS = os.getenv("ADMIN_PASS", "123456")
 
-ADMIN_USER = "admin"
-ADMIN_PASS = "123456"
+security = HTTPBasic()
 
 # ---------------- DATABASE INIT ----------------
-def init_db():
-    conn = sqlite3.connect(DB_FILE)
-    c = conn.cursor()
-    c.execute("""
-        CREATE TABLE IF NOT EXISTS comments (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT,
-            email TEXT,
-            comment TEXT,
-            image TEXT,
-            status TEXT DEFAULT 'pending',
-            token TEXT
-        )
-    """)
-    conn.commit()
-    conn.close()
+os.makedirs("uploads", exist_ok=True)
+conn = sqlite3.connect(DB_FILE)
+c = conn.cursor()
+c.execute("""
+    CREATE TABLE IF NOT EXISTS comments (
+        id TEXT PRIMARY KEY,
+        name TEXT,
+        email TEXT,
+        text TEXT,
+        img TEXT,
+        token TEXT,
+        status TEXT DEFAULT 'pending'
+    )
+""")
+conn.commit()
+conn.close()
+# ---------------- HELPER ----------------
+def is_admin_user(credentials: HTTPBasicCredentials = Depends(security)):
+    return credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS
 
-init_db()
+
+def send_email(to_email: str, link: str):
+    try:
+        server = smtplib.SMTP("smtp.gmail.com", 587)
+        server.starttls()
+        server.login("your_email@gmail.com", "your_password")
+        msg = f"Subject: Xác nhận email\n\nClick link để xác nhận: {link}"
+        server.sendmail("your_email@gmail.com", to_email, msg)
+        server.quit()
+    except Exception as e:
+        print("Error sending email:", e)
+
 
 # ---------------- DATA ----------------
 data = {
@@ -204,114 +218,100 @@ data = {
         ]
     }
 }
-# ---------------- HELPER ----------------
-def send_email(to_email: str, token: str, lang: str):
-    subject = {
-        "vi": "Xác minh bình luận",
-        "en": "Verify your comment",
-        "kr": "댓글 확인",
-    }[lang]
-
-    verify_link = f"https://dulichkhoe.onrender.com/verify_email?token={token}&lang={lang}"
-    body = f"Vui lòng nhấp vào liên kết để xác minh bình luận của bạn: {verify_link}"
-
-    msg = MIMEText(body)
-    msg["Subject"] = subject
-    msg["From"] = "your_email@gmail.com"
-    msg["To"] = to_email
-
-    try:
-        with smtplib.SMTP("smtp.gmail.com", 587) as server:
-            server.starttls()
-            server.login("your_email@gmail.com", "your_password")
-            server.send_message(msg)
-    except Exception as e:
-        print("Email error:", e)
-
-def get_comments():
-    conn = sqlite3.connect(DB_FILE)
-    c = conn.cursor()
-    c.execute("SELECT id, name, email, comment, image, status, token FROM comments ORDER BY id DESC")
-    rows = c.fetchall()
-    conn.close()
-    comments = []
-    for r in rows:
-        comments.append({
-            "id": r[0], "name": r[1], "email": r[2], "text": r[3],
-            "img": r[4], "status": r[5], "token": r[6],
-            "verified": (r[5] == "active")
-        })
-    return comments
-
-# ---------------- ROUTES ----------------
+# ---------------- HOME ----------------
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request, lang: str = "vi"):
-    comments = get_comments()
-    return templates.TemplateResponse("index.html", {
-        "request": request,
-        "page": "home",
-        "data": data[lang],
-        "lang": lang,
-        "comments": comments,
-        "is_admin": False
-    })
+    data = content.get(lang, content["vi"])
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    c.execute("SELECT id, name, comment, image, status FROM comments")
+    comments = c.fetchall()
+    conn.close()
 
-@app.get("/{page}", response_class=HTMLResponse)
-async def render_page(request: Request, page: str, lang: str = "vi"):
-    if page not in ["about", "tips"]:
-        return RedirectResponse(url=f"/?lang={lang}")
+    return templates.TemplateResponse(
+        "index.html",
+        {"request": request, "data": data, "lang": lang, "comments": comments},
+    )
 
-    comments = get_comments()
-    return templates.TemplateResponse("index.html", {
-        "request": request,
-        "page": page,
-        "data": data[lang],
-        "lang": lang,
-        "comments": comments,
-        "is_admin": False
-    })
 
+# ---------------- COMMENT ----------------
 @app.post("/comment")
-async def add_comment(
+async def comment(
     request: Request,
     name: str = Form(...),
-    email: str = Form(...),
     comment: str = Form(...),
+    lang: str = Form("vi"),
     image: UploadFile = File(None),
-    lang: str = Form("vi")
 ):
     filename = None
     if image:
-        if image.content_type.startswith("image/"):
-            filename = f"{uuid.uuid4()}_{image.filename}"
-            with open(f"uploads/{filename}", "wb") as f:
-                f.write(await image.read())
+        filename = f"{uuid.uuid4()}_{image.filename}"
+        filepath = os.path.join("uploads", filename)
+        with open(filepath, "wb") as buffer:
+            buffer.write(await image.read())
 
     token = str(uuid.uuid4())
 
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("INSERT INTO comments (name, email, comment, image, token) VALUES (?, ?, ?, ?, ?)",
-              (name, email, comment, filename, token))
+    c.execute(
+        "INSERT INTO comments (name, comment, image, status, token) VALUES (?, ?, ?, ?, ?)",
+        (name, comment, filename, "pending", token),
+    )
     conn.commit()
     conn.close()
 
-    send_email(email, token, lang)
+    return RedirectResponse(url=f"/?lang={lang}", status_code=303)
 
-    return RedirectResponse(url=f"/comment?lang={lang}", status_code=303)
 
-@app.get("/comment", response_class=HTMLResponse)
-async def show_comments(request: Request, lang: str = "vi"):
-    comments = get_comments()
-    return templates.TemplateResponse("index.html", {
-        "request": request,
-        "page": "home",
-        "data": data[lang],
-        "lang": lang,
-        "comments": comments,
-        "is_admin": False
-    })
+# ---------------- ADMIN ----------------
+@app.get("/admin", response_class=HTMLResponse)
+async def admin(
+    request: Request,
+    credentials: HTTPBasicCredentials = Depends(security),
+    lang: str = "vi",
+):
+    if not (
+        credentials.username == "admin" and credentials.password == "password"
+    ):
+        return HTMLResponse(content="Unauthorized", status_code=401)
 
+    data = content.get(lang, content["vi"])
+
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    c.execute("SELECT id, name, comment, image, status FROM comments")
+    comments = c.fetchall()
+    conn.close()
+
+    return templates.TemplateResponse(
+        "admin.html",
+        {"request": request, "data": data, "lang": lang, "comments": comments},
+    )
+
+
+# ---------------- DELETE ----------------
+@app.get("/delete/{comment_id}")
+async def delete_comment(
+    comment_id: int,
+    lang: str = "vi",
+    credentials: HTTPBasicCredentials = Depends(security),
+):
+    if not (
+        credentials.username == "admin" and credentials.password == "password"
+    ):
+        return HTMLResponse(content="Unauthorized", status_code=401)
+
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    c.execute("DELETE FROM comments WHERE id=?", (comment_id,))
+    conn.commit()
+    conn.close()
+
+    return RedirectResponse(url=f"/admin?lang={lang}", status_code=303)
+
+
+# ---------------- VERIFY EMAIL ----------------
 @app.get("/verify_email")
 async def verify_email(token: str, lang: str = "vi"):
     conn = sqlite3.connect(DB_FILE)
@@ -319,29 +319,24 @@ async def verify_email(token: str, lang: str = "vi"):
     c.execute("UPDATE comments SET status='active' WHERE token=?", (token,))
     conn.commit()
     conn.close()
+
     return RedirectResponse(url=f"/comment?lang={lang}", status_code=303)
 
-@app.get("/admin", response_class=HTMLResponse)
-async def admin_dashboard(request: Request, credentials: HTTPBasicCredentials = Depends(security)):
-    if credentials.username != ADMIN_USER or credentials.password != ADMIN_PASS:
-        return RedirectResponse(url="/")
 
-    comments = get_comments()
-    return templates.TemplateResponse("index.html", {
-        "request": request,
-        "page": "home",
-        "data": data["vi"],
-        "lang": "vi",
-        "comments": comments,
-        "is_admin": True
-    })
+@app.post("/admin_verify_email")
+async def admin_verify_email(
+    id: str = Form(...),
+    credentials: HTTPBasicCredentials = Depends(security),
+):
+    if not (
+        credentials.username == "admin" and credentials.password == "password"
+    ):
+        return HTMLResponse(content="Unauthorized", status_code=401)
 
-@app.post("/delete_comment")
-async def delete_comment(id: int = Form(...), credentials: HTTPBasicCredentials = Depends(security)):
-    if credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS:
-        conn = sqlite3.connect(DB_FILE)
-        c = conn.cursor()
-        c.execute("DELETE FROM comments WHERE id=?", (id,))
-        conn.commit()
-        conn.close()
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    c.execute("UPDATE comments SET status='active' WHERE id=?", (id,))
+    conn.commit()
+    conn.close()
+
     return RedirectResponse(url="/admin", status_code=303)
