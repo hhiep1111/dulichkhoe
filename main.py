@@ -283,20 +283,17 @@ async def about(request: Request, lang: str = "vi"):
             "page": "about",   # 👈 quan trọng
         },
     )
-
-
-# Tips page
+# Route cảnh báo
 @app.get("/tips", response_class=HTMLResponse)
-async def tips(request: Request, lang: str = "vi"):
+async def warn(request: Request, lang: str = "vi"):
     data = content.get(lang, content["vi"])
-    data.setdefault("warn", [])
-    data.setdefault("checklist", [])
+
+    # Lấy comment (nếu muốn gắn chung hệ thống comment)
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
     c.execute("SELECT id, name, email, comment, img, status FROM comments")
     rows = c.fetchall()
     conn.close()
-
     comments = [dict_from_row(r) for r in rows]
 
     return templates.TemplateResponse(
@@ -304,7 +301,30 @@ async def tips(request: Request, lang: str = "vi"):
         {
             "request": request,
             "data": data,
-            "page": "tips",
+            "page": "tips",   # flag để template biết đang ở trang warn
+            "lang": lang,
+            "comments": comments,
+            "is_admin": False,
+        },
+    )
+# Route checklist
+@app.get("/checklist", response_class=HTMLResponse)
+async def checklist(request: Request, lang: str = "vi"):
+    data = content.get(lang, content["vi"])
+
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    c.execute("SELECT id, name, email, comment, img, status FROM comments")
+    rows = c.fetchall()
+    conn.close()
+    comments = [dict_from_row(r) for r in rows]
+
+    return templates.TemplateResponse(
+        "index.html",
+        {
+            "request": request,
+            "data": data,
+            "page": "checklist",   # flag để template biết đang ở trang checklist
             "lang": lang,
             "comments": comments,
             "is_admin": False,
