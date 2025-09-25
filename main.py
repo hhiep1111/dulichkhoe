@@ -288,7 +288,7 @@ async def admin(
     lang: str = "vi",
 ):
     if not (credentials.username == "admin" and credentials.password == "password"):
-        return HTMLResponse(content="Unauthorized", status_code=401)
+    return HTMLResponse(content="Unauthorized", status_code=401)
 
     data = content.get(lang, content["vi"])
     conn = sqlite3.connect(DB_FILE)
@@ -298,8 +298,7 @@ async def admin(
     conn.close()
 
     comments = [dict_from_row(r) for r in rows]
-    
-   return templates.TemplateResponse(
+    return templates.TemplateResponse(
         "index.html",  # dùng chung index
         {
             "request": request,
@@ -318,7 +317,7 @@ async def delete_comment(
     credentials: HTTPBasicCredentials = Depends(security),
 ):
     if not (credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS):
-        return HTMLResponse(content="Unauthorized", status_code=401)
+    return HTMLResponse(content="Unauthorized", status_code=401)
 
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
@@ -347,7 +346,7 @@ async def admin_verify_email(
     credentials: HTTPBasicCredentials = Depends(security),
 ):
     if not (credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS):
-        return HTMLResponse(content="Unauthorized", status_code=401)
+    return HTMLResponse(content="Unauthorized", status_code=401)
 
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
