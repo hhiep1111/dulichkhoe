@@ -30,8 +30,8 @@ c = conn.cursor()
 c.execute("""
     CREATE TABLE IF NOT EXISTS comments (
         id TEXT PRIMARY KEY,
-        name TEXT,
-        comment TEXT,
+        name TEXT NOT NULL,
+        comment TEXT NOT NULL,
         img TEXT,
         token TEXT,
         status TEXT DEFAULT 'pending'
@@ -245,10 +245,57 @@ async def home(request: Request, lang: str = "vi"):
             "lang": lang,
             "comments": comments,
             "is_admin": False,  # mặc định khách
+            "page": "home",
+        },
+    )
+# About page
+@app.get("/about", response_class=HTMLResponse)
+async def about(request: Request, lang: str = "vi"):
+    data = content.get(lang, content["vi"])
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    c.execute("SELECT id, name, comment, img, status FROM comments")
+    rows = c.fetchall()
+    conn.close()
+
+    comments = [dict_from_row(r) for r in rows]
+
+    return templates.TemplateResponse(
+        "index.html",
+        {
+            "request": request,
+            "data": data,
+            "lang": lang,
+            "comments": comments,
+            "is_admin": False,
+            "page": "about",   # 👈 quan trọng
         },
     )
 
 
+# Tips page
+@app.get("/tips", response_class=HTMLResponse)
+async def tips(request: Request, lang: str = "vi"):
+    data = content.get(lang, content["vi"])
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    c.execute("SELECT id, name, comment, img, status FROM comments")
+    rows = c.fetchall()
+    conn.close()
+
+    comments = [dict_from_row(r) for r in rows]
+
+    return templates.TemplateResponse(
+        "index.html",
+        {
+            "request": request,
+            "data": data,
+            "lang": lang,
+            "comments": comments,
+            "is_admin": False,
+            "page": "tips",   # 👈 quan trọng
+        },
+    )
 # ---------------- COMMENT ----------------
 @app.post("/comment")
 async def comment(
@@ -294,7 +341,7 @@ async def admin(
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
     c.execute("SELECT id, name, comment, img, status FROM comments")
-    comments = c.fetchall()
+    rows = c.fetchall()
     conn.close()
 
     comments = [dict_from_row(r) for r in rows]
@@ -306,11 +353,12 @@ async def admin(
             "lang": lang,
             "comments": comments,
             "is_admin": True,
+            "page" = "home",
         },
     )
 
 # ---------------- DELETE ----------------
-@app.get("/delete/{comment_id}")
+@app.post("/delete/{comment_id}")
 async def delete_comment(
     comment_id: str,
     lang: str = "vi",
