@@ -303,31 +303,28 @@
             {% for c in comments %}
             <div class="comment-box">
                 <p><strong>{{ c.name }}</strong></p>
-                {% if is_admin and c.email %}
-                <p style="font-size:12px; color:gray;">📧 {{ c.email }}</p>
-                {% endif %}
+                
+                {% if c.status != "active" %}
+               <p class="pending">
+                   {{ "Comment chờ xác minh email" if lang=="vi" else ("Pending email verification" if lang=="en" else "이메일 확인 대기 중") }}
+              </p>
+              {% endif %}
 
-                {% if c.status != "approved" %}
-                <p class="pending">
-                    {{ "Comment chờ xác minh email" if lang=="vi" else ("Pending email verification" if lang=="en" else "이메일 확인 대기 중") }}
-                </p>
-                {% endif %}
+              <p>{{ c.comment }}</p>   <!-- Đổi từ c.text thành c.comment -->
 
-                <p>{{ c.text }}</p>
+            {% if c.img %}
+            <img src="/uploads/{{ c.img }}" alt="Comment Image">
+            {% endif %}
 
-                {% if c.img %}
-                <img src="/uploads/{{ c.img }}" alt="Comment Image">
-                {% endif %}
-
-                {% if is_admin %}
-                <form action="/delete/{{ c.id }}" method="post" style="margin-top:5px;">
-                    <button type="submit" class="delete-btn">
-                        {{ "Xóa" if lang=="vi" else ("Delete" if lang=="en" else "삭제") }}
-                    </button>
-                </form>
-                {% endif %}
-            </div>
-            {% endfor %}
+            {% if is_admin %}
+            <form action="/delete/{{ c.id }}" method="post" style="margin-top:5px;">
+                <button type="submit" class="delete-btn">
+                    {{ "Xóa" if lang=="vi" else ("Delete" if lang=="en" else "삭제") }}
+                </button>
+            </form>
+    {% endif %}
+</div>
+{% endfor %}
         </div>
     </section>
 
