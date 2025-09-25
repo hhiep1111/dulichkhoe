@@ -57,7 +57,7 @@ def send_email(to_email: str, link: str):
 
 
 # ---------------- DATA ----------------
-content = {
+data = {
     "vi": {
         "title": "Du lịch Khỏe - Đồng bằng Sông Cửu Long",
         "intro": "Khám phá miền Tây Nam Bộ: sông nước, ẩm thực và văn hóa độc đáo.",
