@@ -216,7 +216,7 @@
         });
     </script>
 
-</section>
+<section>
     {% if page=="home" %}
         {% for p in data.places %}
         <div class="card">
@@ -241,21 +241,25 @@
             {% endfor %}
         </ul>      
     {% elif page=="checklist" %}
-    <h2>📋 Checklist</h2>
-    {% for section in data["checklist"] %}
-        <h3>{{ section["title"] }}</h3>
-        <ul>
-            {% for item in section["items"] %}
-                {% set cid = 'chk_' ~ lang ~ '_' ~ loop.parent.index0 ~ '_' ~ loop.index0 %}
-                <li>
-                    <label>
-                        <input type="checkbox" id="{{ cid }}"> {{ item }}
-                    </label>
-                </li>
-            {% endfor %}
-        </ul>
-    {% endfor %}
-{% endif %}
+        <h2>📋 Checklist</h2>
+        {% for section in data["checklist"] %}
+            <div class="checklist-section">
+                <h3>{{ section["title"] }}</h3>
+                <ul>
+                    {% for item in section["items"] %}
+                        {% set cid = 'chk_' ~ lang ~ '_' ~ loop.parentloop.index0 ~ '_' ~ loop.index0 %}
+                        <li>
+                            <label>
+                                <input type="checkbox" id="{{ cid }}"> {{ item }}
+                            </label>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    {% endif %}
+</section>
+    
 <section>
         <h2>💬 {{ "Bình luận" if lang=="vi" else ("Comments" if lang=="en" else "댓글") }}</h2>
 
