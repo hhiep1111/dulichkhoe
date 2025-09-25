@@ -223,7 +223,7 @@ async def home(request: Request, lang: str = "vi"):
     data = content.get(lang, content["vi"])
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("SELECT id, name, comment, imgimg, status FROM comments")
+    c.execute("SELECT id, name, comment, img, status FROM comments")
     comments = c.fetchall()
     conn.close()
 
