@@ -271,7 +271,9 @@ async def admin(
     credentials: HTTPBasicCredentials = Depends(security),
     lang: str = "vi",
 ):
-   if not (credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS):
+    if not (
+        credentials.username == "admin" and credentials.password == "password"
+    ):
         return HTMLResponse(content="Unauthorized", status_code=401)
 
     data = content.get(lang, content["vi"])
