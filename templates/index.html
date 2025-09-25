@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="{{ lang }}">
 <head>
     <meta charset="UTF-8">
@@ -114,7 +114,17 @@
             height: 18px;
         }
         .warn-list {
-            margin: 20px 0;
+            list-style: none;  /* bỏ dấu chấm mặc định */
+            padding-left: 0;
+            margin-left: 0;
+        }
+        .warn-list .title-line {
+            margin-top: 10px;
+            font-weight: bold;
+            margin-left: 0; /* không thụt lề cho dòng có số */
+        }
+        .warn-list .normal-line {
+            margin-left: 20px; /* thụt vào cho các dòng không số */
         }
         .warn-item {
             margin-bottom: 15px;
@@ -235,11 +245,14 @@
     {% elif page=="tips" %}
         <!-- Mục Cảnh báo -->
         <h2>⚠️ {{ "Lưu ý quan trọng" if lang=="vi" else ("Important Warnings" if lang=="en" else "중요한 주의사항") }}</h2>
-        <ul>
+        <ul class="warn-list">
             {% for w in data["warn"] %}
-                <li>{{ w }}</li>
+                <li class="{% if w[0].isdigit() %}title-line{% else %}normal-line{% endif %}">
+                    {{ w }}
+                </li>
             {% endfor %}
-        </ul>      
+        </ul>
+    {% endif %}
     {% elif page == "checklist" %}
     <h2>📋 Checklist</h2>
     <div class="checklist-container">
