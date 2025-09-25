@@ -3,7 +3,7 @@ import uuid
 import sqlite3
 import smtplib
 from email.mime.text import MIMEText
-from fastapi import FastAPI, Request, Form, UploadFile, File, Depends
+from fastapi import FastAPI, Request, Form, UploadFile, File, Depends, HTTPException, status
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -27,30 +27,42 @@ security = HTTPBasic()
 os.makedirs("uploads", exist_ok=True)
 conn = sqlite3.connect(DB_FILE)
 c = conn.cursor()
+# create table with email column (if not exists)
 c.execute("""
     CREATE TABLE IF NOT EXISTS comments (
         id TEXT PRIMARY KEY,
         name TEXT NOT NULL,
+        email TEXT,
         comment TEXT NOT NULL,
         img TEXT,
         token TEXT,
         status TEXT DEFAULT 'pending'
     )
 """)
+# If the table existed before without email, add email column (safe)
+c.execute("PRAGMA table_info(comments)")
+cols = [row[1] for row in c.fetchall()]
+if "email" not in cols:
+    try:
+        c.execute("ALTER TABLE comments ADD COLUMN email TEXT")
+    except Exception:
+        pass
+        
 conn.commit()
 conn.close()
 # ---------------- HELPER ----------------
-def is_admin_user(credentials: HTTPBasicCredentials = Depends(security)):
-    return credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS
+#def is_admin_user(credentials: HTTPBasicCredentials = Depends(security)):
+#    return credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS
 
 def dict_from_row(row):
     """Chuyển tuple DB thành dict cho template dễ đọc"""
     return {
         "id": row[0],
         "name": row[1],
-        "comment": row[2],
-        "img": row[3],
-        "status": row[4],
+        "email": row[2],
+        "comment": row[3],
+        "img": row[4],
+        "status": row[5],
     }
 # def send_email(to_email: str, link: str):
 #    try:
@@ -231,7 +243,7 @@ async def home(request: Request, lang: str = "vi"):
     data = content.get(lang, content["vi"])
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("SELECT id, name, comment, img, status FROM comments")
+    c.execute("SELECT id, name, email, comment, img, status FROM comments")
     rows = c.fetchall()
     conn.close()
 
@@ -254,7 +266,7 @@ async def about(request: Request, lang: str = "vi"):
     data = content.get(lang, content["vi"])
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("SELECT id, name, comment, img, status FROM comments")
+    c.execute("SELECT id, name, email, comment, img, status FROM comments")
     rows = c.fetchall()
     conn.close()
 
@@ -279,7 +291,7 @@ async def tips(request: Request, lang: str = "vi"):
     data = content.get(lang, content["vi"])
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("SELECT id, name, comment, img, status FROM comments")
+    c.execute("SELECT id, name, email, comment, img, status FROM comments")
     rows = c.fetchall()
     conn.close()
 
@@ -301,6 +313,7 @@ async def tips(request: Request, lang: str = "vi"):
 async def comment(
     request: Request,
     name: str = Form(...),
+    email: str = Form(...),
     comment: str = Form(...),
     lang: str = Form("vi"),
     image: UploadFile = File(None),
@@ -318,8 +331,8 @@ async def comment(
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
     c.execute(
-        "INSERT INTO comments (id, name, comment, img, status, token) VALUES (?, ?, ?, ?, ?, ?)",
-        (comment_id, name, comment, filename, "pending", token),
+        "INSERT INTO comments (id, name, email, comment, img, token, status) VALUES (?, ?, ?, ?, ?, ?, ?)",
+        (comment_id, name, email, comment, filename, token, "pending"),
     )
     conn.commit()
     conn.close()
@@ -334,13 +347,13 @@ async def admin(
     credentials: HTTPBasicCredentials = Depends(security),
     lang: str = "vi",
 ):
-    if not (credentials.username == "admin" and credentials.password == "password"):
-        return HTMLResponse(content="Unauthorized", status_code=401)
+    if not (credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS):
+        raise HTTPException(status_code=401, detail="Unauthorized", headers={"WWW-Authenticate": "Basic"})
 
     data = content.get(lang, content["vi"])
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("SELECT id, name, comment, img, status FROM comments")
+    c.execute("SELECT id, name, email, comment, img, status FROM comments")
     rows = c.fetchall()
     conn.close()
 
@@ -353,7 +366,7 @@ async def admin(
             "lang": lang,
             "comments": comments,
             "is_admin": True,
-            "page": "home",
+            #"page": "home",
         },
     )
 
@@ -365,7 +378,7 @@ async def delete_comment(
     credentials: HTTPBasicCredentials = Depends(security),
 ):
     if not (credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS):
-        return HTMLResponse(content="Unauthorized", status_code=401)
+        raise HTTPException(status_code=401, detail="Unauthorized", headers={"WWW-Authenticate": "Basic"})
 
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
@@ -394,7 +407,7 @@ async def admin_verify_email(
     credentials: HTTPBasicCredentials = Depends(security),
 ):
     if not (credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS):
-        return HTMLResponse(content="Unauthorized", status_code=401)
+        raise HTTPException(status_code=401, detail="Unauthorized", headers={"WWW-Authenticate": "Basic"})
 
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
