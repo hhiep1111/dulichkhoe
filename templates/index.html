@@ -240,10 +240,9 @@
                 <li>{{ w }}</li>
             {% endfor %}
         </ul>
-
+        
     {% elif page=="checklist" %}
-        <!-- Mục Checklist -->
-        <h2>📋 {{ "Checklist" if lang=="vi" else ("Checklist" if lang=="en" else "체크리스트") }}</h2>
+        <h2>📋 Checklist</h2>
         {% for section_index, section in enumerate(data["checklist"]) %}
             <h3>{{ section["title"] }}</h3>
             <ul>
