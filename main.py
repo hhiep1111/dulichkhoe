@@ -297,16 +297,7 @@ async def tips(request: Request, lang: str = "vi"):
     rows = c.fetchall()
     conn.close()
 
-    comments = []
-    for row in rows:
-    comments.append({
-        "id": row[0],
-        "name": row[1],
-        "email": row[2],
-        "comment": row[3],
-        "img": row[4],
-        "status": row[5],
-    })
+    comments = [dict_from_row(r) for r in rows]
 
     return templates.TemplateResponse(
         "index.html",
