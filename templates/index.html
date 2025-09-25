@@ -35,6 +35,7 @@
         form button { background:#2e8b57; color:white; padding:10px 20px; border:none; border-radius:5px; cursor:pointer; }
         form button:hover { background:#006400; }
         .comment-box { background:#f9f9f9; border:1px solid #ddd; padding:10px; margin-bottom:10px; border-radius:8px; }
+        .comment-box img { max-width:100%; border-radius:5px; margin-top:5px; }
         .delete-btn { background:#dc3545; color:white; padding:5px 10px; border:none; border-radius:5px; cursor:pointer; }
         .delete-btn:hover { background:#a71d2a; }
         .pending { font-size:12px; color:gray; }
@@ -93,7 +94,7 @@
         {% if data.checklist %}
             <div class="tips-heading"><h2>📋 {{ "Checklist" if lang=="vi" else ("Checklist" if lang=="en" else "체크리스트") }}</h2></div>
             <div class="checklist-container">
-                <div class="checklist-overlay">
+                <div class="checklist-overlay" id="checklist">
                     <div class="checklist-grid">
                         {% for section in data.checklist %}
                             {% set section_index = loop.index0 %}
@@ -110,6 +111,7 @@
                     </div>
                 </div>
             </div>
+            <button id="saveChecklist" style="margin-top:15px;">{{ "Lưu checklist thành ảnh" if lang=="vi" else ("Save checklist as image" if lang=="en" else "체크리스트 이미지 저장") }}</button>
         {% endif %}
     {% endif %}
 </section>
@@ -143,7 +145,6 @@
             {% if is_admin %}
                 <form action="/delete_comment" method="post" style="margin-top:5px;">
                     <input type="hidden" name="id" value="{{ c.id }}">
-                    <input type="hidden" name="token" value="{{ c.token }}">
                     <button type="submit" class="delete-btn">{{ "Xóa" if lang=="vi" else ("Delete" if lang=="en" else "삭제") }}</button>
                 </form>
             {% endif %}
@@ -156,5 +157,19 @@
 <p>&copy; 2025 Du lịch Khỏe</p>
 <p>🌐 <a href="/?lang=vi">VI</a> | <a href="/?lang=en">EN</a> | <a href="/?lang=kr">KR</a></p>
 </footer>
+
+<!-- html2canvas để lưu checklist thành ảnh -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+document.getElementById("saveChecklist")?.addEventListener("click", function() {
+    const checklist = document.getElementById("checklist");
+    html2canvas(checklist).then(canvas => {
+        let link = document.createElement("a");
+        link.download = "checklist.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+    });
+});
+</script>
 </body>
 </html>
