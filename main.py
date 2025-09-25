@@ -287,13 +287,10 @@ async def admin(
     credentials: HTTPBasicCredentials = Depends(security),
     lang: str = "vi",
 ):
-    if not (
-        credentials.username == "admin" and credentials.password == "password"
-    ):
+    if not (credentials.username == "admin" and credentials.password == "password"):
         return HTMLResponse(content="Unauthorized", status_code=401)
 
     data = content.get(lang, content["vi"])
-
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
     c.execute("SELECT id, name, comment, img, status FROM comments")
