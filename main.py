@@ -81,7 +81,7 @@ content = {
     "vi": {
         "title": "Du lịch Khỏe - Đồng bằng Sông Cửu Long",
         "intro": "Khám phá miền Tây Nam Bộ: sông nước, ẩm thực và văn hóa độc đáo.",
-        "menu": {"home": "Trang chủ", "about": "Giới thiệu", "tips": "Lưu ý", "lang": "Ngôn ngữ"},
+        "menu": {"home": "Trang chủ", "about": "Giới thiệu", "tips": "Lưu ý", "checklist": "Check-list" "lang": "Ngôn ngữ"},
         "about": "Xin chào, chúng ta là những người yêu thích du lịch và văn hóa miền Tây.",
         "places": [
             {"name": "Chợ nổi Cái Răng (Cần Thơ)", "img": "cantho.jpg",
