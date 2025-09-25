@@ -216,65 +216,48 @@
     </script>
 
     <section>
-        {% if page=="home" %}
-            {% for p in data.places %}
-            <div class="card">
-                <img src="/static/images/{{ p.img }}" alt="{{ p.name }}">
-                <div class="card-content">
-                    <h2>{{ p.name }}</h2>
-                    <p>{{ p.desc }}</p>
-                </div>
+    {% if page=="home" %}
+        {% for p in data.places %}
+        <div class="card">
+            <img src="/static/images/{{ p.img }}" alt="{{ p.name }}">
+            <div class="card-content">
+                <h2>{{ p.name }}</h2>
+                <p>{{ p.desc }}</p>
             </div>
+        </div>
+        {% endfor %}
+
+    {% elif page=="about" %}
+        <h2>{{ "Giới thiệu" if lang=="vi" else ("About Me" if lang=="en" else "소개") }}</h2>
+        <p>{{ data.about }}</p>
+
+    {% elif page=="tips" %}
+        <!-- Mục Cảnh báo -->
+        <h2>⚠️ {{ "Lưu ý quan trọng" if lang=="vi" else ("Important Warnings" if lang=="en" else "중요한 주의사항") }}</h2>
+        <ul>
+            {% for w in data["warn"] %}
+                <li>{{ w }}</li>
             {% endfor %}
+        </ul>
 
-        {% elif page=="about" %}
-            <h2>{{ "Giới thiệu" if lang=="vi" else ("About Me" if lang=="en" else "소개") }}</h2>
-            <p>{{ data.about }}</p>
-
-        {% elif page=="tips" %}
-            <div class="tips-heading">
-                <h2>⚠️ {{ "Lưu ý" if lang=="vi" else ("Travel Tips" if lang=="en" else "여행 유의사항") }}</h2>
-            </div>
-
-            {% if data.warn %}
-            <div class="warn-list">
-                {% for w in data.warn %}
-                <div class="warn-item"><p>{{ w }}</p></div>
+    {% elif page=="checklist" %}
+        <!-- Mục Checklist -->
+        <h2>📋 {{ "Checklist" if lang=="vi" else ("Checklist" if lang=="en" else "체크리스트") }}</h2>
+        {% for section_index, section in enumerate(data["checklist"]) %}
+            <h3>{{ section["title"] }}</h3>
+            <ul>
+                {% for item in section["items"] %}
+                    {% set cid = 'chk_' ~ lang ~ '_' ~ section_index ~ '_' ~ loop.index0 %}
+                    <li>
+                        <label>
+                            <input type="checkbox" id="{{ cid }}"> {{ item }}
+                        </label>
+                    </li>
                 {% endfor %}
-            </div>
-            {% endif %}
-
-            {% if data.checklist %}
-            <div class="tips-heading">
-                <h2>📋 {{ "Checklist" if lang=="vi" else ("Checklist" if lang=="en" else "체크리스트") }}</h2>
-            </div>
-            <div class="checklist-container">
-                <div class="checklist-overlay">
-                    <div class="checklist-grid">
-                        {% for section in data.checklist %}
-                        {% set section_index = loop.index0 %}
-                        <div class="checklist-section">
-                            <h3>{{ section.["title"] }}</h3>
-                            <ul>
-                                {% for item in section["items"] %}
-                                {% set cid = 'chk_' ~ lang ~ '_' ~ section_index ~ '_' ~ loop.index0 %}
-                                <li>
-                                    <label>
-                                        <input type="checkbox" id="{{ cid }}"> {{ item }}
-                                    </label>
-                                </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-        {% endif %}
-    </section>
-
-    <section>
+            </ul>
+        {% endfor %}
+    {% endif %}
+</section>
         <h2>💬 {{ "Bình luận" if lang=="vi" else ("Comments" if lang=="en" else "댓글") }}</h2>
 
         <form action="/comment" method="post" enctype="multipart/form-data" style="max-width:600px; margin:auto;">
