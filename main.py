@@ -11,35 +11,37 @@ from fastapi.security import HTTPBasic, HTTPBasicCredentials
 
 app = FastAPI()
 
-# Mount static và uploads
+# Mount static & uploads
 app.mount("/static", StaticFiles(directory="static"), name="static")
 app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 
 templates = Jinja2Templates(directory="templates")
-
-DB_FILE = "comments.db"
-ADMIN_USER = os.getenv("ADMIN_USER", "admin")
-ADMIN_PASS = os.getenv("ADMIN_PASS", "123456")
-
 security = HTTPBasic()
 
-# ---------------- INIT DB ----------------
-os.makedirs("uploads", exist_ok=True)
-conn = sqlite3.connect(DB_FILE)
-c = conn.cursor()
-c.execute("""
-CREATE TABLE IF NOT EXISTS comments (
-    id TEXT PRIMARY KEY,
-    name TEXT,
-    email TEXT,
-    text TEXT,
-    img TEXT,
-    token TEXT,
-    status TEXT DEFAULT 'pending'
-)
-""")
-conn.commit()
-conn.close()
+DB_FILE = "comments.db"
+
+ADMIN_USER = "admin"
+ADMIN_PASS = "123456"
+
+# ---------------- DATABASE INIT ----------------
+def init_db():
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    c.execute("""
+        CREATE TABLE IF NOT EXISTS comments (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT,
+            email TEXT,
+            comment TEXT,
+            image TEXT,
+            status TEXT DEFAULT 'pending',
+            token TEXT
+        )
+    """)
+    conn.commit()
+    conn.close()
+
+init_db()
 
 # ---------------- DATA ----------------
 content = {
