@@ -114,17 +114,17 @@
             height: 18px;
         }
         .warn-list {
-            list-style: none;  /* bỏ dấu chấm mặc định */
+            list-style: none;
             padding-left: 0;
             margin-left: 0;
         }
         .warn-list .title-line {
             margin-top: 10px;
             font-weight: bold;
-            margin-left: 0; /* không thụt lề cho dòng có số */
+            margin-left: 0;
         }
         .warn-list .normal-line {
-            margin-left: 20px; /* thụt vào cho các dòng không số */
+            margin-left: 20px;
         }
         .warn-item {
             margin-bottom: 15px;
@@ -227,7 +227,7 @@
     </script>
 
 <section>
-    {% if page=="home" %}
+    {% if page == "home" %}
         {% for p in data.places %}
         <div class="card">
             <img src="/static/images/{{ p.img }}" alt="{{ p.name }}">
@@ -238,12 +238,11 @@
         </div>
         {% endfor %}
 
-    {% elif page=="about" %}
+    {% elif page == "about" %}
         <h2>{{ "Giới thiệu" if lang=="vi" else ("About Me" if lang=="en" else "소개") }}</h2>
         <p>{{ data.about }}</p>
 
-    {% elif page=="tips" %}
-        <!-- Mục Cảnh báo -->
+    {% elif page == "tips" %}
         <h2>⚠️ {{ "Lưu ý quan trọng" if lang=="vi" else ("Important Warnings" if lang=="en" else "중요한 주의사항") }}</h2>
         <ul class="warn-list">
             {% for w in data["warn"] %}
@@ -252,33 +251,33 @@
                 </li>
             {% endfor %}
         </ul>
-    {% endif %}
-    {% elif page =="checklist" %}
-    <h2>📋 Checklist</h2>
-    <div class="checklist-container">
-        <div class="checklist-overlay">
-            <div class="checklist-grid">
-                {% for section in data.checklist %}
-                    {% set sidx = loop.index0 %}
-                    <div class="checklist-section">
-                        <h3>{{ section.title }}</h3>
-                        <ul>
-                            {% for item in section.items %}
-                                {% set iidx = loop.index0 %}
-                                <li>
-                                    <label>
-                                        <input type="checkbox" id="chk_{{ lang }}_{{ sidx }}_{{ iidx }}">
-                                        {{ item }}
-                                    </label>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                {% endfor %}
+
+    {% elif page == "checklist" %}
+        <h2>📋 Checklist</h2>
+        <div class="checklist-container">
+            <div class="checklist-overlay">
+                <div class="checklist-grid">
+                    {% for section in data.checklist %}
+                        {% set sidx = loop.index0 %}
+                        <div class="checklist-section">
+                            <h3>{{ section.title }}</h3>
+                            <ul>
+                                {% for item in section.items %}
+                                    {% set iidx = loop.index0 %}
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" id="chk_{{ lang }}_{{ sidx }}_{{ iidx }}">
+                                            {{ item }}
+                                        </label>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
-    </div>
-{% endif %}
+    {% endif %}
 </section>
     
 <section>
@@ -319,7 +318,7 @@
               </p>
               {% endif %}
 
-              <p>{{ c.comment }}</p>   <!-- Đổi từ c.text thành c.comment -->
+              <p>{{ c.comment }}</p>
 
             {% if c.img %}
             <img src="/uploads/{{ c.img }}" alt="Comment Image">
