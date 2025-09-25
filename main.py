@@ -14,13 +14,11 @@ app = FastAPI()
 # Mount static & uploads
 app.mount("/static", StaticFiles(directory="static"), name="static")
 app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
-
 templates = Jinja2Templates(directory="templates")
 
 DB_FILE = "comments.db"
 ADMIN_USER = os.getenv("ADMIN_USER", "admin")
 ADMIN_PASS = os.getenv("ADMIN_PASS", "123456")
-
 security = HTTPBasic()
 
 # ---------------- DATABASE INIT ----------------
@@ -310,6 +308,9 @@ async def warn(request: Request, lang: str = "vi"):
 # Route checklist
 @app.get("/checklist", response_class=HTMLResponse)
 async def checklist(request: Request, lang: str = "vi"):
+    if not (credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS):
+        raise HTTPException(status_code=401, detail="Unauthorized", headers={"WWW-Authenticate": "Basic"})
+
     data = content.get(lang, content["vi"])
 
     conn = sqlite3.connect(DB_FILE)
