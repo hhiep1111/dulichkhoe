@@ -243,11 +243,11 @@
         
     {% elif page=="checklist" %}
         <h2>📋 Checklist</h2>
-        {% for section_index, section in enumerate(data["checklist"]) %}
+        {% for section in data["checklist"] %}
             <h3>{{ section["title"] }}</h3>
             <ul>
                 {% for item in section["items"] %}
-                    {% set cid = 'chk_' ~ lang ~ '_' ~ section_index ~ '_' ~ loop.index0 %}
+                    {% set cid = 'chk_' ~ lang ~ '_' ~ loop.parent.loop.index0 ~ '_' ~ loop.index0 %}
                     <li>
                         <label>
                             <input type="checkbox" id="{{ cid }}"> {{ item }}
