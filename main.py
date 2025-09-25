@@ -43,17 +43,25 @@ conn.close()
 def is_admin_user(credentials: HTTPBasicCredentials = Depends(security)):
     return credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS
 
-
-def send_email(to_email: str, link: str):
-    try:
-        server = smtplib.SMTP("smtp.gmail.com", 587)
-        server.starttls()
-        server.login(EMAIL_USER, EMAIL_PASS)
-        msg = f"Subject: Xác nhận email\n\nClick link để xác nhận: {link}"
-        server.sendmail(EMAIL_USER, to_email, msg)
-        server.quit()
-    except Exception as e:
-        print("Error sending email:", e)
+def dict_from_row(row):
+    """Chuyển tuple DB thành dict cho template dễ đọc"""
+    return {
+        "id": row[0],
+        "name": row[1],
+        "comment": row[2],
+        "img": row[3],
+        "status": row[4],
+    }
+# def send_email(to_email: str, link: str):
+#    try:
+#       server = smtplib.SMTP("smtp.gmail.com", 587)
+#        server.starttls()
+#        server.login(EMAIL_USER, EMAIL_PASS)
+#        msg = f"Subject: Xác nhận email\n\nClick link để xác nhận: {link}"
+#        server.sendmail(EMAIL_USER, to_email, msg)
+#       server.quit()
+#    except Exception as e:
+#       print("Error sending email:", e)
 
 
 # ---------------- DATA ----------------
@@ -224,12 +232,20 @@ async def home(request: Request, lang: str = "vi"):
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
     c.execute("SELECT id, name, comment, img, status FROM comments")
-    comments = c.fetchall()
+    rows = c.fetchall()
     conn.close()
+
+    comments = [dict_from_row(r) for r in rows]
 
     return templates.TemplateResponse(
         "index.html",
-        {"request": request, "data": data, "lang": lang, "comments": comments},
+        {
+            "request": request,
+            "data": data,
+            "lang": lang,
+            "comments": comments,
+            "is_admin": False,  # mặc định khách
+        },
     )
 
 
@@ -284,9 +300,17 @@ async def admin(
     comments = c.fetchall()
     conn.close()
 
-    return templates.TemplateResponse(
-        "admin.html",
-        {"request": request, "data": data, "lang": lang, "comments": comments},
+    comments = [dict_from_row(r) for r in rows]
+    
+   return templates.TemplateResponse(
+        "index.html",  # dùng chung index
+        {
+            "request": request,
+            "data": data,
+            "lang": lang,
+            "comments": comments,
+            "is_admin": True,
+        },
     )
 
 # ---------------- DELETE ----------------
