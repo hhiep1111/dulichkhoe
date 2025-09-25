@@ -44,7 +44,7 @@ def init_db():
 init_db()
 
 # ---------------- DATA ----------------
-content = {
+data = {
     "vi": {
         "title": "Du lịch Khỏe - Đồng bằng Sông Cửu Long",
         "intro": "Khám phá miền Tây Nam Bộ: sông nước, ẩm thực và văn hóa độc đáo.",
