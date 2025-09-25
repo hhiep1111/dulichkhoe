@@ -254,7 +254,7 @@
                         {% for section in data.checklist %}
                         {% set section_index = loop.index0 %}
                         <div class="checklist-section">
-                            <h3>{{ section.title }}</h3>
+                            <h3>{{ section.["title"] }}</h3>
                             <ul>
                                 {% for item in section["items"] %}
                                 {% set cid = 'chk_' ~ lang ~ '_' ~ section_index ~ '_' ~ loop.index0 %}
