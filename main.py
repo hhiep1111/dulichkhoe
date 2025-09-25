@@ -353,7 +353,7 @@ async def admin(
             "lang": lang,
             "comments": comments,
             "is_admin": True,
-            "page" = "home",
+            "page": "home",
         },
     )
 
