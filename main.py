@@ -335,4 +335,3 @@ async def admin_verify_email(
     conn.close()
     
     return RedirectResponse(url="/admin", status_code=303)
-    return RedirectResponse(url="/admin", status_codmin", status_code=303)
