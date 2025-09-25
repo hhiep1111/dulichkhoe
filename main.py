@@ -308,9 +308,6 @@ async def warn(request: Request, lang: str = "vi"):
 # Route checklist
 @app.get("/checklist", response_class=HTMLResponse)
 async def checklist(request: Request, lang: str = "vi"):
-    if not (credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS):
-        raise HTTPException(status_code=401, detail="Unauthorized", headers={"WWW-Authenticate": "Basic"})
-
     data = content.get(lang, content["vi"])
 
     conn = sqlite3.connect(DB_FILE)
@@ -325,7 +322,7 @@ async def checklist(request: Request, lang: str = "vi"):
         {
             "request": request,
             "data": data,
-            "page": "checklist",   # flag để template biết đang ở trang checklist
+            "page": "checklist",
             "lang": lang,
             "comments": comments,
             "is_admin": False,
