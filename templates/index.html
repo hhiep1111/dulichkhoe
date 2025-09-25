@@ -5,69 +5,219 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ data.title }}</title>
     <style>
-        body { font-family: Arial, sans-serif; background: #f5faff; margin:0; padding:0; }
-        header { background: #2e8b57; color: white; padding: 20px; text-align:center; }
-        nav { text-align: center; background: #006400; padding: 10px; }
-        nav a { color: white; margin: 0 10px; text-decoration:none; }
-        nav a:hover { text-decoration: underline; }
-        nav .dropdown { position: relative; display: inline-block; }
-        nav .dropdown-content { display: none; position: absolute; background: #006400; padding:5px; border-radius:5px; z-index:1000; }
-        nav .dropdown-content a { display:block; color:white; padding:5px; }
-        section { padding: 20px; }
-        .card { background:white; border-radius:10px; box-shadow:0 0 8px #ccc; margin-bottom:20px; overflow:hidden; }
-        .card img { width:100%; height:250px; object-fit:cover; }
-        .card-content { padding:15px; }
-        .tips-heading { margin-bottom:12px; display:flex; align-items:center; gap:10px; }
-        .checklist-container { padding:26px; border-radius:12px; box-shadow:0 0 12px rgba(0,0,0,0.18); }
-        .checklist-overlay { background: rgba(255,255,255,0.86); padding:18px; border-radius:10px; }
-        .checklist-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
-        .checklist-section { padding:12px; border-radius:8px; background: rgba(255,255,255,0.98); box-shadow:0 1px 4px rgba(0,0,0,0.06); }
-        .checklist-section h3 { margin:0 0 8px 0; font-size:16px; letter-spacing:2px; text-transform:uppercase; }
-        .checklist-section ul { list-style:none; padding:0; margin:0; }
-        .checklist-section li { margin-bottom:8px; display:flex; align-items:center; gap:10px; }
-        .checklist-section input[type="checkbox"] { width:18px; height:18px; }
-        .warn-list { margin:20px 0; }
-        .warn-item { margin-bottom:15px; }
-        @media (max-width: 800px) { .checklist-grid { grid-template-columns:1fr; } header h1 { font-size:20px; } .card img { height:180px; } }
-        footer { background:#2e8b57; color:white; text-align:center; padding:15px; margin-top:20px; }
-        form { background:white; padding:20px; border-radius:8px; box-shadow:0 0 8px #ccc; margin-top:15px; }
-        form input, form textarea { width:100%; padding:10px; margin:5px 0; border-radius:5px; border:1px solid #ccc; }
-        form button { background:#2e8b57; color:white; padding:10px 20px; border:none; border-radius:5px; cursor:pointer; }
-        form button:hover { background:#006400; }
-        .comment-box { background:#f9f9f9; border:1px solid #ddd; padding:10px; margin-bottom:10px; border-radius:8px; }
-        .comment-box img { max-width:100%; border-radius:5px; margin-top:5px; }
-        .delete-btn { background:#dc3545; color:white; padding:5px 10px; border:none; border-radius:5px; cursor:pointer; }
-        .delete-btn:hover { background:#a71d2a; }
-        .pending { font-size:12px; color:gray; }
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5faff;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #2e8b57;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            text-align: center;
+            background: #006400;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        nav .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        nav .dropdown-content {
+            display: none;
+            position: absolute;
+            background: #006400;
+            padding: 5px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+        nav .dropdown-content a {
+            display: block;
+            color: white;
+            padding: 5px;
+        }
+        section {
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 8px #ccc;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 15px;
+        }
+        .tips-heading {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .checklist-container {
+            padding: 26px;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.18);
+        }
+        .checklist-overlay {
+            background: rgba(255,255,255,0.86);
+            padding: 18px;
+            border-radius: 10px;
+        }
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+        .checklist-section {
+            padding: 12px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.98);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        }
+        .checklist-section h3 {
+            margin: 0 0 8px 0;
+            font-size: 16px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .checklist-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .checklist-section li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .checklist-section input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+        }
+        .warn-list {
+            margin: 20px 0;
+        }
+        .warn-item {
+            margin-bottom: 15px;
+        }
+        @media (max-width: 800px) {
+            .checklist-grid {
+                grid-template-columns: 1fr;
+            }
+            header h1 {
+                font-size: 20px;
+            }
+            .card img {
+                height: 180px;
+            }
+        }
+        footer {
+            background: #2e8b57;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px #ccc;
+            margin-top: 15px;
+        }
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        form button {
+            background: #2e8b57;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background: #006400;
+        }
+        .comment-box {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+        }
+        .delete-btn {
+            background: #dc3545;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .delete-btn:hover {
+            background: #a71d2a;
+        }
+        .pending {
+            font-size: 12px;
+            color: gray;
+        }
     </style>
 </head>
 <body>
-<header>
-    <h1>{{ data.title }}</h1>
-    <p>{{ data.intro }}</p>
-</header>
+    <header>
+        <h1>{{ data.title }}</h1>
+        <p>{{ data.intro }}</p>
+    </header>
 
-<nav>
-    <a href="/?lang={{ lang }}">{{ data.menu.home }}</a> |
-    <a href="/about?lang={{ lang }}">{{ data.menu.about }}</a> |
-    <a href="/tips?lang={{ lang }}">{{ data.menu.tips }}</a> |
-    <div class="dropdown">
-        <a href="#">{{ data.menu.lang }} ▼</a>
-        <div class="dropdown-content">
-            <a href="/?lang=vi">Tiếng Việt</a>
-            <a href="/?lang=en">English</a>
-            <a href="/?lang=kr">한국어</a>
+    <nav>
+        <a href="/?lang={{ lang }}">{{ data.menu.home }}</a> |
+        <a href="/about?lang={{ lang }}">{{ data.menu.about }}</a> |
+        <a href="/tips?lang={{ lang }}">{{ data.menu.tips }}</a> |
+        <div class="dropdown">
+            <a href="#">{{ data.menu.lang }} ▼</a>
+            <div class="dropdown-content">
+                <a href="/?lang=vi">Tiếng Việt</a>
+                <a href="/?lang=en">English</a>
+                <a href="/?lang=kr">한국어</a>
+            </div>
         </div>
-    </div>
-</nav>
-<script>
-    document.querySelector(".dropdown").addEventListener("mouseenter", function() { this.querySelector(".dropdown-content").style.display="block"; });
-    document.querySelector(".dropdown").addEventListener("mouseleave", function() { this.querySelector(".dropdown-content").style.display="none"; });
-</script>
+    </nav>
 
-<section>
-    {% if page=="home" %}
-        {% for p in data.places %}
+    <script>
+        document.querySelector(".dropdown").addEventListener("mouseenter", function() {
+            this.querySelector(".dropdown-content").style.display = "block";
+        });
+        document.querySelector(".dropdown").addEventListener("mouseleave", function() {
+            this.querySelector(".dropdown-content").style.display = "none";
+        });
+    </script>
+
+    <section>
+        {% if page=="home" %}
+            {% for p in data.places %}
             <div class="card">
                 <img src="/static/images/{{ p.img }}" alt="{{ p.name }}">
                 <div class="card-content">
@@ -75,101 +225,121 @@
                     <p>{{ p.desc }}</p>
                 </div>
             </div>
-        {% endfor %}
-    {% elif page=="about" %}
-        <h2>{{ "Giới thiệu" if lang=="vi" else ("About Me" if lang=="en" else "소개") }}</h2>
-        <p>{{ data.about }}</p>
-    {% elif page=="tips" %}
-        <div class="tips-heading">
-            <h2>⚠️ {{ "Lưu ý" if lang=="vi" else ("Travel Tips" if lang=="en" else "여행 유의사항") }}</h2>
-        </div>
-        {% if data.warn %}
+            {% endfor %}
+
+        {% elif page=="about" %}
+            <h2>{{ "Giới thiệu" if lang=="vi" else ("About Me" if lang=="en" else "소개") }}</h2>
+            <p>{{ data.about }}</p>
+
+        {% elif page=="tips" %}
+            <div class="tips-heading">
+                <h2>⚠️ {{ "Lưu ý" if lang=="vi" else ("Travel Tips" if lang=="en" else "여행 유의사항") }}</h2>
+            </div>
+
+            {% if data.warn %}
             <div class="warn-list">
                 {% for w in data.warn %}
-                    <div class="warn-item"><p>{{ w }}</p></div>
+                <div class="warn-item"><p>{{ w }}</p></div>
                 {% endfor %}
             </div>
-        {% endif %}
+            {% endif %}
 
-        {% if data.checklist %}
-            <div class="tips-heading"><h2>📋 {{ "Checklist" if lang=="vi" else ("Checklist" if lang=="en" else "체크리스트") }}</h2></div>
+            {% if data.checklist %}
+            <div class="tips-heading">
+                <h2>📋 {{ "Checklist" if lang=="vi" else ("Checklist" if lang=="en" else "체크리스트") }}</h2>
+            </div>
             <div class="checklist-container">
-                <div class="checklist-overlay" id="checklist">
+                <div class="checklist-overlay">
                     <div class="checklist-grid">
                         {% for section in data.checklist %}
-                            {% set section_index = loop.index0 %}
-                            <div class="checklist-section">
-                                <h3>{{ section.title }}</h3>
-                                <ul>
-                                    {% for item in section.items %}
-                                        {% set cid = 'chk_' ~ lang ~ '_' ~ section_index ~ '_' ~ loop.index0 %}
-                                        <li><label><input type="checkbox" id="{{ cid }}"> {{ item }}</label></li>
-                                    {% endfor %}
-                                </ul>
-                            </div>
+                        {% set section_index = loop.index0 %}
+                        <div class="checklist-section">
+                            <h3>{{ section.title }}</h3>
+                            <ul>
+                                {% for item in section.items %}
+                                {% set cid = 'chk_' ~ lang ~ '_' ~ section_index ~ '_' ~ loop.index0 %}
+                                <li>
+                                    <label>
+                                        <input type="checkbox" id="{{ cid }}"> {{ item }}
+                                    </label>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
                         {% endfor %}
                     </div>
                 </div>
             </div>
-            <button id="saveChecklist" style="margin-top:15px;">{{ "Lưu checklist thành ảnh" if lang=="vi" else ("Save checklist as image" if lang=="en" else "체크리스트 이미지 저장") }}</button>
+            {% endif %}
         {% endif %}
-    {% endif %}
-</section>
+    </section>
 
-<section>
-<h2>💬 {{ "Bình luận" if lang=="vi" else ("Comments" if lang=="en" else "댓글") }}</h2>
-<form action="/comment" method="post" enctype="multipart/form-data" style="max-width:600px; margin:auto;">
-    <label>{{ "Tên" if lang=="vi" else ("Name" if lang=="en" else "이름") }}:<br>
-        <input type="text" name="name" required>
-    </label><br>
-    <label>Email:<br>
-        <input type="email" name="email" required>
-    </label><br>
-    <label>{{ "Bình luận" if lang=="vi" else ("Comment" if lang=="en" else "댓글") }}:<br>
-        <textarea name="comment" rows="4" required></textarea>
-    </label><br>
-    <label>{{ "Ảnh minh họa" if lang=="vi" else ("Attach Image" if lang=="en" else "사진 첨부") }}:<br>
-        <input type="file" name="image" accept="image/*">
-    </label><br>
-    <button type="submit">{{ "Gửi" if lang=="vi" else ("Submit" if lang=="en" else "보내기") }}</button>
-</form>
+    <section>
+        <h2>💬 {{ "Bình luận" if lang=="vi" else ("Comments" if lang=="en" else "댓글") }}</h2>
 
-<div style="max-width:600px; margin:20px auto;">
-    {% for c in comments %}
-        <div class="comment-box">
-            <p><strong>{{ c.name }}</strong></p>
-            {% if is_admin and c.email %}<p style="font-size:12px; color:gray;">📧 {{ c.email }}</p>{% endif %}
-            {% if not c.verified %}<p class="pending">{{ "Comment chờ xác minh email" if lang=="vi" else ("Pending email verification" if lang=="en" else "이메일 확인 대기 중") }}</p>{% endif %}
-            <p>{{ c.text }}</p>
-            {% if c.img %}<img src="/uploads/{{ c.img }}" alt="Comment Image">{% endif %}
-            {% if is_admin %}
+        <form action="/comment" method="post" enctype="multipart/form-data" style="max-width:600px; margin:auto;">
+            <label>
+                {{ "Tên" if lang=="vi" else ("Name" if lang=="en" else "이름") }}:<br>
+                <input type="text" name="name" required>
+            </label><br>
+            <label>
+                Email:<br>
+                <input type="email" name="email" required>
+            </label><br>
+            <label>
+                {{ "Bình luận" if lang=="vi" else ("Comment" if lang=="en" else "댓글") }}:<br>
+                <textarea name="comment" rows="4" required></textarea>
+            </label><br>
+            <label>
+                {{ "Ảnh minh họa" if lang=="vi" else ("Attach Image" if lang=="en" else "사진 첨부") }}:<br>
+                <input type="file" name="image" accept="image/*">
+            </label><br>
+            <button type="submit">
+                {{ "Gửi" if lang=="vi" else ("Submit" if lang=="en" else "보내기") }}
+            </button>
+        </form>
+
+        <div style="max-width:600px; margin:20px auto;">
+            {% for c in comments %}
+            <div class="comment-box">
+                <p><strong>{{ c.name }}</strong></p>
+                {% if is_admin and c.email %}
+                <p style="font-size:12px; color:gray;">📧 {{ c.email }}</p>
+                {% endif %}
+
+                {% if not c.verified %}
+                <p class="pending">
+                    {{ "Comment chờ xác minh email" if lang=="vi" else ("Pending email verification" if lang=="en" else "이메일 확인 대기 중") }}
+                </p>
+                {% endif %}
+
+                <p>{{ c.text }}</p>
+
+                {% if c.img %}
+                <img src="/uploads/{{ c.img }}" alt="Comment Image">
+                {% endif %}
+
+                {% if is_admin %}
                 <form action="/delete_comment" method="post" style="margin-top:5px;">
                     <input type="hidden" name="id" value="{{ c.id }}">
-                    <button type="submit" class="delete-btn">{{ "Xóa" if lang=="vi" else ("Delete" if lang=="en" else "삭제") }}</button>
+                    <input type="hidden" name="token" value="{{ c.token }}">
+                    <button type="submit" class="delete-btn">
+                        {{ "Xóa" if lang=="vi" else ("Delete" if lang=="en" else "삭제") }}
+                    </button>
                 </form>
-            {% endif %}
+                {% endif %}
+            </div>
+            {% endfor %}
         </div>
-    {% endfor %}
-</div>
-</section>
+    </section>
 
-<footer>
-<p>&copy; 2025 Du lịch Khỏe</p>
-<p>🌐 <a href="/?lang=vi">VI</a> | <a href="/?lang=en">EN</a> | <a href="/?lang=kr">KR</a></p>
-</footer>
-
-<!-- html2canvas để lưu checklist thành ảnh -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script>
-document.getElementById("saveChecklist")?.addEventListener("click", function() {
-    const checklist = document.getElementById("checklist");
-    html2canvas(checklist).then(canvas => {
-        let link = document.createElement("a");
-        link.download = "checklist.png";
-        link.href = canvas.toDataURL("image/png");
-        link.click();
-    });
-});
-</script>
+    <footer>
+        <p>&copy; 2025 Du lịch Khỏe</p>
+        <p>
+            🌐 <a href="/?lang=vi">VI</a> |
+            <a href="/?lang=en">EN</a> |
+            <a href="/?lang=kr">KR</a>
+        </p>
+    </footer>
 </body>
 </html>
