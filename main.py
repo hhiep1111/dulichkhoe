@@ -523,9 +523,9 @@ def send_verification_email(email: str, token: str, lang: str = "vi"):
     }.get(lang, f"Please verify your comment: {verify_link}")
 
     msg = MIMEText(body, "plain", "utf-8")
-    msg["Subject"] = test
+    msg["Subject"] = subject
     msg["From"] = SMTP_USER
-    msg["To"] = "shinesun7749@gmail.ccom
+    msg["To"] = email
 
     try:
         with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
@@ -575,7 +575,7 @@ async def admin_verify_email(
 async def verify_email(token: str, lang: str = "vi"):
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("UPDATE comments SET status='active' WHERE id=?", (comment_id,))
+    c.execute("SELECT id, status FROM comments WHERE token=?", (token,))
     row = c.fetchone()
 
     if not row:
