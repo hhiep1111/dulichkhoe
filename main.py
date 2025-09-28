@@ -379,7 +379,7 @@ async def admin(
 
     comments = [dict_from_row(r) for r in rows]
     return templates.TemplateResponse(
-        "index.html",  # dùng chung index
+        "admin.html",  # dùng trang admin
         {
             "request": request,
             "data": data,
