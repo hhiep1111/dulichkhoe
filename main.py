@@ -500,7 +500,7 @@ async def admin_verify_email(
 async def verify_email(token: str, lang: str = "vi"):
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("SELECT id, status FROM comments WHERE token=?", (token,))
+    c.execute("UPDATE comments SET status='active' WHERE id=?", (comment_id,))
     row = c.fetchone()
 
     if not row:
