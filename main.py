@@ -393,13 +393,19 @@ async def admin(
 # ---------------- DELETE ----------------
 @app.post("/delete_comment")
 async def delete_comment(
-    id: int = Form(...),
+    id: str = Form(...),
     token: str = Form(...),
     credentials: HTTPBasicCredentials = Depends(security),
 ):
+    # Kiểm tra đăng nhập admin
     if not (credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS):
-        raise HTTPException(status_code=401, detail="Unauthorized", headers={"WWW-Authenticate": "Basic"})
+        raise HTTPException(
+            status_code=401,
+            detail="Unauthorized",
+            headers={"WWW-Authenticate": "Basic"}
+        )
 
+    # Xóa comment đúng id + token
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
     c.execute("DELETE FROM comments WHERE id=? AND token=?", (id, token))
@@ -408,31 +414,71 @@ async def delete_comment(
 
     return RedirectResponse(url="/admin", status_code=303)
 
-
 # ---------------- VERIFY EMAIL ----------------
+SMTP_SERVER = "smtp.gmail.com"
+SMTP_PORT = 587
+SMTP_USER = "phhiep6264@gmail.com"
+SMTP_PASS = "cmphyfvggxvrhviw"
+def send_verification_email(email: str, token: str, lang: str = "vi"):
+    subject = {
+        "vi": "Xác minh bình luận của bạn",
+        "en": "Verify your comment",
+        "kr": "댓글 확인"
+    }.get(lang, "Verify your comment")
 
-@app.get("/verify_email")
-async def verify_email(token: str, lang: str = "vi"):
-    conn = sqlite3.connect(DB_FILE)
-    c = conn.cursor()
-    c.execute("UPDATE comments SET status='active' WHERE token=?", (token,))
-    conn.commit()
-    conn.close()
+    verify_link = f"https://dulichkhoe.onrender.com/verify_email?token={token}&lang={lang}"
 
-    return RedirectResponse(url=f"/?lang={lang}", status_code=303)
+    body = {
+        "vi": f"Xin chào,\n\nVui lòng nhấp vào liên kết sau để xác minh bình luận của bạn:\n{verify_link}\n\nCảm ơn!",
+        "en": f"Hello,\n\nPlease click the following link to verify your comment:\n{verify_link}\n\nThank you!",
+        "kr": f"안녕하세요,\n\n아래 링크를 클릭하여 댓글을 확인해 주세요:\n{verify_link}\n\n감사합니다!"
+    }.get(lang, f"Please verify your comment: {verify_link}")
+
+    msg = MIMEText(body, "plain", "utf-8")
+    msg["Subject"] = subject
+    msg["From"] = SMTP_USER
+    msg["To"] = email
+
+    try:
+        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
+            server.starttls()
+            server.login(SMTP_USER, SMTP_PASS)
+            server.sendmail(SMTP_USER, [email], msg.as_string())
+            print(f"✅ Verification email sent to {email}")
+    except Exception as e:
+        print("❌ Error sending email:", e)
 
 @app.post("/admin_verify_email")
 async def admin_verify_email(
     id: str = Form(...),
+    token: str = Form(...),
+    lang: str = "vi",
     credentials: HTTPBasicCredentials = Depends(security),
 ):
+    # Kiểm tra đăng nhập admin
     if not (credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS):
-        raise HTTPException(status_code=401, detail="Unauthorized", headers={"WWW-Authenticate": "Basic"})
+        raise HTTPException(
+            status_code=401,
+            detail="Unauthorized",
+            headers={"WWW-Authenticate": "Basic"}
+        )
 
+    # Lấy email user theo id + token
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("UPDATE comments SET status='active' WHERE id=?", (id,))
-    conn.commit()
+    c.execute("SELECT email FROM comments WHERE id=? AND token=?", (id, token))
+    row = c.fetchone()
+
+    if not row:
+        conn.close()
+        raise HTTPException(status_code=404, detail="Comment not found")
+
+    user_email = row[0]
+
+    # Gửi mail xác thực
+    send_verification_email(user_email, token, lang)
+
     conn.close()
-    
-    return RedirectResponse(url="/admin", status_code=303)
+
+    # Quay lại trang admin
+    return RedirectResponse(url=f"/admin?lang={lang}", status_code=303)
