@@ -58,9 +58,11 @@ def dict_from_row(row):
         "id": row[0],
         "name": row[1],
         "email": row[2],
-        "comment": row[3],
+        "comment": row[3],   # dùng trong index.html
+        "text": row[3],      # dùng trong admin.html
         "img": row[4],
-        "status": row[5],
+        "token": row[5],
+        "status": row[6],
     }
 # def send_email(to_email: str, link: str):
 #    try:
@@ -241,7 +243,7 @@ async def home(request: Request, lang: str = "vi"):
     data = content.get(lang, content["vi"])
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("SELECT id, name, email, comment, img, status FROM comments")
+    c.execute("SELECT id, name, email, comment, img, token, status FROM comments")
     rows = c.fetchall()
     conn.close()
 
@@ -264,7 +266,7 @@ async def about(request: Request, lang: str = "vi"):
     data = content.get(lang, content["vi"])
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("SELECT id, name, email, comment, img, status FROM comments")
+    c.execute("SELECT id, name, email, comment, img, token, status FROM comments")
     rows = c.fetchall()
     conn.close()
 
@@ -289,7 +291,7 @@ async def warn(request: Request, lang: str = "vi"):
     # Lấy comment (nếu muốn gắn chung hệ thống comment)
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("SELECT id, name, email, comment, img, status FROM comments")
+    c.execute("SELECT id, name, email, comment, img, token, status FROM comments")
     rows = c.fetchall()
     conn.close()
     comments = [dict_from_row(r) for r in rows]
@@ -312,7 +314,7 @@ async def checklist(request: Request, lang: str = "vi"):
 
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("SELECT id, name, email, comment, img, status FROM comments")
+    c.execute("SELECT id, name, email, comment, img, token, status FROM comments")
     rows = c.fetchall()
     conn.close()
     comments = [dict_from_row(r) for r in rows]
@@ -373,7 +375,7 @@ async def admin(
     data = content.get(lang, content["vi"])
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("SELECT id, name, email, comment, img, status FROM comments")
+    c.execute("SELECT id, name, email, comment, img, token, status FROM comments")
     rows = c.fetchall()
     conn.close()
 
@@ -482,3 +484,12 @@ async def admin_verify_email(
 
     # Quay lại trang admin
     return RedirectResponse(url=f"/admin?lang={lang}", status_code=303)
+    # ---------------- USER CLICK LINK XÁC THỰC ----------------
+    @app.get("/verify_email")
+    async def verify_email(token: str, lang: str = "vi"):
+        conn = sqlite3.connect(DB_FILE)
+        c = conn.cursor()
+        c.execute("UPDATE comments SET status='active' WHERE token=?", (token,))
+        conn.commit()
+        conn.close()
+        return RedirectResponse(url=f"/?lang={lang}", status_code=303)
