@@ -95,7 +95,7 @@ content = {
             {"name": "Miếu Bà Chúa Xứ Núi Sam (An Giang)", "img": "angiang.jpg",
              "desc": "Điểm đến tâm linh nổi tiếng, kết hợp với cảnh núi non hùng vĩ."},
         ],
-        "warn": [
+        "tips": [
             {
                 "title": "1. Trước khi đi",
                 "image": "/static/images/1.jpg",
@@ -173,7 +173,7 @@ content = {
             {"name": "Ba Chua Xu Temple (Sam Mountain, An Giang)", "img": "angiang.jpg",
              "desc": "Famous spiritual destination with majestic mountains."},
         ],
-        "warn": [
+        "tips": [
             {
                 "title": "1. Before going",
                 "image": "/static/images/1.jpg",
@@ -251,7 +251,7 @@ content = {
             {"name": "바추슈 사원 (삼산, 안장)", "img": "angiang.jpg",
              "desc": "장엄한 산과 함께 유명한 영적 명소."},
         ],
-        "warn": [
+        "tips": [
             {
                 "title": "1. 출발 전",
                 "image": "/static/images/1.jpg",
