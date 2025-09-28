@@ -2,6 +2,7 @@ import os
 import uuid
 import sqlite3
 import smtplib
+from fastapi import BackgroundTasks
 from email.mime.text import MIMEText
 from fastapi import FastAPI, Request, Form, UploadFile, File, Depends, HTTPException, status
 from fastapi.responses import HTMLResponse, RedirectResponse
@@ -342,6 +343,7 @@ async def comment(
 ):
     filename = None
     if image:
+        ext = os.path.splitext(image.filename)[1]
         filename = f"{uuid.uuid4()}_{image.filename}"
         filepath = os.path.join("uploads", filename)
         with open(filepath, "wb") as buffer:
@@ -358,9 +360,9 @@ async def comment(
     )
     conn.commit()
     conn.close()
-
+    
+    send_verification_email(email, token, lang)
     return RedirectResponse(url=f"/?lang={lang}", status_code=303)
-
 
 # ---------------- ADMIN ----------------
 @app.get("/admin", response_class=HTMLResponse)
@@ -421,6 +423,7 @@ SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
 SMTP_USER = "phhiep6264@gmail.com"
 SMTP_PASS = "cmphyfvggxvrhviw"
+
 def send_verification_email(email: str, token: str, lang: str = "vi"):
     subject = {
         "vi": "Xác minh bình luận của bạn",
@@ -449,7 +452,8 @@ def send_verification_email(email: str, token: str, lang: str = "vi"):
             print(f"✅ Verification email sent to {email}")
     except Exception as e:
         print("❌ Error sending email:", e)
-
+        
+# ---------------- ADMIN TRIGGER VERIFY ----------------
 @app.post("/admin_verify_email")
 async def admin_verify_email(
     id: str = Form(...),
@@ -470,9 +474,9 @@ async def admin_verify_email(
     c = conn.cursor()
     c.execute("SELECT email FROM comments WHERE id=? AND token=?", (id, token))
     row = c.fetchone()
-
+    conn.close()
+    
     if not row:
-        conn.close()
         raise HTTPException(status_code=404, detail="Comment not found")
 
     user_email = row[0]
@@ -480,10 +484,9 @@ async def admin_verify_email(
     # Gửi mail xác thực
     send_verification_email(user_email, token, lang)
 
-    conn.close()
-
     # Quay lại trang admin
     return RedirectResponse(url=f"/admin?lang={lang}", status_code=303)
+    
     # ---------------- USER CLICK LINK XÁC THỰC ----------------
     @app.get("/verify_email")
     async def verify_email(token: str, lang: str = "vi"):
