@@ -53,6 +53,11 @@
             <input type="hidden" name="token" value="{{ c.token }}">  
             <button type="submit">Verify</button>
         </form>
+        <!-- Duyệt trực tiếp -->
+        <form action="/approve_comment" method="post" style="display:inline;">
+            <input type="hidden" name="id" value="{{ c.id }}">
+            <button type="submit">Approve Now</button>
+        </form>
     {% else %}
         Verified
     {% endif %}
