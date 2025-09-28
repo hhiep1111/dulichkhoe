@@ -89,7 +89,8 @@
 
         .tip-card img {
             width: 100%;
-            height: auto;
+            height: 250px;  /* ép chiều cao đồng bộ */
+            object-fit: cover;  /* cắt ảnh cho vừa khung */
             display: block;
         }
 
@@ -234,8 +235,9 @@
             color: gray;
         }
         .comment-imgage {
-            max-width: 100%;
-            height: auto;
+            width: 200px;        /* đặt chiều rộng cố định, ví dụ 200px */
+            height: 150px;       /* đặt chiều cao cố định */
+            object-fit: cover;   /* ảnh sẽ tự crop để vừa khung */
             margin-top: 8px;
             border-radius: 6px;
             display: block;
