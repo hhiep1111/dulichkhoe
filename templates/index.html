@@ -251,35 +251,37 @@
                 </li>
             {% endfor %}
         </ul>
-
     {% elif page == "checklist" %}
-        <h2>📋 Checklist</h2>
+      {% if data.checklist is defined %}
+        <h2>📝 Checklist</h2>
         <div class="checklist-container">
-            <div class="checklist-overlay">
-                <div class="checklist-grid">
-                    {% for section in data.checklist %}
-                        {% set sidx = loop.index0 %}
-                        <div class="checklist-section">
-                            <h3>{{ section.title }}</h3>
-                            <ul>
-                                {% for item in section.items %}
-                                    {% set iidx = loop.index0 %}
-                                    <li>
-                                        <label>
-                                            <input type="checkbox" id="chk_{{ lang }}_{{ sidx }}_{{ iidx }}">
-                                            {{ item }}
-                                        </label>
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
+          <div class="checklist-overlay">
+            <div class="checklist-grid">
+              {% for section in data.checklist %}
+                {% set sidx = loop.index0 %}
+                <div class="checklist-section">
+                  <h3>{{ section.title }}</h3>
+                  <ul>
+                    {% for item in section.items %}
+                      {% set iidx = loop.index0 %}
+                      <li>
+                        <label>
+                          <input type="checkbox" id="chk_{{ lang }}_{{ sidx }}_{{ iidx }}">
+                          {{ item }}
+                        </label>
+                      </li>
                     {% endfor %}
+                  </ul>
                 </div>
+              {% endfor %}
             </div>
+          </div>
         </div>
-    {% endif %}
-</section>
-    
+      {% else %}
+    <p>Checklist chưa có dữ liệu cho ngôn ngữ này.</p>
+  {% endif %}
+{% endif %}
+</section>  
 <section>
         <h2>💬 {{ "Bình luận" if lang=="vi" else ("Comments" if lang=="en" else "댓글") }}</h2>
 
