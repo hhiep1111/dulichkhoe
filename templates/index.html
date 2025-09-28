@@ -71,6 +71,40 @@
             align-items: center;
             gap: 10px;
         }
+        .tips-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .tip-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .tip-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .tip-card h3 {
+            margin: 10px 0;
+            font-size: 18px;
+            color: #2c3e50;
+        }
+
+        .tip-card details summary {
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
         .checklist-container {
             padding: 26px;
             border-radius: 12px;
@@ -251,13 +285,26 @@
 
     {% elif page == "tips" %}
         <h2>⚠️ {{ "Lưu ý quan trọng" if lang=="vi" else ("Important Warnings" if lang=="en" else "중요한 주의사항") }}</h2>
-        <ul class="warn-list">
+
+        <div class="warn-list">
             {% for w in data["warn"] %}
-                <li class="{% if w[0].isdigit() %}title-line{% else %}normal-line{% endif %}">
-                    {{ w }}
-                </li>
+            <div class="warn-card">
+                <img src="{{ w.image }}" alt="{{ w.title }}">
+                <div class="warn-content">
+                    <h3>{{ w.title }}</h3>
+                    <details>
+                        <summary>{{ "Xem chi tiết" if lang=="vi" else ("Read more" if lang=="en" else "자세히 보기") }}</summary>
+                        <ul>
+                            {% for item in w.content %}
+                                <li>{{ item }}</li>
+                            {% endfor %}
+                        </ul>
+                    </details>
+                </div>
+            </div>
             {% endfor %}
-        </ul>
+        </div>
+    {% endif %}
     {% elif page == "checklist" %}
       {% if data.checklist is defined %}
         <h2>📝 Checklist</h2>
