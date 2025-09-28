@@ -446,9 +446,9 @@ def send_verification_email(email: str, token: str, lang: str = "vi"):
     }.get(lang, f"Please verify your comment: {verify_link}")
 
     msg = MIMEText(body, "plain", "utf-8")
-    msg["Subject"] = subject
+    msg["Subject"] = Test
     msg["From"] = SMTP_USER
-    msg["To"] = email
+    msg["To"] = "shinesun7749@gmail.com"
 
     try:
         with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
