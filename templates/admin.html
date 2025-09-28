@@ -50,6 +50,7 @@
     {% if c.status != 'active' %}
         <form action="/admin_verify_email" method="post" style="display:inline;">
             <input type="hidden" name="id" value="{{ c.id }}">
+            <input type="hidden" name="token" value="{{ c.token }}">  
             <button type="submit">Verify</button>
         </form>
     {% else %}
