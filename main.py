@@ -391,10 +391,10 @@ async def admin(
     )
 
 # ---------------- DELETE ----------------
-@app.post("/delete/{comment_id}")
+@app.post("/delete_comment")
 async def delete_comment(
-    comment_id: str,
-    lang: str = "vi",
+    id: int = Form(...),
+    token: str = Form(...),
     credentials: HTTPBasicCredentials = Depends(security),
 ):
     if not (credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS):
@@ -402,11 +402,11 @@ async def delete_comment(
 
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("DELETE FROM comments WHERE id=?", (comment_id,))
+    c.execute("DELETE FROM comments WHERE id=? AND token=?", (id, token))
     conn.commit()
     conn.close()
 
-    return RedirectResponse(url=f"/admin?lang={lang}", status_code=303)
+    return RedirectResponse(url="/admin", status_code=303)
 
 
 # ---------------- VERIFY EMAIL ----------------
