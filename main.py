@@ -35,7 +35,8 @@ c.execute("""
         comment TEXT NOT NULL,
         img TEXT,
         token TEXT,
-        status TEXT DEFAULT 'pending'
+        status TEXT DEFAULT 'pending',
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )
 """)
 # If the table existed before without email, add email column (safe)
@@ -244,7 +245,7 @@ async def home(request: Request, lang: str = "vi"):
     data = content.get(lang, content["vi"])
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("SELECT id, name, email, comment, img, token, status FROM comments")
+    c.execute("SELECT id, name, email, comment, img, token, status FROM comments WHERE status='active'")
     rows = c.fetchall()
     conn.close()
 
@@ -267,7 +268,7 @@ async def about(request: Request, lang: str = "vi"):
     data = content.get(lang, content["vi"])
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("SELECT id, name, email, comment, img, token, status FROM comments")
+    c.execute("SELECT id, name, email, comment, img, token, status FROM comments WHERE status='active'")
     rows = c.fetchall()
     conn.close()
 
@@ -292,7 +293,7 @@ async def warn(request: Request, lang: str = "vi"):
     # Lấy comment (nếu muốn gắn chung hệ thống comment)
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("SELECT id, name, email, comment, img, token, status FROM comments")
+    c.execute("SELECT id, name, email, comment, img, token, status FROM comments WHERE status='active'")
     rows = c.fetchall()
     conn.close()
     comments = [dict_from_row(r) for r in rows]
@@ -315,7 +316,7 @@ async def checklist(request: Request, lang: str = "vi"):
 
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("SELECT id, name, email, comment, img, token, status FROM comments")
+    c.execute("SELECT id, name, email, comment, img, token, status FROM comments WHERE status='active'")
     rows = c.fetchall()
     conn.close()
     comments = [dict_from_row(r) for r in rows]
@@ -336,7 +337,7 @@ async def checklist(request: Request, lang: str = "vi"):
 async def comment(
     request: Request,
     name: str = Form(...),
-    email: str = Form(...),
+    email: EmailStr = Form(...),   # validate email
     comment: str = Form(...),
     lang: str = Form("vi"),
     image: UploadFile = File(None),
@@ -355,13 +356,18 @@ async def comment(
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
     c.execute(
-        "INSERT INTO comments (id, name, email, comment, img, token, status) VALUES (?, ?, ?, ?, ?, ?, ?)",
-        (comment_id, name, email, comment, filename, token, "pending"),
+        "INSERT INTO comments (id, name, email, comment, img, token, status, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+        (comment_id, name, email, comment, filename, token, "pending", datetime.datetime.utcnow()),
     )
     conn.commit()
     conn.close()
     
-    send_verification_email(email, token, lang)
+     #Gửi email xác minh
+    try:
+        send_verification_email(email, token, lang)
+    except Exception as e:
+        print("⚠️ Không gửi được email:", e)
+    
     return RedirectResponse(url=f"/?lang={lang}", status_code=303)
 
 # ---------------- ADMIN ----------------
@@ -487,16 +493,30 @@ async def admin_verify_email(
     # Quay lại trang admin
     return RedirectResponse(url=f"/admin?lang={lang}", status_code=303)
     
-    # ---------------- USER CLICK LINK XÁC THỰC ----------------
-    @app.get("/verify_email")
-    async def verify_email(token: str, lang: str = "vi"):
-        conn = sqlite3.connect(DB_FILE)
-        c = conn.cursor()
-        c.execute("UPDATE comments SET status='active' WHERE token=?", (token,))
-        conn.commit()
+# ---------------- USER CLICK LINK XÁC THỰC ----------------
+@app.get("/verify_email")
+async def verify_email(token: str, lang: str = "vi"):
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    c.execute("UPDATE comments SET status='active' WHERE token=?", (token,))
+    row = c.fetchone()
+
+    if not row:
         conn.close()
-        return RedirectResponse(url=f"/?lang={lang}", status_code=303)
-    # ---------------- ADMIN APPROVE COMMENT ----------------
+        return HTMLResponse("<h2>❌ Token không hợp lệ.</h2>")
+
+    comment_id, status = row
+
+    if status == "active":
+        conn.close()
+        return HTMLResponse("<h2>✅ Bình luận đã được xác minh trước đó.</h2>")
+
+    # Update thành active
+    c.execute("UPDATE comments SET status='active' WHERE id=?", (comment_id,))
+    conn.commit()
+    conn.close()
+    return RedirectResponse(url=f"/?lang={lang}", status_code=303)
+# ---------------- ADMIN APPROVE COMMENT ----------------
 @app.post("/approve_comment")
 async def approve_comment(
     id: str = Form(...),
