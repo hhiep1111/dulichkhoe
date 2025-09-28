@@ -72,26 +72,25 @@
             gap: 10px;
         }
         .tips-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
             gap: 20px;
-            margin: 20px 0;
         }
 
         .tip-card {
-            background: white;
+            background: #fff;
             border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             overflow: hidden;
-            text-align: center;
-            padding: 15px;
+        }
         }
 
         .tip-card img {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
+            height: auto;
+            display: block;
         }
 
         .tip-card h3 {
@@ -99,11 +98,17 @@
             font-size: 18px;
             color: #2c3e50;
         }
+        .tips-content {
+            padding: 15px;
+        }
+        .tips-content h3 {
+            margin: 0 0 10px;
+        }
 
         .tip-card details summary {
             cursor: pointer;
             font-weight: bold;
-            margin-top: 10px;
+            list-style: none;
         }
         .checklist-container {
             padding: 26px;
@@ -284,18 +289,18 @@
         <p>{{ data.about }}</p>
 
     {% elif page == "tips" %}
-        <h2>⚠️ {{ "Lưu ý quan trọng" if lang=="vi" else ("Important Warnings" if lang=="en" else "중요한 주의사항") }}</h2>
+        <h2>⚠️ {{ "Lưu ý quan trọng" if lang=="vi" else ("Important Tips" if lang=="en" else "중요한 팁") }}</h2>
 
-        <div class="warn-list">
-            {% for w in data["warn"] %}
-            <div class="warn-card">
-                <img src="{{ w.image }}" alt="{{ w.title }}">
-                <div class="warn-content">
-                    <h3>{{ w.title }}</h3>
+        <div class="tips-container">
+            {% for t in data["tips"] %}
+            <div class="tips-card">
+                <img src="/static/images/{{ t.image }}" alt="{{ t.title }}">
+                <div class="tips-content">
+                    <h3>{{ t.title }}</h3>
                     <details>
                         <summary>{{ "Xem chi tiết" if lang=="vi" else ("Read more" if lang=="en" else "자세히 보기") }}</summary>
                         <ul>
-                            {% for item in w.content %}
+                            {% for item in t.content %}
                                 <li>{{ item }}</li>
                             {% endfor %}
                         </ul>
@@ -304,6 +309,7 @@
             </div>
             {% endfor %}
         </div>
+    
     {% elif page == "checklist" %}
       {% if data.checklist is defined %}
         <h2>📝 Checklist</h2>
