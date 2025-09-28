@@ -302,7 +302,7 @@
             </label><br>
             <label>
                 {{ "Ảnh minh họa" if lang=="vi" else ("Attach Image" if lang=="en" else "사진 첨부") }}:<br>
-                <input type="file" name="image" accept="image/*">
+                <input type="file" name="" accept="image/*">
             </label><br>
             <button type="submit">
                 {{ "Gửi" if lang=="vi" else ("Submit" if lang=="en" else "보내기") }}
@@ -327,7 +327,9 @@
             {% endif %}
 
             {% if is_admin %}
-            <form action="/delete/{{ c.id }}" method="post" style="margin-top:5px;">
+            <form action="/delete_comment" method="post" style="margin-top:5px;">
+                <input type="hidden" name="id" value="{{ c.id }}">
+                <input type="hidden" name="token" value="{{ c.token }}">
                 <button type="submit" class="delete-btn">
                     {{ "Xóa" if lang=="vi" else ("Delete" if lang=="en" else "삭제") }}
                 </button>
