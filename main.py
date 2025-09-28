@@ -496,3 +496,27 @@ async def admin_verify_email(
         conn.commit()
         conn.close()
         return RedirectResponse(url=f"/?lang={lang}", status_code=303)
+    # ---------------- ADMIN APPROVE COMMENT ----------------
+@app.post("/approve_comment")
+async def approve_comment(
+    id: str = Form(...),
+    credentials: HTTPBasicCredentials = Depends(security),
+    lang: str = "vi"
+):
+    # Kiểm tra đăng nhập admin
+    if not (credentials.username == ADMIN_USER and credentials.password == ADMIN_PASS):
+        raise HTTPException(
+            status_code=401,
+            detail="Unauthorized",
+            headers={"WWW-Authenticate": "Basic"}
+        )
+
+    # Duyệt trực tiếp comment
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    c.execute("UPDATE comments SET status='active' WHERE id=?", (id,))
+    conn.commit()
+    conn.close()
+
+    # Quay lại trang admin
+    return RedirectResponse(url=f"/admin?lang={lang}", status_code=303)
