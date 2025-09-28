@@ -3,6 +3,7 @@ import uuid
 import sqlite3
 import smtplib
 from fastapi import BackgroundTasks
+from pydantic import EmailStr
 from email.mime.text import MIMEText
 from fastapi import FastAPI, Request, Form, UploadFile, File, Depends, HTTPException, status
 from fastapi.responses import HTMLResponse, RedirectResponse
