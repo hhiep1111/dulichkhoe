@@ -262,7 +262,7 @@
                 <div class="checklist-section">
                   <h3>{{ section.title }}</h3>
                   <ul>
-                    {% for item in section.items %}
+                    {% for item in section["items"] %}
                       {% set iidx = loop.index0 %}
                       <li>
                         <label>
