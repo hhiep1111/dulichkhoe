@@ -88,9 +88,10 @@
         }
 
         .tips-card img {
-            width: 100%;
-            height: 250px;  /* ép chiều cao đồng bộ */
-            object-fit: cover;  /* cắt ảnh cho vừa khung */
+            width: 100%;          /* chiếm toàn bộ chiều ngang khung */
+            height: 200px;        /* chiều cao cố định */
+            object-fit: cover;    /* ảnh sẽ crop để vừa khung, không méo */
+            border-radius: 8px;   /* bo góc nhẹ cho đẹp */
             /*display: block;*/
             /*width: 100%;
             height: auto;
