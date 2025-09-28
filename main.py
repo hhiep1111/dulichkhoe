@@ -98,7 +98,7 @@ content = {
         "tips": [
             {
                 "title": "1. Trước khi đi",
-                "image": "/static/images/1.jpg",
+                "img": "/static/images/1.jpg",
                 "content": [
                     "Tìm hiểu thông tin điểm đến: thời tiết, phong tục, tình hình an ninh, phương tiện di chuyển.",
                     "Chuẩn bị giấy tờ: CMND/CCCD, hộ chiếu, vé máy bay/tàu xe, bảo hiểm du lịch (nếu có).",
@@ -108,7 +108,7 @@ content = {
             },
             {
                 "title": "2. Khi di chuyển",
-                "image": "/static/images/2.jpg",
+                "img": "/static/images/2.jpg",
                 "content": [
                     "Không để hành lý xa tầm mắt, đặc biệt ở sân bay, bến xe, ga tàu.",
                     "Giữ đồ có giá trị bên người (tiền, điện thoại, hộ chiếu).",
@@ -117,7 +117,7 @@ content = {
             },
             {
                 "title": "3. Khi lưu trú",
-                "image": "/static/images/3.jpg",
+                "img": "/static/images/3.jpg",
                 "content": [
                      "Chọn khách sạn/nhà nghỉ an toàn: có đánh giá tốt, hệ thống an ninh.",
                     "Khóa cửa cẩn thận khi ra ngoài và cả khi ở trong phòng.",
@@ -126,7 +126,7 @@ content = {
             },
             {
                 "title": "4. Khi tham quan",
-                "image": "/static/images/4.jpg",
+                "img": "/static/images/4.jpg",
                 "content": [
                     "Không mang theo quá nhiều tiền mặt hoặc đồ quý giá.",
                     "Cẩn thận với túi xách, balo ở nơi đông người (chợ, lễ hội, bến xe).",
@@ -136,7 +136,7 @@ content = {
             },
             {
                 "title": "5. An toàn công nghệ",
-                "image": "/static/images/5.jpg",
+                "img": "/static/images/5.jpg",
                 "content": [
                     "Không dùng Wi-Fi công cộng để giao dịch tài chính.",
                     "Cẩn thận khi chia sẻ vị trí trên mạng xã hội để tránh kẻ xấu lợi dụng."
@@ -176,7 +176,7 @@ content = {
         "tips": [
             {
                 "title": "1. Before going",
-                "image": "/static/images/1.jpg",
+                "img": "/static/images/1.jpg",
                 "content": [
                     "Find out information about the destination: weather, customs, security situation, means of transportation.",
                     "Prepare documents: ID card/CCCD, passport, plane/train ticket, travel insurance (if any).",
@@ -186,7 +186,7 @@ content = {
             },
             {
                 "title": "2. When traveling",
-                "image": "/static/images/2.jpg",
+                "img": "/static/images/2.jpg",
                 "content": [
                     "Do not leave luggage out of sight, especially at airports, bus stations, train stations.",
                     "Keep valuables with you (money, phone, passport).",
@@ -195,7 +195,7 @@ content = {
             },
             {
                 "title": "3. When staying",
-                "image": "/static/images/3.jpg",
+                "img": "/static/images/3.jpg",
                 "content": [    
                     "Choose a safe hotel/guesthouse: with good reviews, security system.",
                     "Lock the door carefully when going out and when in the room.",
@@ -204,7 +204,7 @@ content = {
             },
             {
                 "title": "4. When visiting",
-                "image": "/static/images/4.jpg",
+                "img": "/static/images/4.jpg",
                 "content": [
                     "Do not carry too much cash or valuables.",
                     "Be careful with bags and backpacks in crowded places (markets, festivals, bus stations).",
@@ -214,7 +214,7 @@ content = {
             },
             {
                 "title": "5. Technology safety",
-                "image": "/static/images/5.jpg",
+                "img": "/static/images/5.jpg",
                 "content": [
                     "Do not use public Wi-Fi for financial transactions.",
                     "Be careful when sharing your location on social networks to avoid bad guys taking advantage."
@@ -254,7 +254,7 @@ content = {
         "tips": [
             {
                 "title": "1. 출발 전",
-                "image": "/static/images/1.jpg",
+                "img": "/static/images/1.jpg",
                 "content": [
                     "목적지 정보 확인: 날씨, 세관, 보안 상황, 교통수단",
                     "서류 준비: 신분증/CCCD, 여권, 비행기/기차표, 여행자 보험(있는 경우)",
@@ -264,7 +264,7 @@ content = {
             },
             {
                 "title": "2. 여행 시",
-                "image": "/static/images/2.jpg",
+                "img": "/static/images/2.jpg",
                 "content": [
                     "특히 공항, 버스 정류장, 기차역에서 짐을 눈에 띄지 않는 곳에 두지 마세요.",
                     "귀중품(돈, 휴대폰, 여권)은 항상 지참하세요.",
@@ -273,7 +273,7 @@ content = {
             },
             {
                 "title": "3. 숙박 시",
-                "image": "/static/images/3.jpg",
+                "img": "/static/images/3.jpg",
                 "content": [
                     "안전한 호텔/게스트하우스를 선택하세요: 좋은 후기와 보안 시스템을 갖추고 있어야 합니다.",
                     "외출 시와 객실 내에서는 문을 단단히 잠그세요.",
@@ -282,7 +282,7 @@ content = {
             },
             {
                 "title": "4. 방문 시",
-                "image": "/static/images/4.jpg",
+                "img": "/static/images/4.jpg",
                 "content": [
                     "현금이나 귀중품을 너무 많이 가지고 다니지 마세요.",
                     "시장, 축제, 버스 정류장 등 사람이 붐비는 장소에서는 가방과 배낭을 조심하세요.",
@@ -292,7 +292,7 @@ content = {
             },
             {
                 "title": "5. 기술 안전",
-                "image": "/static/images/5.jpg",
+                "img": "/static/images/5.jpg",
                 "content": [
                     "공용 Wi-Fi를 사용하여 금융 거래를 하지 마세요.",
                     "소셜 네트워크에 위치를 공유할 때는 악의적인 사용자가 악용하지 않도록 주의하세요."
