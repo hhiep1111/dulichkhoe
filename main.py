@@ -96,27 +96,52 @@ content = {
              "desc": "Điểm đến tâm linh nổi tiếng, kết hợp với cảnh núi non hùng vĩ."},
         ],
         "warn": [
-            "1. Trước khi đi",
-            "Tìm hiểu thông tin điểm đến: thời tiết, phong tục, tình hình an ninh, phương tiện di chuyển.",
-            "Chuẩn bị giấy tờ: CMND/CCCD, hộ chiếu, vé máy bay/tàu xe, bảo hiểm du lịch (nếu có).",
-            "Sao lưu giấy tờ: chụp ảnh hoặc lưu bản scan để phòng khi thất lạc.",
-            "Kiểm tra sức khỏe: mang theo thuốc cá nhân, giấy tờ y tế cần thiết.",
-            "2. Khi di chuyển",
-            "Không để hành lý xa tầm mắt, đặc biệt ở sân bay, bến xe, ga tàu.",
-            "Giữ đồ có giá trị bên người (tiền, điện thoại, hộ chiếu).",
-            "Chọn phương tiện uy tín: taxi, xe công nghệ, hoặc phương tiện công cộng chính thống.",
-            "3. Khi lưu trú",
-            "Chọn khách sạn/nhà nghỉ an toàn: có đánh giá tốt, hệ thống an ninh.",
-            "Khóa cửa cẩn thận khi ra ngoài và cả khi ở trong phòng.",
-            "Không tiết lộ số phòng với người lạ.",
-            "4. Khi tham quan",
-            "Không mang theo quá nhiều tiền mặt hoặc đồ quý giá.",
-            "Cẩn thận với túi xách, balo ở nơi đông người (chợ, lễ hội, bến xe).",
-            "Tuân thủ quy định địa phương: không xả rác, không leo trèo nguy hiểm, tôn trọng văn hóa bản địa.",
-            "Luôn đi theo nhóm nếu ở nơi vắng vẻ hoặc không quen thuộc.",
-            "5. An toàn công nghệ",
-            "Không dùng Wi-Fi công cộng để giao dịch tài chính.",
-            "Cẩn thận khi chia sẻ vị trí trên mạng xã hội để tránh kẻ xấu lợi dụng."
+            {
+                "title": "1. Trước khi đi",
+                "image": "/static/images/1.jpg",
+                "content": [
+                    "Tìm hiểu thông tin điểm đến: thời tiết, phong tục, tình hình an ninh, phương tiện di chuyển.",
+                    "Chuẩn bị giấy tờ: CMND/CCCD, hộ chiếu, vé máy bay/tàu xe, bảo hiểm du lịch (nếu có).",
+                    "Sao lưu giấy tờ: chụp ảnh hoặc lưu bản scan để phòng khi thất lạc.",
+                    "Kiểm tra sức khỏe: mang theo thuốc cá nhân, giấy tờ y tế cần thiết."
+                    ]
+            },
+            {
+                "title": "2. Khi di chuyển",
+                "image": "/static/images/2.jpg",
+                "content": [
+                    "Không để hành lý xa tầm mắt, đặc biệt ở sân bay, bến xe, ga tàu.",
+                    "Giữ đồ có giá trị bên người (tiền, điện thoại, hộ chiếu).",
+                    "Chọn phương tiện uy tín: taxi, xe công nghệ, hoặc phương tiện công cộng chính thống."
+                ]
+            },
+            {
+                "title": "3. Khi lưu trú",
+                "image": "/static/images/3.jpg",
+                "content": [
+                     "Chọn khách sạn/nhà nghỉ an toàn: có đánh giá tốt, hệ thống an ninh.",
+                    "Khóa cửa cẩn thận khi ra ngoài và cả khi ở trong phòng.",
+                    "Không tiết lộ số phòng với người lạ."
+                ]
+            },
+            {
+                "title": "4. Khi tham quan",
+                "image": "/static/images/4.jpg",
+                "content": [
+                    "Không mang theo quá nhiều tiền mặt hoặc đồ quý giá.",
+                    "Cẩn thận với túi xách, balo ở nơi đông người (chợ, lễ hội, bến xe).",
+                    "Tuân thủ quy định địa phương: không xả rác, không leo trèo nguy hiểm, tôn trọng văn hóa bản địa.",
+                    "Luôn đi theo nhóm nếu ở nơi vắng vẻ hoặc không quen thuộc."
+                ]
+            },
+            {
+                "title": "5. An toàn công nghệ",
+                "image": "/static/images/5.jpg",
+                "content": [
+                    "Không dùng Wi-Fi công cộng để giao dịch tài chính.",
+                    "Cẩn thận khi chia sẻ vị trí trên mạng xã hội để tránh kẻ xấu lợi dụng."
+                ]
+            }    
         ],
         "checklist": [
             {"title": "Quần áo", "items": ["Đồ lót", "Tất", "Vớ/bít tất", "Áo blouse", "Áo (tops)", "Quần, jeans, legging",
@@ -149,28 +174,53 @@ content = {
              "desc": "Famous spiritual destination with majestic mountains."},
         ],
         "warn": [
-            "1. Before you go",
-            "Research your destination: weather, customs, security situation, transportation.",
-            "Prepare documents: ID card, passport, tickets, travel insurance (if any).",
-            "Backup documents: take photos or scan copies in case of loss.",
-            "Check health: bring personal medicine and necessary medical papers.",
-            "2. During travel",
-            "Do not leave luggage unattended, especially at airports, bus stations, or train stations.",
-            "Keep valuables with you (money, phone, passport).",
-            "Choose reliable transportation: taxi, ride-hailing, or official public transport.",
-            "3. Accommodation",
-            "Choose safe hotels/hostels: good reviews, security system.",
-            "Lock doors carefully when going out and inside rooms.",
-            "Do not disclose room number to strangers.",
-            "4. Sightseeing",
-            "Do not carry too much cash or valuables.",
-            "Be careful with bags and backpacks in crowded places (markets, festivals, stations).",
-            "Follow local regulations: no littering, avoid dangerous climbing, respect local culture.",
-            "Always travel in groups if in unfamiliar or deserted areas.",
-            "5. Technology safety",
-            "Do not use public Wi-Fi for financial transactions.",
-            "Be cautious when sharing your location on social media to avoid malicious use."
-        ],
+            {
+                "title": "1. Before going",
+                "image": "/static/images/1.jpg",
+                "content": [
+                    "Find out information about the destination: weather, customs, security situation, means of transportation.",
+                    "Prepare documents: ID card/CCCD, passport, plane/train ticket, travel insurance (if any).",
+                    "Back up documents: take photos or save scans in case of loss.",
+                    "Check your health: bring personal medicine, necessary medical documents."
+                    ]
+            },
+            {
+                "title": "2. When traveling",
+                "image": "/static/images/2.jpg",
+                "content": [
+                    "Do not leave luggage out of sight, especially at airports, bus stations, train stations.",
+                    "Keep valuables with you (money, phone, passport).",
+                    "Choose reputable means of transport: taxi, technology car, or official public transport."
+                ]
+            },
+            {
+                "title": "3. When staying",
+                "image": "/static/images/3.jpg",
+                "content": [    
+                    "Choose a safe hotel/guesthouse: with good reviews, security system.",
+                    "Lock the door carefully when going out and when in the room.",
+                    "Do not reveal the room number to strangers."
+                ]
+            },
+            {
+                "title": "4. When visiting",
+                "image": "/static/images/4.jpg",
+                "content": [
+                    "Do not carry too much cash or valuables.",
+                    "Be careful with bags and backpacks in crowded places (markets, festivals, bus stations).",
+                    "Comply with local regulations: do not litter, do not climb dangerously, respect local culture.",
+                    "Always go in groups if in deserted or unfamiliar places."
+                ]
+            },
+            {
+                "title": "5. Technology safety",
+                "image": "/static/images/5.jpg",
+                "content": [
+                    "Do not use public Wi-Fi for financial transactions.",
+                    "Be careful when sharing your location on social networks to avoid bad guys taking advantage."
+                ]
+            }
+                ],
         "checklist": [
             {"title": "Clothes", "items": ["Underwear", "Socks", "Tights", "Blouse", "Tops", "Pants, jeans, leggings",
                                           "Skirts", "Dresses", "Sleepwear", "Nightcap", "Towel", "Cardigan", "Jacket",
@@ -202,28 +252,53 @@ content = {
              "desc": "장엄한 산과 함께 유명한 영적 명소."},
         ],
         "warn": [
-            "1. 여행 전",
-            "목적지 조사: 날씨, 관습, 안전 상황, 교통편.",
-            "서류 준비: 신분증, 여권, 티켓, 여행자 보험(있다면).",
-            "서류 백업: 분실 대비 사진 또는 스캔본 보관.",
-            "건강 체크: 개인 약품 및 필요한 의료 서류 지참.",
-            "2. 이동 중",
-            "짐을 방치하지 말 것, 특히 공항, 버스터미널, 기차역에서.",
-            "귀중품은 항상 소지할 것 (돈, 휴대폰, 여권).",
-            "신뢰할 수 있는 교통수단 선택: 택시, 라이드헤일링, 공식 대중교통.",
-            "3. 숙박",
-            "안전한 호텔/호스텔 선택: 좋은 리뷰, 보안 시스템.",
-            "외출 시와 방 안에서도 문 잠금 주의.",
-            "낯선 사람에게 객실 번호를 공개하지 말 것.",
-            "4. 관광",
-            "너무 많은 현금이나 귀중품을 소지하지 말 것.",
-            "사람이 많은 장소(시장, 축제, 역)에서 가방과 배낭 주의.",
-            "현지 규정 준수: 쓰레기 투기 금지, 위험한 등반 피하기, 지역 문화 존중.",
-            "익숙하지 않거나 인적 드문 지역에서는 항상 그룹으로 이동.",
-            "5. 기술 안전",
-            "금융 거래에 공용 Wi-Fi 사용 금지.",
-            "SNS에 위치 공유 시 악용될 수 있으니 주의."
-        ],
+            {
+                "title": "1. 출발 전",
+                "image": "/static/images/1.jpg",
+                "content": [
+                    "목적지 정보 확인: 날씨, 세관, 보안 상황, 교통수단",
+                    "서류 준비: 신분증/CCCD, 여권, 비행기/기차표, 여행자 보험(있는 경우)",
+                    "서류 백업: 분실에 대비하여 사진을 찍거나 스캔본을 저장하세요.",
+                    "건강 상태 확인: 개인 의약품, 필요한 의료 서류를 지참하세요."
+                ]
+            },
+            {
+                "title": "2. 여행 시",
+                "image": "/static/images/2.jpg",
+                "content": [
+                    "특히 공항, 버스 정류장, 기차역에서 짐을 눈에 띄지 않는 곳에 두지 마세요.",
+                    "귀중품(돈, 휴대폰, 여권)은 항상 지참하세요.",
+                    "택시, 이동 차량 또는 공식 대중교통 등 신뢰할 수 있는 교통수단을 이용하세요."
+                ]
+            },
+            {
+                "title": "3. 숙박 시",
+                "image": "/static/images/3.jpg",
+                "content": [
+                    "안전한 호텔/게스트하우스를 선택하세요: 좋은 후기와 보안 시스템을 갖추고 있어야 합니다.",
+                    "외출 시와 객실 내에서는 문을 단단히 잠그세요.",
+                    "낯선 사람에게 객실 번호를 알려주지 마세요."
+                ]
+            },
+            {
+                "title": "4. 방문 시",
+                "image": "/static/images/4.jpg",
+                "content": [
+                    "현금이나 귀중품을 너무 많이 가지고 다니지 마세요.",
+                    "시장, 축제, 버스 정류장 등 사람이 붐비는 장소에서는 가방과 배낭을 조심하세요.",
+                    "지역 규정을 준수하세요: 쓰레기를 버리지 마세요, 위험한 등반을 하지 마세요, 지역 문화를 존중하세요.",
+                    "사람이 없는 곳이나 낯선 곳에서는 항상 그룹으로 이동하세요."
+                ]
+            },
+            {
+                "title": "5. 기술 안전",
+                "image": "/static/images/5.jpg",
+                "content": [
+                    "공용 Wi-Fi를 사용하여 금융 거래를 하지 마세요.",
+                    "소셜 네트워크에 위치를 공유할 때는 악의적인 사용자가 악용하지 않도록 주의하세요."
+                ]
+            }    
+            ],
         "checklist": [
             {"title": "의류", "items": ["속옷", "양말", "타이츠", "블라우스", "상의", "바지, 청바지, 레깅스",
                                           "치마", "드레스", "잠옷", "수면 모자", "수건", "가디건", "재킷",
