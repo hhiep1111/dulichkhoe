@@ -1,5 +1,5 @@
 import datetime
-import os
+import os, 
 import uuid
 import sqlite3
 import smtplib
@@ -617,3 +617,43 @@ async def approve_comment(
 
     # Quay lại trang admin
     return RedirectResponse(url=f"/admin?lang={lang}", status_code=303)
+
+@app.get("/place/{slug}", response_class=HTMLResponse)
+async def place_detail(request: Request, slug: str, lang: str = "vi"):
+    # Lấy dữ liệu theo ngôn ngữ
+    data = content.get(lang, content["vi"])
+
+    # Kiểm tra xem địa điểm có tồn tại không
+    place = next((p for p in data.get("places", []) if p["name"].lower().find(slug.replace("-", " ")) != -1), None)
+    if not place:
+        raise HTTPException(status_code=404, detail="Địa điểm không tồn tại")
+
+    # Tạm thời hiển thị nội dung mô tả + thông báo đang cập nhật
+    place_details = [
+        f"Địa điểm: {place['name']}",
+        f"Mô tả: {place['desc']}",
+        "🔧 Nội dung chi tiết đang được cập nhật, vui lòng quay lại sau."
+    ]
+
+    # Lấy danh sách bình luận đang active
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    c.execute("SELECT id, name, email, comment, img, token, status FROM comments WHERE status='active'")
+    rows = c.fetchall()
+    conn.close()
+    comments = [dict_from_row(r) for r in rows]
+
+    # Render ra index.html, truyền thêm biến page = "place_detail"
+    return templates.TemplateResponse(
+        "index.html",
+        {
+            "request": request,
+            "data": data,
+            "lang": lang,
+            "comments": comments,
+            "place": place,
+            "place_details": place_details,
+            "is_admin": False,
+            "page": "place_detail"
+        },
+    )
