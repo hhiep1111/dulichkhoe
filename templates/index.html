@@ -281,14 +281,16 @@
     {% if page == "home" %}
         {% for p in data.places %}
         <div class="card">
-            <img src="/static/images/{{ p.img }}" alt="{{ p.name }}">
-            <div class="card-content">
-                <h2>{{ p.name }}</h2>
-                <p>{{ p.desc }}</p>
-            </div>
+            <a href="/place/{{ p.name | replace(' ', '-') | lower }}?lang={{ lang }}" style="text-decoration:none; color:inherit;">
+                <img src="/static/images/{{ p.img }}" alt="{{ p.name }}">
+                <div class="card-content">
+                    <h2>{{ p.name }}</h2>
+                    <p>{{ p.desc }}</p>
+                </div>
+            </a>
         </div>
         {% endfor %}
-
+    
     {% elif page == "about" %}
         <h2>{{ "Giới thiệu" if lang=="vi" else ("About Me" if lang=="en" else "소개") }}</h2>
         <p>{{ data.about }}</p>
@@ -344,6 +346,18 @@
       {% else %}
     <p>Checklist chưa có dữ liệu cho ngôn ngữ này.</p>
   {% endif %}
+{% elif page == "place_detail" %}
+<div class="place-detail" style="max-width:800px;margin:auto;padding:20px;">
+  <img src="/static/images/{{ place.img }}" alt="{{ place.name }}" style="width:100%;border-radius:12px;">
+  <h2 style="margin-top:20px;">{{ place.name }}</h2>
+  <p>{{ place.desc }}</p>
+  <ul>
+    {% for d in place_details %}
+      <li>{{ d }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
 {% endif %}
 </section>  
 <section>
