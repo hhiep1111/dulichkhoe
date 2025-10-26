@@ -1,5 +1,5 @@
 import datetime
-import os, 
+import os 
 import uuid
 import sqlite3
 import smtplib
