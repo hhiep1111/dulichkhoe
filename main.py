@@ -88,7 +88,7 @@ content = {
         "menu": {"home": "Trang chủ", "about": "Giới thiệu", "tips": "Lưu ý", "checklist": "Check-list", "lang": "Ngôn ngữ"},
         "about": "Xin chào, chúng ta là những người yêu thích du lịch và văn hóa miền Tây.",
         "places": [
-            {"name": "Chợ nổi Cái Răng (Cần Thơ)", "img": "cantho.jpg",
+            {"name": "Cần Thơ", "img": "cantho.jpg",
              "desc": "Trải nghiệm chợ nổi buổi sáng, thưởng thức bún riêu và trái cây trên ghe."},
             {"name": "Phú Quốc (Kiên Giang)", "img": "phuquoc.jpg",
              "desc": "Thiên đường biển đảo với bãi cát trắng, nước trong xanh và hải sản tươi ngon."},
