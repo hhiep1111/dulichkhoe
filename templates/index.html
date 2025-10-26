@@ -347,17 +347,16 @@
     <p>Checklist chưa có dữ liệu cho ngôn ngữ này.</p>
   {% endif %}
 {% elif page == "place_detail" %}
-<div class="place-detail" style="max-width:800px;margin:auto;padding:20px;">
-  <img src="/static/images/{{ place.img }}" alt="{{ place.name }}" style="width:100%;border-radius:12px;">
-  <h2 style="margin-top:20px;">{{ place.name }}</h2>
-  <p>{{ place.desc }}</p>
-  <ul>
-    {% for d in place_details %}
-      <li>{{ d }}</li>
-    {% endfor %}
-  </ul>
-</div>
-{% endif %}
+    <div class="place-detail" style="max-width:800px;margin:auto;padding:20px;">
+      <img src="/static/images/{{ place.img }}" alt="{{ place.name }}" style="width:100%;border-radius:12px;">
+      <h2 style="margin-top:20px;">{{ place.name }}</h2>
+      <p>{{ place.desc }}</p>
+      <ul>
+        {% for d in place_details %}
+          <li>{{ d }}</li>
+        {% endfor %}
+      </ul>
+    </div>
 {% endif %}
 </section>  
 <section>
