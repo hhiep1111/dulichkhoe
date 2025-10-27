@@ -90,9 +90,9 @@ content = {
         "places": [
             {"name": "Cần Thơ", "img": "cantho.jpg",
              "desc": "Trải nghiệm chợ nổi buổi sáng, thưởng thức bún riêu và trái cây trên ghe."},
-            {"name": "Phú Quốc (Kiên Giang)", "img": "phuquoc.jpg",
+            {"name": "Kiên Giang", "img": "phuquoc.jpg",
              "desc": "Thiên đường biển đảo với bãi cát trắng, nước trong xanh và hải sản tươi ngon."},
-            {"name": "Miếu Bà Chúa Xứ Núi Sam (An Giang)", "img": "angiang.jpg",
+            {"name": "An Giang", "img": "angiang.jpg",
              "desc": "Điểm đến tâm linh nổi tiếng, kết hợp với cảnh núi non hùng vĩ."},
         ],
         "tips": [
@@ -166,11 +166,11 @@ content = {
         "menu": {"home": "Home", "about": "About", "tips": "Tips", "checklist": "Check-list", "lang": "Language"},
         "about": "Hello, we are passionate about traveling and the culture of Southern Vietnam.",
         "places": [
-            {"name": "Cai Rang Floating Market (Can Tho)", "img": "cantho.jpg",
+            {"name": "Can Tho", "img": "cantho.jpg",
              "desc": "Experience the morning floating market, enjoy Bun Rieu and fruits on boats."},
-            {"name": "Phu Quoc Island (Kien Giang)", "img": "phuquoc.jpg",
+            {"name": "Kien Giang", "img": "phuquoc.jpg",
              "desc": "Island paradise with white sandy beaches, clear waters, and fresh seafood."},
-            {"name": "Ba Chua Xu Temple (Sam Mountain, An Giang)", "img": "angiang.jpg",
+            {"name": "An Giang", "img": "angiang.jpg",
              "desc": "Famous spiritual destination with majestic mountains."},
         ],
         "tips": [
@@ -622,6 +622,8 @@ async def approve_comment(
 async def place_detail(request: Request, slug: str, lang: str = "vi"):
     # Lấy dữ liệu theo ngôn ngữ
     data = content.get(lang, content["vi"])
+    data = content.get(lang, content["en"])
+    data = content.get(lang, content["kr"])
 
     # Kiểm tra xem địa điểm có tồn tại không
     place = next((p for p in data.get("places", []) if p["name"].lower().find(slug.replace("-", " ")) != -1), None)
