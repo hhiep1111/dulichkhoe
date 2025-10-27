@@ -244,11 +244,11 @@ content = {
         "menu": {"home": "홈", "about": "소개", "tips": "유의사항", "checklist": "체크리스트", "lang": "언어"},
         "about": "안녕하세요, 우리는 남부 베트남의 여행과 문화를 사랑하는 사람들입니다.",
         "places": [
-            {"name": "카이랑 수상시장 (깐토)", "img": "cantho.jpg",
+            {"name": "깐토", "img": "cantho.jpg",
              "desc": "아침 수상시장을 체험하고, 보트 위에서 분리유와 과일을 즐기세요."},
-            {"name": "푸꾸옥 섬 (끼엔장)", "img": "phuquoc.jpg",
+            {"name": "끼엔장", "img": "phuquoc.jpg",
              "desc": "하얀 모래사장, 맑은 바닷물, 신선한 해산물이 있는 섬의 천국."},
-            {"name": "바추슈 사원 (삼산, 안장)", "img": "angiang.jpg",
+            {"name": "삼산, 안장", "img": "angiang.jpg",
              "desc": "장엄한 산과 함께 유명한 영적 명소."},
         ],
         "tips": [
