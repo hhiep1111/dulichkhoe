@@ -15,7 +15,15 @@
             background: #66CDAA;
             color: white;
             padding: 20px;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            justify-content: center;
+        }
+        .logo {
+            width: 80px;
+            height: auto;
+            border-radius: 10px;
         }
         nav {
             text-align: center;
@@ -216,7 +224,7 @@
             background: #006400;
         }
         .comment-box {
-            background: #f9f9f9;
+            background: #66CDAA;
             border: 1px solid #ddd;
             padding: 10px;
             margin-bottom: 10px;
@@ -249,10 +257,13 @@
 </head>
 <body>
     <header>
-        <h1>{{ data.title }}</h1>
-        <p>{{ data.intro }}</p>
+        <img src="/static/images/Logo.png" class="logo">
+        <div>
+            <h1>{{ data.title }}</h1>
+            <p>{{ data.intro }}</p>
+    </div>
     </header>
-
+    
     <nav>
         <a href="/?lang={{ lang }}">{{ data.menu.home }}</a> |
         <a href="/tips?lang={{ lang }}">{{ data.menu.tips }}</a> |
