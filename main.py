@@ -653,7 +653,7 @@ async def place_detail(request: Request, name: str, lang: str = "vi"):
         
     # Lấy chi tiết địa điểm (nếu có)
     details_by_lang = place_details_data.get(lang, place_details_data["vi"])
-    details = details_by_lang.get(places["name"], [])
+    details = details_by_lang.get(place["name"], [])
     return templates.TemplateResponse("place_detail.html", {
         "request": request,
         "lang": lang,
