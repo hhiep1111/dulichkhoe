@@ -90,10 +90,14 @@ content = {
         "places": [
             {"name": "Cần Thơ", "img": "cantho.jpg",
              "desc": "Thủ phủ miền Tây, nổi tiếng với chợ nổi sông nước, miệt vườn trù phú và nét văn hóa miệt vườn thân tình. Trải nghiệm chợ nổi buổi sáng, thưởng thức bún riêu và trái cây trên ghe."},
-            {"name": "Kiên Giang", "img": "phuquoc.jpg",
-             "desc": "Thiên đường biển đảo với bãi cát trắng, nước trong xanh và hải sản tươi ngon."},
             {"name": "An Giang", "img": "angiang.jpg",
              "desc": "Điểm đến tâm linh nổi tiếng, kết hợp với cảnh núi non hùng vĩ."},
+            {"name": "Cà Mau", "img": "camau.jpg",
+            "desc": "Cà Mau là tỉnh cực Nam của Việt Nam, có ba mặt giáp biển, nổi bật với hệ sinh thái rừng ngập mặn, đầm phá, đảo nhỏ và điểm cực Nam thiêng liêng của Tổ quốc. Thiên nhiên hoang sơ, văn hóa sông nước và ẩm thực phong phú là những điểm hấp dẫn của du lịch Cà Mau"},
+            {"name": "Vĩnh Long", "img": "vinhlong.jpg",
+            "desc": "texttttttttttttttttttttttttttt"},
+            {"name": "Đồng Tháp", "img": "dongthap.jpg",
+            "desc": "Đồng Tháp nổi bật với sen, làng hoa Sa Đéc, di tích Óc Eo Gò Tháp, cùng mô hình du lịch cộng đồng xanh, bền vững."}  
         ],
         "tips": [
             {
