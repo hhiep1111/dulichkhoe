@@ -667,23 +667,47 @@ async def checklist(request: Request, lang: str = "vi"):
             "is_admin": False,
         })
 @app.get("/food", response_class=HTMLResponse)
-async def food_page(request: Request, lang: str = "vi"):
+async def checklist(request: Request, lang: str = "vi"):
     data = content.get(lang, content["vi"])
-    return templates.TemplateResponse("food.html", {
-        "request": request,
-        "lang": lang,
-        "menu": data["menu"]
-    })
 
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    c.execute("SELECT id, name, email, comment, img, token, status FROM comments WHERE status='active'")
+    rows = c.fetchall()
+    conn.close()
+    comments = [dict_from_row(r) for r in rows]
+
+    return templates.TemplateResponse(
+        "index.html",
+        {
+            "request": request,
+            "data": data,
+            "page": "food",
+            "lang": lang,
+            "comments": comments,
+            "is_admin": False,
+        })
 @app.get("/health", response_class=HTMLResponse)
-async def health_page(request: Request, lang: str = "vi"):
+async def checklist(request: Request, lang: str = "vi"):
     data = content.get(lang, content["vi"])
-    return templates.TemplateResponse("health.html", {
-        "request": request,
-        "lang": lang,
-        "menu": data["menu"]
-    })
 
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    c.execute("SELECT id, name, email, comment, img, token, status FROM comments WHERE status='active'")
+    rows = c.fetchall()
+    conn.close()
+    comments = [dict_from_row(r) for r in rows]
+
+    return templates.TemplateResponse(
+        "index.html",
+        {
+            "request": request,
+            "data": data,
+            "page": "health",
+            "lang": lang,
+            "comments": comments,
+            "is_admin": False,
+        })
 # ---------------- COMMENT ----------------
 @app.post("/comment")
 async def comment(
