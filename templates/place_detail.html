@@ -12,7 +12,7 @@
             padding: 0;
         }
 
-        /* --- HEADER GIỐNG TRANG CHÍNH --- */
+        /* --- HEADER giống trang chính --- */
         header {
             background: url("/static/images/bground.jpg") no-repeat center center;
             background-size: cover;
@@ -22,23 +22,26 @@
             gap: 80px;
             justify-content: center;
         }
+
         .logo {
             width: 200px;
             height: 180px;
             border-radius: 10px;
             margin-left: -60px;
         }
-        .header h1 {
+
+        header h1 {
             font-size: 28px;
             margin-top: 10px;
             font-weight: bold;
         }
-        .header p {
+
+        header p {
             font-size: 16px;
             margin-top: 5px;
         }
 
-        /* --- MENU --- */
+        /* --- MENU giống trang chính --- */
         nav {
             background-color: #fce7ef;
             text-align: center;
@@ -56,6 +59,27 @@
 
         nav a:hover {
             text-decoration: underline;
+        }
+
+        /* Dropdown ngôn ngữ */
+        nav .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        nav .dropdown-content {
+            display: none;
+            position: absolute;
+            background: #fce7ef;
+            border-radius: 5px;
+            padding: 5px;
+            z-index: 1000;
+        }
+
+        nav .dropdown-content a {
+            display: block;
+            color: black;
+            padding: 5px;
         }
 
         /* --- NỘI DUNG CHI TIẾT --- */
@@ -112,20 +136,40 @@
 </head>
 <body>
 
-    <!-- PHẦN HEADER -->
-    <div class="header">
+    <!-- HEADER -->
+    <header>
         <img src="/static/images/Logo.gif" class="logo" alt="Logo">
-        <h1>Du lịch Khỏe - Đồng bằng Sông Cửu Long</h1>
-        <p>Khám phá miền Tây Nam Bộ: sông nước, ẩm thực và văn hóa độc đáo.</p>
-    </div>
+        <div>
+            <h1>Du lịch Khỏe - Đồng bằng Sông Cửu Long</h1>
+            <p>Khám phá miền Tây Nam Bộ: sông nước, ẩm thực và văn hóa độc đáo.</p>
+        </div>
+    </header>
 
     <!-- MENU -->
     <nav>
         <a href="/?lang={{ lang }}">{{ menu.home }}</a> |
         <a href="/tips?lang={{ lang }}">{{ menu.tips }}</a> |
         <a href="/checklist?lang={{ lang }}">{{ menu.checklist }}</a> |
+        <div class="dropdown">
+            <a href="#">{{ menu.lang }} ▼</a> |
+            <div class="dropdown-content">
+                <a href="/place/{{ place.name }}?lang=vi">Tiếng Việt</a>
+                <a href="/place/{{ place.name }}?lang=en">English</a>
+                <a href="/place/{{ place.name }}?lang=kr">한국어</a>
+            </div>
+        </div>
         <a href="/about?lang={{ lang }}">{{ menu.about }}</a>
     </nav>
+
+    <!-- JS cho dropdown -->
+    <script>
+        document.querySelector(".dropdown").addEventListener("mouseenter", function() {
+            this.querySelector(".dropdown-content").style.display = "block";
+        });
+        document.querySelector(".dropdown").addEventListener("mouseleave", function() {
+            this.querySelector(".dropdown-content").style.display = "none";
+        });
+    </script>
 
     <!-- NỘI DUNG CHI TIẾT -->
     <div class="container">
@@ -146,5 +190,6 @@
             ← {{ "Quay lại" if lang == "vi" else ("Back" if lang == "en" else "뒤로 가기") }}
         </a>
     </div>
+
 </body>
 </html>
