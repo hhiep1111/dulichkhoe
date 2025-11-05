@@ -3,6 +3,7 @@ import os
 import uuid
 import sqlite3
 import smtplib
+from unidecode import unidecode  # pip install unidecode
 from fastapi import BackgroundTasks
 from pydantic import EmailStr
 from email.mime.text import MIMEText
@@ -641,28 +642,30 @@ async def approve_comment(
     # Quay lại trang admin
     return RedirectResponse(url=f"/admin?lang={lang}", status_code=303)
 #-------------------trang chi tiet-------------------------
-@app.get("/place", response_class=HTMLResponse)
+@app.get("/place/{slug}", response_class=HTMLResponse)
 async def place_detail(request: Request, name: str, lang: str = "vi"):
     # Lấy dữ liệu ngôn ngữ
     data = content.get(lang, content["vi"])
 
-    # Tìm địa điểm theo tên (so khớp trực tiếp)
-    place = next((p for p in data["places"] if p["name"].lower() == name.lower()), None)
+     # Hàm chuyển tiếng Việt có dấu thành slug không dấu
+    def to_slug(text):
+        return unidecode(text).lower().replace(" ", "-")
+
+    # Tìm địa điểm theo slug
+    place = next((p for p in data["places"] if to_slug(p["name"]) == slug), None)
     if not place:
         raise HTTPException(status_code=404, detail="Địa điểm không tồn tại")
 
-    # Lấy dữ liệu chi tiết tương ứng
+    # Lấy chi tiết địa điểm (nếu có)
     details_by_lang = place_details_data.get(lang, place_details_data["vi"])
-    details = details_by_lang.get(place["name"])
-    if not details:
-        details = [{"title": "Đang cập nhật", "desc": "Thông tin sẽ sớm có.", "img": ""}]
+    details = details_by_lang.get(slug, [])
 
     return templates.TemplateResponse("place_detail.html", {
         "request": request,
         "lang": lang,
+        "menu": data["menu"],
         "place": place,
-        "details": details,
-        "menu": data["menu"]
+        "details": details
     })
 
     # Lấy danh sách bình luận đang active
