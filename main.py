@@ -358,7 +358,30 @@ place_details_data = {
                 <li>Nên đi tour ghe nhỏ để len lỏi vào chợ.</li>
                 <li>Trải nghiệm ăn hủ tiếu trên ghe là “must-try”.</li>
             </ul>
-            """}
+            """},
+            {   "title": "Chùa Dơi – Ngôi chùa Khmer độc đáo (Sóc Trăng cũ)", 
+                "desc": """ 
+                <p>Ngôi chùa Khmer cổ kính hơn 400 năm, nổi tiếng với hàng ngàn con dơi treo mình trên những tán cây trong khuôn viên.</p>
+                <p>📍Vị trí: Phường 3, TP. Sóc Trăng, cách trung tâm khoảng 2 km.</p>
+                <p>Lịch sử & kiến trúc:</p>
+                <ul>
+                    <li>Xây dựng từ thế kỷ 16, là ngôi chùa Khmer Nam Tông tiêu biểu.</li>
+                    <li>Chánh điện mang kiến trúc Khmer đặc trưng, mái cong nhiều tầng, hoa văn tinh xảo.</li>
+                    <li>Trong chùa còn lưu giữ nhiều tượng Phật cổ quý giá.</li>
+                </ul>
+                <p>Điểm nổi bật:</p>
+                <ul>
+                    <li>Hàng ngàn con dơi quạ (loài lớn, sải cánh đến 1m) sống trong khuôn viên.</li>
+                    <li>Dơi chỉ treo mình ban ngày, chiều tối bay đi kiếm ăn → tạo nên cảnh tượng độc đáo hiếm thấy.</li>
+                    <img src="/static/images/chuadoi.jpg" class="detail-img" alt="Chùa Dơi tại Sóc Trăng">
+                </ul>
+                <p>Gợi ý:</p>
+                <ul>
+                    <li>Giờ mở cửa: Tự do tham quan cả ngày, tốt nhất buổi sáng hoặc chiều mát.</li>
+                    <li>Nên ăn mặc lịch sự khi vào chùa.</li>
+                    <li>Giữ yên tĩnh, không làm phiền đàn dơi.</li>
+                </ul>
+                """}
          ]
     },
     "en": {
