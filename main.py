@@ -368,12 +368,12 @@ place_details_data = {
                     <li>Xây dựng từ thế kỷ 16, là ngôi chùa Khmer Nam Tông tiêu biểu.</li>
                     <li>Chánh điện mang kiến trúc Khmer đặc trưng, mái cong nhiều tầng, hoa văn tinh xảo.</li>
                     <li>Trong chùa còn lưu giữ nhiều tượng Phật cổ quý giá.</li>
+                    <img src="/static/images/chuadoi.jpg" class="detail-img" alt="Chùa Dơi tại Sóc Trăng">
                 </ul>
                 <p>Điểm nổi bật:</p>
                 <ul>
                     <li>Hàng ngàn con dơi quạ (loài lớn, sải cánh đến 1m) sống trong khuôn viên.</li>
                     <li>Dơi chỉ treo mình ban ngày, chiều tối bay đi kiếm ăn → tạo nên cảnh tượng độc đáo hiếm thấy.</li>
-                    <img src="/static/images/chuadoi.jpg" class="detail-img" alt="Chùa Dơi tại Sóc Trăng">
                 </ul>
                 <p>Gợi ý:</p>
                 <ul>
