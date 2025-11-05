@@ -164,21 +164,27 @@
 
     <!-- Main content -->
     <div class="container">
+        <h1>{{ place.name }}</h1>
+        <p>{{ place.desc }}</p>
+
+        <hr>
+
         {% for d in details %}
-        <div class="detail-section">
+        <div class="spot-section">
+            <h2>{{ d.title }}</h2>
             {% if d.img %}
                 <img src="/static/images/{{ d.img }}" alt="{{ d.title }}">
             {% endif %}
-            <h3>{{ d.title }}</h3>
             <p>{{ d.desc }}</p>
         </div>
+        <hr>
         {% endfor %}
 
         <a href="/?lang={{ lang }}" class="back-link">
             ← {{ "Quay lại" if lang == "vi" else ("Back" if lang == "en" else "뒤로 가기") }}
         </a>
     </div>
-
+    
     <!-- Footer -->
     <footer>
         <p>Facebook: Du lịch Khỏe</p>        
