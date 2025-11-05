@@ -643,7 +643,7 @@ async def approve_comment(
     return RedirectResponse(url=f"/admin?lang={lang}", status_code=303)
 #-------------------trang chi tiet-------------------------
 @app.get("/place/{slug}", response_class=HTMLResponse)
-async def place_detail(request: Request, name: str, lang: str = "vi"):
+async def place_detail(request: Request, slug: str, lang: str = "vi"):
     # Lấy dữ liệu ngôn ngữ
     data = content.get(lang, content["vi"])
 
