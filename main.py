@@ -319,7 +319,7 @@ content = {
 place_details_data = {
     "vi": {
         "Cần Thơ": [
-        {    "title": "Bến Ninh Kiều", 
+        {    "title": "Bến Ninh Kiều – Biểu Tượng Thành Phố", 
             "desc": """
             <p>Biểu tượng của Cần Thơ bên dòng sông Hậu hiền hòa, là nơi tản bộ, ngắm cảnh và chụp ảnh tuyệt đẹp.</p>
             <img src="/static/images/benninhkieu.jpg" class="detail-img" alt="Toàn cảnh bến Ninh Kiều">
@@ -330,6 +330,13 @@ place_details_data = {
                 <li>Cầu đi bộ Ninh Kiều rực rỡ ánh đèn ban đêm.</li>
                 <li>Bến tàu đi chợ nổi, du thuyền trên sông Hậu.</li>
                 <li>Tượng Bác Hồ và công viên thoáng mát.</li>
+            </ul>
+            <img src="/static/images/bac_ho.jpg" class="detail-img" alt="Tượng Bác Hồ tại công viên Cần Thơ">
+            <p>Gợi ý</p>
+            <ul>
+                <li>Giờ tham quan: Cả ngày (đẹp nhất vào buổi tối).</li>
+                <li>Kết hợp ăn tối trên du thuyền để ngắm sông về đêm.</li>
+                <li>Buổi tối cuối tuần có múa nhạc đường phố.</li>
             </ul>
             """
             #{"title": "Chợ nổi Cái Răng", "desc": "Một trong những chợ nổi lớn nhất miền Tây, sôi động từ tờ mờ sáng, chuyên bán trái cây và đặc sản miền sông nước.", "img": "test2.png"},
