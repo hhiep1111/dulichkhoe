@@ -322,7 +322,7 @@ place_details_data = {
         {    "title": "Bến Ninh Kiều", 
             "desc": """
             <p>Biểu tượng của Cần Thơ bên dòng sông Hậu hiền hòa, là nơi tản bộ, ngắm cảnh và chụp ảnh tuyệt đẹp.</p>
-            <img src="/static/images/test1.jpg" class="detail-img" alt="Toàn cảnh bến Ninh Kiều">
+            <img src="/static/images/test1.png" class="detail-img" alt="Toàn cảnh bến Ninh Kiều">
 
             <p>📍 Vị trí: Trung tâm TP. Cần Thơ, bên bờ sông Hậu.</p>
             <p>Điểm nổi bật:</p>
