@@ -316,6 +316,25 @@ content = {
         ]
     }
 }
+place_details_data = {
+    "can-tho": [
+        {
+            "title": "Bến Ninh Kiều",
+            "desc": "Biểu tượng của Cần Thơ bên dòng sông Hậu hiền hòa, là nơi tản bộ, ngắm cảnh và chụp ảnh tuyệt đẹp.",
+            "img": "test1.png"
+        },
+        {
+            "title": "Chợ nổi Cái Răng",
+            "desc": "Một trong những chợ nổi lớn nhất miền Tây, sôi động từ tờ mờ sáng, chuyên bán trái cây và đặc sản miền sông nước.",
+            "img": "test2.png"
+        },
+        {
+            "title": "Nhà cổ Bình Thủy",
+            "desc": "Ngôi nhà cổ kết hợp kiến trúc Pháp và Á Đông, được xây dựng từ thế kỷ 19, là điểm tham quan nổi tiếng.",
+            "img": "test3.png"
+        }
+    ]
+}
 # ---------------- HOME ----------------
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request, lang: str = "vi"):
@@ -624,18 +643,21 @@ async def place_detail(request: Request, slug: str, lang: str = "vi"):
     data = content.get(lang, content["vi"])
     data = content.get(lang, content["en"])
     data = content.get(lang, content["kr"])
-
-    # Kiểm tra xem địa điểm có tồn tại không
-    place = next((p for p in data.get("places", []) if p["name"].lower().find(slug.replace("-", " ")) != -1), None)
-    if not place:
+    
+    # Lấy chi tiết địa điểm theo slug (vd: "can-tho", "an-giang", "kien-giang")
+    details = place_details_data.get(slug)
+    if not details:
         raise HTTPException(status_code=404, detail="Địa điểm không tồn tại")
 
-    # Tạm thời hiển thị nội dung mô tả + thông báo đang cập nhật
-    place_details = [
-        f"Địa điểm: {place['name']}",
-        f"Mô tả: {place['desc']}",
-        "🔧 Nội dung chi tiết đang được cập nhật, vui lòng quay lại sau."
-    ]
+    # Tìm thông tin ngắn trong danh sách 'places' (để hiển thị phần mô tả tổng quát)
+    place = next((p for p in data["places"] if p["name"].lower().replace(" ", "-") == slug), None)
+    
+    return templates.TemplateResponse("place_detail.html", {
+        "request": request,
+        "lang": lang,
+        "place": place,
+        "details": details
+    })
 
     # Lấy danh sách bình luận đang active
     conn = sqlite3.connect(DB_FILE)
