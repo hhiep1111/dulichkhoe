@@ -489,7 +489,7 @@ place_details_data = {
                 </ul>
                 """}
                 ],
-        "Đồng Tháp"[
+        "Đồng Tháp": [
             {   "title": "Đồng Sen Tháp Mười", 
                 "desc": """ 
                 <p>Đồng Sen Tháp Mười là một trong những cánh đồng sen lớn và đẹp nhất miền Tây, nổi tiếng với không gian mênh mông hoa sen nở rộ, mang đậm nét mộc mạc, thanh bình của vùng Đồng Tháp Mười.</p>
