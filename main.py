@@ -172,10 +172,14 @@ content = {
         "places": [
             {"name": "Can Tho", "img": "cantho.jpg",
              "desc": "The capital of the Western region, famous for its floating markets, rich orchards and friendly orchard culture. Experience the morning floating market, enjoy vermicelli soup and fruit on a boat."},
-            {"name": "Kien Giang", "img": "phuquoc.jpg",
-             "desc": "Island paradise with white sandy beaches, clear waters, and fresh seafood."},
             {"name": "An Giang", "img": "angiang.jpg",
-             "desc": "Famous spiritual destination with majestic mountains."},
+             "desc": "A famous spiritual destination, combined with majestic mountain scenery."},
+            {"name": "Ca Mau", "img": "camau.jpg",
+             "desc": "Ca Mau is the southernmost province of Vietnam, bordering the sea on three sides, famous for its mangrove ecosystem, lagoons, small islands and the sacred southernmost point of the country. Unspoiled nature, river culture and rich cuisine are the attractions of Ca Mau tourism"},
+            {"name": "Vinh Long", "img": "vinhlong.jpg",
+             "desc": "texttttttttttttttttttttttttttttt"},
+            {"name": "Dong Thap", "img": "dongthap.jpg",
+             "desc": "Dong Thap is famous for lotus, Sa Dec flower village, Oc Eo Go Thap relic, and green, sustainable community tourism model."}
         ],
         "tips": [
             {
@@ -249,11 +253,15 @@ content = {
         "about": "안녕하세요, 우리는 남부 베트남의 여행과 문화를 사랑하는 사람들입니다.",
         "places": [
             {"name": "깐토", "img": "cantho.jpg",
-             "desc": "서부 지역의 중심지로, 수상 시장, 풍성한 과수원, 그리고 정겨운 과수원 문화로 유명합니다. 아침 수상 시장을 경험하고, 배 위에서 당면 수프와 과일을 즐겨보세요."},
-            {"name": "끼엔장", "img": "phuquoc.jpg",
-             "desc": "하얀 모래사장, 맑은 바닷물, 신선한 해산물이 있는 섬의 천국."},
-            {"name": "삼산, 안장", "img": "angiang.jpg",
-             "desc": "장엄한 산과 함께 유명한 영적 명소."},
+             "desc": "서부 지역의 수도로, 수상 시장, 풍성한 과수원, 그리고 정겨운 과수원 문화로 유명합니다. 아침 수상 시장을 경험하고, 배 위에서 당면 수프와 과일을 즐겨보세요."},
+            {"name": "안장", "img": "angiang.jpg",
+             "desc": "웅장한 산의 경치와 어우러진 유명한 영적 여행지입니다."},
+            {"name": "까마우", "img": "camau.jpg",
+             "desc": "까마우는 베트남 최남단 성으로, 삼면이 바다에 접해 있으며, 맹그로브 생태계, 석호, 작은 섬들, 그리고 베트남 최남단의 성지로 유명합니다. 훼손되지 않은 자연, 강 문화, 그리고 풍부한 음식은 까마우 관광의 매력입니다."},
+            {"name": "빈롱", "img": "vinhlong.jpg",
+             "desc": "texttttttttttttttttttttttttttttttt"},
+            {"name": "동탑", "img": "dongthap.jpg",
+             "desc": "동탑은 연꽃, 사덱 꽃 마을, 옥 에오 고탑 유적, 그리고 친환경적이고 지속 가능한 지역 사회 관광 모델로 유명합니다."}
         ],
         "tips": [
             {
