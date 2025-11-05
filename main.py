@@ -3,7 +3,6 @@ import os
 import uuid
 import sqlite3
 import smtplib
-from unidecode import unidecode  # pip install unidecode
 from fastapi import BackgroundTasks
 from pydantic import EmailStr
 from email.mime.text import MIMEText
@@ -12,6 +11,8 @@ from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
+from unidecode import unidecode  # pip install unidecode
+
 
 app = FastAPI()
 
@@ -319,21 +320,21 @@ content = {
 }
 place_details_data = {
     "vi": {
-        "Can Tho": [
+        "can-tho": [
             {"title": "Bến Ninh Kiều", "desc": "Biểu tượng của Cần Thơ bên dòng sông Hậu hiền hòa, là nơi tản bộ, ngắm cảnh và chụp ảnh tuyệt đẹp.", "img": "test1.png"},
             {"title": "Chợ nổi Cái Răng", "desc": "Một trong những chợ nổi lớn nhất miền Tây, sôi động từ tờ mờ sáng, chuyên bán trái cây và đặc sản miền sông nước.", "img": "test2.png"},
             {"title": "Nhà cổ Bình Thủy", "desc": "Ngôi nhà cổ kết hợp kiến trúc Pháp và Á Đông, được xây dựng từ thế kỷ 19, là điểm tham quan nổi tiếng.", "img": "test3.png"}
         ]
     },
     "en": {
-        "Can Tho": [
+        "can-tho": [
             {"title": "Ninh Kieu Wharf", "desc": "The symbol of Can Tho on the gentle Hau River, a place for walking, sightseeing and taking beautiful photos.", "img": "test1.png"},
             {"title": "Cai Rang Floating Market", "desc": "One of the largest floating markets in the West, bustling from dawn, specializing in selling fruits and specialties of the river region.", "img": "test2.png"},
             {"title": "Binh Thuy Ancient House", "desc": "The ancient house combines French and Asian architecture, built in the 19th century, is a famous tourist attraction.", "img": "test3.png"}
         ]
     },
     "kr": {
-        "깐토": [
+        "can-tho": [
             {"title": "닌끼우 부두", "desc": "잔잔한 하우 강변에 위치한 깐토의 상징으로, 산책과 관광, 아름다운 사진 촬영을 즐기기에 좋은 곳입니다.", "img": "test1.png"},
             {"title": "까이랑 수상시장", "desc": "서부 최대 규모의 수상시장 중 하나로, 새벽부터 활기가 넘치며 강변 지역의 과일과 특산품을 전문으로 판매합니다.", "img": "test2.png"},
             {"title": "빈투이 고택", "desc": "19세기에 지어진 이 고택은 프랑스와 아시아 건축 양식이 결합된 곳으로, 유명한 관광 명소입니다.", "img": "test3.png"}
