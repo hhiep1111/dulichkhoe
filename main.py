@@ -706,7 +706,7 @@ async def checklist(request: Request, lang: str = "vi"):
             "data": data,
             "page": "food",
             "lang": lang,
-            "food_list": food_list,
+            "food_list": data.get("food_list", []),
             "comments": comments,
             "is_admin": False,
         })
