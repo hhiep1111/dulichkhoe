@@ -255,7 +255,7 @@
             font-size: 12px;
             color: gray;
         }
-        .comment-imgage {
+        .comment-image {
             width: 200px;        /* đặt chiều rộng cố định, ví dụ 200px */
             height: 150px;       /* đặt chiều cao cố định */
             object-fit: cover;   /* ảnh sẽ tự crop để vừa khung */
@@ -370,17 +370,6 @@
       {% else %}
     <p>Checklist chưa có dữ liệu cho ngôn ngữ này.</p>
   {% endif %}
-{% elif page == "place_detail" %}
-    <div class="place-detail" style="max-width:800px;margin:auto;padding:20px;">
-      <img src="/static/images/{{ place.img }}" alt="{{ place.name }}" style="width:100%;border-radius:12px;">
-      <h2 style="margin-top:20px;">{{ place.name }}</h2>
-      <p>{{ place.desc }}</p>
-      <ul>
-        {% for d in place_details %}
-          <li>{{ d }}</li>
-        {% endfor %}
-      </ul>
-    </div>
 {% endif %}
 </section>  
 <section>
@@ -424,7 +413,7 @@
               <p>{{ c.comment }}</p>
 
             {% if c.img %}
-            <img src="/uploads/{{ c.img }}" alt="Comment Image" class="comment-imgage">
+            <img src="/uploads/{{ c.img }}" alt="Comment Image" class="comment-image">
             {% endif %}
 
             {% if is_admin %}
