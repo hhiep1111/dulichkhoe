@@ -3,43 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ place.name }}</title>
+    <link rel="stylesheet" href="/static/style.css">
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #f5faff;
+            background: #fdfbfc;
             margin: 0;
             padding: 0;
         }
 
-        /* Header giống trang chính */
-        header {
-            background: url("/static/images/bground.jpg") no-repeat center center;
-            background-size: cover;
-            color: black;
-            padding: 20px;
-            display: flex;
-            gap: 80px;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .logo {
-            width: 200px;
-            height: 180px;
-            border-radius: 10px;
-            margin-left: -60px;
-        }
-
-        nav {
+        /* --- HEADER GIỐNG TRANG CHÍNH --- */
+        .header {
             text-align: center;
-            background: #FDF3F7;
+            background-image: url('/static/images/bground.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 30px 20px;
+            color: #000;
+        }
+
+        .header img {
+            width: 180px;
+            border-radius: 20px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 16px;
+            margin-top: 5px;
+        }
+
+        /* --- MENU --- */
+        nav {
+            background-color: #fce7ef;
+            text-align: center;
             padding: 10px;
+            border-top: 1px solid #f4b9cc;
+            border-bottom: 1px solid #f4b9cc;
         }
 
         nav a {
-            color: black;
-            margin: 0 10px;
+            color: #000;
             text-decoration: none;
+            margin: 0 10px;
             font-weight: bold;
         }
 
@@ -47,144 +58,79 @@
             text-decoration: underline;
         }
 
-        nav .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        nav .dropdown-content {
-            display: none;
-            position: absolute;
-            background: #FDF3F7;
-            padding: 5px;
-            border-radius: 5px;
-            z-index: 1000;
-        }
-
-        nav .dropdown-content a {
-            display: block;
-            color: black;
-            padding: 5px;
-        }
-
+        /* --- NỘI DUNG CHI TIẾT --- */
         .container {
             max-width: 900px;
             margin: 30px auto;
-            padding: 20px 30px;
             background: #fff;
+            padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        h1 {
-            color: #2e2e2e;
+        .container h1 {
+            font-size: 28px;
             margin-bottom: 10px;
         }
 
-        p {
-            line-height: 1.6;
+        .container p {
+            font-size: 17px;
+            color: #333;
         }
 
-        hr {
-            margin: 20px 0;
-            border: 0;
-            border-top: 1px solid #ddd;
+        .spot-section {
+            margin-top: 40px;
         }
 
-        .detail-section {
-            margin-bottom: 40px;
-        }
-
-        .detail-section img {
-            width: 100%;
-            border-radius: 12px;
-            margin-bottom: 15px;
-        }
-
-        .detail-section h3 {
-            color: #444;
-            margin-bottom: 8px;
-        }
         .spot-section h2 {
-            color: #2c2c2c;
+            color: #222;
             margin-bottom: 10px;
         }
 
         .spot-section img {
             width: 100%;
-            max-height: 450px;
-            object-fit: cover;
             border-radius: 12px;
             margin-bottom: 10px;
         }
 
         .spot-section p {
-            font-size: 16px;
             line-height: 1.6;
             color: #444;
-        }    
-        a.back-link {
+        }
+
+        .back-link {
             display: inline-block;
             margin-top: 20px;
-            text-decoration: none;
             color: #0077cc;
-            font-weight: bold;
+            text-decoration: none;
         }
 
-        a.back-link:hover {
+        .back-link:hover {
             text-decoration: underline;
-        }
-
-        footer {
-            background: #FDF3F7;
-            color: black;
-            text-align: center;
-            padding: 15px;
-            margin-top: 40px;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <img src="/static/images/Logo.gif" class="logo" alt="Logo">
-        <div>
-            <h1>{{ place.name }}</h1>
-            <p>{{ place.desc }}</p>
-        </div>
-    </header>
 
-    <!-- Navigation -->
+    <!-- PHẦN HEADER -->
+    <div class="header">
+        <img src="/static/images/Logo.gif" class="logo" alt="Logo">
+        <h1>Du lịch Khỏe - Đồng bằng Sông Cửu Long</h1>
+        <p>Khám phá miền Tây Nam Bộ: sông nước, ẩm thực và văn hóa độc đáo.</p>
+    </div>
+
+    <!-- MENU -->
     <nav>
         <a href="/?lang={{ lang }}">{{ menu.home }}</a> |
         <a href="/tips?lang={{ lang }}">{{ menu.tips }}</a> |
         <a href="/checklist?lang={{ lang }}">{{ menu.checklist }}</a> |
-        <div class="dropdown">
-            <a href="#">{{ menu.lang }} ▼</a> |
-            <div class="dropdown-content">
-                <a href="/?lang=vi">Tiếng Việt</a>
-                <a href="/?lang=en">English</a>
-                <a href="/?lang=kr">한국어</a>
-            </div>
-        </div>
-        <a href="/about?lang={{ lang }}">{{ menu.about }}</a> |
+        <a href="/about?lang={{ lang }}">{{ menu.about }}</a>
     </nav>
 
-    <script>
-        document.querySelector(".dropdown").addEventListener("mouseenter", function() {
-            this.querySelector(".dropdown-content").style.display = "block";
-        });
-        document.querySelector(".dropdown").addEventListener("mouseleave", function() {
-            this.querySelector(".dropdown-content").style.display = "none";
-        });
-    </script>
-
-    <!-- Main content -->
+    <!-- NỘI DUNG CHI TIẾT -->
     <div class="container">
         <h1>{{ place.name }}</h1>
         <p>{{ place.desc }}</p>
-
-        <hr>
 
         {% for d in details %}
         <div class="spot-section">
@@ -194,23 +140,11 @@
             {% endif %}
             <p>{{ d.desc }}</p>
         </div>
-        <hr>
         {% endfor %}
 
         <a href="/?lang={{ lang }}" class="back-link">
             ← {{ "Quay lại" if lang == "vi" else ("Back" if lang == "en" else "뒤로 가기") }}
         </a>
     </div>
-    
-    <!-- Footer -->
-    <footer>
-        <p>Facebook: Du lịch Khỏe</p>        
-        <p>Contact: Dulichkhoe.official@gmail.com</p>
-        <p>
-            🌐 <a href="/?lang=vi">VI</a> |
-            <a href="/?lang=en">EN</a> |
-            <a href="/?lang=kr">KR</a>
-        </p>
-    </footer>
 </body>
 </html>
