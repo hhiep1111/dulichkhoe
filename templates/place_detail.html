@@ -1,1 +1,27 @@
 
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ place.name }}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ place.name }}</h1>
+        <p>{{ place.desc }}</p>
+        <hr>
+        <div class="places-detail">
+            {% for d in details %}
+            <div class="detail-card">
+                <img src="/static/images/{{ d.img }}" alt="{{ d.title }}">
+                <h3>{{ d.title }}</h3>
+                <p>{{ d.desc }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        <br>
+        <a href="/" style="text-decoration:none;color:blue;">← Quay lại trang chủ</a>
+    </div>
+</body>
+</html>
