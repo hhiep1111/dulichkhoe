@@ -690,6 +690,7 @@ async def checklist(request: Request, lang: str = "vi"):
 @app.get("/food", response_class=HTMLResponse)
 async def checklist(request: Request, lang: str = "vi"):
     data = content.get(lang, content["vi"])
+    food_list = data.get("food", [])
 
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
