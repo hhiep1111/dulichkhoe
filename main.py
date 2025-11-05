@@ -162,7 +162,7 @@ content = {
                                           "Áo khoác nhẹ chống nắng", "Áo khoác nhẹ hoặc cardigan", "Khăn choàng",
                                           "Đồ bơm hơi bãi biển", "Đồ chơi & trò chơi bãi biển"]},
         ],
-        food_list: [
+        "food_list": [
         {    "id": "banhcong",
              "title": "Bánh Cống Cần Thơ",
              "img": "/static/images/cantho.jpg",
