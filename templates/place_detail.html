@@ -31,14 +31,12 @@
         }
 
         nav {
-            background-color: #fce7ef;
+            background-color: #FDF3F7;
             text-align: center;
             padding: 10px;
-            border-top: 1px solid #f4b9cc;
-            border-bottom: 1px solid #f4b9cc;
         }
 
-        nav a { color: #000; text-decoration: none; margin: 0 10px; font-weight: bold; }
+        nav a { color: #FDF3F7; text-decoration: none; margin: 0 10px; }
         nav a:hover { text-decoration: underline; }
 
         nav .dropdown { position: relative; display: inline-block; }
@@ -100,7 +98,8 @@
     <a href="/?lang={{ lang }}">{{ menu.home }}</a> |
     <a href="/tips?lang={{ lang }}">{{ menu.tips }}</a> |
     <a href="/checklist?lang={{ lang }}">{{ menu.checklist }}</a> |
-
+    <a href="/food?lang={{ lang }}">{{ menu.food }}</a> |
+    <a href="/health?lang={{ lang }}">{{ menu.health }}</a> | 
     <div class="dropdown">
         <a href="#">{{ menu.lang }} ▼</a> |
         <div class="dropdown-content">
