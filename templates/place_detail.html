@@ -5,50 +5,90 @@
     <title>{{ place.name }}</title>
     <link rel="stylesheet" href="/static/style.css">
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        nav {
+            background: #EDC3D6;
+            padding: 12px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #6a1b9a;
+        }
+
         .container {
             max-width: 900px;
-            margin: 0 auto;
+            margin: 30px auto;
             padding: 20px;
-        }
-        .places-detail {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .detail-card {
             background: #fff;
-            border-radius: 10px;
+            border-radius: 12px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            padding: 15px;
-            text-align: center;
         }
-        .detail-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 8px;
+
+        h1 {
+            color: #2e2e2e;
             margin-bottom: 10px;
         }
-        nav {
-            background: #f6f6f6;
-            padding: 10px;
-            text-align: center;
-            border-bottom: 1px solid #ddd;
+
+        p {
+            line-height: 1.6;
         }
-        nav a {
-            margin: 0 8px;
+
+        hr {
+            margin: 20px 0;
+            border: 0;
+            border-top: 1px solid #ddd;
+        }
+
+        .detail-section {
+            margin-bottom: 40px;
+        }
+
+        .detail-section img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .detail-section h3 {
+            color: #444;
+            margin-bottom: 8px;
+        }
+
+        a.back-link {
+            display: inline-block;
+            margin-top: 20px;
             text-decoration: none;
             color: #0077cc;
             font-weight: bold;
+        }
+
+        a.back-link:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <nav>
-        <a href="/?lang={{ lang }}">{{ menu.home }}</a> |
-        <a href="/about?lang={{ lang }}">{{ menu.about }}</a> |
-        <a href="/tips?lang={{ lang }}">{{ menu.tips }}</a> |
+        <a href="/?lang={{ lang }}">{{ menu.home }}</a>
+        <a href="/about?lang={{ lang }}">{{ menu.about }}</a>
+        <a href="/tips?lang={{ lang }}">{{ menu.tips }}</a>
         <a href="/checklist?lang={{ lang }}">{{ menu.checklist }}</a>
     </nav>
 
@@ -57,20 +97,17 @@
         <p>{{ place.desc }}</p>
         <hr>
 
-        <div class="places-detail">
-            {% for d in details %}
-            <div class="detail-card">
-                {% if d.img %}
-                    <img src="/static/images/{{ d.img }}" alt="{{ d.title }}">
-                {% endif %}
-                <h3>{{ d.title }}</h3>
-                <p>{{ d.desc }}</p>
-            </div>
-            {% endfor %}
+        {% for d in details %}
+        <div class="detail-section">
+            {% if d.img %}
+                <img src="/static/images/{{ d.img }}" alt="{{ d.title }}">
+            {% endif %}
+            <h3>{{ d.title }}</h3>
+            <p>{{ d.desc }}</p>
         </div>
+        {% endfor %}
 
-        <br>
-        <a href="/?lang={{ lang }}" style="text-decoration:none;color:blue;">
+        <a href="/?lang={{ lang }}" class="back-link">
             ← {{ "Quay lại" if lang == "vi" else ("Back" if lang == "en" else "뒤로 가기") }}
         </a>
     </div>
