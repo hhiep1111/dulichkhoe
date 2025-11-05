@@ -410,9 +410,10 @@
           </div>
         </div>
       {% else %}
-    <p>Checklist chưa có dữ liệu cho ngôn ngữ này.</p>
-  {% endif %}
-        {{% elif page == "food" %}
+        <p>Checklist chưa có dữ liệu cho ngôn ngữ này.</p>
+      {% endif %}
+    
+    {{% elif page == "food" %}
         <h2>🍜 Ẩm thực</h2>
         <div class="tips-container">
             {% for food in food_list %}
@@ -429,7 +430,6 @@
             </div>
             {% endfor %}
         </div>
-    {% endfor %}
     {% endif %}
 </section>  
 <section>
