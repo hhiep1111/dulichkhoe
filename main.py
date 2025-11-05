@@ -319,7 +319,7 @@ content = {
 }
 place_details_data = {
     "vi": {
-        "Cần Thơ": [
+        "Can Tho": [
             {"title": "Bến Ninh Kiều", "desc": "Biểu tượng của Cần Thơ bên dòng sông Hậu hiền hòa, là nơi tản bộ, ngắm cảnh và chụp ảnh tuyệt đẹp.", "img": "test1.png"},
             {"title": "Chợ nổi Cái Răng", "desc": "Một trong những chợ nổi lớn nhất miền Tây, sôi động từ tờ mờ sáng, chuyên bán trái cây và đặc sản miền sông nước.", "img": "test2.png"},
             {"title": "Nhà cổ Bình Thủy", "desc": "Ngôi nhà cổ kết hợp kiến trúc Pháp và Á Đông, được xây dựng từ thế kỷ 19, là điểm tham quan nổi tiếng.", "img": "test3.png"}
