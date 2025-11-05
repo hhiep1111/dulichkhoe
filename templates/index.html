@@ -302,16 +302,19 @@
     {% if page == "home" %}
         {% for p in data.places %}
         <div class="card">
-            <a href="/place/{{ p.name | replace(' ', '-') | lower }}?lang={{ lang }}" style="text-decoration:none; color:inherit;">
-                <img src="/static/images/{{ p.img }}" alt="{{ p.name }}">
-                <div class="card-content">
-                    <h2>{{ p.name }}</h2>
-                    <p>{{ p.desc }}</p>
+            <img src="/static/images/{{ p.img }}" alt="{{ p.name }}">
+            <div class="card-content">
+                <h2>{{ p.name }}</h2>
+                <p>{{ p.desc }}</p>
+                <div style="text-align: right; margin-top: 10px;">
+                    <a href="/place/{{ p.name | replace(' ', '-') | lower }}?lang={{ lang }}" 
+                       style="background:#EDC3D6; color:black; padding:8px 14px; border-radius:6px; text-decoration:none;">
+                       {{ "Chi tiết địa điểm" if lang=="vi" else ("View details" if lang=="en" else "자세히 보기") }}
+                    </a>
                 </div>
-            </a>
+            </div>
         </div>
         {% endfor %}
-    
     {% elif page == "about" %}
         <h2>{{ "Giới thiệu" if lang=="vi" else ("About Me" if lang=="en" else "소개") }}</h2>
         <p>{{ data.about }}</p>
