@@ -85,7 +85,7 @@ content = {
     "vi": {
         "title": "Du lịch Khỏe - Đồng bằng Sông Cửu Long",
         "intro": "Khám phá miền Tây Nam Bộ: sông nước, ẩm thực và văn hóa độc đáo.",
-        "menu": {"home": "Trang chủ", "about": "Giới thiệu", "tips": "Lưu ý", "checklist": "Check-list", "lang": "Ngôn ngữ"},
+        "menu": {"home": "Trang chủ", "about": "Giới thiệu", "tips": "Lưu ý", "checklist": "Check-list", "lang": "Ngôn ngữ", "food": "Ẩm Thực", "health": "Hỗ trợ Y Tế"},
         "about": "Xin chào, chúng ta là những người yêu thích du lịch và văn hóa miền Tây.",
         "places": [
             {"name": "Cần Thơ", "img": "cantho.jpg",
@@ -167,7 +167,7 @@ content = {
     "en": {
         "title": "Healthy Travel - Mekong Delta",
         "intro": "Explore Southern Vietnam: rivers, cuisine, and unique culture.",
-        "menu": {"home": "Home", "about": "About", "tips": "Tips", "checklist": "Check-list", "lang": "Language"},
+        "menu": {"home": "Home", "about": "About", "tips": "Tips", "checklist": "Check-list", "lang": "Language", "food": "Cuisine", "health": "Medical Support"},
         "about": "Hello, we are passionate about traveling and the culture of Southern Vietnam.",
         "places": [
             {"name": "Can Tho", "img": "cantho.jpg",
@@ -249,7 +249,7 @@ content = {
     "kr": {
         "title": "건강한 여행 - 메콩 델타",
         "intro": "남부 베트남 탐험: 강, 음식, 독특한 문화.",
-        "menu": {"home": "홈", "about": "소개", "tips": "유의사항", "checklist": "체크리스트", "lang": "언어"},
+        "menu": {"home": "홈", "about": "소개", "tips": "유의사항", "checklist": "체크리스트", "lang": "언어", "food": "음식", "health": "의료 지원"},
         "about": "안녕하세요, 우리는 남부 베트남의 여행과 문화를 사랑하는 사람들입니다.",
         "places": [
             {"name": "깐토", "img": "cantho.jpg",
@@ -665,8 +665,25 @@ async def checklist(request: Request, lang: str = "vi"):
             "lang": lang,
             "comments": comments,
             "is_admin": False,
-        },
-    )
+        })
+@app.get("/food", response_class=HTMLResponse)
+async def food_page(request: Request, lang: str = "vi"):
+    data = content.get(lang, content["vi"])
+    return templates.TemplateResponse("food.html", {
+        "request": request,
+        "lang": lang,
+        "menu": data["menu"]
+    })
+
+@app.get("/health", response_class=HTMLResponse)
+async def health_page(request: Request, lang: str = "vi"):
+    data = content.get(lang, content["vi"])
+    return templates.TemplateResponse("health.html", {
+        "request": request,
+        "lang": lang,
+        "menu": data["menu"]
+    })
+
 # ---------------- COMMENT ----------------
 @app.post("/comment")
 async def comment(
