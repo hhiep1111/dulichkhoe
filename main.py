@@ -382,7 +382,49 @@ place_details_data = {
                     <li>Giữ yên tĩnh, không làm phiền đàn dơi.</li>
                 </ul>
                 """}
-         ]
+         ],
+        "Cà Mau": [
+            {   "title": "Mũi Cà Mau – Cột mốc cực Nam", 
+                "desc": """ 
+                <p>Mũi Cà Mau là điểm cực Nam của Tổ quốc, nơi dải đất Việt Nam vươn ra biển lớn. Đến đây, bạn có thể check-in tại cột mốc GPS 0001, biểu tượng con thuyền và ngắm khung cảnh rừng ngập mặn – biển trời mênh mông.</p>
+                <p>📍Vị trí: Mũi Cà Mau nằm ở xã Đất Mũi, huyện Ngọc Hiển, tỉnh Cà Mau, thuộc cực Nam đất liền của Việt Nam.</p>
+                <img src="/static/images/muicamau.jpg" class="detail-img" alt="Mũi Cà Mau cột mốc cực Nam">
+
+                <p>Điểm nổi bật:</p>
+                <ul>
+                    <li>Đây là một trong những nơi hiếm hoi có thể ngắm bình minh biển Đông và hoàng hôn biển Tây ngay tại cùng vị trí, mang lại cảm giác thiêng liêng và tự hào khi chạm “tận cùng đất Việt”.</li>
+                    <li>Công trình biểu tượng như cột mốc đường Hồ Chí Minh Km 2436 tại mũi Cà Mau, biểu tượng chủ quyền và vị trí cực Nam.</li>
+                    <li>Hệ sinh thái rừng ngập mặn: cây mắm, cây đước phát triển trên đất bồi phù sa, rễ mắm đâm ngược lên giữ đất.</li>
+                </ul>
+                <p>Gợi ý:</p>
+                <ul>
+                    <li>Thích hợp đi sớm buổi sáng hoặc chiều muộn để ngắm biển và ánh sáng đẹp.</li>
+                    <li>Đi đường bộ tới Đất Mũi có thể hơi xa – chuẩn bị chu đáo phương tiện, nhiên liệu, đồ ăn nhẹ.</li>
+                    <li>Tôn trọng môi trường: không xả rác, giữ gìn cảnh quan thiên nhiên.</li>
+                </ul>
+                """},
+            {   "title": "Rừng ngập mặn U Minh Hạ", 
+                "desc": """ 
+                <p>Rừng U Minh Hạ là hệ sinh thái rừng tràm – ngập mặn đặc trưng miền Tây, được ví như “lá phổi xanh” của Cà Mau. Không gian hoang sơ với kênh rạch chằng chịt, thảm thực vật dày đặc và nhiều loài chim thú quý hiếm.</p>
+                <p>📍Vị trí: Vườn Quốc gia U Minh Hạ nằm ở tỉnh Cà Mau, thuộc vùng rừng ngập mặn – rừng tràm.</p>
+                <img src="/static/images/rungngapman.jpg" class="detail-img" alt="Rừng ngập mặn U Minh Hạ">
+
+                <p>Điểm nổi bật:</p>
+                <ul>
+                    <li>Rừng tràm ngập nước, hệ sinh thái phong phú với nhiều loài động – thực vật và kênh rạch đan xen.</li>
+                    <li>Có đài quan sát cao để ngắm toàn cảnh rừng U Minh Hạ.</li>
+                    <li>Các hoạt động tham quan như đi thuyền xuồng len lỏi qua kênh rạch, nghe “khung rừng” – rất khác biệt so với du lịch bãi biển thông thường.</li>
+                </ul>
+                <p>Gợi ý:</p>
+                <ul>
+                    <li>Khu rừng có thể tham quan quanh năm nhưng thời điểm tốt là mùa khô (ít mưa) hoặc mùa nước lên khi muốn đi thuyền sâu hơn.</li>
+                    <li>Mặc áo dài tay + kem chống côn trùng nếu đi vào khu rừng vì muỗi và côn trùng có thể nhiều.</li>
+                    <li>Nếu đi vào mùa nước lên, có thể thuê xuồng tham quan; vào mùa khô, đường bộ sẽ thuận lợi hơn.</li>
+                </ul>
+                """
+            }
+            
+        ]
     },
     "en": {
         "Can Tho": [
