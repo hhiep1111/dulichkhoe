@@ -344,7 +344,9 @@ place_details_data = {
             <p>Điểm nổi bật:</p>
             <ul>
                 <li>Ghe thuyền treo “bẹo” (mẫu hàng treo trên sào) để rao bán.</li>
-                <li>Trái cây, nông sản tươi, món ăn sáng như hủ tiếu, cà phê bán ngay trên thuyền.<li>
+                <li>Trái cây, nông sản tươi, món ăn sáng như hủ tiếu, cà phê bán ngay trên thuyền.</li>
+                <img src="/static/images/chocairang.jpg" class="detail-img" alt="Chợ Nổi Cái Răng Cần Thơ">
+
             </ul>
             <p>Gợi ý:</p>
             <ul>
