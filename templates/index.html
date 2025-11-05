@@ -412,27 +412,23 @@
       {% else %}
     <p>Checklist chưa có dữ liệu cho ngôn ngữ này.</p>
   {% endif %}
-        {% elif page == "food" %}
-            <h2>🍜 Ẩm thực</h2>
-            <div class="card-grid">
-
-                {% for food in food_list %}
-                <div class="card">
-
-                    <img src="{{ food.img }}" class="card-img">
-                    <h3>{{ food.title }}</h3>
-                    <p>{{ food.short }}</p>
-
-                    <button class="btn" onclick="toggleDetail('{{ food.id }}')">
-                        Xem chi tiết
-                    </button>
-
-                    <div id="detail-{{ food.id }}" class="detail-box" style="display: none;">
-                        <p>{{ food.desc|safe }}</p>
-                    </div>
-                </div>
-                {% endfor %}
+        {{% elif page == "food" %}
+<h2>🍜 Ẩm thực</h2>
+<div class="tips-container">
+    {% for food in food_list %}
+    <div class="tips-card">
+        <img src="{{ food.img }}" alt="{{ food.title }}">
+        <div class="tips-content">
+            <h3>{{ food.title }}</h3>
+            <p>{{ food.short }}</p>
+            <button class="btn" onclick="toggleDetail('{{ food.id }}')">Xem chi tiết</button>
+            <div id="detail-{{ food.id }}" class="detail-box" style="display: none;">
+                <p>{{ food.desc|safe }}</p>
             </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 {% endif %}
 </section>  
 <section>
