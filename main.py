@@ -641,19 +641,21 @@ async def approve_comment(
     # Quay lại trang admin
     return RedirectResponse(url=f"/admin?lang={lang}", status_code=303)
 
-@app.get("/place/{slug}", response_class=HTMLResponse)
-async def place_detail(request: Request, slug: str, lang: str = "vi"):
-    # Lấy dữ liệu ngôn ngữ, mặc định là tiếng Việt
+@app.get("/place", response_class=HTMLResponse)
+async def place_detail(request: Request, name: str, lang: str = "vi"):
+    # Lấy dữ liệu ngôn ngữ
     data = content.get(lang, content["vi"])
 
-    # Lấy danh sách chi tiết của địa điểm theo ngôn ngữ
-    details_by_lang = place_details_data.get(lang, place_details_data["vi"])
-    details = details_by_lang.get(slug)
-    if not details:
+    # Tìm địa điểm theo tên (so khớp trực tiếp)
+    place = next((p for p in data["places"] if p["name"].lower() == name.lower()), None)
+    if not place:
         raise HTTPException(status_code=404, detail="Địa điểm không tồn tại")
 
-    # Lấy phần mô tả ngắn (ở trang chính)
-    place = next((p for p in data["places"] if p["name"].lower().replace(" ", "-") == slug), None)
+    # Lấy dữ liệu chi tiết tương ứng
+    details_by_lang = place_details_data.get(lang, place_details_data["vi"])
+    details = details_by_lang.get(place["name"])
+    if not details:
+        details = [{"title": "Đang cập nhật", "desc": "Thông tin sẽ sớm có.", "img": ""}]
 
     return templates.TemplateResponse("place_detail.html", {
         "request": request,
