@@ -319,7 +319,7 @@ content = {
 place_details_data = {
     "vi": {
         "Cần Thơ": [
-            {"title": "Bến Ninh Kiều"}, 
+        {    "title": "Bến Ninh Kiều", 
             "desc": """
             <p>Biểu tượng của Cần Thơ bên dòng sông Hậu hiền hòa, là nơi tản bộ, ngắm cảnh và chụp ảnh tuyệt đẹp.</p>
             <img": src="/static/images/test1.jpg" class="detail-img"/>
@@ -334,11 +334,12 @@ place_details_data = {
             """
             #{"title": "Chợ nổi Cái Răng", "desc": "Một trong những chợ nổi lớn nhất miền Tây, sôi động từ tờ mờ sáng, chuyên bán trái cây và đặc sản miền sông nước.", "img": "test2.png"},
             #{"title": "Nhà cổ Bình Thủy", "desc": "Ngôi nhà cổ kết hợp kiến trúc Pháp và Á Đông, được xây dựng từ thế kỷ 19, là điểm tham quan nổi tiếng.", "img": "test3.png"}
-        ]
+             }
+         ]
     },
     "en": {
         "Can Tho": [
-            {"title": "Ninh Kieu Wharf"},
+            {"title": "Ninh Kieu Wharf",
             "desc": """
                 <p>The symbol of Can Tho on the gentle Hau River, is a beautiful place to walk, sightsee and take photos.</p>
                 <img": src="/static/images/test1.jpg" class="detail-img"/>
@@ -355,7 +356,8 @@ place_details_data = {
             #{"title": "Ninh Kieu Wharf", "desc": "The symbol of Can Tho on the gentle Hau River, a place for walking, sightseeing and taking beautiful photos.", "img": "test1.png"},
             #{"title": "Cai Rang Floating Market", "desc": "One of the largest floating markets in the West, bustling from dawn, specializing in selling fruits and specialties of the river region.", "img": "test2.png"},
             #{"title": "Binh Thuy Ancient House", "desc": "The ancient house combines French and Asian architecture, built in the 19th century, is a famous tourist attraction.", "img": "test3.png"}
-        ]
+            }
+             ]
     },
     "kr": {
         "깐토": [
