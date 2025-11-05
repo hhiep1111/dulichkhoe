@@ -1,12 +1,18 @@
-
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="{{ lang }}">
 <head>
     <meta charset="UTF-8">
     <title>{{ place.name }}</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
+    <nav>
+        <a href="/?lang={{ lang }}">{{ menu.home }}</a> |
+        <a href="/about?lang={{ lang }}">{{ menu.about }}</a> |
+        <a href="/tips?lang={{ lang }}">{{ menu.tips }}</a> |
+        <a href="/checklist?lang={{ lang }}">{{ menu.checklist }}</a>
+    </nav>
+
     <div class="container">
         <h1>{{ place.name }}</h1>
         <p>{{ place.desc }}</p>
@@ -21,7 +27,7 @@
             {% endfor %}
         </div>
         <br>
-        <a href="/" style="text-decoration:none;color:blue;">← Quay lại trang chủ</a>
+        <a href="/?lang={{ lang }}" style="text-decoration:none;color:blue;">← {{ "Quay lại" if lang == "vi" else ("Back" if lang == "en" else "뒤로 가기") }}</a>
     </div>
 </body>
 </html>
