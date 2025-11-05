@@ -319,11 +319,10 @@ content = {
 place_details_data = {
     "vi": {
         "Cần Thơ": [
-        {    "title": "Bến Ninh Kiều – Biểu Tượng Thành Phố", 
+        {   "title": "Bến Ninh Kiều – Biểu Tượng Thành Phố", 
             "desc": """
             <p>Biểu tượng của Cần Thơ bên dòng sông Hậu hiền hòa, là nơi tản bộ, ngắm cảnh và chụp ảnh tuyệt đẹp.</p>
             <img src="/static/images/benninhkieu.jpg" class="detail-img" alt="Toàn cảnh bến Ninh Kiều">
-
             <p>📍 Vị trí: Trung tâm TP. Cần Thơ, bên bờ sông Hậu.</p>
             <p>Điểm nổi bật:</p>
             <ul>
@@ -332,16 +331,28 @@ place_details_data = {
                 <li>Tượng Bác Hồ và công viên thoáng mát.</li>
             </ul>
             <img src="/static/images/bac_ho.jpg" class="detail-img" alt="Tượng Bác Hồ tại công viên Cần Thơ">
-            <p>Gợi ý</p>
+            <p>Gợi ý:</p>
             <ul>
                 <li>Giờ tham quan: Cả ngày (đẹp nhất vào buổi tối).</li>
                 <li>Kết hợp ăn tối trên du thuyền để ngắm sông về đêm.</li>
                 <li>Buổi tối cuối tuần có múa nhạc đường phố.</li>
             </ul>
-            """
-            #{"title": "Chợ nổi Cái Răng", "desc": "Một trong những chợ nổi lớn nhất miền Tây, sôi động từ tờ mờ sáng, chuyên bán trái cây và đặc sản miền sông nước.", "img": "test2.png"},
-            #{"title": "Nhà cổ Bình Thủy", "desc": "Ngôi nhà cổ kết hợp kiến trúc Pháp và Á Đông, được xây dựng từ thế kỷ 19, là điểm tham quan nổi tiếng.", "img": "test3.png"}
-             }
+            """}
+        {   "title": "Chợ nổi Cái Răng – Biểu tượng miền Tây", 
+            "desc": """ 
+            <p>Một trong những chợ nổi lớn nhất miền Tây, sôi động từ tờ mờ sáng, chuyên bán trái cây và đặc sản miền sông nước.</p>
+            <p>Điểm nổi bật:</p>
+            <ul>
+                <li>Ghe thuyền treo “bẹo” (mẫu hàng treo trên sào) để rao bán.</li>
+                <li>Trái cây, nông sản tươi, món ăn sáng như hủ tiếu, cà phê bán ngay trên thuyền.<li>
+            </ul>
+            <p>Gợi ý:</p>
+            <ul>
+                <li>Giờ tham quan: 5h00 – 9h00 sáng.</li>
+                <li>Nên đi tour ghe nhỏ để len lỏi vào chợ.</li>
+                <li>Trải nghiệm ăn hủ tiếu trên ghe là “must-try”.</li>
+            </ul>
+            """}
          ]
     },
     "en": {
