@@ -3,33 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ place.name }}</title>
-    <link rel="stylesheet" href="/static/style.css">
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #fafafa;
+            background: #f5faff;
             margin: 0;
             padding: 0;
-            color: #333;
+        }
+
+        /* Header giống trang chính */
+        header {
+            background: url("/static/images/bground.jpg") no-repeat center center;
+            background-size: cover;
+            color: black;
+            padding: 20px;
+            display: flex;
+            gap: 80px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            width: 200px;
+            height: 180px;
+            border-radius: 10px;
+            margin-left: -60px;
         }
 
         nav {
-            background: #EDC3D6;
-            padding: 12px 0;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background: #FDF3F7;
+            padding: 10px;
         }
 
         nav a {
-            margin: 0 15px;
-            text-decoration: none;
             color: black;
+            margin: 0 10px;
+            text-decoration: none;
             font-weight: bold;
-            transition: 0.3s;
         }
 
         nav a:hover {
-            color: #6a1b9a;
+            text-decoration: underline;
+        }
+
+        nav .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        nav .dropdown-content {
+            display: none;
+            position: absolute;
+            background: #FDF3F7;
+            padding: 5px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+
+        nav .dropdown-content a {
+            display: block;
+            color: black;
+            padding: 5px;
         }
 
         .container {
@@ -82,21 +117,53 @@
         a.back-link:hover {
             text-decoration: underline;
         }
+
+        footer {
+            background: #FDF3F7;
+            color: black;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
     </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <img src="/static/images/Logo.gif" class="logo" alt="Logo">
+        <div>
+            <h1>{{ place.name }}</h1>
+            <p>{{ place.desc }}</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
     <nav>
-        <a href="/?lang={{ lang }}">{{ menu.home }}</a>
-        <a href="/about?lang={{ lang }}">{{ menu.about }}</a>
-        <a href="/tips?lang={{ lang }}">{{ menu.tips }}</a>
-        <a href="/checklist?lang={{ lang }}">{{ menu.checklist }}</a>
+        <a href="/?lang={{ lang }}">{{ menu.home }}</a> |
+        <a href="/tips?lang={{ lang }}">{{ menu.tips }}</a> |
+        <a href="/checklist?lang={{ lang }}">{{ menu.checklist }}</a> |
+        <div class="dropdown">
+            <a href="#">{{ menu.lang }} ▼</a> |
+            <div class="dropdown-content">
+                <a href="/?lang=vi">Tiếng Việt</a>
+                <a href="/?lang=en">English</a>
+                <a href="/?lang=kr">한국어</a>
+            </div>
+        </div>
+        <a href="/about?lang={{ lang }}">{{ menu.about }}</a> |
     </nav>
 
-    <div class="container">
-        <h1>{{ place.name }}</h1>
-        <p>{{ place.desc }}</p>
-        <hr>
+    <script>
+        document.querySelector(".dropdown").addEventListener("mouseenter", function() {
+            this.querySelector(".dropdown-content").style.display = "block";
+        });
+        document.querySelector(".dropdown").addEventListener("mouseleave", function() {
+            this.querySelector(".dropdown-content").style.display = "none";
+        });
+    </script>
 
+    <!-- Main content -->
+    <div class="container">
         {% for d in details %}
         <div class="detail-section">
             {% if d.img %}
@@ -111,5 +178,16 @@
             ← {{ "Quay lại" if lang == "vi" else ("Back" if lang == "en" else "뒤로 가기") }}
         </a>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Facebook: Du lịch Khỏe</p>        
+        <p>Contact: Dulichkhoe.official@gmail.com</p>
+        <p>
+            🌐 <a href="/?lang=vi">VI</a> |
+            <a href="/?lang=en">EN</a> |
+            <a href="/?lang=kr">KR</a>
+        </p>
+    </footer>
 </body>
 </html>
