@@ -161,9 +161,30 @@ content = {
                                           "Dép tông", "Sandals", "Kính mát", "Sarong", "Mũ hoặc nón",
                                           "Áo khoác nhẹ chống nắng", "Áo khoác nhẹ hoặc cardigan", "Khăn choàng",
                                           "Đồ bơm hơi bãi biển", "Đồ chơi & trò chơi bãi biển"]},
-        ]
+        ],
+        food_list = [
+        {    "id": "banhcong",
+             "title": "Bánh Cống Cần Thơ",
+             "img": "/static/images/cantho.jpg",
+             "short": "Giòn rụm, nhân tôm thịt thơm béo.",
+             "desc": """
+                 <p>Bánh cống là món ăn dân dã nổi tiếng của Cần Thơ.</p>
+                 <img src="/static/images/chuadoi.jpg" class="detail-img"/>
+                 <p>📍 Địa chỉ gợi ý: Quán Bánh cống Đại Tâm</p>
+             """
+         },
+        {    "id": "hutieu",
+             "title": "Hủ Tiếu Sa Đéc",
+             "img": "/static/images/dongthap.jpg",
+             "short": "Nước ngọt thanh, sợi dai, đậm vị miền Tây.",
+             "desc": """
+                 <p>Một trong những món hủ tiếu đặc sắc nhất miền Tây.</p>
+                 <img src="/static/images/chuaang.jpg" class="detail-img"/>
+                 <p>📍 Gợi ý: Khu ẩm thực chợ Xuân Khánh</p>
+             """
+         }
+    ]
     },
-
     "en": {
         "title": "Healthy Travel - Mekong Delta",
         "intro": "Explore Southern Vietnam: rivers, cuisine, and unique culture.",
