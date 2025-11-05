@@ -495,7 +495,7 @@ place_details_data = {
                 <p>Đồng Sen Tháp Mười là một trong những cánh đồng sen lớn và đẹp nhất miền Tây, nổi tiếng với không gian mênh mông hoa sen nở rộ, mang đậm nét mộc mạc, thanh bình của vùng Đồng Tháp Mười.</p>
                 <p>📍Vị trí: Xã Mỹ Hòa, huyện Tháp Mười, tỉnh Đồng Tháp. Cách TP. Cao Lãnh khoảng 40km</p>
                 <p>Lịch sử & kiến trúc:</p>
-                <img src="/static/images/thapmuoi.jpg" class="detail-img" alt="Đồng Sen Tháp Mười">
+                <img src="/static/images/dongthap.jpg" class="detail-img" alt="Đồng Sen Tháp Mười">
                 <p>Điểm nổi bật:</p>
                 <ul>
                     <li>Đồng sen bát ngát, đẹp nhất vào mùa sen (tháng 5 đến 10).</li>
