@@ -381,6 +381,23 @@ place_details_data = {
                     <li>Nên ăn mặc lịch sự khi vào chùa.</li>
                     <li>Giữ yên tĩnh, không làm phiền đàn dơi.</li>
                 </ul>
+                """},
+            {   "title": "Khu bảo tồn thiên nhiên Lung Ngọc Hoàng (Hậu Giang cũ)", 
+                "desc": """ 
+                <p>Lung Ngọc Hoàng được xem là “lá phổi xanh” của miền Tây, sở hữu hệ sinh thái rừng ngập nước phong phú với kênh rạch dày đặc, thảm thực vật rậm tạp, không gian hoang sơ, mát lành, rất thích hợp cho du lịch sinh thái, đi xuồng khám phá rừng, ngắm chim và chụp ảnh cảnh rừng – sông tự nhiên.</p>
+                <p>📍Vị trí: Thuộc huyện Phụng Hiệp, tỉnh Hậu Giang.</p>
+                <img src="/static/images/lungngochoang.jpg" class="detail-img" alt="Khu bảo tồn thiên nhiên Lung Ngọc Hoàng">
+                <p>Điểm nổi bật:</p>
+                <ul>
+                    <li>Diện tích lớn (hơn 2.800 ha) rừng tràm ngập nước. Không gian thiên nhiên hoang sơ, kênh rạch len lỏi, rất hợp đi tham quan sinh thái, ngắm chim, tản bộ giữa rừng tràm.</li>
+                    <li>Giá trị thiên nhiên rất lớn — bảo tồn đa dạng sinh học quý hiếm.</li>
+                </ul>
+                <p>Gợi ý:</p>
+                <ul>
+                    <li>Thời điểm tốt: sáng sớm hoặc gần chiều để tránh nắng gắt và tận hưởng không gian yên tĩnh.</li>
+                    <li>Mang theo đồ chống côn trùng, giày dép chống trượt vì có thể đường hơi ướt hoặc bùn.</li>
+                    <li>Vì là khu bảo tồn thiên nhiên, nên giữ gìn vệ sinh, không xâm phạm khu vực động vật hoang dã.</li>
+                </ul>
                 """}
          ],
         "Cà Mau": [
@@ -422,9 +439,34 @@ place_details_data = {
                     <li>Nếu đi vào mùa nước lên, có thể thuê xuồng tham quan; vào mùa khô, đường bộ sẽ thuận lợi hơn.</li>
                 </ul>
                 """
-            }
-            
-        ]
+            } 
+        ],
+        "Vĩnh Long": [
+            {   "title": "Chùa Âng: Angkorajaborey (Trà Vinh cũ)", 
+                "desc": """ 
+                <p>Chùa Âng là một trong những ngôi chùa Khmer cổ kính và nổi tiếng nhất Trà Vinh, nằm cạnh Ao Bà Om. Ngôi chùa mang đậm kiến trúc Khmer Nam Bộ với các mái cong nhiều lớp, cột trụ chạm khắc tinh xảo và tông vàng nổi bật.</p>
+                <p>📍Vị trí: Thuộc khóm 4, phường 8, thành phố Trà Vinh, tỉnh Trà Vinh.</p>
+                <p>Lịch sử & kiến trúc:</p>
+                <ul>
+                    <li>Chùa Âng (còn gọi là Wat Angkor Raig Borei) rộng khoảng 3,5 ha.</li>
+                    <li>Kiến trúc là sự kết hợp giữa truyền thống Khmer cổ và một số yếu tố kiến trúc hiện đại – giữ nét nghệ thuật điêu khắc đầu chim, thần rắn Naga, mái cong đặc trưng.</li>
+                    <li>Mang giá trị văn hoá, lịch sử của đồng bào Khmer Nam Bộ, là nơi sinh hoạt tôn giáo, lưu giữ truyền thống.</li>
+                </ul>
+                <img src="/static/images/chuaang.jpg" class="detail-img" alt="Chùa Âng (Angkorajaborey) – Trà Vinh">
+                <p>Điểm nổi bật:</p>
+                <ul>
+                    <li>Ngôi chùa cổ của người Khmer Nam Bộ, được xem là ngôi chùa đẹp nhất Trà Vinh.</li>
+                    <li>Kiến trúc mang đậm nét Khmer và Angkor: mái chùa, phù điêu, tượng thần rắn Naga, không gian linh thiêng vững chắc.</li>
+                    <li>Môi trường xung quanh xanh mát với cây cổ thụ, sân chùa rộng, tạo cảm giác thanh tịnh.</li>
+                </ul>
+                <p>Gợi ý:</p>
+                <ul>
+                    <li>Vào chùa nên mặc trang phục lịch sự, đi nhẹ nhàng vì đây là nơi linh thiêng.</li>
+                    <li>Mang mũ/nón, kem chống nắng nếu đi buổi trưa; tốt nhất đi sáng hoặc chiều để ánh sáng đẹp và thời tiết dễ chịu.</li>
+                    <li>Nếu muốn tìm hiểu sâu về văn hóa Khmer, hỏi hướng dẫn địa phương hoặc xem thông tin trước.</li>
+                </ul>
+                """}
+                ]
     },
     "en": {
         "Can Tho": [
