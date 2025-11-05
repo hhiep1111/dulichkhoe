@@ -337,8 +337,8 @@ place_details_data = {
                 <li>Kết hợp ăn tối trên du thuyền để ngắm sông về đêm.</li>
                 <li>Buổi tối cuối tuần có múa nhạc đường phố.</li>
             </ul>
-            """}
-        {   "title": "Chợ nổi Cái Răng – Biểu tượng miền Tây", 
+            """,
+            "title": "Chợ nổi Cái Răng – Biểu tượng miền Tây", 
             "desc": """ 
             <p>Một trong những chợ nổi lớn nhất miền Tây, sôi động từ tờ mờ sáng, chuyên bán trái cây và đặc sản miền sông nước.</p>
             <p>Điểm nổi bật:</p>
