@@ -639,24 +639,24 @@ async def approve_comment(
 
 @app.get("/place/{slug}", response_class=HTMLResponse)
 async def place_detail(request: Request, slug: str, lang: str = "vi"):
-    # Lấy dữ liệu theo ngôn ngữ
+    # Lấy dữ liệu ngôn ngữ, mặc định là tiếng Việt
     data = content.get(lang, content["vi"])
-    data = content.get(lang, content["en"])
-    data = content.get(lang, content["kr"])
-    
-    # Lấy chi tiết địa điểm theo slug (vd: "can-tho", "an-giang", "kien-giang")
-    details = place_details_data.get(slug)
+
+    # Lấy danh sách chi tiết của địa điểm theo ngôn ngữ
+    details_by_lang = place_details_data.get(lang, place_details_data["vi"])
+    details = details_by_lang.get(slug)
     if not details:
         raise HTTPException(status_code=404, detail="Địa điểm không tồn tại")
 
-    # Tìm thông tin ngắn trong danh sách 'places' (để hiển thị phần mô tả tổng quát)
+    # Lấy phần mô tả ngắn (ở trang chính)
     place = next((p for p in data["places"] if p["name"].lower().replace(" ", "-") == slug), None)
-    
+
     return templates.TemplateResponse("place_detail.html", {
         "request": request,
         "lang": lang,
         "place": place,
-        "details": details
+        "details": details,
+        "menu": data["menu"]
     })
 
     # Lấy danh sách bình luận đang active
