@@ -438,8 +438,30 @@ place_details_data = {
                     <li>Mặc áo dài tay + kem chống côn trùng nếu đi vào khu rừng vì muỗi và côn trùng có thể nhiều.</li>
                     <li>Nếu đi vào mùa nước lên, có thể thuê xuồng tham quan; vào mùa khô, đường bộ sẽ thuận lợi hơn.</li>
                 </ul>
-                """
-            } 
+                """},
+            {"title": "Quan Âm Phật Đài (Mẹ Nam Hải)", 
+                "desc": """ 
+                <p>Quan Âm Phật Đài (còn gọi là “Mẹ Nam Hải”) là một quần thể tâm linh lớn nằm ở ven biển tỉnh Bạc Liêu – miền Tây Nam Bộ. Đây không chỉ là nơi thờ tự của tín đồ Phật giáo mà còn là điểm đến du lịch tâm linh nổi bật với biểu tượng tượng Quán Thế Âm Bồ Tát hướng ra biển, mang ý nghĩa che chở và ban bình an cho người dân biển.</p>
+                <p>📍Vị trí: hóm Bờ Tây, phường Nhà Mát, thành phố Bạc Liêu, tỉnh Bạc Liêu. Nằm cách trung tâm thành phố Bạc Liêu khoảng 8 km về phía hướng ra biển.</p>
+                <p>Lịch sử & kiến trúc:</p>
+                <ul>
+                    <li>Khởi lập từ năm 1973 với ý tưởng của Hòa thượng Thích Trí Đức.</li>
+                    <li>Kiến trúc mang phong cách Phật giáo Bắc Tông, với các chi tiết hoa văn, cổng tam quan, đại điện cao lớn, tạo cảm giác trang nghiêm.</li>
+                </ul>
+                <img src="/static/images/menamhai.jpg" class="detail-img" alt="Quan Âm Phật Đài">
+                <p>Điểm nổi bật:</p>
+                <ul>
+                    <li>Tượng Quán Thế Âm Bồ Tát cao khoảng 11 m đặt trên bệ sen lớn, hướng tầm nhìn ra biển, là điểm nhấn của khu tâm linh này.</li>
+                    <li>Mang ý nghĩa mạnh mẽ về tín ngưỡng: tượng Phật hướng ra biển như che chở cho ngư dân, người dân vùng biển khỏi sóng gió.</li>
+                    <li>Không gian thiên nhiên kết hợp với kiến trúc tâm linh – khuôn viên rộng thoáng, gần biển, nhiều cây xanh và đường hãng thuận để tham quan, chụp ảnh.</li>
+                </ul>
+                <p>Gợi ý:</p>
+                <ul>
+                    <li>Trang phục lịch sự vì đây là nơi linh thiêng, dành thời gian để chiêm bái và tĩnh tâm.</li>
+                    <li>Mang theo mũ, kem chống nắng vì khu vực gần biển có ánh nắng mạnh và gió biển.</li>
+                    <li>Có bãi giữ xe miễn phí và dịch vụ cơm nước chay dành cho khách chiêm bái tại một số thời điểm.</li>
+                </ul>
+                """}
         ],
         "Vĩnh Long": [
             {   "title": "Chùa Âng: Angkorajaborey (Trà Vinh cũ)", 
@@ -466,7 +488,53 @@ place_details_data = {
                     <li>Nếu muốn tìm hiểu sâu về văn hóa Khmer, hỏi hướng dẫn địa phương hoặc xem thông tin trước.</li>
                 </ul>
                 """}
-                ]
+                ],
+        "Đồng Tháp"[
+            {   "title": "Đồng Sen Tháp Mười", 
+                "desc": """ 
+                <p>Đồng Sen Tháp Mười là một trong những cánh đồng sen lớn và đẹp nhất miền Tây, nổi tiếng với không gian mênh mông hoa sen nở rộ, mang đậm nét mộc mạc, thanh bình của vùng Đồng Tháp Mười.</p>
+                <p>📍Vị trí: Xã Mỹ Hòa, huyện Tháp Mười, tỉnh Đồng Tháp. Cách TP. Cao Lãnh khoảng 40km</p>
+                <p>Lịch sử & kiến trúc:</p>
+                <img src="/static/images/thapmuoi.jpg" class="detail-img" alt="Đồng Sen Tháp Mười">
+                <p>Điểm nổi bật:</p>
+                <ul>
+                    <li>Đồng sen bát ngát, đẹp nhất vào mùa sen (tháng 5 đến 10).</li>
+                    <li>Các dịch vụ trải nghiệm: đi xuồng chụp ảnh, mặc áo bà ba, hái sen, check-in cầu tre.</li>
+                    <li>Ẩm thực từ sen: cơm sen, gỏi ngó sen, chè sen, trà sen.</li>
+                </ul>
+                <p>Gợi ý:</p>
+                <ul>
+                    <li>Nên đi sớm 6:30 – 9:00 hoặc chiều mát 15:30 – 17:30</li>
+                    <li>Mang theo mũ, kem chống nắng; đi giày thấp/ dép.</li>
+                    <li>Tránh đi sau mưa vì đường đất có thể trơn</li>
+                </ul>
+                """},
+        {
+            "title": "Làng Hoa Sa Đéc", 
+                "desc": """ 
+                <p>Làng hoa Sa Đéc là “Thủ phủ hoa miền Tây”, nổi bật với hàng ngàn loài hoa kiểng được trồng trên giàn nổi độc đáo, là điểm du lịch văn hóa – sinh thái, chụp ảnh và mua hoa nổi tiếng quanh năm.</p>
+                <p>📍Vị trí: Phường Tân Quy Đông, TP. Sa Đéc, Đồng Tháp. Cách Cao Lãnh khoảng 30km.</p>
+                <p>Lịch sử & kiến trúc:</p>
+                <ul>
+                    <li>Hình thành cuối thế kỷ 19 – đầu thế kỷ 20</li>
+                    <li>Là làng hoa truyền thống lâu đời ở miền Tây.</li>
+                    <li>Nét kiến trúc: nhà cổ, làng nghề truyền thống, dàn kệ hoa nổi đặc trưng.</li>
+                </ul>
+                <img src="/static/images/langhoa.jpg" class="detail-img" alt="Làng Hoa Sa Đéc">
+                <p>Điểm nổi bật:</p>
+                <ul>
+                    <li>Làng hoa hơn 100 năm tuổi.</li>
+                    <li>Hàng ngàn giống hoa & kiểng: cúc, hồng, bonsai, kiểng cổ.</li>
+                    <li>Có khu check-in, cầu gỗ, nhà kính, nhà làng nghề làm bánh, mứt.</li>
+                </ul>
+                <p>Gợi ý:</p>
+                <ul>
+                    <li>Thời điểm đẹp nhất: tháng 12 – tháng 1 âm lịch.</li>
+                    <li>Nên đi buổi sáng sớm hoặc chiều hoàng hôn.</li>
+                    <li>Tôn trọng người trồng hoa – không bẻ hoa khi chụp ảnh.</li>
+                </ul>
+                """}
+        ]
     },
     "en": {
         "Can Tho": [
