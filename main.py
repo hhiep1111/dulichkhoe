@@ -319,8 +319,8 @@ content = {
 place_details_data = {
     "vi": {
         "Cần Thơ": [
-            {"title": "Bến Ninh Kiều", 
-             "desc": """
+            "title": "Bến Ninh Kiều", 
+            "desc": """
             <p>Biểu tượng của Cần Thơ bên dòng sông Hậu hiền hòa, là nơi tản bộ, ngắm cảnh và chụp ảnh tuyệt đẹp.</p>
             <img": src="/static/images/test1.jpg" class="detail-img"/>
 
@@ -338,7 +338,7 @@ place_details_data = {
     },
     "en": {
         "Can Tho": [
-            {"title": "Ninh Kieu Wharf",
+            "title": "Ninh Kieu Wharf",
             "desc": """
                 <p>The symbol of Can Tho on the gentle Hau River, is a beautiful place to walk, sightsee and take photos.</p>
                 <img": src="/static/images/test1.jpg" class="detail-img"/>
