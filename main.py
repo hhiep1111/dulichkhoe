@@ -611,6 +611,7 @@ place_details_data = {
                     <li>Dễ tiếp cận & phát triển du lịch: Hạ tầng du lịch hiện đại, nhiều resort, trò chơi giải trí.</li>
                 </ul>
 				<img src="/static/images/phuquoc.jpg" class="detail-img" alt="Phú Quốc – Đảo Ngọc>
+				
                 <p>Gợi ý:</p>
                 <ul>
                     <li>Thời điểm đẹp nhất: mùa khô từ khoảng tháng 11 đến tháng 4 — trời nắng, biển êm, thuận tiện tham quan ngoài trời và biển.</li>
