@@ -921,9 +921,9 @@ place_details_data = {
 <li>Should go early in the morning or at sunset.</li>
 <li>Respect the flower growers - do not pick flowers when taking photos.</li>
 </ul>
-"""}, 
-	"An Giang": [
-			{ "title": "Cam Mountain (Thien Cam Son) - "The Roof of the West"",
+"""}
+], "An Giang": [
+			{ "title": "Cam Mountain (Thien Cam Son) - The Roof of the West",
 			"desc": """
 			<p>The highest mountain in the Mekong Delta, cool climate all year round, quite diverse natural landscape. Full of spiritual, historical and legendary elements, often likened to "the roof of the West".</p>
 			<p>📍Location: An Hao Commune, Tinh Bien District, An Giang Province.</p>
@@ -944,60 +944,59 @@ place_details_data = {
 			{ "title": "Tra Su Melaleuca Forest - Paradise in the flood season",
 			"desc": """
 			<p>Green paradise with duckweed covering the beautiful water surface where home to hundreds of rare bird species.</p>
-<p>📍Location: Van Giao Commune, Tinh Bien District, about 30 km from Chau Doc.</p>
-<img src="/static/images/rungtram.jpg" class="detail-img" alt="Tra Su Melaleuca Forest - Paradise in the flood season">
-<p>Highlights:</p>
-<ul>
-<li>More than 140 species of plants, 70+ species of birds (including rare species in the Red Book).</li>
-<li>Go by canoe, boat or row a boat among the green duckweed forest. Check-in at the longest bamboo bridge in Vietnam.</li>
-<li>Biodiversity conservation area, environmental regulation, known as "the most beautiful cajuput forest in Vietnam"</li>
-</ul>
-<img src="/static/images/rungtram1.jpg" class="detail-img" alt="Tra Su Cajuput Forest - Birds">
-<p>Suggestions:</p>
-<ul>
-<li>Most beautiful scenery: Flood season (September-November), especially at dawn or dusk.</li>
-<li>Go in the morning or late afternoon; Bring a camera, binoculars, and soft-soled shoes for easy movement.</li>
-</ul>
-"""},
-{ "title": "Phu Quoc - Pearl Island",
-"desc": """
-<p>A famous beach resort paradise with clear blue beaches, luxury resorts, and fresh seafood.</p>
-<p>📍Location: Phu Quoc is the largest island in Vietnam, in Kien Giang province, located in the Gulf of Thailand, near the Cambodian border.</p>
-<p>Highlights:</p>
-<ul>
-<li>Beautiful sea and sand: Clear water, gentle waves, very suitable for swimming and snorkeling.</li>
-<li>Diverse nature: Most of the island is located in a UNESCO-recognized biosphere reserve, with forests, mountains, and a combined marine-salt ecosystem.</li>
-<li>Easy access & tourism development: Modern tourism infrastructure, many resorts, and entertainment games location.</li>
-</ul>
-<img src="/static/images/phuquoc.jpg" class="detail-img" alt="Phu Quoc – Pearl Island>
-
-<p>Suggestions:</p>
-<ul>
-<li>Best time: dry season from around November to April — sunny, calm sea, convenient for outdoor and beach sightseeing.</li>
-<li>Hon Thom cable car departs from around 9:00 AM, many stops during the day — should go early to avoid crowds.</li>
-<li>Walking to visit the beach/watching the sunset: Around 17:00 onwards is a beautiful time to watch the sunset on the west beach of the island.</li>
-</ul>
-"""},
-{ "title": "Ha Tien – Dreamy and romantic",
-"desc": """
-<p>The atmosphere is slower and more peaceful than Phu Quoc – suitable for tourists who want to relax or explore natural beauty and local culture.</p>
-<p>📍Location: Ha Tien Town, Kien Giang Province, about 100km from Rach Gia City.</p>
-<img src="/static/images/hatien.jpg" class="detail-img" alt="Tra Su Melaleuca Forest - Birds">
-<p>Highlights:</p>
-<ul>
-<li>Rarely picturesque landscape in the West (mountains - sea - rivers - caves).</li>
-<li>Unique blend of diverse cultures (Vietnamese - Khmer - Chinese - Cham).</li>
-<li>Fresh seafood, affordable prices, unique specialties such as mam ca xiu and xoi xiem.</li>
-</ul>
-<p>Suggestions:</p>
-<ul>
-<li>Best time: November - April (dry season, beautiful sea, little rain)</li>
-<li>Best sunset: Mui Nai beach or the embankment overlooking Phu Quoc island.</li>
-<li>Specialties to try: Crab cake noodle soup, sticky rice, and fish sauce (buy as gifts).</li>
-</ul>
-"""}
-]
-    },
+			<p>📍Location: Van Giao Commune, Tinh Bien District, about 30 km from Chau Doc.</p>
+			<img src="/static/images/rungtram.jpg" class="detail-img" alt="Tra Su Melaleuca Forest - Paradise in the flood season">
+			<p>Highlights:</p>
+			<ul>
+				<li>More than 140 species of plants, 70+ species of birds (including rare species in the Red Book).</li>
+				<li>Go by canoe, boat or row a boat among the green duckweed forest. Check-in at the longest bamboo bridge in Vietnam.</li>
+				<li>Biodiversity conservation area, environmental regulation, known as "the most beautiful cajuput forest in Vietnam"</li>
+			</ul>
+			<img src="/static/images/rungtram1.jpg" class="detail-img" alt="Tra Su Cajuput Forest - Birds">
+			<p>Suggestions:</p>
+			<ul>
+				<li>Most beautiful scenery: Flood season (September-November), especially at dawn or dusk.</li>
+				<li>Go in the morning or late afternoon; Bring a camera, binoculars, and soft-soled shoes for easy movement.</li>
+			</ul>
+			"""},
+			{ "title": "Phu Quoc - Pearl Island",
+			"desc": """
+			<p>A famous beach resort paradise with clear blue beaches, luxury resorts, and fresh seafood.</p>
+			<p>📍Location: Phu Quoc is the largest island in Vietnam, in Kien Giang province, located in the Gulf of Thailand, near the Cambodian border.</p>
+			<p>Highlights:</p>
+			<ul>
+				<li>Beautiful sea and sand: Clear water, gentle waves, very suitable for swimming and snorkeling.</li>
+				<li>Diverse nature: Most of the island is located in a UNESCO-recognized biosphere reserve, with forests, mountains, and a combined marine-salt ecosystem.</li>
+				<li>Easy access & tourism development: Modern tourism infrastructure, many resorts, and entertainment games location.</li>
+			</ul>
+			<img src="/static/images/phuquoc.jpg" class="detail-img" alt="Phu Quoc – Pearl Island>
+			<p>Suggestions:</p>
+			<ul>
+				<li>Best time: dry season from around November to April — sunny, calm sea, convenient for outdoor and beach sightseeing.</li>
+				<li>Hon Thom cable car departs from around 9:00 AM, many stops during the day — should go early to avoid crowds.</li>
+				<li>Walking to visit the beach/watching the sunset: Around 17:00 onwards is a beautiful time to watch the sunset on the west beach of the island.</li>
+			</ul>
+			"""},
+			{ "title": "Ha Tien – Dreamy and romantic",
+			"desc": """
+			<p>The atmosphere is slower and more peaceful than Phu Quoc – suitable for tourists who want to relax or explore natural beauty and local culture.</p>
+			<p>📍Location: Ha Tien Town, Kien Giang Province, about 100km from Rach Gia City.</p>
+			<img src="/static/images/hatien.jpg" class="detail-img" alt="Tra Su Melaleuca Forest - Birds">
+			<p>Highlights:</p>
+			<ul>
+				<li>Rarely picturesque landscape in the West (mountains - sea - rivers - caves).</li>
+				<li>Unique blend of diverse cultures (Vietnamese - Khmer - Chinese - Cham).</li>
+				<li>Fresh seafood, affordable prices, unique specialties such as mam ca xiu and xoi xiem.</li>
+			</ul>
+			<p>Suggestions:</p>
+			<ul>
+				<li>Best time: November - April (dry season, beautiful sea, little rain)</li>
+				<li>Best sunset: Mui Nai beach or the embankment overlooking Phu Quoc island.</li>
+				<li>Specialties to try: Crab cake noodle soup, sticky rice, and fish sauce (buy as gifts).</li>
+			</ul>
+			"""}
+			] 
+		},
     "kr": {
 		"칸토": [
 			{ "title": "닌끼우 부두 - 도시의 상징",
@@ -1210,7 +1209,7 @@ place_details_data = {
 			"""}
 			], 
 "안장": [
-{ "title": "깜산(티엔깜손) - "서쪽의 지붕"",
+{ "title": "깜산(티엔깜손) - 서쪽의 지붕",
 "desc": """
 <p>메콩 삼각주에서 가장 높은 산으로, 일 년 내내 서늘한 기후와 다채로운 자연 경관을 자랑합니다. 영적인 요소, 역사적 요소, 전설적인 요소로 가득 차 있어 종종 "서쪽의 지붕"으로 비유됩니다.</p>
 <p>📍위치: 안장성 띤비엔현 안하오사.</p>
