@@ -232,7 +232,7 @@ content = {
     	],
 		"health_list": [
 			{"title": "Bệnh viện Đa khoa Trung ương Cần Thơ",
-			"decs" : """
+			"decs": """
 			<p>Số 315 Nguyễn Văn Linh, Phường An Khánh, Quận Ninh Kiều, Thành phố Cần Thơ</p>
 			<p>Liên lạc: 0901215115</p>
 			"""
@@ -1497,7 +1497,7 @@ async def checklist(request: Request, lang: str = "vi"):
             "is_admin": False,
         })
 @app.get("/food", response_class=HTMLResponse)
-async def checklist(request: Request, lang: str = "vi"):
+async def food(request: Request, lang: str = "vi"):
     data = content.get(lang, content["vi"])
     food_list = data.get("food", [])
 
@@ -1520,7 +1520,7 @@ async def checklist(request: Request, lang: str = "vi"):
             "is_admin": False,
         })
 @app.get("/health", response_class=HTMLResponse)
-async def checklist(request: Request, lang: str = "vi"):
+async def health(request: Request, lang: str = "vi"):
     data = content.get(lang, content["vi"])
     health_list = data.get("health", [])
 
