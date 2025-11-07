@@ -229,7 +229,15 @@ content = {
                  <p>📍 Gợi ý: Khu ẩm thực chợ Xuân Khánh</p>
              """
          }
-    ]
+    	],
+		"health_list" :[
+			{"title" : "Bệnh viện Đa khoa Trung ương Cần Thơ"
+			"decs" : """
+			<p>Số 315 Nguyễn Văn Linh, Phường An Khánh, Quận Ninh Kiều, Thành phố Cần Thơ</p>
+			<p>Liên lạc: 0901215115</p>
+			"""
+			}
+		]
     },
     "en": {
         "title": "Healthy Travel - Mekong Delta",
@@ -918,29 +926,27 @@ place_details_data = {
 				<li>Suitable for going early in the morning or late in the afternoon to see the sea and beautiful light.</li>
 				<li>Going by road to Dat Mui can be a bit far - carefully prepare your vehicle, fuel, and snacks.</li>
 				<li>Respect the environment: do not litter, preserve the natural landscape.</li>
-</ul>
-"""},
-{ "title": "U Minh Ha Mangrove Forest",
-"desc": """
-<p>U Minh Ha Forest is a typical Melaleuca - Mangrove ecosystem of the West, considered the "green lung" of Ca Mau. Wild space with crisscrossing canals, dense vegetation and many rare birds and animals.</p>
-
-<p>📍Location: U Minh Ha National Park is located in Ca Mau province, in the mangrove forest - cajuput forest area.</p>
-<img src="/static/images/rungngapman.jpg" class="detail-img" alt="U Minh Ha Mangrove Forest">
-
-<p>Highlights:</p>
-<ul>
-<li>Flooded cajuput forest, rich ecosystem with many species of flora and fauna and interwoven canals.</li>
-<li>There is a high observatory to see the whole view of U Minh Ha forest.</li>
-<li>Sightseeing activities such as boating through canals, listening to the "forest frame" - very different from normal beach tourism.</li>
-</ul>
-<p>Suggestions:</p>
-<ul>
-<li>The forest can Visit all year round but the best time is the dry season (less rain) or the flood season when you want to go deeper by boat.</li>
-<li>Wear long sleeves + insect repellent if going into the forest because there may be a lot of mosquitoes and insects.</li>
-<li>If you go during the flood season, you can rent a boat to visit; in the dry season, the road will be more convenient.</li>
-</ul>
-"""},
-{"title": "Quan Am Phat Dai (Mother Nam Hai)",
+			</ul>
+			"""},
+			{ "title": "U Minh Ha Mangrove Forest",
+			"desc": """
+			<p>U Minh Ha Forest is a typical Melaleuca - Mangrove ecosystem of the West, considered the "green lung" of Ca Mau. Wild space with crisscrossing canals, dense vegetation and many rare birds and animals.</p>
+			<p>📍Location: U Minh Ha National Park is located in Ca Mau province, in the mangrove forest - cajuput forest area.</p>
+			<img src="/static/images/rungngapman.jpg" class="detail-img" alt="U Minh Ha Mangrove Forest">
+			<p>Highlights:</p>
+			<ul>
+				<li>Flooded cajuput forest, rich ecosystem with many species of flora and fauna and interwoven canals.</li>
+				<li>There is a high observatory to see the whole view of U Minh Ha forest.</li>
+				<li>Sightseeing activities such as boating through canals, listening to the "forest frame" - very different from normal beach tourism.</li>
+			</ul>
+			<p>Suggestions:</p>
+			<ul>
+				<li>The forest can Visit all year round but the best time is the dry season (less rain) or the flood season when you want to go deeper by boat.</li>
+				<li>Wear long sleeves + insect repellent if going into the forest because there may be a lot of mosquitoes and insects.</li>
+				<li>If you go during the flood season, you can rent a boat to visit; in the dry season, the road will be more convenient.</li>
+			</ul>
+			"""},
+			{"title": "Quan Am Phat Dai (Mother Nam Hai)",
 "desc": """
 <p>Quan Am Phat Dai (also known as "Mother Nam Hai") is a large spiritual complex located on the coast of Bac Lieu province - the Southwest region. This is not only a place of worship for Buddhists but also a prominent spiritual tourist destination with the symbol of Bodhisattva Avalokitesvara facing the sea, meaning to protect and bring peace to the people of the sea.</p>
 <p>📍Location: Bo Tay hamlet, Nha Mat ward, Bac Lieu city, Bac Lieu province. Located about 8 km from the center of Bac Lieu city towards the sea.</p>
@@ -1516,6 +1522,7 @@ async def checklist(request: Request, lang: str = "vi"):
 @app.get("/health", response_class=HTMLResponse)
 async def checklist(request: Request, lang: str = "vi"):
     data = content.get(lang, content["vi"])
+    food_list = data.get("health", [])
 
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
@@ -1531,6 +1538,7 @@ async def checklist(request: Request, lang: str = "vi"):
             "data": data,
             "page": "health",
             "lang": lang,
+            "health_list": data.get("health_list", []),
             "comments": comments,
             "is_admin": False,
         })
