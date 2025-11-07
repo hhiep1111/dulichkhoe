@@ -86,7 +86,23 @@ content = {
         "title": "Du lịch Khỏe - Đồng bằng Sông Cửu Long",
         "intro": "Khám phá miền Tây Nam Bộ: sông nước, ẩm thực và văn hóa độc đáo.",
         "menu": {"home": "Trang chủ", "about": "Giới thiệu", "tips": "Lưu ý", "checklist": "Check-list", "lang": "Ngôn ngữ", "food": "Ẩm Thực", "health": "Hỗ trợ Y Tế"},
-        "about": "Xin chào, chúng ta là những người yêu thích du lịch và văn hóa miền Tây.",
+        "about": [
+			{"title": "Về Chúng Tôi",
+			"decs": """
+			<p>Cảm ơn bạn đã ghé thăm Travel Healing!</p>
+			<p>Chúng tôi ở đây để giúp bạn khám phá vùng đất Đồng bằng sông Cửu Long – nơi của những dòng sông hiền hòa, nụ cười thân thiện và những trải nghiệm địa phương khó quên.</p>
+			<p>Mục tiêu của chúng tôi rất đơn giản: giúp bạn “cảm nhận miền Tây – chứ không chỉ ghé qua nó.</p>
+			<p>Nếu bạn có bất kỳ thắc mắc, góp ý hoặc cần tư vấn du lịch, đừng ngần ngại liên hệ với chúng tôi.</p>
+			<p>Chúng tôi là một nhóm sinh viên yêu thích du lịch, văn hóa và kể chuyện, với niềm tin rằng mỗi chuyến đi đều có thể chữa lành tâm hồn.</p>
+			"""},
+			{"title": "Liên Hệ Với Chúng Tôi",
+			 "decs": """
+			 <p>Email: dulichkhoe.official@gmail.com</p>
+			 <p>Điện thoại: 0903 000 ***</p>
+			 <p>Địa chỉ: Trường Đại học FPT Thành phố Cần Thơ, Việt Nam</p>
+			 """	
+			}
+		],
         "places": [
             {"name": "Cần Thơ", "img": "cantho.jpg",
              "desc": "Thủ phủ miền Tây, nổi tiếng với chợ nổi sông nước, miệt vườn trù phú và nét văn hóa miệt vườn thân tình. Trải nghiệm chợ nổi buổi sáng, thưởng thức bún riêu và trái cây trên ghe."},
@@ -774,21 +790,20 @@ place_details_data = {
             <ul>
                 <li>Dress politely because this is a sacred place, take time to worship and meditate.</li>
                 <li>Bring a hat and sunscreen because the area near the sea has strong sunlight and sea breeze.</li>
-<li>There is free parking and vegetarian food service for guests Vietnam reaches out to the ocean. Coming here, you can check-in at GPS landmark 0001, the boat symbol and admire the mangrove forest - immense sea and sky.</p>
-<p>📍Location: Ca Mau Cape is located in Dat Mui commune, Ngoc Hien district, Ca Mau province, the southernmost mainland of Vietnam.</p>
-<img src="/static/images/muicamau.jpg" class="detail-img" alt="Ca Mau Cape, the southernmost landmark">
-
-<p>Highlights:</p>
-<ul>
-<li>This is one of the rare places where you can watch the sunrise of the East Sea and the sunset of the West Sea right at the same location, bringing a sacred and proud feeling when touching "the end of Vietnam".</li>
-<li>Symbolic works such as the Ho Chi Minh road landmark Km 2436 at Ca Mau cape, a symbol of sovereignty and the southernmost position.</li>
-<li>Mangrove ecosystem: trees mangroves, mangroves grow on alluvial soil, mangrove roots grow upwards to hold the soil.</li>
-</ul>
-<p>Suggestions:</p>
-<ul>
-<li>Suitable for going early in the morning or late in the afternoon to see the sea and beautiful light.</li>
-<li>Going by road to Dat Mui can be a bit far - carefully prepare your vehicle, fuel, and snacks.</li>
-<li>Respect the environment: do not litter, preserve the natural landscape.</li>
+				<li>There is free parking and vegetarian food service for guests Vietnam reaches out to the ocean. Coming here, you can check-in at GPS landmark 0001, the boat symbol and admire the mangrove forest - immense sea and sky.</p>
+			<p>📍Location: Ca Mau Cape is located in Dat Mui commune, Ngoc Hien district, Ca Mau province, the southernmost mainland of Vietnam.</p>
+			<img src="/static/images/muicamau.jpg" class="detail-img" alt="Ca Mau Cape, the southernmost landmark">
+			<p>Highlights:</p>
+			<ul>
+				<li>This is one of the rare places where you can watch the sunrise of the East Sea and the sunset of the West Sea right at the same location, bringing a sacred and proud feeling when touching "the end of Vietnam".</li>
+				<li>Symbolic works such as the Ho Chi Minh road landmark Km 2436 at Ca Mau cape, a symbol of sovereignty and the southernmost position.</li>
+				<li>Mangrove ecosystem: trees mangroves, mangroves grow on alluvial soil, mangrove roots grow upwards to hold the soil.</li>
+			</ul>
+			<p>Suggestions:</p>
+			<ul>
+				<li>Suitable for going early in the morning or late in the afternoon to see the sea and beautiful light.</li>
+				<li>Going by road to Dat Mui can be a bit far - carefully prepare your vehicle, fuel, and snacks.</li>
+				<li>Respect the environment: do not litter, preserve the natural landscape.</li>
 </ul>
 """},
 { "title": "U Minh Ha Mangrove Forest",
@@ -906,16 +921,369 @@ place_details_data = {
 <li>Should go early in the morning or at sunset.</li>
 <li>Respect the flower growers - do not pick flowers when taking photos.</li>
 </ul>
+"""}, 
+	"An Giang": [
+			{ "title": "Cam Mountain (Thien Cam Son) - "The Roof of the West"",
+			"desc": """
+			<p>The highest mountain in the Mekong Delta, cool climate all year round, quite diverse natural landscape. Full of spiritual, historical and legendary elements, often likened to "the roof of the West".</p>
+			<p>📍Location: An Hao Commune, Tinh Bien District, An Giang Province.</p>
+			<img src="/static/images/nuicamangiang.jpg" class="detail-img" alt="Cam Mountain (Thien Cam Son) - "The Roof of the West"">
+			<p>Highlights:</p>
+			<ul>
+				<li>The 33.6m high Maitreya Buddha statue - the symbol of Cam Mountain, one of the largest Maitreya Buddha statues in Vietnam.</li>
+				<li>Thuy Liem Lake with its calm water reflecting the mountains, along with spiritual works such as Van Linh Pagoda and Big Buddha Pagoda, attracts a large number of pilgrims.</li>
+				<li>Experience the Cam Mountain Cable Car to see the majestic That Son panorama from above, fully feel the majestic natural beauty of the Seven Mountains region.</li>
+			</ul>
+			<p>Suggestions:</p>
+			<ul>
+				<li>⏰ Visiting time: all day from 6:00 a.m. to 6:00 p.m.</li>
+				<li>Cable car ticket: over 180,000 VND/person.</li>
+				<li>Should go early in the morning to avoid the sun, wear sneakers. If trekking, choose the dry season.</li>
+			</ul>
+			"""},
+			{ "title": "Tra Su Melaleuca Forest - Paradise in the flood season",
+			"desc": """
+			<p>Green paradise with duckweed covering the beautiful water surface where home to hundreds of rare bird species.</p>
+<p>📍Location: Van Giao Commune, Tinh Bien District, about 30 km from Chau Doc.</p>
+<img src="/static/images/rungtram.jpg" class="detail-img" alt="Tra Su Melaleuca Forest - Paradise in the flood season">
+<p>Highlights:</p>
+<ul>
+<li>More than 140 species of plants, 70+ species of birds (including rare species in the Red Book).</li>
+<li>Go by canoe, boat or row a boat among the green duckweed forest. Check-in at the longest bamboo bridge in Vietnam.</li>
+<li>Biodiversity conservation area, environmental regulation, known as "the most beautiful cajuput forest in Vietnam"</li>
+</ul>
+<img src="/static/images/rungtram1.jpg" class="detail-img" alt="Tra Su Cajuput Forest - Birds">
+<p>Suggestions:</p>
+<ul>
+<li>Most beautiful scenery: Flood season (September-November), especially at dawn or dusk.</li>
+<li>Go in the morning or late afternoon; Bring a camera, binoculars, and soft-soled shoes for easy movement.</li>
+</ul>
+"""},
+{ "title": "Phu Quoc - Pearl Island",
+"desc": """
+<p>A famous beach resort paradise with clear blue beaches, luxury resorts, and fresh seafood.</p>
+<p>📍Location: Phu Quoc is the largest island in Vietnam, in Kien Giang province, located in the Gulf of Thailand, near the Cambodian border.</p>
+<p>Highlights:</p>
+<ul>
+<li>Beautiful sea and sand: Clear water, gentle waves, very suitable for swimming and snorkeling.</li>
+<li>Diverse nature: Most of the island is located in a UNESCO-recognized biosphere reserve, with forests, mountains, and a combined marine-salt ecosystem.</li>
+<li>Easy access & tourism development: Modern tourism infrastructure, many resorts, and entertainment games location.</li>
+</ul>
+<img src="/static/images/phuquoc.jpg" class="detail-img" alt="Phu Quoc – Pearl Island>
+
+<p>Suggestions:</p>
+<ul>
+<li>Best time: dry season from around November to April — sunny, calm sea, convenient for outdoor and beach sightseeing.</li>
+<li>Hon Thom cable car departs from around 9:00 AM, many stops during the day — should go early to avoid crowds.</li>
+<li>Walking to visit the beach/watching the sunset: Around 17:00 onwards is a beautiful time to watch the sunset on the west beach of the island.</li>
+</ul>
+"""},
+{ "title": "Ha Tien – Dreamy and romantic",
+"desc": """
+<p>The atmosphere is slower and more peaceful than Phu Quoc – suitable for tourists who want to relax or explore natural beauty and local culture.</p>
+<p>📍Location: Ha Tien Town, Kien Giang Province, about 100km from Rach Gia City.</p>
+<img src="/static/images/hatien.jpg" class="detail-img" alt="Tra Su Melaleuca Forest - Birds">
+<p>Highlights:</p>
+<ul>
+<li>Rarely picturesque landscape in the West (mountains - sea - rivers - caves).</li>
+<li>Unique blend of diverse cultures (Vietnamese - Khmer - Chinese - Cham).</li>
+<li>Fresh seafood, affordable prices, unique specialties such as mam ca xiu and xoi xiem.</li>
+</ul>
+<p>Suggestions:</p>
+<ul>
+<li>Best time: November - April (dry season, beautiful sea, little rain)</li>
+<li>Best sunset: Mui Nai beach or the embankment overlooking Phu Quoc island.</li>
+<li>Specialties to try: Crab cake noodle soup, sticky rice, and fish sauce (buy as gifts).</li>
+</ul>
 """}
 ]
     },
     "kr": {
-        "깐토": [
-            {"title": "닌끼우 부두", "desc": "잔잔한 하우 강변에 위치한 깐토의 상징으로, 산책과 관광, 아름다운 사진 촬영을 즐기기에 좋은 곳입니다.", "img": "test1.png"},
-            #{"title": "까이랑 수상시장", "desc": "서부 최대 규모의 수상시장 중 하나로, 새벽부터 활기가 넘치며 강변 지역의 과일과 특산품을 전문으로 판매합니다.", "img": "test2.png"},
-            #{"title": "빈투이 고택", "desc": "19세기에 지어진 이 고택은 프랑스와 아시아 건축 양식이 결합된 곳으로, 유명한 관광 명소입니다.", "img": "test3.png"}
-        ]
-    }
+		"칸토": [
+			{ "title": "닌끼우 부두 - 도시의 상징",
+			"desc": """
+			<p>잔잔한 하우 강변에 위치한 칸토의 상징인 닌끼우 부두는 산책, 관광, 아름다운 사진 촬영을 즐기기에 좋은 곳입니다.</p>
+			<img src="/static/images/benninhkieu.jpg" class="detail-img" alt="닌끼우 부두의 파노라마 전망">
+			<p>📍 위치: 칸토 시내 중심가, 하우 강변.</p>
+			<p>주요 볼거리:</p>
+			<ul>
+				<li>닌끼우 보행자 다리는 밤에 밝게 빛납니다.</li>
+				<li>부두에서 수상 시장과 하우 강 크루즈를 즐겨보세요.</li>
+				<li>호 아저씨 동상과 쾌적한 공원.</li>
+				</ul>
+				<img src="/static/images/bac_ho.jpg" class="detail-img" alt="깐토 공원의 호 아저씨 동상">
+				<p>추천:</p>
+			<ul>
+				<li>방문 시간: 하루 종일 (저녁에 방문하시는 것이 좋습니다).</li>
+				<li>크루즈에서 저녁 식사를 하며 밤에는 강변을 감상해 보세요.</li>
+				<li>주말에는 거리 음악과 춤 공연이 펼쳐집니다.</li>
+			</ul>
+			"""},
+			{ "title": "까이랑 수상시장 - 서양의 상징",
+			"desc": """
+			<p>서양 최대 규모의 수상시장 중 하나로, 새벽부터 활기가 넘치며 과일과 강변 지역의 특산품을 판매합니다.</p>
+			<p>주요 볼거리:</p>
+			<ul>
+				<li>"베오"(제품 샘플을 장대에 걸어 판매하는 배).</li>
+				<li>과일, 신선한 농산물, 아침 식사 메뉴 등 배 위에서 바로 판매되는 국수와 커피.</li>
+			</ul>			
+			<img src="/static/images/chocairang.jpg" class="detail-img" alt="깐토 까이랑 수상시장">
+			<p>추천:</p>
+			<ul>
+				<li>방문 시간: 오전 5시 - 오전 9시</li>
+				<li>시장에 들어가려면 작은 배를 타고 가는 것이 좋습니다.</li>
+				<li>배 위에서 국수를 먹는 경험은 "꼭" 해봐야 할 일입니다.</li>
+			</ul>
+			"""},
+			{ "title": "박쥐 사원 - 독특한 크메르 사원(올드 쏙짱)",
+			"desc": """
+			<p>400년이 넘은 고대 크메르 사원으로, 나무 꼭대기에 매달린 수천 마리의 박쥐로 유명합니다. 캠퍼스.</p>
+			<p>📍위치: 속짱 시 3번 구, 도심에서 약 2km 거리.</p>
+			<p>역사 및 건축:</p>
+			<ul>
+				<li>16세기에 건축된 이 사원은 전형적인 크메르 남방 불교 사원입니다.</li>
+				<li>본당은 전형적인 크메르 건축 양식, 여러 겹의 곡선 지붕, 그리고 정교한 문양을 자랑합니다.</li>
+				<li>사원에는 귀중한 고대 불상도 많이 보존되어 있습니다.</li>
+			</ul>			
+			<img src="/static/images/chuadoi.jpg" class="detail-img" alt="속짱 박쥐 사원">
+			<p>주요 특징:</p>
+			<ul>
+				<li>캠퍼스에는 수천 마리의 까마귀 박쥐(날개폭 최대 1m)가 서식합니다.</li>
+				<li>박쥐는 낮에만 서식하고 저녁에는 먹이를 찾아 날아갑니다. → 독특하고 보기 드문 광경입니다.</li>
+			</ul>
+			<p>추천:</p>
+			<ul>
+				<li>개방 시간: 무료. 하루 종일 방문 가능. 아침이나 시원한 오후에 방문하는 것이 좋습니다.</li>
+				<li>사원에 들어갈 때는 예의 바른 복장을 착용해 주세요.</li>
+				<li>조용히 하고 박쥐를 방해하지 마세요.</li>
+			</ul>
+			"""},
+			{ "title": "룽응옥황 자연보호구역(구 하우장)",
+			"desc": """
+			<p>룽응옥황은 서부의 "녹색 허파"로 여겨지며, 울창한 운하, 울창한 초목, 야생적이고 시원한 공간을 갖춘 풍부한 침수림 생태계를 자랑합니다. 생태 관광, 보트를 타고 숲을 탐험하고, 조류를 관찰하고, 자연림과 강 풍경을 사진으로 촬영하기에 매우 적합합니다.</p>
+			<p>📍위치: 하우장성 풍히엡 현.</p>
+			<img src="/static/images/lungngochoang.jpg" class="detail-img" alt="룽 응옥 호앙 자연 보호 구역">
+			<p>주요 특징:</p>
+			<ul>
+				<li>2,800헥타르가 넘는 넓은 면적의 멜라루카 숲. 야생 자연 공간, 구불구불한 운하는 생태 관광, 조류 관찰, 멜라루카 숲 산책에 매우 적합합니다.</li>
+				<li>천부적인 자연적 가치 - 희귀한 생물 다양성 보존</li>
+			</ul>
+			<p>추천:</p>
+			<ul>
+				<li>좋아하는 시간: 강한 햇빛을 피해 조용한 공간을 즐기려면 이른 아침이나 늦은 오후가 좋습니다.</li>
+				<li>길이 약간 젖어 있거나 진흙투성이일 수 있으므로 방충제와 미끄럼 방지 신발을 준비하세요.</li>
+				<li>자연 보호 구역이므로 깨끗하게 유지하고 야생 동물을 침해하지 마세요. 지역.</li>
+			</ul>
+			"""}
+			],
+			"까마우": [
+			{ "title": "까마우 곶 - 최남단 랜드마크",
+			"desc": """
+			<p>까마우 곶은 베트남 본토 최남단으로, 베트남 땅이 바다로 뻗어 있는 곳입니다. 이곳에 오시면 GPS 랜드마크 0001(배 심볼)에서 체크인하고 맹그로브 숲, 광활한 바다와 하늘의 풍경을 감상하실 수 있습니다.</p>
+			<p>📍위치: 까마우 곶은 까마우 성 응옥 히엔 현 닷 무이 사에 위치해 있으며, 베트남 본토 최남단에 있습니다.</p>
+			<img src="/static/images/muicamau.jpg" class="detail-img" alt="까마우 곶 최남단 랜드마크">
+			<p>주요 특징:</p>
+			<ul>
+				<li>동해의 일출과 서해의 일몰을 동시에 감상할 수 있는 드문 장소 중 하나로, 신성하고 자랑스러운 느낌을 선사합니다. "베트남의 끝"을 의미합니다.</li>
+				<li>까마우 곶에 있는 호찌민 도로 이정표 2436km는 주권의 상징이자 최남단 위치입니다.</li>
+				<li>맹그로브 생태계: 맹그로브 나무, 진달래 나무는 충적토에서 자라며, 맹그로브 뿌리는 위로 자라 토양을 지탱합니다.</li>
+			</ul>
+			<p>추천:</p>
+		<ul>
+			<li>바다와 아름다운 빛을 감상하기 위해 이른 아침이나 늦은 오후에 방문하기에 적합합니다.</li>
+			<li>닷무이까지 육로로 가는 것은 다소 멀 수 있으므로 교통수단, 연료, 간식을 신중하게 준비하십시오.</li>
+			<li>환경을 존중하십시오. 쓰레기를 버리지 말고 자연 경관을 보존하십시오.</li>
+			</ul>
+			"""},
+			{ "title": "우민하 맹그로브 숲",
+			"desc": """
+			<p>우민하 숲 서부의 전형적인 맹그로브-카유풋 숲 생태계로, 까마우의 "녹색 허파"로 여겨집니다. 교차하는 운하, 울창한 초목, 그리고 수많은 희귀 조류와 동물들이 있는 야생 공간입니다.</p>
+			<p>📍위치: 우민하 국립공원은 까마우 성의 맹그로브-카유풋 숲 지역에 위치해 있습니다.</p>
+			<img src="/static/images/rungngapman.jpg" class="detail-img" alt="우민하 맹그로브 숲">
+
+			<p>주요 특징:</p>
+			<ul>
+				<li>침수된 카유풋 숲, 다양한 동식물과 운하가 어우러진 풍부한 생태계.</li>
+				<li>우민하 숲의 전경을 한눈에 볼 수 있는 높은 전망대가 있습니다.</li>
+				<li>운하를 따라 보트를 타고 "숲의 틀"에 귀 기울이는 등 일반적인 해변 관광과는 매우 다른 관광 활동을 즐길 수 있습니다.</li>
+			</ul>
+			<p>추천 참고:</p>
+			<ul>
+				<li>숲은 일 년 내내 방문할 수 있지만, 가장 좋은 시기는 건기(비가 적게 내리는 시기)나 홍수기에 보트를 타고 더 깊이 들어가고 싶을 때입니다.</li>
+				<li>모기와 곤충이 많을 수 있으므로 숲에 들어갈 때는 긴팔 셔츠와 방충제를 착용하세요.</li>
+				<li>홍수기에 가면 보트를 빌려 방문할 수 있으며, 건기에는 도로가 더 편리합니다.</li>
+			</ul>
+			"""},
+			{"title": "Quan Am Phat Dai (Mother Nam Hai)",
+			"desc": """
+			<p>Quan Am Phat Dai("Mother Nam Hai"라고도 함)는 박리에우 성(Bac Lieu Province) 해안에 위치한 대규모 영성 단지입니다. 이곳은 불교 신도들의 예배 장소일 뿐만 아니라, 관음보살의 상징이 정면을 향하고 있는 유명한 영적 관광지이기도 합니다. 바다를 보호하고 바다 사람들에게 평화를 가져다준다는 의미입니다.</p>
+			<p>📍위치: 박리에우성 박리에우시 냐맛구 보따이 마을. 박리에우시 중심에서 바다 방향으로 약 8km 떨어져 있습니다.</p>
+			<p>역사 및 건축:</p>
+			<ul>
+				<li>1973년 틱찌득 스님의 사상으로 설립되었습니다.</li>
+				<li>이 건축물은 북방 불교 양식으로, 장식적인 디테일, 삼문, 높은 본당이 어우러져 엄숙한 분위기를 자아냅니다.</li>
+			</ul>
+			<img src="/static/images/menamhai.jpg" class="detail-img" alt="콴암팟다이">
+			<p>주요 특징:</p>
+			<ul>
+				<li>관세음보살상은 높이 약 11m로, 큰 바다를 마주 보고 있는 연꽃 받침대는 이 영적인 공간의 하이라이트입니다.</li>
+				<li>강력한 신앙의 의미를 담고 있습니다. 마치 어부와 해안가 주민들을 파도로부터 보호하는 듯 바다를 바라보는 불상입니다.</li>
+				<li>자연 공간과 영적인 건축물이 어우러진 공간 - 넓은 캠퍼스, 바다 근처, 나무가 많고 관광과 사진 촬영에 편리한 도로가 있습니다.</li>
+			</ul>
+			<p>추천:</p>
+			<ul>
+				<li>신성한 장소이므로 예의 바른 복장을 착용하고, 예배와 명상을 위한 시간을 가지세요.</li>
+				<li>바닷가 지역은 강한 햇살과 바닷바람이 불기 때문에 모자와 자외선 차단제를 지참하세요.</	li>
+				<li>무료 주차가 가능하며, 투숙객을 위한 채식 음식 서비스도 제공됩니다. 어느 시점에서는 숭배해야 합니다.</li>
+			</ul>
+			"""}
+			], 
+			"빈롱": [
+			{ "title": "앙 파고다: 앙코르 자보레이(옛 짜빈)",
+			"desc": """
+			<p>앙 파고다는 짜빈에서 가장 오래되고 유명한 크메르 사원 중 하나로, 바옴 연못 옆에 위치해 있습니다. 이 사원은 여러 겹의 곡선 지붕, 정교하게 조각된 기둥, 그리고 눈에 띄는 금색으로 이루어진 남부 크메르 건축 양식의 특징을 보여줍니다.</p>
+			<p>📍위치: 짜빈성 짜빈시 8번구 햄릿 4번지.</p>
+			<p>역사 및 건축:</p>
+			<ul>
+				<li>앙 파고다(왓 앙코르 라이그 보레이라고도 함)는 약 3.5헥타르 넓이입니다.</li>
+				<li>이 건축물은 고대 크메르 전통과 현대 건축 요소가 조화를 이루고 있으며, 새 머리 조각, 나가 뱀신, 그리고 특징적인 곡선 형태의 예술을 보존하고 있습니다. 지붕.</li>
+				<li>남부 크메르족의 문화적, 역사적 가치를 간직한 이곳은 종교 활동과 전통 보존의 장소입니다.</li>
+			</ul>
+			<img src="/static/images/chuaang.jpg" class="detail-img" alt="앙 파고다(앙코라자보레이) - 짜빈">
+			<p>주요 볼거리:</p>
+			<ul>
+				<li>남부 크메르족의 고대 탑으로, 짜빈에서 가장 아름다운 탑으로 손꼽힙니다.</li>
+				<li>크메르와 앙코르 양식의 특징이 뚜렷한 건축물: 사원 지붕, 부조, 나가 뱀상, 견고한 성소.</li>
+				<li>고대 나무와 넓은 사원 마당이 어우러져 시원한 주변 환경을 조성하여 고요한 분위기를 자아냅니다.</li>
+			</ul>
+			<p>추천:</p>
+			<ul>
+				<li>사원에 들어갈 때는 예의 바른 복장을 하고 걸어야 합니다. 이곳은 신성한 장소이므로 조심하세요.</li>
+				<li>정오에 가시는 경우 모자/캡을 착용하고 자외선 차단제를 바르세요. 햇살이 좋고 날씨가 좋으면 아침이나 오후에 가시는 것이 가장 좋습니다.</li>
+				<li>크메르 문화에 대해 더 자세히 알고 싶으시면 현지 가이드에게 문의하거나 사전에 안내 자료를 읽어보세요.</li>
+			</ul>
+			"""}
+			], 
+			"동탑": [
+			{ "title": "동센탑무어이",
+			"desc": """
+			<p>동센탑무어이는 서부에서 가장 크고 아름다운 연꽃밭 중 하나로, 광활한 연꽃밭으로 유명하며, 동탑무어이만의 소박하고 평화로운 분위기를 자아냅니다.</p>
+			<p>📍위치: 동탑성 탑무어이구 미호아마을. 까오란시에서 약 40km 거리</p>
+			<p>역사 및 건축:</p>
+			<img src="/static/images/dongthap.jpg" class="detail-img" alt="동센탑무어">
+			<p>주요 볼거리:</p>
+			<ul>
+				<li>광활한 연꽃밭은 연꽃 시즌(5월~10월)에 가장 아름답습니다.</li>
+				<li>체험 서비스: 보트를 타고 사진 촬영, 아오바바 착용, 연꽃, 다리 대나무에서 체크인하세요.</li>
+				<li>연꽃 요리: 연밥, 연근 샐러드, 연꽃 달콤한 수프, 연꽃차.</li>
+			</ul>
+			<p>추천 메뉴:</p>
+			<ul>
+				<li>일찍 가세요. 오전 6시 30분~오후 9시 또는 시원한 오후 3시 30분~오후 5시 30분에 가세요.</li>
+				<li>모자, 자외선 차단제를 챙기세요. 굽이 낮은 신발이나 샌들을 신으세요.</li>
+				<li>비가 온 후에는 흙길이 미끄러울 수 있으니 피하세요.</li>
+			</ul>
+			"""},
+			{"title": "사덱 꽃 마을",
+			"desc": """
+			<p>사덱 꽃 마을은 "서부의 꽃 수도"로, 독특한 물 위에 떠 있는 격자에 심어진 수천 송이의 관상용 꽃으로 유명합니다. 또한, 유명한 문화 생태 관광지로, 일 년 내내 사진을 찍고 꽃을 구매할 수 있습니다.</p>
+			<p>📍위치: 탄 동탑, 사덱 시, 꾸이동 구. 까오란에서 약 30km 거리.</p>
+			<p>역사 및 건축:</p>
+			<ul>
+				<li>19세기 후반에서 20세기 초에 형성됨.</li>
+				<li>서부 지역의 오랜 전통 꽃 마을.</li>
+				<li>건축적 특징: 고택, 전통 공예 마을, 전형적인 떠다니는 꽃꽂이.</li>
+			</ul>
+			<img src="/static/images/langhoa.jpg" class="detail-img" alt="사덱 꽃 마을">
+			<p>주요 특징:</p>
+			<ul>
+				<li>100년이 넘는 역사를 자랑하는 꽃 마을.</li>
+				<li>국화, 장미, 분재, 고대 관상용 식물 등 수천 종의 꽃과 관상용 식물.</li>
+				<li>체크인 구역, 목조 다리, 온실, 마을의 집, 케이크 만들기 등이 있습니다. 잼.</li>
+			</ul>
+			<p>추천:</p>
+			<ul>	
+				<li>가장 좋은 시기: 음력 12월~1월.</li>
+				<li>아침 일찍이나 해 질 무렵에 가는 것이 좋습니다.</li>
+				<li>꽃 재배자를 존중하세요. 사진 촬영 시 꽃을 꺾지 마세요.</li>
+			</ul>
+			"""}
+			], 
+"안장": [
+{ "title": "깜산(티엔깜손) - "서쪽의 지붕"",
+"desc": """
+<p>메콩 삼각주에서 가장 높은 산으로, 일 년 내내 서늘한 기후와 다채로운 자연 경관을 자랑합니다. 영적인 요소, 역사적 요소, 전설적인 요소로 가득 차 있어 종종 "서쪽의 지붕"으로 비유됩니다.</p>
+<p>📍위치: 안장성 띤비엔현 안하오사.</p>
+<img src="/static/images/nuicamangiang.jpg" class="detail-img" alt="깜산(티엔깜손) - "서쪽의 지붕"">
+<p>주요 볼거리:</p>
+<ul>
+<li>33.6m 높이의 미륵불상은 깜산의 상징으로, 베트남 최대 규모의 미륵불상 중 하나입니다.</li>
+<li>잔잔한 수면에 반사되는 투이리엠 호수의 반린 사원, 빅 부다 사원과 같은 영적인 사원과 함께 산은 많은 순례자를 끌어들입니다.</li>
+<li>깜산 케이블카를 타고 장엄한 탓썬 산의 파노라마를 위에서 감상하고 칠악산 지역의 장엄한 자연의 아름다움을 온전히 느껴보세요.</li>
+</ul>
+<p>추천:</p>
+<ul>
+<li>⏰ 방문 시간: 오전 6시부터 오후 6시까지 종일</li>
+<li>케이블카 티켓: 1인당 180,000 VND 이상</li>
+<li>햇볕을 피하려면 아침 일찍 가는 것이 좋으며, 운동화를 착용하세요. 트레킹을 할 경우 건기를 선택하세요.</li>
+</ul>
+"""},
+{ "title": "짜쑤 멜라루카 숲 - 홍수기의 낙원",
+"desc": """
+<p>부추풀이 뒤덮인 푸른 낙원 수백 종의 희귀 조류가 서식하는 아름다운 수면.</p>
+<p>📍위치: 띤비엔 현 반자오 마을, 쩌우독에서 약 30km 거리.</p>
+<img src="/static/images/rungtram.jpg" class="detail-img" alt="짜쑤 멜라루카 숲 - 홍수철의 천국">
+<p>주요 볼거리:</p>
+<ul>
+<li>140종 이상의 식물, 70종 이상의 조류(붉은 책에 등재된 희귀종 포함).</li>
+<li>푸른 개구리밥 숲 사이로 카누, 보트, 또는 노를 저어보세요. 베트남에서 가장 긴 대나무 다리에서 체크인하세요.</li>
+<li>생물다양성 보존 구역이자 환경 규제를 받는 곳으로, "베트남에서 가장 아름다운 카주풋 숲"으로 알려져 있습니다.</li>
+</ul>
+<img src="/static/images/rungtram1.jpg" class="detail-img" alt="Tra Su Cajuput Forest - Birds">
+<p>추천:</p>
+<ul>
+<li>가장 아름다운 풍경: 홍수기(9월~11월), 특히 새벽이나 해질녘에 방문하세요.</li>
+<li>아침이나 늦은 오후에 방문하세요. 카메라, 쌍안경, 그리고 편안한 신발을 준비하세요.</li>
+</ul>
+"""},
+{ "title": "푸꾸옥 - 진주섬",
+"desc": """
+<p>맑고 푸른 해변, 고급 리조트, 신선한 해산물을 자랑하는 유명한 해변 휴양지입니다.</p>
+<p>📍위치: 푸꾸옥은 베트남에서 가장 큰 섬으로, 끼엔장성에 속하며 태국만, 캄보디아 국경 근처에 있습니다.</p>
+<p>하이라이트:</p>
+<ul>
+<li>아름다운 바다와 모래사장: 맑은 바닷물, 잔잔한 파도, 수영하기에 매우 적합하며 스노클링.</li>
+<li>다양한 자연: 섬의 대부분은 유네스코가 지정한 생물권 보호구역에 위치해 있으며, 숲, 산, 그리고 해양-염생 생태계가 어우러져 있습니다.</li>
+<li>편리한 접근성 및 관광 개발: 현대적인 관광 인프라, 수많은 리조트, 그리고 엔터테인먼트 및 게임 시설이 있습니다.</li>
+</ul>
+<img src="/static/images/phuquoc.jpg" class="detail-img" alt="푸꾸옥 - 진주섬>
+
+<p>추천:</p>
+<ul>
+<li>가장 좋은 시기: 11월부터 4월까지의 건기 — 화창하고 잔잔한 바다에서 야외 및 해변 관광을 즐기기에 좋습니다.</li>
+<li>혼톰 케이블카는 오전 9시경 출발하며, 낮 동안 여러 정류장에 정차합니다. 혼잡을 피하려면 일찍 출발하는 것이 좋습니다.</li>
+<li>해변 산책/일몰 감상: 오후 5시경부터는 아름다운 일몰을 감상하기에 좋은 시간입니다. 섬의 서쪽 해변.</li>
+</ul>
+"""},
+{ "title": "하티엔 - 몽환적이고 낭만적인",
+"desc": """
+<p>푸꾸옥보다 느긋하고 평화로운 분위기가 감도는 이곳은 휴식을 취하거나 자연의 아름다움과 지역 문화를 탐험하고 싶은 관광객에게 적합합니다.</p>
+<p>📍위치: 끼엔장성 하티엔 타운, 락자 시에서 약 100km 거리.</p>
+<img src="/static/images/hatien.jpg" class="detail-img" alt="짜쑤 멜라루카 숲 - 조류">
+<p>주요 특징:</p>
+<ul>
+<li>서부에서는 보기 드문 그림 같은 풍경(산, 바다, 강, 동굴).</li>
+<li>다양한 문화(베트남, 크메르, 중국, 참)가 독특하게 어우러진 곳.</li>
+<li>신선한 해산물, 저렴한 가격, 다음과 같은 독특한 특산품 맘 까 슈와 소이 시엠.</li>
+</ul>
+<p>제안사항:</p>
+<ul>
+<li>최고의 시기: 11월~4월 (건기, 아름다운 바다, 적은 강우량)</li>
+<li>최고의 일몰: 무이나이 해변이나 푸꾸옥 섬이 내려다보이는 제방.</li>
+<li>추천 메뉴: 게살 국수, 찹쌀밥, 피시 소스 (선물로 구매 가능).</li>
+</ul>
+"""}
+]
 }
 # ---------------- HOME ----------------
 @app.get("/", response_class=HTMLResponse)
