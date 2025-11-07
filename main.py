@@ -567,25 +567,273 @@ place_details_data = {
     },
     "en": {
         "Can Tho": [
-            {"title": "Ninh Kieu Wharf",
+            { "title": "Ninh Kieu Wharf - City Symbol",
             "desc": """
-                <p>The symbol of Can Tho on the gentle Hau River, is a beautiful place to walk, sightsee and take photos.</p>
-                <img": src="/static/images/test1.jpg" class="detail-img"/>
+            <p>The symbol of Can Tho on the gentle Hau River, is a place to walk, sightsee and take beautiful photos.</p>
+            <img src="/static/images/benninhkieu.jpg" class="detail-img" alt="Panoramic view of Ninh Kieu Wharf">
+            <p>📍 Location: Center of Can Tho City, on the banks of Hau River.</p>
+            <p>Highlights:</p>
+            <ul>
+                <li>Ninh Kieu pedestrian bridge is brightly lit at night.</li>
+                <li>Wharf to go to the floating market, cruise on Hau River.</li>
+                <li>Uncle Ho's statue and airy park.</li>
+            </ul>
+            <img src="/static/images/bac_ho.jpg" class="detail-img" alt="Uncle Ho Statue at Can Tho Park">
+            <p>Suggestion:</p>
+            <ul>
+                <li>Visiting hours: All day (best in the evening).</li>
+                <li>Combine dinner on a cruise to watch the river at night.</li>
+                <li>There is street music and dancing on weekends.</li>
+            </ul>
+            """},
+            {"title": "Cai Rang Floating Market - Symbol of the West",
+            "desc": """
+            <p>One of the largest floating markets in the West, bustling from dawn, specializing in selling fruits and specialties of the river region.</p>
+            <p>Highlights:</p>
+            <ul>
+                <li>Boats with "beo" (product samples hung on poles) for sale.</li>
+                <li>Fruits, fresh agricultural products, breakfast dishes such as noodles, coffee sold right on the boat.</li>
+            <img src="/static/images/chocairang.jpg" class="detail-img" alt="Cai Rang Floating Market Can Tho">
+            </ul>
+            <p>Suggestions:</p>
+            <ul>
+            <li>Visiting hours: 5:00 a.m. - 9:00 a.m.</li>
+            <li>Should take a small boat tour to get into the market.</li>
+            <li>The experience of eating noodles on a boat is a "must-try".</li>
+            </ul>
+            """},
+            { "title": "Bat Pagoda - Unique Khmer Pagoda (Old Soc Trang)",
+            "desc": """
+            <p>An ancient Khmer pagoda over 400 years old, famous for thousands of bats hanging on the treetops in the campus.</p>
+            <p>📍Location: Ward 3, Soc Trang City, about 2 km from the center.</p>
+            <p>History & Architecture:</p>
+            <ul>
+                <li>Built in the 16th century, it is a typical Khmer Southern Buddhist temple.</li>
+                <li>The main hall has typical Khmer architecture, multi-layered curved roof, and sophisticated patterns.</li>
+                <li>The temple also preserves many precious ancient Buddha statues.</li>
+            </ul>            
+            <img src="/static/images/chuadoi.jpg" class="detail-img" alt="Bat Pagoda in Soc Trang">
+            <p>Highlights:</p>
+            <ul>
+                <li>Thousands of crow bats (large species, wingspan up to 1m) live in the campus.</li>
+                <li>Bats only hang around during the day, and fly out in the evening to find food → creating a unique and rare sight.</li>
+            </ul>
+            <p>Suggestions:</p>
+            <ul>
+                <li>Opening hours: Free Visit all day, best in the morning or cool afternoon.</li>
+                <li>You should dress politely when entering the temple.</li>
+                <li>Keep quiet, do not disturb the bats.</li>
+            </ul>
+            """},
+            { "title": "Lung Ngoc Hoang Nature Reserve (old Hau Giang)",
+            "desc": """
+            <p>Lung Ngoc Hoang is considered the "green lung" of the West, possessing a rich flooded forest ecosystem with dense canals, dense vegetation, wild and cool space, very suitable for eco-tourism, exploring the forest by boat, bird watching and taking photos of natural forest and river scenery.</p>
+            <p>📍Location: Phung Hiep district, Hau Giang province.</p>
+            <img src="/static/images/lungngochoang.jpg" class="detail-img" alt="Lung Ngoc Hoang Nature Reserve">
+            <p>Highlights:</p>
+            <ul>
+                <li>Large area (more than 2,800 hectares) of flooded Melaleuca forest. Wild natural space, winding canals, very suitable for eco-tourism, bird watching, walking in the Melaleuca forest.</li>
+                <li>Great natural value - preserving rare biodiversity.</li>
+            </ul>
+            <p>Suggestions:</p>
+            <ul>
+                <li>Good time: early morning or late afternoon to avoid the harsh sunlight and enjoy the quiet space.</li>
+                <li>Bring insect repellent, non-slip shoes because the road may be a bit wet or muddy.</li>
+                <li>Because it is a nature reserve, keep it clean and do not encroach on wildlife areas.</li>
+            </ul>
+            """}
+            ],
+        "Ca Mau": [
+            { "title": "Ca Mau Cape - Southernmost landmark",
+            "desc": """
+            <p>Ca Mau Cape is the southernmost point of the Fatherland, where the strip of land of Vietnam stretches out to the ocean. Coming here, you can check-in at GPS landmark 0001, the boat symbol and admire the view of the mangrove forest - the immense sea and sky.</p>
+            <p>📍Location: Ca Mau Cape is located in Dat Mui commune, Ngoc Hien district, Ca Mau province, the southernmost point of mainland Vietnam.</p>
+            <img src="/static/images/muicamau.jpg" class="detail-img" alt="Ca Mau Cape Southernmost landmark">
+            <p>Highlights:</p>
+            <ul>
+                <li>This is one of the rare places where you can watch the sunrise of the East Sea and the sunset of the West Sea right at the same location, bringing a sacred and proud feeling when touching "the end of Vietnam".</li>
+                <li>Symbolic works such as the Ho Chi Minh road milestone Km 2436 at Ca Mau cape, a symbol of sovereignty and the southernmost position.</li>
+                <li>Mangrove ecosystem: mangrove trees, rhododendron trees grow on alluvial soil, mangrove roots grow upwards to hold the soil.</li>
+            </ul>
+            <p>Suggestions:</p>
+            <ul>
+                <li>Suitable for going early in the morning or late in the afternoon to see the sea and beautiful light.</li>
+                <li>Going by road to Dat Mui can be a bit far - carefully prepare means of transport, fuel, and snacks.</li>
+                <li>Respect the environment: do not litter, preserve the natural landscape.</li>
+            </ul>
+            """},
+            { "title": "U Minh Ha mangrove forest",
+            "desc": """
+            <p>U Minh Ha forest is a typical mangrove-cajuput forest ecosystem in the West, considered the "green lung" of Ca Mau. Wild space with crisscrossing canals, dense vegetation and many rare birds and animals.</p>
+            <p>📍Location: U Minh Ha National Park is located in Ca Mau province, in the mangrove - cajuput forest area.</p>
+            <img src="/static/images/rungngapman.jpg" class="detail-img" alt="U Minh Ha Mangrove Forest">
+            <p>Highlights:</p>
+            <ul>
+                <li>Flooded cajuput forest, rich ecosystem with many species of flora and fauna and interwoven canals.</li>
+                <li>There is a high observatory to see the whole view of U Minh Ha forest.</li>
+                <li>Sightseeing activities such as boating through canals, listening to the "forest frame" - very different from normal beach tourism.</li>
+            </ul>
+            <p>Suggestions Note:</p>
+            <ul>
+                <li>The forest can be visited all year round, but the best time is the dry season (less rain) or the flood season when you want to go deeper by boat.</li>
+                <li>Wear long-sleeved shirts + insect repellent if you go into the forest because there may be a lot of mosquitoes and insects.</li>
+                <li>If you go in the flood season, you can rent a boat to visit; in the dry season, the road will be more convenient.</li>
+            </ul>
+            """},
+            {"title": "Quan Am Phat Dai (Mother Nam Hai)",
+            "desc": """
+            <p>Quan Am Phat Dai (also known as "Mother Nam Hai") is a large spiritual complex located on the coast of Bac Lieu province - the Southwest region. This is not only a place of worship for Buddhists but also a prominent spiritual tourist destination with the symbol of Bodhisattva Avalokitesvara facing the sea, meaning to protect and bring peace to the people of the sea.</p>
+            <p>📍Location: Bo Tay hamlet, Nha Mat ward, Bac Lieu city, Bac Lieu province. Located about 8 km from the center of Bac Lieu city towards the sea.</p>
+            <p>History & architecture:</p>
+            <ul>
+                <li>Established in 1973 with the idea of ​​Venerable Thich Tri Duc.</li>
+                <li>The architecture is in the style of Northern Buddhism, with decorative details, three-door gate, and tall main hall, creating a solemn feeling.</li>
+            </ul>
+            <img src="/static/images/menamhai.jpg" class="detail-img" alt="Quan Am Phat Dai">
+            <p>Highlights:</p>
+            <ul>
+                <li>The statue of Bodhisattva Avalokitesvara is about 11 m high, placed on a large lotus pedestal, facing the sea, and is the highlight of this spiritual area.</li>
+                <li>With a strong meaning of Belief: Buddha statue facing the sea as if protecting fishermen and coastal people from the waves.</li>
+				<li>Natural space combined with spiritual architecture - spacious campus, near the sea, lots of trees and convenient roads for sightseeing and taking photos.</li>
+			</ul>
+            <p>Suggestions:</p>
+            <ul>
+                <li>Dress politely because this is a sacred place, take time to worship and meditate.</li>
+                <li>Bring a hat and sunscreen because the area near the sea has strong sunlight and sea breeze.</li>
+<li>There is free parking and vegetarian food service for guests Vietnam reaches out to the ocean. Coming here, you can check-in at GPS landmark 0001, the boat symbol and admire the mangrove forest - immense sea and sky.</p>
+<p>📍Location: Ca Mau Cape is located in Dat Mui commune, Ngoc Hien district, Ca Mau province, the southernmost mainland of Vietnam.</p>
+<img src="/static/images/muicamau.jpg" class="detail-img" alt="Ca Mau Cape, the southernmost landmark">
 
-                <p>📍 Location: Can Tho City Center, on the banks of Hau River.</p>
-                <p>Highlights:</p>
-                <ul>
-                    <li>Ninh Kieu pedestrian bridge is brightly lit at night.</li>
-                    <li>Wharf to go to the floating market, cruise on Hau River.</li>
-                    <li>Uncle Ho's statue and airy park.</li>
-                </ul>
-            """
-       # "Can Tho": [
-            #{"title": "Ninh Kieu Wharf", "desc": "The symbol of Can Tho on the gentle Hau River, a place for walking, sightseeing and taking beautiful photos.", "img": "test1.png"},
-            #{"title": "Cai Rang Floating Market", "desc": "One of the largest floating markets in the West, bustling from dawn, specializing in selling fruits and specialties of the river region.", "img": "test2.png"},
-            #{"title": "Binh Thuy Ancient House", "desc": "The ancient house combines French and Asian architecture, built in the 19th century, is a famous tourist attraction.", "img": "test3.png"}
-            }
-             ]
+<p>Highlights:</p>
+<ul>
+<li>This is one of the rare places where you can watch the sunrise of the East Sea and the sunset of the West Sea right at the same location, bringing a sacred and proud feeling when touching "the end of Vietnam".</li>
+<li>Symbolic works such as the Ho Chi Minh road landmark Km 2436 at Ca Mau cape, a symbol of sovereignty and the southernmost position.</li>
+<li>Mangrove ecosystem: trees mangroves, mangroves grow on alluvial soil, mangrove roots grow upwards to hold the soil.</li>
+</ul>
+<p>Suggestions:</p>
+<ul>
+<li>Suitable for going early in the morning or late in the afternoon to see the sea and beautiful light.</li>
+<li>Going by road to Dat Mui can be a bit far - carefully prepare your vehicle, fuel, and snacks.</li>
+<li>Respect the environment: do not litter, preserve the natural landscape.</li>
+</ul>
+"""},
+{ "title": "U Minh Ha Mangrove Forest",
+"desc": """
+<p>U Minh Ha Forest is a typical Melaleuca - Mangrove ecosystem of the West, considered the "green lung" of Ca Mau. Wild space with crisscrossing canals, dense vegetation and many rare birds and animals.</p>
+
+<p>📍Location: U Minh Ha National Park is located in Ca Mau province, in the mangrove forest - cajuput forest area.</p>
+<img src="/static/images/rungngapman.jpg" class="detail-img" alt="U Minh Ha Mangrove Forest">
+
+<p>Highlights:</p>
+<ul>
+<li>Flooded cajuput forest, rich ecosystem with many species of flora and fauna and interwoven canals.</li>
+<li>There is a high observatory to see the whole view of U Minh Ha forest.</li>
+<li>Sightseeing activities such as boating through canals, listening to the "forest frame" - very different from normal beach tourism.</li>
+</ul>
+<p>Suggestions:</p>
+<ul>
+<li>The forest can Visit all year round but the best time is the dry season (less rain) or the flood season when you want to go deeper by boat.</li>
+<li>Wear long sleeves + insect repellent if going into the forest because there may be a lot of mosquitoes and insects.</li>
+<li>If you go during the flood season, you can rent a boat to visit; in the dry season, the road will be more convenient.</li>
+</ul>
+"""},
+{"title": "Quan Am Phat Dai (Mother Nam Hai)",
+"desc": """
+<p>Quan Am Phat Dai (also known as "Mother Nam Hai") is a large spiritual complex located on the coast of Bac Lieu province - the Southwest region. This is not only a place of worship for Buddhists but also a prominent spiritual tourist destination with the symbol of Bodhisattva Avalokitesvara facing the sea, meaning to protect and bring peace to the people of the sea.</p>
+<p>📍Location: Bo Tay hamlet, Nha Mat ward, Bac Lieu city, Bac Lieu province. Located about 8 km from the center of Bac Lieu city towards the sea.</p>
+<p>History & architecture:</p>
+<ul>
+<li>Established in 1973 with the idea of ​​Venerable Thich Tri Duc.</li>
+<li>The architecture is in the style of Northern Buddhism, with decorative details, three-door gate, and tall main hall, creating a solemn feeling.</li>
+</ul>
+<img src="/static/images/menamhai.jpg" class="detail-img" alt="Quan Am Phat Dai">
+<p>Highlights:</p>
+<ul>
+<li>The statue of Bodhisattva Avalokitesvara is about 11 m high, placed on a large lotus pedestal, overlooking the sea, and is the highlight of this spiritual area.</li>
+<li>With a strong religious meaning: the Buddha statue facing the sea seems to protect fishermen and coastal people from the waves and wind.</li>
+<li>Natural space combined with spiritual architecture - spacious campus, near the sea, lots of trees and convenient roads for sightseeing and taking photos.</li>
+</ul>
+<p>Suggestions:</p>
+<ul>
+<li>Dress politely because this is a sacred place, take time to worship and meditate.</li>
+<li>Bring a hat and sunscreen because the area near the sea has strong sunlight and sea breeze.</li>
+<li>There is free parking and vegetarian food service for worshipers at certain times.</li>
+</ul>
+"""}
+],
+"Vinh Long": [
+{ "title": "Ang Pagoda: Angkorajaborey (Old Tra Vinh)",
+"desc": """
+<p>Ang Pagoda is one of the most ancient and famous Khmer pagodas in Tra Vinh, located next to Ba Om Pond. The pagoda has a strong Southern Khmer architecture with multi-layered curved roofs, intricately carved pillars and prominent gold tones.</p>
+<p>📍Location: In group 4, ward 8, Tra Vinh city, Tra Vinh province.</p>
+<p>History & architecture:</p>
+<ul>
+<li>Ang Pagoda (also known as Wat Angkor Raig Borei) is about 3.5 hectares wide.</li>
+<li>The architecture is a combination of ancient Khmer tradition and some modern architectural elements - preserving the art of bird head sculptures, the Naga snake god, and the characteristic curved roof.</li>
+<li>Carrying the cultural and historical values ​​of the Southern Khmer people, it is a place for religious activities and preserving traditions.</li>
+</ul>
+<img src="/static/images/chuaang.jpg" class="detail-img" alt="Ang Pagoda (Angkorajaborey) – Tra Vinh">
+
+<p>Highlights:</p>
+<ul>
+<li>An ancient Khmer temple in the South, considered the most beautiful temple in Tra Vinh.</li>
+<li>Architecture with strong Khmer and Angkor features: temple roof, reliefs, Naga snake statue, solid sacred space.</li>
+<li>The surrounding environment is cool with ancient trees, large temple yard, creating a sense of serenity.</li>
+</ul>
+<p>Suggestions:</p>
+<ul>
+<li>When entering the temple, you should wear polite clothes and walk gently because this is a sacred place.</li>
+<li>Bring a hat/cap, sunscreen if going at noon; It is best to go in the morning or afternoon for beautiful light and pleasant weather.</li>
+<li>If you want to learn more about Khmer culture, ask a local guide or look at the information in advance.</li>
+</ul>
+"""}
+],
+"Dong Thap": [
+{ "title": "Dong Sen Thap Muoi",
+"desc": """
+<p>Dong Sen Thap Muoi is one of the largest and most beautiful lotus fields in the West, famous for its vast space of blooming lotus flowers, imbued with the rustic, peaceful features of the Dong Thap Muoi region.</p>
+<p>📍Location: My Hoa Commune, Thap Muoi District, Dong Thap Province. 10km from City. Cao Lanh about 40km</p>
+<p>History & architecture:</p>
+<img src="/static/images/dongthap.jpg" class="detail-img" alt="Dong Sen Thap Muoi">
+<p>Highlights:</p>
+<ul>
+<li>Immense lotus fields, most beautiful in lotus season (May to October).</li>
+<li>Experiential services: take a boat to take photos, wear Ao Ba Ba, pick lotus, check-in at the bamboo bridge.</li>
+<li>Lotus cuisine: lotus rice, lotus root salad, lotus sweet soup, lotus tea.</li>
+</ul>
+<p>Suggestions:</p>
+<ul>
+<li>Should go early 6:30 - 9:00 or cool afternoon 15:30 - 17:30</li>
+<li>Bring a hat and sunscreen; Wear low shoes/sandals.</li>
+<li>Avoid walking after rain because the dirt road can be slippery</li>
+</ul>
+"""},
+{
+"title": "Sa Dec Flower Village",
+"desc": """
+<p>Sa Dec Flower Village is the "Flower Capital of the West", famous for thousands of ornamental flowers grown on unique floating trellises, a famous cultural - ecological tourist destination, taking photos and buying flowers all year round.</p>
+<p>📍Location: Tan Quy Dong Ward, Sa Dec City, Dong Thap. About 30km from Cao Lanh.</p>
+<p>History & architecture:</p>
+<ul>
+<li>Formed in the late 19th - early 20th century</li>
+<li>A long-standing traditional flower village in the West.</li>
+<li>Architectural features: ancient houses, traditional craft villages, typical floating flower shelves.</li>
+</ul>
+<img src="/static/images/langhoa.jpg" class="detail-img" alt="Sa Dec Flower Village">
+<p>Highlights:</p>
+<ul>
+<li>A flower village over 100 years old.</li>
+<li>Thousands of flower & ornamental varieties: chrysanthemum, rose, bonsai, ancient ornamental plants.</li>
+<li>There is a check-in area, wooden bridge, greenhouse, village house making cakes, jams.</li>
+</ul>
+<p>Suggestions Note:</p>
+<ul>
+<li>Best time: December - January of the lunar calendar.</li>
+<li>Should go early in the morning or at sunset.</li>
+<li>Respect the flower growers - do not pick flowers when taking photos.</li>
+</ul>
+"""}
+]
     },
     "kr": {
         "깐토": [
