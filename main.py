@@ -230,8 +230,8 @@ content = {
              """
          }
     	],
-		"health_list" :[
-			{"title" : "Bệnh viện Đa khoa Trung ương Cần Thơ"
+		"health_list": [
+			{"title": "Bệnh viện Đa khoa Trung ương Cần Thơ",
 			"decs" : """
 			<p>Số 315 Nguyễn Văn Linh, Phường An Khánh, Quận Ninh Kiều, Thành phố Cần Thơ</p>
 			<p>Liên lạc: 0901215115</p>
