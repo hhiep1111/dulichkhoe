@@ -449,7 +449,7 @@
     <h2>{{ "Danh sách Bệnh viện" if lang=="vi" else ("List of Hospitals" if lang=="en" else "병원 목록") }}</h2>
 
     <div class="tips-container">
-        {% for section in data.heatlh %}
+            {% for health in health_list %}
         <div class="tips-card">
             <div class="tips-content">
                 <h3>{{ section.title }}</h3>
