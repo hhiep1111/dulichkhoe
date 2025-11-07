@@ -359,12 +359,18 @@
         {% endfor %}
     
     {% elif page == "about" %}
-        <h2>{{ "Giới thiệu" if lang=="vi" else ("About Me" if lang=="en" else "소개") }}</h2>
-           {% for section in data.about %}
-            <h3>{{ section.title }}</h3>
-            <div>{{ section.decs | safe }}</div>
-            <br>
+    <h2>{{ "Giới thiệu" if lang=="vi" else ("About Me" if lang=="en" else "소개") }}</h2>
+
+    <div class="tips-container">
+        {% for section in data.about %}
+        <div class="tips-card">
+            <div class="tips-content">
+                <h3>{{ section.title }}</h3>
+                {{ section.decs | safe }}
+            </div>
+        </div>
         {% endfor %}
+    </div>
 
     {% elif page == "tips" %}
         <h2>⚠️ {{ "Lưu ý quan trọng" if lang=="vi" else ("Important Tips" if lang=="en" else "중요한 팁") }}</h2>
