@@ -111,8 +111,8 @@ content = {
 			 "decs": """
 			 <ul>
 			 <li>Email: dulichkhoe.official@gmail.com</li>
-			 <li>Điện thoại: 0903 000 ***<li>
-			 <li>Địa chỉ: Trường Đại học FPT Thành phố Cần Thơ, Việt Nam<li>
+			 <li>Điện thoại: 0903 000 ***</li>
+			 <li>Địa chỉ: Trường Đại học FPT Thành phố Cần Thơ, Việt Nam</li>
 			 </ul>
 			 """	
 			},
@@ -234,7 +234,62 @@ content = {
 			{"title": "Bệnh viện Đa khoa Trung ương Cần Thơ",
 			"decs": """
 			<p>Số 315 Nguyễn Văn Linh, Phường An Khánh, Quận Ninh Kiều, Thành phố Cần Thơ</p>
-			<p>Liên lạc: 0901215115</p>
+			<p>Liên lạc: 090 1215 115</p>
+			"""
+			}, {"title": "Bệnh viện Đa khoa tỉnh Hậu Giang",
+			"decs": """
+			<p>Số 647 Trần Hưng Đạo, Khu vực 4, Phường 3, Thành phố.Vị Thanh, tỉnh Hậu Giang</p>
+			<p>Liên lạc: 0293 3876 333</p>
+			"""
+			}, {"title": "Bệnh viện Đa khoa tỉnh Kiên Giang",
+			"decs": """
+			<p>Số 13 Nam Kỳ Khởi Nghĩa, Phường An Hoà, Tành phố Rạch Giá, Kiên Giang</p>
+			<p>Liên lạc: 0297 3863 328</p>
+			"""
+			}, {"title": "Bệnh viện Đa khoa tỉnh An Giang",
+			"decs": """
+			<p>Số 60 Ung Văn Khiêm, Phường Mỹ Phước, Thành phố Long Xuyên, An Giang</p>
+			<p>Liên lạc: 0296 3852 989 hoặc 0296 3852 862</p>
+			"""
+			}, {"title": "Bệnh viện Đa khoa Đồng Tháp",
+			"decs": """
+			<p>Số 144 Mai Văn Khải, Ấp 3, Xã Mỹ Tân, Thành phố Cao Lãnh, Đồng Tháp</p>
+			<p>Liên lạc: 0277 3854 065</p>
+			"""
+			}, {"title": "Bệnh viện Đa khoa tỉnh Sóc Trăng ",
+			"decs": """
+			<p>Số 378 đường Lê Duẩn, phường 9, Thành phố Sóc Trăng</p>
+			<p>Liên lạc: 0299 3825 251</p>
+			"""
+			}, {"title": "Bệnh viện Đa khoa tỉnh Vĩnh Long",
+			"decs": """
+			<p>Số 301 Trần Phú, phường Phước Hậu, tỉnh Vĩnh Long</p>
+			<p>Liên lạc: 0207 3823 520 hoặc 0207 3822 523</p>
+			"""
+			}, {"title": "Bệnh viện Đa khoa tỉnh Trà Vinh",
+			"decs": """
+			<p>Số 399 Nguyễn Đáng, Phường 7, Thành phố Trà Vinh, Tỉnh Trà Vinh</p>
+			<p>Liên lạc: 0294 6251 919</p>
+			"""
+			}, {"title": "Bệnh viện Nguyễn Đình Chiểu",
+			"decs": """
+			<p>Số 109 Đoàn Hoàng Minh, Phường 5, Thành phố Bến Tre</p>
+			<p>Liên lạc: 0275 3817 555</p>
+			"""
+			}, {"title": "Bệnh viện Đa khoa tỉnh Trà Vinh",
+			"decs": """
+			<p>Số 399 Nguyễn Đáng, Phường 7, Thành phố Trà Vinh, Tỉnh Trà Vinh</p>
+			<p>Liên lạc: 0294 6251 919</p>
+			"""
+			}, {"title": "Bệnh viện Đa khoa tỉnh Cà Mau",
+			"decs": """
+			<p>Số 16 Hải Thượng Lãn Ông, Khóm 6, Phường 6, Thành phố Cà Mau, Tỉnh Cà Mau</p>
+			<p>Liên lạc: 0967 731 818</p>
+			"""
+			}, {"title": "Bệnh viện Đa khoa Bạc Liêu",
+			"decs": """
+			<p>Số 06 Nguyễn Huệ, Thành phố Bạc Liêu, Tỉnh Bạc Liêu</p>
+			<p>Liên lạc: 0291 3822 285</p>
 			"""
 			}
 		]
@@ -360,9 +415,71 @@ content = {
                                           "Flip-flops", "Sandals", "Sunglasses", "Sarong", "Hat or cap",
                                           "Light jacket for sun protection", "Light cardigan or jacket", "Scarf",
                                           "Inflatable beach toys", "Beach toys & games"]},
-        ]
+        ], 
+		"health_list": [
+			{"title": "Can Tho Central General Hospital",
+			"decs": """
+			<p>No. 315 Nguyen Van Linh, An Khanh Ward, Ninh Kieu District, Can Tho City</p>
+			<p>Contact: 090 1215 115</p>
+			"""
+			}, {"title": "Hau Giang Provincial General Hospital",
+			"decs": """
+			<p>No. 647 Tran Hung Dao, Zone 4, Ward 3, Vi Thanh City, Hau Giang Province</p>
+			<p>Contact: 0293 3876 333</p>
+			"""
+			}, {"title": "Kien Giang Provincial General Hospital",
+			"decs": """
+			<p>No. 13 Nam Ky Khoi Nghia, An Hoa Ward, Rach Gia City, Kien Giang Giang</p>
+			<p>Contact: 0297 3863 328</p>
+			"""
+			}, {"title": "An Giang Provincial General Hospital",
+			"decs": """
+			<p>No. 60 Ung Van Khiem, My Phuoc Ward, Long Xuyen City, An Giang</p>
+			<p>Contact: 0296 3852 989 or 0296 3852 862</p>
+			"""
+			}, {"title": "Dong Thap General Hospital",
+			"decs": """
+			<p>No. 144 Mai Van Khai, Hamlet 3, My Tan Commune, Cao Lanh City, Dong Thap</p>
+			<p>Contact: 0277 3854 065</p>
+			"""
+			}, {"title": "General Hospital Soc Trang province ",
+			"decs": """
+			<p>No. 378 Le Duan Street, Ward 9, Soc Trang City</p>
+			<p>Contact: 0299 ​​3825 251</p>
+			"""
+			}, {"title": "Vinh Long Provincial General Hospital",
+			"decs": """
+			<p>No. 301 Tran Phu, Phuoc Hau Ward, Vinh Long Province</p>
+			<p>Contact: 0207 3823 520 or 0207 3822 523</p>
+			"""
+			}, {"title": "Tra Vinh Provincial General Hospital",
+			"decs": """
+			<p>No. 399 Nguyen Dang, Ward 7, Tra Vinh City, Tra Vinh Province</p>
+			<p>Contact: 0294 6251 919</p>
+			"""
+			}, {"title": "Nguyen Dinh Chieu Hospital",
+			"decs": """
+			<p>No. 109 Doan Hoang Minh, Ward 5, Ben Tre City</p>
+			<p>Contact: 0275 3817 555</p>
+			"""
+			}, {"title": "Tra Vinh Provincial General Hospital",
+			"decs": """
+			<p>No. 399 Nguyen Dang, Ward 7, Tra Vinh City, Tra Vinh Province</p>
+			<p>Contact: 0294 6251 919</p>
+			"""
+			}, {"title": "Ca Mau Provincial General Hospital",
+			"decs": """
+			<p>No. 16 Hai Thuong Lan Ong, Hamlet 6, Ward 6, Ca Mau City, Ca Mau Province</p>
+			<p>Contact: 0967 731 818</p>
+			"""
+			}, {"title": "Bac Lieu General Hospital",
+			"decs": """
+			<p>No. 06 Nguyen Hue, Bac Lieu City, Bac Lieu Province</p>
+			<p>Contact: 0291 3822 285</p>
+			"""
+			}
+		]
     },
-
     "kr": {
         "title": "건강한 여행 - 메콩 델타",
         "intro": "남부 베트남 탐험: 강, 음식, 독특한 문화.",
@@ -484,7 +601,69 @@ content = {
                                           "슬리퍼", "샌들", "선글라스", "사롱", "모자 또는 캡",
                                           "햇빛 차단용 가벼운 재킷", "가벼운 가디건 또는 재킷", "스카프",
                                           "비치용 에어토이", "비치용 장난감 및 게임"]},
-        ]
+        ],
+		"health_list": [
+			{"title": "Can Tho 중앙 종합병원",
+			"decs": """
+			<p>아니요. 315 Nguyen Van Linh, An Khanh Ward, Ninh Kieu District, Can Tho City</p>
+			<p>연락처: 090 1215 115</p>
+			"""
+			}, {"title": "하우장성 종합병원",
+			"decs": """
+			<p>아니요. 647 Tran Hung Dao, Zone 4, Ward 3, Vi Thanh City, Hau Giang Province</p>
+			<p>연락처: 0293 3876 333</p>
+			"""
+			}, {"title": "끼엔장성 종합병원",
+			"decs": """
+			<p>연락처: 0297 3863 328</p>
+			"""
+			}, {"title": "안장성 종합병원",
+			"decs": """
+			<p>아니요. 60 Ung Van Khiem, My Phuoc Ward, Long Xuyen City, An Giang</p>
+			<p>연락처: 0296 3852 989 또는 0296 3852 862</p>
+			"""
+			}, {"title": "동탑 종합병원",
+			"decs": """
+			<p>아니요. 144 Mai Van Khai, Hamlet 3, My Tan Commune, Cao Lanh City, Dong Thap</p>
+			<p>연락처: 0277 3854 065</p>
+			"""
+			}, {"title": "속짱성 종합병원",
+			"decs": """
+			<p>속짱시 9구, 레주안 거리 378번지</p>
+			<p>연락처: 0299 ​​​​3825 251</p>
+			"""
+			}, {"title": "빈롱성 종합병원",
+			"decs": """
+			<p>빈롱성 푸옥하우구 쩐푸 301번지</p>
+			<p>연락처: 0207 3823 520 또는 0207 3822 523</p>
+			"""
+			}, {"title": "짜빈성 종합병원",
+			"decs": """
+			<p>응우옌당 399번지, 병동 7, 짜빈성, 짜빈시</p>
+			<p>연락처: 0294 6251 919</p>
+			"""
+			}, {"title": "응우옌딘찌에우 병원",
+			"decs": """
+			<p>벤째시 5병동, 도안황민 109번지</p>
+			<p>연락처: 0275 3817 555</p>
+			"""
+			}, {"title": "짜빈성 종합병원",
+			"decs": """
+			<p>짜빈성, 짜빈시 7병동, 응우옌당 399번지</p>
+			<p>연락처: 0294 6251 919</p>
+			"""
+			}, {"title": "까마우성 종합병원",
+			"decs": """
+			<p>까마우성 까마우시 6구 6번 마을 하이트엉란옹 16번지</p>
+			<p>연락처: 0967 731 818</p>
+			"""
+			}, {"title": "박리에우 종합병원",
+			"decs": """
+			<p>박리에우성 박리에우시 응우옌 후에 6번지</p>
+			<p>연락처: 0291 3822 285</p>
+			"""
+			}
+		]
     }
 }
 place_details_data = {
@@ -947,102 +1126,101 @@ place_details_data = {
 			</ul>
 			"""},
 			{"title": "Quan Am Phat Dai (Mother Nam Hai)",
-"desc": """
-<p>Quan Am Phat Dai (also known as "Mother Nam Hai") is a large spiritual complex located on the coast of Bac Lieu province - the Southwest region. This is not only a place of worship for Buddhists but also a prominent spiritual tourist destination with the symbol of Bodhisattva Avalokitesvara facing the sea, meaning to protect and bring peace to the people of the sea.</p>
-<p>📍Location: Bo Tay hamlet, Nha Mat ward, Bac Lieu city, Bac Lieu province. Located about 8 km from the center of Bac Lieu city towards the sea.</p>
-<p>History & architecture:</p>
-<ul>
-<li>Established in 1973 with the idea of ​​Venerable Thich Tri Duc.</li>
-<li>The architecture is in the style of Northern Buddhism, with decorative details, three-door gate, and tall main hall, creating a solemn feeling.</li>
-</ul>
-<img src="/static/images/menamhai.jpg" class="detail-img" alt="Quan Am Phat Dai">
-<p>Highlights:</p>
-<ul>
-<li>The statue of Bodhisattva Avalokitesvara is about 11 m high, placed on a large lotus pedestal, overlooking the sea, and is the highlight of this spiritual area.</li>
-<li>With a strong religious meaning: the Buddha statue facing the sea seems to protect fishermen and coastal people from the waves and wind.</li>
-<li>Natural space combined with spiritual architecture - spacious campus, near the sea, lots of trees and convenient roads for sightseeing and taking photos.</li>
-</ul>
-<p>Suggestions:</p>
-<ul>
-<li>Dress politely because this is a sacred place, take time to worship and meditate.</li>
-<li>Bring a hat and sunscreen because the area near the sea has strong sunlight and sea breeze.</li>
-<li>There is free parking and vegetarian food service for worshipers at certain times.</li>
-</ul>
-"""}
-],
-"Vinh Long": [
-{ "title": "Ang Pagoda: Angkorajaborey (Old Tra Vinh)",
-"desc": """
-<p>Ang Pagoda is one of the most ancient and famous Khmer pagodas in Tra Vinh, located next to Ba Om Pond. The pagoda has a strong Southern Khmer architecture with multi-layered curved roofs, intricately carved pillars and prominent gold tones.</p>
-<p>📍Location: In group 4, ward 8, Tra Vinh city, Tra Vinh province.</p>
-<p>History & architecture:</p>
-<ul>
-<li>Ang Pagoda (also known as Wat Angkor Raig Borei) is about 3.5 hectares wide.</li>
-<li>The architecture is a combination of ancient Khmer tradition and some modern architectural elements - preserving the art of bird head sculptures, the Naga snake god, and the characteristic curved roof.</li>
-<li>Carrying the cultural and historical values ​​of the Southern Khmer people, it is a place for religious activities and preserving traditions.</li>
-</ul>
-<img src="/static/images/chuaang.jpg" class="detail-img" alt="Ang Pagoda (Angkorajaborey) – Tra Vinh">
-
-<p>Highlights:</p>
-<ul>
-<li>An ancient Khmer temple in the South, considered the most beautiful temple in Tra Vinh.</li>
-<li>Architecture with strong Khmer and Angkor features: temple roof, reliefs, Naga snake statue, solid sacred space.</li>
-<li>The surrounding environment is cool with ancient trees, large temple yard, creating a sense of serenity.</li>
-</ul>
-<p>Suggestions:</p>
-<ul>
-<li>When entering the temple, you should wear polite clothes and walk gently because this is a sacred place.</li>
-<li>Bring a hat/cap, sunscreen if going at noon; It is best to go in the morning or afternoon for beautiful light and pleasant weather.</li>
-<li>If you want to learn more about Khmer culture, ask a local guide or look at the information in advance.</li>
-</ul>
-"""}
-],
-"Dong Thap": [
-{ "title": "Dong Sen Thap Muoi",
-"desc": """
-<p>Dong Sen Thap Muoi is one of the largest and most beautiful lotus fields in the West, famous for its vast space of blooming lotus flowers, imbued with the rustic, peaceful features of the Dong Thap Muoi region.</p>
-<p>📍Location: My Hoa Commune, Thap Muoi District, Dong Thap Province. 10km from City. Cao Lanh about 40km</p>
-<p>History & architecture:</p>
-<img src="/static/images/dongthap.jpg" class="detail-img" alt="Dong Sen Thap Muoi">
-<p>Highlights:</p>
-<ul>
-<li>Immense lotus fields, most beautiful in lotus season (May to October).</li>
-<li>Experiential services: take a boat to take photos, wear Ao Ba Ba, pick lotus, check-in at the bamboo bridge.</li>
-<li>Lotus cuisine: lotus rice, lotus root salad, lotus sweet soup, lotus tea.</li>
-</ul>
-<p>Suggestions:</p>
-<ul>
-<li>Should go early 6:30 - 9:00 or cool afternoon 15:30 - 17:30</li>
-<li>Bring a hat and sunscreen; Wear low shoes/sandals.</li>
-<li>Avoid walking after rain because the dirt road can be slippery</li>
-</ul>
-"""},
-{
-"title": "Sa Dec Flower Village",
-"desc": """
-<p>Sa Dec Flower Village is the "Flower Capital of the West", famous for thousands of ornamental flowers grown on unique floating trellises, a famous cultural - ecological tourist destination, taking photos and buying flowers all year round.</p>
-<p>📍Location: Tan Quy Dong Ward, Sa Dec City, Dong Thap. About 30km from Cao Lanh.</p>
-<p>History & architecture:</p>
-<ul>
-<li>Formed in the late 19th - early 20th century</li>
-<li>A long-standing traditional flower village in the West.</li>
-<li>Architectural features: ancient houses, traditional craft villages, typical floating flower shelves.</li>
-</ul>
-<img src="/static/images/langhoa.jpg" class="detail-img" alt="Sa Dec Flower Village">
-<p>Highlights:</p>
-<ul>
-<li>A flower village over 100 years old.</li>
-<li>Thousands of flower & ornamental varieties: chrysanthemum, rose, bonsai, ancient ornamental plants.</li>
-<li>There is a check-in area, wooden bridge, greenhouse, village house making cakes, jams.</li>
-</ul>
-<p>Suggestions Note:</p>
-<ul>
-<li>Best time: December - January of the lunar calendar.</li>
-<li>Should go early in the morning or at sunset.</li>
-<li>Respect the flower growers - do not pick flowers when taking photos.</li>
-</ul>
-"""}
-], "An Giang": [
+			"desc": """
+			<p>Quan Am Phat Dai (also known as "Mother Nam Hai") is a large spiritual complex located on the coast of Bac Lieu province - the Southwest region. This is not only a place of worship for Buddhists but also a prominent spiritual tourist destination with the symbol of Bodhisattva Avalokitesvara facing the sea, meaning to protect and bring peace to the people of the sea.</p>
+			<p>📍Location: Bo Tay hamlet, Nha Mat ward, Bac Lieu city, Bac Lieu province. Located about 8 km from the center of Bac Lieu city towards the sea.</p>
+			<p>History & architecture:</p>
+			<ul>
+				<li>Established in 1973 with the idea of ​​Venerable Thich Tri Duc.</li>
+				<li>The architecture is in the style of Northern Buddhism, with decorative details, three-door gate, and tall main hall, creating a solemn feeling.</li>
+			</ul>
+			<img src="/static/images/menamhai.jpg" class="detail-img" alt="Quan Am Phat Dai">
+			<p>Highlights:</p>
+			<ul>
+				<li>The statue of Bodhisattva Avalokitesvara is about 11 m high, placed on a large lotus pedestal, overlooking the sea, and is the highlight of this spiritual area.</li>
+				<li>With a strong religious meaning: the Buddha statue facing the sea seems to protect fishermen and coastal people from the waves and wind.</li>
+				<li>Natural space combined with spiritual architecture - spacious campus, near the sea, lots of trees and convenient roads for sightseeing and taking photos.</li>
+			</ul>
+			<p>Suggestions:</p>
+			<ul>
+				<li>Dress politely because this is a sacred place, take time to worship and meditate.</li>
+				<li>Bring a hat and sunscreen because the area near the sea has strong sunlight and sea breeze.</li>
+				<li>There is free parking and vegetarian food service for worshipers at certain times.</li>
+			</ul>
+			"""}
+			],
+			"Vinh Long": [
+			{ "title": "Ang Pagoda: Angkorajaborey (Old Tra Vinh)",
+			"desc": """
+			<p>Ang Pagoda is one of the most ancient and famous Khmer pagodas in Tra Vinh, located next to Ba Om Pond. The pagoda has a strong Southern Khmer architecture with multi-layered curved roofs, intricately carved pillars and prominent gold tones.</p>
+			<p>📍Location: In group 4, ward 8, Tra Vinh city, Tra Vinh province.</p>
+			<p>History & architecture:</p>
+			<ul>
+				<li>Ang Pagoda (also known as Wat Angkor Raig Borei) is about 3.5 hectares wide.</li>
+				<li>The architecture is a combination of ancient Khmer tradition and some modern architectural elements - preserving the art of bird head sculptures, the Naga snake god, and the characteristic curved roof.</li>
+				<li>Carrying the cultural and historical values ​​of the Southern Khmer people, it is a place for religious activities and preserving traditions.</li>
+			</ul>
+			<img src="/static/images/chuaang.jpg" class="detail-img" alt="Ang Pagoda (Angkorajaborey) – Tra Vinh">		
+			<p>Highlights:</p>
+			<ul>
+				<li>An ancient Khmer temple in the South, considered the most beautiful temple in Tra Vinh.</li>
+				<li>Architecture with strong Khmer and Angkor features: temple roof, reliefs, Naga snake statue, solid sacred space.</li>
+				<li>The surrounding environment is cool with ancient trees, large temple yard, creating a sense of serenity.</li>
+			</ul>
+			<p>Suggestions:</p>
+			<ul>
+				<li>When entering the temple, you should wear polite clothes and walk gently because this is a sacred place.</li>
+				<li>Bring a hat/cap, sunscreen if going at noon; It is best to go in the morning or afternoon for beautiful light and pleasant weather.</li>
+				<li>If you want to learn more about Khmer culture, ask a local guide or look at the information in advance.</li>
+			</ul>
+			"""}	
+		],
+			"Dong Thap": [
+			{ "title": "Dong Sen Thap Muoi",
+			"desc": """
+			<p>Dong Sen Thap Muoi is one of the largest and most beautiful lotus fields in the West, famous for its vast space of blooming lotus flowers, imbued with the rustic, peaceful features of the Dong Thap Muoi region.</p>
+			<p>📍Location: My Hoa Commune, Thap Muoi District, Dong Thap Province. 10km from City. Cao Lanh about 40km</p>
+			<p>History & architecture:</p>
+			<img src="/static/images/dongthap.jpg" class="detail-img" alt="Dong Sen Thap Muoi">
+			<p>Highlights:</p>
+			<ul>
+				<li>Immense lotus fields, most beautiful in lotus season (May to October).</li>
+				<li>Experiential services: take a boat to take photos, wear Ao Ba Ba, pick lotus, check-in at the bamboo bridge.</li>
+				<li>Lotus cuisine: lotus rice, lotus root salad, lotus sweet soup, lotus tea.</li>
+			</ul>
+			<p>Suggestions:</p>
+			<ul>
+				<li>Should go early 6:30 - 9:00 or cool afternoon 15:30 - 17:30</li>
+				<li>Bring a hat and sunscreen; Wear low shoes/sandals.</li>
+				<li>Avoid walking after rain because the dirt road can be slippery</li>
+			</ul>
+			"""},
+			{
+			"title": "Sa Dec Flower Village",
+			"desc": """
+			<p>Sa Dec Flower Village is the "Flower Capital of the West", famous for thousands of ornamental flowers grown on unique floating trellises, a famous cultural - ecological tourist destination, taking photos and buying flowers all year round.</p>
+			<p>📍Location: Tan Quy Dong Ward, Sa Dec City, Dong Thap. About 30km from Cao Lanh.</p>
+			<p>History & architecture:</p>
+			<ul>
+				<li>Formed in the late 19th - early 20th century</li>
+				<li>A long-standing traditional flower village in the West.</li>
+				<li>Architectural features: ancient houses, traditional craft villages, typical floating flower shelves.</li>
+			</ul>
+			<img src="/static/images/langhoa.jpg" class="detail-img" alt="Sa Dec Flower Village">
+			<p>Highlights:</p>
+			<ul>
+				<li>A flower village over 100 years old.</li>
+				<li>Thousands of flower & ornamental varieties: chrysanthemum, rose, bonsai, ancient ornamental plants.</li>
+				<li>There is a check-in area, wooden bridge, greenhouse, village house making cakes, jams.</li>
+			</ul>
+			<p>Suggestions Note:</p>
+			<ul>
+				<li>Best time: December - January of the lunar calendar.</li>
+				<li>Should go early in the morning or at sunset.</li>
+				<li>Respect the flower growers - do not pick flowers when taking photos.</li>
+			</ul>
+			"""}
+			], "An Giang": [
 			{ "title": "Cam Mountain (Thien Cam Son) - The Roof of the West",
 			"desc": """
 			<p>The highest mountain in the Mekong Delta, cool climate all year round, quite diverse natural landscape. Full of spiritual, historical and legendary elements, often likened to "the roof of the West".</p>
