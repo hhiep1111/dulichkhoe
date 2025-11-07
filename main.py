@@ -563,7 +563,44 @@ place_details_data = {
                     <li>Tôn trọng người trồng hoa – không bẻ hoa khi chụp ảnh.</li>
                 </ul>
                 """}
-        ]
+        ], "An Giang": [
+            {   "title": "Núi Cấm (Thiên Cấm Sơn) – “Nóc nhà miền Tây”", 
+                "desc": """ 
+                <p>Đỉnh núi cao nhất nhất vùng Đồng bằng sông Cửu Long, khí hậu mát mẻ quanh năm,cảnh quan thiên nhiên khá đa dạng .Mang đậm yếu tố tâm linh, lịch sử và truyền thuyết, thường được ví như “nóc nhà miền Tây.</p>
+                <p>📍Vị trí: Xã An Hảo, huyện Tịnh Biên,tỉnh An Giang.</p>
+                <img src="/static/images/nuicam.jpg" class="detail-img" alt="Núi Cấm (Thiên Cấm Sơn) – “Nóc nhà miền Tây”">
+                <p>Điểm nổi bật:</p>
+                <ul>
+                    <li>Tượng Phật Di Lặc cao 33,6m – biểu tượng Núi Cấm,một trong những tượng Phật Di Lặc lớn nhất Việt Nam.</li>
+                    <li>Hồ Thủy Liêm với mặt nước phẳng lặng soi bóng núi non, cùng các công trình tâm linh như Chùa Vạn Linh và Chùa Phật Lớn thu hút đông đảo khách hành hương.</li>
+                    <li>Trải nghiệm Cáp treo Núi Cấm để ngắm nhìn toàn cảnh Thất Sơn hùng vĩ từ trên cao, cảm nhận trọn vẹn vẻ đẹp thiên nhiên kỳ vĩ của vùng Bảy Núi.</li>
+                </ul>
+                <p>Gợi ý:</p>
+                <ul>
+                    <li>⏰ Thời gian tham quan: cả ngày từ 6h00 – 18h00.</li>
+                    <li>Vé cáp treo: trên 180.000đ/người.</li>
+                    <li>Nên đi buổi sáng sớm để tránh nắng, mang giày thể thao, Nếu trekking chọn mùa khô.</li>
+                </ul>
+                """},
+			{   "title": "Rừng Tràm Trà Sư – Thiên đường mùa nước nổi", 
+                "desc": """ 
+                <p>Thiên đường xanh với bèo phủ mặt nước tuyệt đẹp nơi sống của hàng trăm loài chim quý.</p>
+                <p>📍Vị trí: Xã Văn Giáo, huyện Tịnh Biên, cách Châu Đốc khoảng 30 km.</p>
+                <img src="/static/images/rungtram.jpg" class="detail-img" alt="Rừng Tràm Trà Sư – Thiên đường mùa nước nổi">
+                <p>Điểm nổi bật:</p>
+                <ul>
+                    <li>Hơn 140 loài thực vật, 70+ loài chim (có loài quý hiếm trong Sách Đỏ).</li>
+                    <li>Đi xuồng, ghe hoặc chèo thuyền giữa rừng bèo xanh. Check-in cầu tre dài nhất Việt Nam.</li>
+                    <li>Khu bảo tồn đa dạng sinh học, điều hòa môi trường, được mệnh danh là “rừng tràm đẹp nhất Việt Nam”</li>
+                </ul>
+				<img src="/static/images/rungtram1.jpg" class="detail-img" alt="Rừng Tràm Trà Sư – Các loài Chim">
+                <p>Gợi ý:</p>
+                <ul>
+                    <li>Cảnh quan đẹp nhất: Mùa nước nổi (tháng 9–11), đặc biệt lúc bình minh hoặc hoàng hôn.</li>
+                    <li>Đi buổi sáng hoặc chiều muộn; mang máy ảnh, ống nhòm, và giày đế mềm để dễ di chuyển.</li>
+                </ul>
+                """}
+		] 
     },
     "en": {
         "Can Tho": [
