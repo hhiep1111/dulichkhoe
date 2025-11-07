@@ -90,8 +90,8 @@ content = {
         "places": [
             {"name": "Cần Thơ", "img": "cantho.jpg",
              "desc": "Thủ phủ miền Tây, nổi tiếng với chợ nổi sông nước, miệt vườn trù phú và nét văn hóa miệt vườn thân tình. Trải nghiệm chợ nổi buổi sáng, thưởng thức bún riêu và trái cây trên ghe."},
-            {"name": "An Giang", "img": "angiang.jpg",
-             "desc": "Điểm đến tâm linh nổi tiếng, kết hợp với cảnh núi non hùng vĩ."},
+            {"name": "An Giang", "img": "nuicamangiang.jpg",
+             "desc": "Miền đất của núi non Thất Sơn, văn hóa Chăm – Khmer giao thoa, nổi tiếng với cảnh đẹp thiêng liêng và đời sống sông nước hiền hòa."},
             {"name": "Cà Mau", "img": "camau.jpg",
             "desc": "Cà Mau là tỉnh cực Nam của Việt Nam, có ba mặt giáp biển, nổi bật với hệ sinh thái rừng ngập mặn, đầm phá, đảo nhỏ và điểm cực Nam thiêng liêng của Tổ quốc. Thiên nhiên hoang sơ, văn hóa sông nước và ẩm thực phong phú là những điểm hấp dẫn của du lịch Cà Mau"},
             {"name": "Vĩnh Long", "img": "vinhlong.jpg",
@@ -193,8 +193,8 @@ content = {
         "places": [
             {"name": "Can Tho", "img": "cantho.jpg",
              "desc": "The capital of the Western region, famous for its floating markets, rich orchards and friendly orchard culture. Experience the morning floating market, enjoy vermicelli soup and fruit on a boat."},
-            {"name": "An Giang", "img": "angiang.jpg",
-             "desc": "A famous spiritual destination, combined with majestic mountain scenery."},
+            {"name": "An Giang", "img": "nuicamangiang.jpg",
+             "desc": "The land of That Son mountains, Cham - Khmer culture blend, famous for its sacred beauty and peaceful river life."},
             {"name": "Ca Mau", "img": "camau.jpg",
              "desc": "Ca Mau is the southernmost province of Vietnam, bordering the sea on three sides, famous for its mangrove ecosystem, lagoons, small islands and the sacred southernmost point of the country. Unspoiled nature, river culture and rich cuisine are the attractions of Ca Mau tourism"},
             {"name": "Vinh Long", "img": "vinhlong.jpg",
@@ -275,8 +275,8 @@ content = {
         "places": [
             {"name": "깐토", "img": "cantho.jpg",
              "desc": "서부 지역의 수도로, 수상 시장, 풍성한 과수원, 그리고 정겨운 과수원 문화로 유명합니다. 아침 수상 시장을 경험하고, 배 위에서 당면 수프와 과일을 즐겨보세요."},
-            {"name": "안장", "img": "angiang.jpg",
-             "desc": "웅장한 산의 경치와 어우러진 유명한 영적 여행지입니다."},
+            {"name": "안장", "img": "nuicamangiang.jpg",
+             "desc": "타트썬 산맥의 땅, 참족과 크메르족 문화가 혼합되어 있으며, 신성한 아름다움과 평화로운 강 생활로 유명합니다."},
             {"name": "까마우", "img": "camau.jpg",
              "desc": "까마우는 베트남 최남단 성으로, 삼면이 바다에 접해 있으며, 맹그로브 생태계, 석호, 작은 섬들, 그리고 베트남 최남단의 성지로 유명합니다. 훼손되지 않은 자연, 강 문화, 그리고 풍부한 음식은 까마우 관광의 매력입니다."},
             {"name": "빈롱", "img": "vinhlong.jpg",
