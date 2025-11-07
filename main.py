@@ -568,7 +568,7 @@ place_details_data = {
                 "desc": """ 
                 <p>Đỉnh núi cao nhất nhất vùng Đồng bằng sông Cửu Long, khí hậu mát mẻ quanh năm,cảnh quan thiên nhiên khá đa dạng .Mang đậm yếu tố tâm linh, lịch sử và truyền thuyết, thường được ví như “nóc nhà miền Tây.</p>
                 <p>📍Vị trí: Xã An Hảo, huyện Tịnh Biên,tỉnh An Giang.</p>
-                <img src="/static/images/nuicam.jpg" class="detail-img" alt="Núi Cấm (Thiên Cấm Sơn) – “Nóc nhà miền Tây”">
+                <img src="/static/images/angiang.jpg" class="detail-img" alt="Núi Cấm (Thiên Cấm Sơn) – “Nóc nhà miền Tây”">
                 <p>Điểm nổi bật:</p>
                 <ul>
                     <li>Tượng Phật Di Lặc cao 33,6m – biểu tượng Núi Cấm,một trong những tượng Phật Di Lặc lớn nhất Việt Nam.</li>
