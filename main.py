@@ -568,7 +568,7 @@ place_details_data = {
                 "desc": """ 
                 <p>Đỉnh núi cao nhất nhất vùng Đồng bằng sông Cửu Long, khí hậu mát mẻ quanh năm,cảnh quan thiên nhiên khá đa dạng .Mang đậm yếu tố tâm linh, lịch sử và truyền thuyết, thường được ví như “nóc nhà miền Tây.</p>
                 <p>📍Vị trí: Xã An Hảo, huyện Tịnh Biên,tỉnh An Giang.</p>
-                <img src="/static/images/angiang.jpg" class="detail-img" alt="Núi Cấm (Thiên Cấm Sơn) – “Nóc nhà miền Tây”">
+                <img src="/static/images/nuicamangiang.jpg" class="detail-img" alt="Núi Cấm (Thiên Cấm Sơn) – “Nóc nhà miền Tây”">
                 <p>Điểm nổi bật:</p>
                 <ul>
                     <li>Tượng Phật Di Lặc cao 33,6m – biểu tượng Núi Cấm,một trong những tượng Phật Di Lặc lớn nhất Việt Nam.</li>
@@ -598,6 +598,42 @@ place_details_data = {
                 <ul>
                     <li>Cảnh quan đẹp nhất: Mùa nước nổi (tháng 9–11), đặc biệt lúc bình minh hoặc hoàng hôn.</li>
                     <li>Đi buổi sáng hoặc chiều muộn; mang máy ảnh, ống nhòm, và giày đế mềm để dễ di chuyển.</li>
+                </ul>
+                """},
+			{   "title": "Phú Quốc – Đảo Ngọc", 
+                "desc": """ 
+                <p>Thiên đường nghỉ dưỡng biển nổi tiếng với Bãi biển trong xanh, resort sang trọng, hải sản tươi ngon.</p>
+                <p>📍Vị trí: Phú Quốc là đảo lớn nhất Việt Nam, thuộc tỉnh Kiên Giang, nằm trong vịnh Thái Lan, gần biên giới Campuchia.</p>
+                <p>Điểm nổi bật:</p>
+                <ul>
+                    <li>Biển và bãi cát đẹp: Nước trong, sóng hiền, rất phù hợp để tắm biển, lặn ngắm san hô.</li>
+                    <li>Thiên nhiên đa dạng: Phần lớn đảo nằm trong khu bảo tồn sinh quyển do UNESCO công nhận, có rừng, núi, hệ sinh thái biển-mặn kết hợp.</li>
+                    <li>Dễ tiếp cận & phát triển du lịch: Hạ tầng du lịch hiện đại, nhiều resort, trò chơi giải trí.</li>
+                </ul>
+				<img src="/static/images/phuquoc.jpg" class="detail-img" alt="Phú Quốc – Đảo Ngọc>
+                <p>Gợi ý:</p>
+                <ul>
+                    <li>Thời điểm đẹp nhất: mùa khô từ khoảng tháng 11 đến tháng 4 — trời nắng, biển êm, thuận tiện tham quan ngoài trời và biển.</li>
+                    <li>Cáp treo Hòn Thơm xuất phát khoảng từ 9:00 AM, nhiều chặng trong ngày — nên đi sớm để tránh đông.</li>
+                	<li>Đi bộ tham quan biển/ngắm hoàng hôn: Khoảng 17:00 trở đi là thời điểm đẹp để ngắm hoàng hôn ở bãi tây đảo.</li>
+				</ul>
+                """}, 
+			{   "title": "Hà Tiên – Thơ mộng hữu tình", 
+                "desc": """ 
+                <p>Không khí chậm rãi, yên bình hơn nhiều so với Phú Quốc – phù hợp với du khách muốn thư giãn hoặc khám phá cảnh đẹp tự nhiên và văn hóa địa phương.</p>
+                <p>📍Vị trí: Thị xã Hà Tiên, Tỉnh Kiên Giang cách TP Rạch Giá khoảng 100km.</p>
+				<img src="/static/images/hatien.jpg" class="detail-img" alt="Rừng Tràm Trà Sư – Các loài Chim">
+                <p>Điểm nổi bật:</p>
+                <ul>
+                    <li>Cảnh quan sơn thủy hữu tình hiếm có ở miền Tây (núi – biển – sông – hang động).</li>
+                    <li>Văn hóa đa dạng (Việt – Khmer – Hoa – Chăm) hòa trộn độc đáo.</li>
+                    <li>Hải sản tươi ngon, giá phải chăng, đặc sản riêng như mắm cà xỉu và xôi xiêm.</li>
+                </ul>
+                <p>Gợi ý:</p>
+                <ul>
+                    <li>Thời gian đẹp nhất: Tháng 11 – tháng 4 (mùa khô, biển đẹp, ít mưa)</li>
+					<li>Hoàng hôn đẹp nhất: Bãi Mũi Nai hoặc bờ kè nhìn ra đảo Phú Quốc.</li>
+                    <li>ặc sản nên thử: Bánh canh chả ghẹ, xôi xiêm, mắm cà xỉu (mua về làm quà).</li>
                 </ul>
                 """}
 		] 
