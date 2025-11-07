@@ -95,11 +95,41 @@ content = {
 			<p>Nếu bạn có bất kỳ thắc mắc, góp ý hoặc cần tư vấn du lịch, đừng ngần ngại liên hệ với chúng tôi.</p>
 			<p>Chúng tôi là một nhóm sinh viên yêu thích du lịch, văn hóa và kể chuyện, với niềm tin rằng mỗi chuyến đi đều có thể chữa lành tâm hồn.</p>
 			"""},
+			{"title": "Về Dự Án",
+			 "decs": """
+			 <p>Travel Healing là một dự án do sinh viên thực hiện, nhằm quảng bá hình ảnh du lịch an toàn – xanh – gần gũi cộng đồng tại khu vực Đồng bằng sông Cửu Long.</p>
+			 <p>Chúng tôi mong muốn:</p>
+			 <ul>
+			 <li>Giới thiệu những điểm đến ít người biết nhưng đầy thú vị.</li>
+			 <li>Kết nối du khách với người dân địa phương, homestay và tour trải nghiệm thực tế.</li>
+			 <li>Lan tỏa thông điệp du lịch bền vững, để mỗi chuyến đi là một hành trình chữa lành.</li>
+			 </ul>
+			 <p>Thông điệp của chúng tôi – “Khỏe để đi – đi để khỏe” – thể hiện niềm tin rằng du lịch không chỉ là khám phá nơi mới, mà còn là hành trình tìm lại sự cân bằng trong chính mình.</p>
+			 """	
+			},
 			{"title": "Liên Hệ Với Chúng Tôi",
 			 "decs": """
-			 <p>Email: dulichkhoe.official@gmail.com</p>
-			 <p>Điện thoại: 0903 000 ***</p>
-			 <p>Địa chỉ: Trường Đại học FPT Thành phố Cần Thơ, Việt Nam</p>
+			 <ul>
+			 <li>Email: dulichkhoe.official@gmail.com</li>
+			 <li>Điện thoại: 0903 000 ***<li>
+			 <li>Địa chỉ: Trường Đại học FPT Thành phố Cần Thơ, Việt Nam<li>
+			 </ul>
+			 """	
+			},
+			{"title": "Theo Dõi Chúng Tôi",
+			 "decs": """
+			 <p>Cập nhật những câu chuyện du lịch, hướng dẫn và hình ảnh mới nhất tại:</p>
+			 <ul>
+			 <li>Facebook: fb.com/dulichkhoe</li>
+			 <li>TikTok: @travelhealing***.official</li>
+			 </ul>
+			 """	
+			},
+			{"title": "Đồng Hành Cùng Chúng Tôi",
+			 "decs": """
+			 <p>Bạn yêu miền Tây và muốn góp phần lan tỏa du lịch tích cực?</p>
+			 <p>Hãy cùng chúng tôi chia sẻ câu chuyện của bạn, trở thành cộng tác viên hoặc đại sứ của Travel Healing.</p>
+			 <p>Cùng nhau, chúng ta xây dựng một cộng đồng du lịch xanh, thật và đầy cảm hứng.</p>
 			 """	
 			}
 		],
@@ -205,7 +235,49 @@ content = {
         "title": "Healthy Travel - Mekong Delta",
         "intro": "Explore Southern Vietnam: rivers, cuisine, and unique culture.",
         "menu": {"home": "Home", "about": "About", "tips": "Tips", "checklist": "Check-list", "lang": "Language", "food": "Cuisine", "health": "Medical Support"},
-        "about": "Hello, we are passionate about traveling and the culture of Southern Vietnam.",
+        "about": [
+			{"title": "About Us",
+			"decs": """
+			<p>Thank you for visiting Travel Healing!</p>
+			<p>We are here to help you explore the Mekong Delta – a land of gentle rivers, friendly smiles and unforgettable local experiences.</p>
+			<p>Our goal is simple: to help you “feel the West – not just visit it.”</p>
+			<p>If you have any questions, comments or need travel advice, please do not hesitate to contact us.</p>
+			<p>We are a group of students who love travel, culture and storytelling, with the belief that every trip can heal the soul.</p>
+			"""},
+			{"title": "About the Project",
+			"decs": """
+			<p>Travel Healing is a student-led project to promote the image of safe and green tourism – close to the community in the Mekong Delta region.</p>
+			<p>We wish to:</p>
+			<ul>
+				<li>Introduce little-known but interesting destinations.</li>
+				<li>Connect tourists with local people, homestays and real-life experience tours.</li>
+				<li>Spread the message of sustainable tourism, so that every trip is a journey of healing.</li>
+			</ul>
+			<p>Our message – “Healthy to travel – travel to be healthy” – expresses the belief that travel is not only about discovering new places, but also about finding balance within yourself.</p>
+			"""},
+			{"title": "Contact Us",
+			"decs": """
+			<ul>
+				<li>Email: dulichkhoe.official@gmail.com</li>
+				<li>Phone: 0903 000 ***<li>
+				<li>Address: FPT University, Can Tho City, Vietnam<li>
+			</ul>
+			"""},
+			{"title": "Follow Us",
+			"decs": """
+			<p>Update the latest travel stories, guides and photos at:</p>
+			<ul>
+				<li>Facebook: fb.com/dulichkhoe</li>
+				<li>TikTok: @travelhealing***.official</li>
+			</ul>
+			"""},
+			{"title": "Travel With Us",
+			"decs": """
+			<p>Do you love the West and want to contribute to spreading positive tourism?</p>
+			<p>Please share your story with us, become a collaborator or ambassador of Travel Healing.</p>
+			<p>Together, we build a green, real and inspiring travel community.</p>
+			"""}
+			],
         "places": [
             {"name": "Can Tho", "img": "cantho.jpg",
              "desc": "The capital of the Western region, famous for its floating markets, rich orchards and friendly orchard culture. Experience the morning floating market, enjoy vermicelli soup and fruit on a boat."},
@@ -287,7 +359,49 @@ content = {
         "title": "건강한 여행 - 메콩 델타",
         "intro": "남부 베트남 탐험: 강, 음식, 독특한 문화.",
         "menu": {"home": "홈", "about": "소개", "tips": "유의사항", "checklist": "체크리스트", "lang": "언어", "food": "음식", "health": "의료 지원"},
-        "about": "안녕하세요, 우리는 남부 베트남의 여행과 문화를 사랑하는 사람들입니다.",
+        "about": [
+			{"title": "회사 소개",
+			"decs": """
+			<p>Travel Healing을 방문해 주셔서 감사합니다!</p>
+			<p>잔잔한 강물, 친절한 미소, 잊지 못할 현지 경험으로 가득한 메콩 델타를 탐험하실 수 있도록 도와드리겠습니다.</p>
+			<p>저희의 목표는 간단합니다. 바로 "단순히 방문하는 것이 아니라, 서부를 직접 느껴보세요."입니다.</p>
+			<p>질문, 의견 또는 여행 관련 조언이 필요하시면 언제든지 문의해 주세요.</p>
+			<p>저희는 여행, 문화, 스토리텔링을 사랑하는 학생들로 구성되어 있으며, 모든 여행이 영혼을 치유할 수 있다고 믿습니다.</p>
+			"""},
+			{"title": "프로젝트 소개",
+			"decs": """	
+			<p>Travel Healing은 메콩 델타 지역 사회와 가까운 곳에서 안전하고 친환경적인 관광의 이미지를 홍보하기 위한 학생 주도 프로젝트입니다.</p>
+			<p>저희는 받는 사람:</p>
+			<ul>
+				<li>잘 알려지지 않았지만 흥미로운 여행지를 소개합니다.</li>
+				<li>관광객을 지역 주민, 홈스테이, 그리고 실제 체험 투어와 연결해 드립니다.</li>
+				<li>지속 가능한 관광의 메시지를 전파하여 모든 여행이 치유의 여정이 되도록 하세요.</li>
+			</ul>
+			<p>저희의 메시지인 "건강한 여행 - 건강한 여행을 위한 여행"은 여행이 새로운 장소를 발견하는 것뿐만 아니라 내면의 균형을 찾는 것이라는 믿음을 담고 있습니다.</p>
+			"""},
+			{"title": "문의하기",
+			"decs": """
+			<ul>
+				<li>이메일: dulichkhoe.official@gmail.com</li>
+				<li>전화: 0903 000 ***<li>
+				<li>주소: 베트남 깐토시 FPT 대학교<li>
+			</ul>
+			"""},
+			{"title": "팔로우 Us",
+			"decs": """
+			<p>최신 여행 이야기, 가이드, 사진을 다음 링크에서 확인하세요:</p>
+			<ul>
+				<li>Facebook: fb.com/dulichkhoe</li>
+				<li>TikTok: @travelhealing***.official</li>
+			</ul>
+			"""},
+			{"title": "저희와 함께 여행하세요",
+			"decs": """
+			<p>서부 지역을 좋아하시고 긍정적인 관광을 확산하는 데 기여하고 싶으신가요?</p>
+			<p>저희와 함께 여러분의 이야기를 공유하고 Travel Healing의 협력자 또는 홍보대사가 되어 주세요.</p>
+			<p>우리는 함께 친환경적이고, 진정성 있고, 영감을 주는 여행 커뮤니티를 만들어 나갑니다.</p>
+			"""}
+		],
         "places": [
             {"name": "깐토", "img": "cantho.jpg",
              "desc": "서부 지역의 수도로, 수상 시장, 풍성한 과수원, 그리고 정겨운 과수원 문화로 유명합니다. 아침 수상 시장을 경험하고, 배 위에서 당면 수프와 과일을 즐겨보세요."},
