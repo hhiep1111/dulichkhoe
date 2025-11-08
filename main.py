@@ -374,8 +374,8 @@ content = {
 			"decs": """
 			<ul>
 				<li>Email: dulichkhoe.official@gmail.com</li>
-				<li>Phone: 0903 000 ***<li>
-				<li>Address: FPT University, Can Tho City, Vietnam<li>
+				<li>Phone: 0903 000 ***</li>
+				<li>Address: FPT University, Can Tho City, Vietnam</li>
 			</ul>
 			"""},
 			{"title": "Follow Us",
@@ -634,8 +634,8 @@ content = {
 			"decs": """
 			<ul>
 				<li>이메일: dulichkhoe.official@gmail.com</li>
-				<li>전화: 0903 000 ***<li>
-				<li>주소: 베트남 깐토시 FPT 대학교<li>
+				<li>전화: 0903 000 ***</li>
+				<li>주소: 베트남 깐토시 FPT 대학교</li>
 			</ul>
 			"""},
 			{"title": "팔로우 Us",
@@ -1176,7 +1176,7 @@ place_details_data = {
                     <li>Kiến trúc kết hợp hài hòa giữa Á – Âu (Pháp, La Mã, Thái, Miên, Nhật), tạo nên vẻ độc đáo hiếm có.</li>
                     <li>Trong khuôn viên có tượng Phật Di Lặc khổng lồ, tượng A Di Đà nằm, vườn cảnh thoáng đãng và thanh tịnh.</li>
                 </ul>
-				<img src="/static/images/chuvingtrang1.jpg" class="detail-img" alt="Chùa Vĩnh Tràng 1">
+				<img src="/static/images/chuvinhtrang1.jpg" class="detail-img" alt="Chùa Vĩnh Tràng 1">
                 <p>Gợi ý:</p>
                 <ul>
                     <li>TĂn mặc lịch sự, kín đáo, giữ trật tự nơi tôn nghiêm.</li>
