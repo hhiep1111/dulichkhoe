@@ -1176,7 +1176,7 @@ place_details_data = {
                     <li>Kiến trúc kết hợp hài hòa giữa Á – Âu (Pháp, La Mã, Thái, Miên, Nhật), tạo nên vẻ độc đáo hiếm có.</li>
                     <li>Trong khuôn viên có tượng Phật Di Lặc khổng lồ, tượng A Di Đà nằm, vườn cảnh thoáng đãng và thanh tịnh.</li>
                 </ul>
-				<img src="/static/images/chuvinhtrang1.jpg" class="detail-img" alt="Chùa Vĩnh Tràng 1">
+				<img src="/static/images/chuavinhtrang1.jpg" class="detail-img" alt="Chùa Vĩnh Tràng 1">
                 <p>Gợi ý:</p>
                 <ul>
                     <li>TĂn mặc lịch sự, kín đáo, giữ trật tự nơi tôn nghiêm.</li>
