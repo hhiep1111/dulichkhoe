@@ -437,7 +437,9 @@
                 <div class="tips-content">
                     <h3>{{ food.title }}</h3>
                     <p>{{ food.short }}</p>
-                    <button class="btn" onclick="toggleDetail('{{ food.id }}')">Xem chi tiết</button>
+                    <button class="btn" onclick="toggleDetail('{{ food.id }}')">
+                        {{ "Xem chi tiết" if lang=="vi" else ("Read more" if lang=="en" else "자세히 보기") }}
+                    </button>
                     <div id="detail-{{ food.id }}" class="detail-box" style="display: none;">
                         <p>{{ food.desc|safe }}</p>
                     </div>
