@@ -1946,6 +1946,8 @@ async def place_detail(request: Request, name: str, lang: str = "vi"):
         "request": request,
         "lang": lang,
         "menu": data["menu"],
+		"title": data["title"],  
+        "intro": data["intro"],
         "place": place,
         "details": details
     })
