@@ -1620,7 +1620,7 @@ place_details_data = {
 				<li>The architecture harmoniously combines Asia - Europe (French, Roman, Thai, Cambodian, Japanese), creating a rare unique look.</li>
 				<li>In the campus there is a giant Maitreya Buddha statue, a reclining Amitabha statue, an airy and peaceful garden.</li>
 			</ul>
-			<img src="/static/images/chuvingtrang1.jpg" class="detail-img" alt="Chua Vinh Trang 1">
+			<img src="/static/images/chuavinhtrang1.jpg" class="detail-img" alt="Chua Vinh Trang 1">
 			<p>Suggestions:</p>
 			<ul>	
 				<li>Dress politely and discreetly, and keep order in the sacred place.</li>
@@ -2010,7 +2010,7 @@ place_details_data = {
 				<li>아시아와 유럽(프랑스, 로마, 태국, 캄보디아, 일본)의 건축 양식이 조화롭게 어우러져 보기 드문 독특한 모습을 자랑합니다.</li>
 				<li>캠퍼스에는 거대한 미륵불상, 와불상, 그리고 아미타불이 있습니다. 정원.</li>
 			</ul>
-			<img src="/static/images/chuvingtrang1.jpg" class="detail-img" alt="추아 빈 짱 1">
+			<img src="/static/images/chuavinhtrang1.jpg" class="detail-img" alt="추아 빈 짱 1">
 			<p>추천:</p>
 			<ul>
 				<li>예의 바르고 단정한 복장을 하고 신성한 장소에서는 질서를 유지하세요.</li>
