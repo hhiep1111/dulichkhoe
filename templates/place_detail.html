@@ -88,26 +88,27 @@
 <header>
     <img src="/static/images/Logo.gif" class="logo" alt="Logo">
     <div>
-        <h1>Du lịch Khỏe - Đồng bằng Sông Cửu Long</h1>
-        <p>Khám phá miền Tây Nam Bộ: sông nước, ẩm thực và văn hóa độc đáo.</p>
+        <h1>{{ title }}</h1>
+        <p>{{ intro }}</p>
     </div>
 </header>
 
 <nav>
         <a href="/?lang={{ lang }}">{{ menu.home }}</a> |
-    <a href="/tips?lang={{ lang }}">{{ menu.tips }}</a> |
-    <a href="/checklist?lang={{ lang }}">{{ menu.checklist }}</a> |
-    <a href="/food?lang={{ lang }}">{{ menu.food }}</a> |
-    <a href="/health?lang={{ lang }}">{{ menu.health }}</a> | 
-    <div class="dropdown">
-        <a href="#">{{ menu.lang }} ▼</a> |
-        <div class="dropdown-content">
-            <a href="/place/{{ place.name }}?lang=vi">Tiếng Việt</a>
-            <a href="/place/{{ place.name }}?lang=en">English</a>
-            <a href="/place/{{ place.name }}?lang=kr">한국어</a>
+        <a href="/tips?lang={{ lang }}">{{ menu.tips }}</a> |
+    	<a href="/checklist?lang={{ lang }}">{{ menu.checklist }}</a> |
+    	<a href="/food?lang={{ lang }}">{{ menu.food }}</a> |
+    	<a href="/health?lang={{ lang }}">{{ menu.health }}</a> | 
+    	<div class="dropdown">
+    	    <a href="#">{{ menu.lang }} ▼</a> |
+        	<div class="dropdown-content">
+            	<a href="/place/{{ place.name }}?lang=vi">Tiếng Việt</a>
+            	<a href="/place/{{ place.name }}?lang=en">English</a>
+            	<a href="/place/{{ place.name }}?lang=kr">한국어</a>
             </div>
-    <a href="/about?lang={{ lang }}">{{ menu.about }}</a>
-</nav>
+		</div> |
+    	<a href="/about?lang={{ lang }}">{{ menu.about }}</a>
+	</nav>
 
 <script>
 document.querySelector(".dropdown").addEventListener("mouseenter", function() {
