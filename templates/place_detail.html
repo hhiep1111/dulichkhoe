@@ -41,9 +41,10 @@
         nav .dropdown { position: relative; display: inline-block; }
         nav .dropdown-content {
             display: none; position: absolute; background: #FDF3F7;
-            border-radius: 5px; padding: 5px; z-index: 1000;
-        }
-        
+            border-radius: 5px; padding: 5px; z-index: 1000; }
+		nav .dropdown-content a {display: block; color: black; text-decoration: none; padding: 6px 10px;}
+		nav .dropdown-content a:hover { background-color: #fde1eb;}
+		nav .dropdown:hover .dropdown-content { display: block; }
         .container {
             max-width: 900px;
             margin: 30px auto;
