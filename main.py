@@ -528,7 +528,7 @@ content = {
 			"""}
 		],
         "places": [
-            {"name": "Can Tho·", "img": "cantho.jpg",
+            {"name": "Can Tho", "img": "cantho.jpg",
              "desc": "서부 지역의 수도로, 수상 시장, 풍성한 과수원, 그리고 정겨운 과수원 문화로 유명합니다. 아침 수상 시장을 경험하고, 배 위에서 당면 수프와 과일을 즐겨보세요."},
             {"name": "An Giang", "img": "nuicamangiang.jpg",
              "desc": "타트썬 산맥의 땅, 참족과 크메르족 문화가 혼합되어 있으며, 신성한 아름다움과 평화로운 강 생활로 유명합니다."},
