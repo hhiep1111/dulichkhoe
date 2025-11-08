@@ -429,7 +429,7 @@
       {% endif %}
     
     {% elif page == "food" %}
-        <h2>🍜 Ẩm thực</h2>
+        <h2>{{"🍜 Ẩm thực" if lang=="vi" else ("🍜 Cuisine" if lang=="en" else "🍜 음식") }}</h2>
         <div class="tips-container">
             {% for food in food_list %}
             <div class="tips-card">
