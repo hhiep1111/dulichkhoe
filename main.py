@@ -1083,6 +1083,24 @@ place_details_data = {
                     <li>Mang mũ/nón, kem chống nắng nếu đi buổi trưa; tốt nhất đi sáng hoặc chiều để ánh sáng đẹp và thời tiết dễ chịu.</li>
                     <li>Nếu muốn tìm hiểu sâu về văn hóa Khmer, hỏi hướng dẫn địa phương hoặc xem thông tin trước.</li>
                 </ul>
+                """}, 
+			{		"title": "Khu di tích Đồng Khởi (Bến Tre)", 
+                "desc": """ 
+                <p>Khu di tích Đồng Khởi tại Bến Tre là nơi ghi dấu phong trào Đồng Khởi lịch sử năm 1960, biểu tượng cho tinh thần bất khuất, kiên cường của người dân miền Nam trong công cuộc đấu tranh giành độc lập dân tộc. Khu di tích không chỉ có giá trị lịch sử to lớn mà còn là điểm đến giáo dục truyền thống cách mạng cho các thế hệ hôm nay.</p>
+                <p>📍Vị trí: Xã Định Thủy, huyện Mỏ Cày Nam, tỉnh Bến Tre.</p>
+                <p>Điểm nổi bật:</p>
+                <ul>
+                    <li>Là nơi bùng nổ phong trào Đồng Khởi năm 1960, khởi đầu cho cao trào cách mạng miền Nam.</li>
+                    <li>Khu di tích gồm tượng đài Đồng Khởi, nhà trưng bày hiện vật, khu tưởng niệm anh hùng liệt sĩ, và không gian tái hiện lịch sử.</li>
+                    <li>Là điểm đến thường được các đoàn học sinh, sinh viên, cựu chiến binh viếng thăm.</li>
+                </ul>                
+				<img src="/static/images/dongkhoi.jpg" class="detail-img" alt="Khu di tích Đồng Khởi">
+                <p>Gợi ý:</p>
+                <ul>
+                    <li>Thích hợp cho những ai yêu thích lịch sử – truyền thống cách mạng.</li>
+                    <li>Có thể đi theo đoàn hoặc tour học tập thực tế.</li>
+                    <li>Sau khi tham quan, có thể ghé chợ Bến Tre mua đặc sản như kẹo dừa, bánh tráng sữa.</li>
+                </ul>
                 """}
                 ],
         "Dong Thap": [
@@ -1105,8 +1123,7 @@ place_details_data = {
                     <li>Tránh đi sau mưa vì đường đất có thể trơn</li>
                 </ul>
                 """},
-        {
-            "title": "Làng Hoa Sa Đéc", 
+        {		"title": "Làng Hoa Sa Đéc", 
                 "desc": """ 
                 <p>Làng hoa Sa Đéc là “Thủ phủ hoa miền Tây”, nổi bật với hàng ngàn loài hoa kiểng được trồng trên giàn nổi độc đáo, là điểm du lịch văn hóa – sinh thái, chụp ảnh và mua hoa nổi tiếng quanh năm.</p>
                 <p>📍Vị trí: Phường Tân Quy Đông, TP. Sa Đéc, Đồng Tháp. Cách Cao Lãnh khoảng 30km.</p>
@@ -1128,6 +1145,43 @@ place_details_data = {
                     <li>Thời điểm đẹp nhất: tháng 12 – tháng 1 âm lịch.</li>
                     <li>Nên đi buổi sáng sớm hoặc chiều hoàng hôn.</li>
                     <li>Tôn trọng người trồng hoa – không bẻ hoa khi chụp ảnh.</li>
+                </ul>
+                """},
+			{	"title": "Cù lao Thới Sơn (Cồn Lân)", 
+                "desc": """ 
+                <p>Cù Lao Thới Sơn nằm giữa dòng sông Tiền hiền hòa, là điểm du lịch sinh thái nổi tiếng với vườn cây trái xanh tươi, những con rạch nhỏ len lỏi và hoạt động du lịch cộng đồng hấp dẫn như đi xuồng ba lá, nghe đờn ca tài tử, thưởng thức đặc sản miệt vườn.</p>
+                <p>📍Vị trí: Nằm giữa sông Tiền, Xã Thới Sơn, thành phố Mỹ Tho, tỉnh Tiền Giang.</p>
+                <p>Điểm nổi bật:</p>
+                <ul>
+                    <li>Là cồn lớn và xanh mát, nổi tiếng với vườn cây ăn trái, nhà vườn, làng nghề truyền thống (làm kẹo dừa, mật ong, đan lát…).</li>
+                    <li>Du khách có thể đi xuồng ba lá trên rạch nhỏ, nghe đờn ca tài tử, thưởng thức trái cây miệt vườn, và ăn trưa trong không gian dân dã.</li>
+                    <li>Đây là điểm du lịch sinh thái – cộng đồng tiêu biểu, mang đậm nét miền Tây sông nước.</li>
+                </ul>                
+				<img src="/static/images/thoison.jpg" class="detail-img" alt="Cù Lao Thới Sơn">
+                <p>Gợi ý:</p>
+                <ul>
+                    <li>Nên đi buổi sáng sớm để tránh nắng và tận hưởng không khí mát lành.</li>
+                    <li>Mặc quần áo nhẹ, giày dép dễ di chuyển vì có nhiều đoạn đi xuồng, đi bộ.</li>
+                    <li>Thử đờn ca tài tử, ăn cá tai tượng chiên xù và uống mật ong tươi – đặc sản nơi đây.</li>
+                </ul>
+                """},
+			{		"title": "Chùa Vĩnh Tràng (Tiền Giang)", 
+                "desc": """ 
+                <p>Chùa Vĩnh Tràng – ngôi chùa cổ kính và lớn nhất Tiền Giang – mang trong mình nét kiến trúc độc đáo giao hòa giữa Á và Âu. Với không gian thanh tịnh, vườn cây xanh mát cùng những tượng Phật uy nghi, chùa là điểm dừng chân lý tưởng cho những ai muốn tìm lại sự bình yên và chiêm ngưỡng tinh hoa nghệ thuật kiến trúc.</p>
+                <p>📍Vị trí: Số 66 Nguyễn Trung Trực, phường 8, thành phố Mỹ Tho.</p>
+                <img src="/static/images/chuavinhtrang.jpg" class="detail-img" alt="Chùa Vĩnh Tràng">
+                <p>Điểm nổi bật:</p>
+                <ul>
+                    <li>Là ngôi chùa cổ và lớn nhất Tiền Giang, được xây dựng từ thế kỷ XIX.</li>
+                    <li>Kiến trúc kết hợp hài hòa giữa Á – Âu (Pháp, La Mã, Thái, Miên, Nhật), tạo nên vẻ độc đáo hiếm có.</li>
+                    <li>Trong khuôn viên có tượng Phật Di Lặc khổng lồ, tượng A Di Đà nằm, vườn cảnh thoáng đãng và thanh tịnh.</li>
+                </ul>
+				<img src="/static/images/chuvingtrang1.jpg" class="detail-img" alt="Chùa Vĩnh Tràng 1">
+                <p>Gợi ý:</p>
+                <ul>
+                    <li>TĂn mặc lịch sự, kín đáo, giữ trật tự nơi tôn nghiêm.</li>
+                    <li>Chụp ảnh ở khu tượng Phật Di Lặc và vườn chùa rất đẹp.</li>
+                    <li>Nên kết hợp tham quan cùng Cù Lao Thới Sơn trong cùng một buổi.</li>
                 </ul>
                 """}
         ], "An Giang": [
@@ -1472,6 +1526,24 @@ place_details_data = {
 				<li>Bring a hat/cap, sunscreen if going at noon; It is best to go in the morning or afternoon for beautiful light and pleasant weather.</li>
 				<li>If you want to learn more about Khmer culture, ask a local guide or look at the information in advance.</li>
 			</ul>
+			"""}, 
+			{ "title": "Dong Khoi Relic Site (Ben Tre)",
+			"desc": """
+			<p>Dong Khoi Relic Site in Ben Tre is the place that marks the historic Dong Khoi movement in 1960, symbolizing the indomitable and resilient spirit of the people of the South in the struggle for national independence. The relic site not only has great historical value but is also a destination for educating revolutionary traditions for today's generations.</p>
+			<p>📍Location: Dinh Thuy Commune, Mo Cay Nam District, Ben Tre Province.</p>
+			<p>Highlights:</p>
+			<ul>
+				<li>It is the place where the Dong Khoi movement broke out in 1960, starting the revolutionary climax in the South.</li>
+				<li>The relic site includes the Dong Khoi monument Khoi, the exhibition house of artifacts, the memorial area for heroic martyrs, and the space for historical reenactment.</li>
+				<li>This is a destination often visited by groups of students, university students, and veterans.</li>
+			</ul>			
+			<img src="/static/images/dongkhoi.jpg" class="detail-img" alt="Khu di tích Đồng khời">
+			<p>Suggestions:</p>
+			<ul>
+				<li>Suitable for those who love history - revolutionary traditions.</li>
+				<li>You can go in groups or on a practical study tour.</li>
+				<li>After visiting, you can stop by Ben Tre market to buy specialties such as coconut candy and milk rice paper.</li>
+			</ul>
 			"""}	
 		],
 			"Dong Thap": [
@@ -1517,6 +1589,43 @@ place_details_data = {
 				<li>Best time: December - January of the lunar calendar.</li>
 				<li>Should go early in the morning or at sunset.</li>
 				<li>Respect the flower growers - do not pick flowers when taking photos.</li>
+			</ul>
+			"""}, 
+			{ "title": "Cu Lao Thoi Son (Con Lan)",
+			"desc": """
+			<p>Cu Lao Thoi Son is located in the middle of the gentle Tien River, a famous eco-tourism destination with lush green fruit gardens, small canals and attractive community tourism activities such as riding a sampan, listening to traditional music, and enjoying garden specialties.</p>
+			<p>📍Location: Located in the middle of the Tien River, Thoi Son Commune, My Tho City, Tien Giang Province.</p>
+			<p>Highlights:</p>
+			<ul>
+				<li>It is a large and green islet, famous for its fruit gardens, garden houses, traditional craft villages (making coconut candy, honey, weaving...).</li>
+				<li>Visitors can ride a sampan on small canals, listen to traditional music, enjoy garden fruits, and have lunch in a rustic space.</li>
+				<li>This is a tourist destination Ecological tourism - a typical community, imbued with the characteristics of the Mekong Delta.</li>
+			</ul>
+			<img src="/static/images/thoison.jpg" class="detail-img" alt="Cu Lao Thoi Son">
+			<p>Suggestions:</p>
+			<ul>
+				<li>Should go early in the morning to avoid the sun and enjoy the cool air.</li>
+				<li>Wear light clothes and shoes that are easy to move around because there are many sections by boat and on foot.</li>
+				<li>Try traditional music, eat fried elephant ear fish and drink fresh honey - a local specialty.</li>
+			</ul>
+			"""},
+			{ "title": "Vinh Trang Pagoda (Tien Giang)",
+			"desc": """
+			<p>Vinh Trang Pagoda - the oldest and largest pagoda in Tien Giang - has a unique architectural style that blends Asia and Europe. With a peaceful space and green gardens Cool with majestic Buddha statues, the pagoda is an ideal stop for those who want to find peace and admire the quintessence of architectural art.</p>
+			<p>📍Location: No. 66 Nguyen Trung Truc, Ward 8, My Tho City.</p>
+			<img src="/static/images/chuavinhtrang.jpg" class="detail-img" alt="Chua Vinh Trang">
+			<p>Highlights:</p>
+			<ul>
+				<li>The oldest and largest pagoda in Tien Giang, built in the 19th century.</li>
+				<li>The architecture harmoniously combines Asia - Europe (French, Roman, Thai, Cambodian, Japanese), creating a rare unique look.</li>
+				<li>In the campus there is a giant Maitreya Buddha statue, a reclining Amitabha statue, an airy and peaceful garden.</li>
+			</ul>
+			<img src="/static/images/chuvingtrang1.jpg" class="detail-img" alt="Chua Vinh Trang 1">
+			<p>Suggestions:</p>
+			<ul>	
+				<li>Dress politely and discreetly, and keep order in the sacred place.</li>
+				<li>Taking photos at the Maitreya Buddha statue area and the temple garden is very beautiful.</li>
+				<li>Should combine a visit to Cu Lao Thoi Son in the same session.</li>
 			</ul>
 			"""}
 			], "An Giang": [
@@ -1808,6 +1917,24 @@ place_details_data = {
 				<li>정오에 가시는 경우 모자/캡을 착용하고 자외선 차단제를 바르세요. 햇살이 좋고 날씨가 좋으면 아침이나 오후에 가시는 것이 가장 좋습니다.</li>
 				<li>크메르 문화에 대해 더 자세히 알고 싶으시면 현지 가이드에게 문의하거나 사전에 안내 자료를 읽어보세요.</li>
 			</ul>
+			"""}, 
+			{ "title": "동코이 유적지(벤째)",
+			"desc": """
+			<p>벤째에 위치한 동코이 유적지는 1960년 동코이 운동의 역사적인 현장으로, 민족 독립을 위한 투쟁에서 남부 주민들의 불굴의 의지와 불굴의 정신을 상징합니다. 이 유적지는 역사적 가치가 높을 뿐만 아니라 오늘날 세대에게 혁명 전통을 전수하는 장소이기도 합니다.</p>
+			<p>📍위치: 벤째성 모까이남군 딘투이 사.</p>
+			<p>주요 관광 명소:</p>
+			<ul>
+				<li>1960년 동코이 운동이 발발하여 남부 지역 혁명의 정점을 이룬 곳입니다.</li>
+				<li>유적지 동커이 기념비, 유물 전시관, 영웅 순교자 기념관, 그리고 역사 재연 공간이 포함되어 있습니다.</li>
+				<li>학생, 대학생, 참전 용사들이 단체로 자주 방문하는 곳입니다.</li>
+			</ul>			
+			<img src="/static/images/dongkhoi.jpg" class="detail-img" alt="Khu di tích Đồng Khởi">
+			<p>추천:</p>
+			<ul>
+				<li>역사와 혁명 전통을 좋아하는 분들에게 적합합니다.</li>
+				<li>단체 또는 실습 학습 투어로 방문할 수 있습니다.</li>
+				<li>방문 후에는 벤째 시장에 들러 코코넛 캔디와 밀크 라이스 페이퍼와 같은 특산품을 구매할 수 있습니다.</li>
+			</ul>
 			"""}
 			], 
 			"Dong Thap": [
@@ -1852,6 +1979,43 @@ place_details_data = {
 				<li>가장 좋은 시기: 음력 12월~1월.</li>
 				<li>아침 일찍이나 해 질 무렵에 가는 것이 좋습니다.</li>
 				<li>꽃 재배자를 존중하세요. 사진 촬영 시 꽃을 꺾지 마세요.</li>
+			</ul>
+			"""}, 
+			{ "title": "꾸라오터이썬(꼰란)",
+			"desc": """
+			<p>꾸라오터이썬은 잔잔한 띠엔 강 한가운데에 위치해 있으며, 무성한 과수원과 작은 운하, 그리고 삼판 타기, 전통 음악 감상, 정원 특산품 즐기기 등 매력적인 지역 관광 활동을 즐길 수 있는 유명한 생태 관광지입니다.</p>
+			<p>📍위치: 띠엔장성 미토시 토이썬 마을 띠엔 강 한가운데에 위치.</p>
+			<p>주요 특징:</p>
+			<ul>
+				<li>넓고 푸른 섬으로, 과수원, 정원 가옥, 전통 공예 마을(코코넛 캔디, 꿀 만들기, 직조 등)로 유명합니다.</li>
+				<li>방문객들은 작은 운하에서 삼판을 타고, 전통 음악을 듣고, 정원에서 수확한 과일을 맛보고, 소박한 공간에서 점심 식사를 즐길 수 있습니다.</li>
+				<li>관광지입니다. 생태 관광 - 메콩 삼각주의 특징이 깃든 전형적인 공동체입니다.</li>
+			</ul>
+			<img src="/static/images/thoison.jpg" class="detail-img" alt="Cu Lao Thoi Son">
+			<p>추천:</p>
+			<ul>
+				<li>햇볕을 피하고 시원한 공기를 즐기려면 아침 일찍 가는 것이 좋습니다.</li>
+				<li>보트나 도보로 이동 가능한 구간이 많으므로 가벼운 옷과 움직이기 편한 신발을 착용하세요.</li>
+				<li>전통 음악을 감상하고, 튀긴 코끼리 귀 생선을 먹고, 지역 특산품인 신선한 꿀을 마셔보세요.</li>
+			</ul>
+			"""},
+			{ "title": "빈짱 사원(띠엔장)",
+			"desc": """
+			<p>띠엔장성에서 가장 오래되고 가장 큰 사원인 빈짱 사원은 아시아와 유럽이 어우러진 독특한 건축 양식을 자랑합니다. 평화로운 공간과 푸른 정원. 장엄한 불상이 있는 시원한 이 탑은 평화를 찾고 건축 예술의 정수를 감상하고 싶은 사람들에게 이상적인 곳입니다.</p>
+			<p>📍위치: 미토시 8구 응우옌쭝쭉 66번지.</p>
+			<img src="/static/images/chuavinhtrang.jpg" class="detail-img" alt="쭈아빈짱">
+			<p>주요 특징:</p>
+			<ul>
+				<li>19세기에 건축된 띠엔장성에서 가장 오래되고 가장 큰 탑입니다.</li>
+				<li>아시아와 유럽(프랑스, 로마, 태국, 캄보디아, 일본)의 건축 양식이 조화롭게 어우러져 보기 드문 독특한 모습을 자랑합니다.</li>
+				<li>캠퍼스에는 거대한 미륵불상, 와불상, 그리고 아미타불이 있습니다. 정원.</li>
+			</ul>
+			<img src="/static/images/chuvingtrang1.jpg" class="detail-img" alt="추아 빈 짱 1">
+			<p>추천:</p>
+			<ul>
+				<li>예의 바르고 단정한 복장을 하고 신성한 장소에서는 질서를 유지하세요.</li>
+				<li>미륵불상 주변과 사찰 정원에서 사진을 찍는 것은 매우 아름답습니다.</li>
+				<li>꾸 라오 토이 썬도 같은 시간에 방문하세요.</li>
 			</ul>
 			"""}
 			], 
