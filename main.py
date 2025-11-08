@@ -1199,6 +1199,56 @@ place_details_data = {
 			"""}
 			],
 			"Vinh Long": [
+			{ "title": "Cai Cuong Ancient House - French-style architectural relic",
+			"desc": """
+			<p>Cai Cuong Ancient House is one of the typical ancient architectural works in the Southwest region, located on An Binh Islet - a land famous for its beautiful riverside gardens.</p>
+			<p>📍Location: No. 38, Binh Hoa Hamlet, Binh Hoa Phuoc Commune, Long Ho District, Vinh Long Province.</p>			
+			<img src="/static/images/caicuong.jpg" class="detail-img" alt="Cai Cuong Ancient House - French-style architectural relic">
+			<p>History & Architecture:</p>
+			<ul>
+				<li>The house was built in 1885 by the family of Mr. Pham Van Bon (also known as "Cai Cuong") - a great landowner in the garden area.</li>
+				<li>Special architecture: built in the shape of the letter "T" consists of two perpendicular houses, the main facade facing North overlooking Cai Muoi canal.</li>
+				<li>The combination of East - West architecture: the exterior has a Western (French) feel while the interior is made of ironwood, yin-yang tile roof, fish-scale roof... in bold Vietnamese style.</li>
+			</ul>
+			<img src="/static/images/caicuong1.jpg" class="detail-img" alt="Cai Cuong Ancient House - Interior">
+			<p>Highlights:</p>
+			<ul>
+			<li>Not only a material heritage, Cai Cuong ancient house also reflects the life, culture and style of the Southern people in the late 19th century.</li>
+			<li>Preserving almost intact the ironwood details, ceramic tiles, patterns, yin-yang tile roof that are more than a hundred years old.</li>
+			<li>A unique cultural - ecological tourist destination when combined with visiting the fruit garden, experiencing the garden life.</li>
+			</ul>
+			<p>Suggestions:</p>
+			<ul>
+				<li>Although we could not find very clear information about the exact opening hours, it is stated that An Binh ferry operates from 4am to 10pm.</li>
+				<li>When visiting, you should keep the interior intact, do not arbitrarily move antique items to preserve the nature of the house.</li>
+				<li>You should come early in the morning or late in the afternoon to avoid harsh sunlight and beautiful light for taking photos.</li>
+			</ul>
+			"""},
+			{ "title": "Van Thanh Mieu Vinh Long",
+			"desc": """
+			<p>Van Thanh Mieu Vinh Long is considered the "Quoc Tu Giam of the South". This is the place to worship Confucius and Confucian sages, and is also the center of education and cultural activities of the ancient people of Cochinchina.</p>
+			<p>📍Location: Located on Tran Phu Street, Ward 4, Vinh Long City, Province Vinh Long.</p>
+			<img src="/static/images/vanmieu.jpg" class="detail-img" alt="Van Thanh Mieu Vinh Long">
+			<p>History & architecture:</p>
+			<ul>
+				<li>Built between 1864-1866 under the reign of Phan Thanh Gian and initiated by Mr. Nguyen Thong (Director of Education).</li>
+				<li>One of the three "Van Thanh Mieu" in the Southern region, and considered the "Quoc Tu Giam in the South".</li>
+				<li>Architecture: three-story gate with curved roof, two sides of the entrance are rows of tall star trees - creating a solemn, quiet space.</li>
+			</ul>
+			<img src="/static/images/vanmieu1.jpg" class="detail-img" alt="Van Thanh Mieu Vinh Long - inside">
+			<p>Highlights:</p>
+			<ul>
+				<li>National historical and cultural relic.</li>
+				<li>Every year, the Van Thanh Mieu Festival (full moon of the second lunar month) attracts a large number of visitors from all over the world.</li>
+				<li>It is a place to preserve cultural values, the spirit of learning and the tradition of respecting teachers of the Vietnamese people.</li>
+			</ul>
+			<p>Suggestions:</p>
+			<ul>
+				<li>Opening hours: From about 7:00 am to 5:00 pm every day.</li>
+				<li>Because it is a place of worship + historical relic, when visiting, please keep order and wear appropriate clothing.</li>
+				<li>You can combine sightseeing with walking around the Long Ho River area, relaxing and taking photos.</li>
+			</ul>
+			"""},
 			{ "title": "Ang Pagoda: Angkorajaborey (Old Tra Vinh)",
 			"desc": """
 			<p>Ang Pagoda is one of the most ancient and famous Khmer pagodas in Tra Vinh, located next to Ba Om Pond. The pagoda has a strong Southern Khmer architecture with multi-layered curved roofs, intricately carved pillars and prominent gold tones.</p>
@@ -1316,7 +1366,7 @@ place_details_data = {
 				<li>Diverse nature: Most of the island is located in a UNESCO-recognized biosphere reserve, with forests, mountains, and a combined marine-salt ecosystem.</li>
 				<li>Easy access & tourism development: Modern tourism infrastructure, many resorts, and entertainment games location.</li>
 			</ul>
-			<img src="/static/images/phuquoc.jpg" class="detail-img" alt="Phu Quoc – Pearl Island>
+			<img src="/static/images/phuquoc.jpg" class="detail-img" alt="Phu Quoc – Pearl Island">
 			<p>Suggestions:</p>
 			<ul>
 				<li>Best time: dry season from around November to April — sunny, calm sea, convenient for outdoor and beach sightseeing.</li>
@@ -1485,6 +1535,56 @@ place_details_data = {
 			"""}
 			], 
 			"Vinh Long": [
+			{ "title": "까이끄엉 고택 - 프랑스식 건축 유적",
+			"desc": """
+			<p>까이끄엉 고택은 아름다운 강변 정원으로 유명한 안빈 섬에 위치한 남서부 지역의 대표적인 고대 건축물 중 하나입니다.</p>
+			<p>📍위치: 빈롱성 롱호구 빈호아푹사 빈호아 마을 38번지</p>
+			<img src="/static/images/caicuong.jpg" class="detail-img" alt="까이끄엉 고택 - 프랑스식 건축 유적">
+			<p>역사 및 건축:</p>
+			<ul>
+				<li>이 고택은 1885년 정원 지역의 거물이었던 팜 반 본(Pham Van Bon, "까이끄엉"으로도 알려짐) 씨의 가족에 의해 지어졌습니다.</li>
+				<li>특별한 건축물: "T"는 두 채의 수직 주택으로 구성되어 있으며, 북쪽을 향해 있는 본채는 까이 무어이 운하를 내려다보고 있습니다.</li>
+				<li>동서양 건축 양식이 조화를 이루고 있습니다. 외관은 서양식(프랑스식) 느낌을 주는 반면, 내부는 철목, 음양 기와, 물고기 비늘 지붕 등 베트남 특유의 강렬한 스타일로 지어졌습니다.</li>
+			</ul>
+			<img src="/static/images/caicuong1.jpg" class="detail-img" alt="까이 끄엉 고택 - 내부">
+			<p>주요 특징:</p>
+			<ul>
+				<li>까이 끄엉 고택은 단순한 물질적 유산이 아니라 19세기 후반 남방 사람들의 삶, 문화, 그리고 스타일을 반영합니다.</li>
+				<li>100년이 넘은 철목 디테일, 도자기 기와, 문양, 음양 기와 지붕이 거의 그대로 보존되어 있습니다.</li>	
+				<li>과일 농장을 방문하고 정원을 체험하는 것과 함께라면 독특한 문화 생태 관광지가 될 것입니다. 생활.</li>
+			</ul>
+			<p>추천:</p>
+			<ul>
+				<li>정확한 운영 시간에 대한 명확한 정보는 찾을 수 없었지만, 안빈 페리는 오전 4시부터 오후 10시까지 운행한다고 합니다.</li>
+				<li>방문 시 집의 자연을 보존하기 위해 내부를 손상시키지 말고, 골동품을 함부로 옮기지 마세요.</li>
+				<li>햇볕이 강하고 사진 촬영에 적합한 아름다운 조명을 피하려면 이른 아침이나 늦은 오후에 방문하는 것이 좋습니다.</li>
+			</ul>
+			"""},
+			{ "title": "Van Thanh Mieu Vinh Long",
+			"desc": """
+			<p>Van Thanh Mieu Vinh Long은 "남부의 꾸옥 뜨 잠(Quoc Tu Giam)"으로 불립니다. 이곳은 공자와 유교 성현을 제사 지내는 곳이며, 코친차이나 고대 사람들의 교육과 문화 활동의 중심지이기도 합니다.</p>
+			<p>📍위치: 빈롱성 빈롱시 4구 쩐푸 거리.</p>
+			<img src="/static/images/vanmieu.jpg" class="detail-img" alt="반탄미에우 빈롱">
+			<p>역사 및 건축:</p>
+			<ul>
+				<li>1864년에서 1866년 사이 판탄잔(Phan Thanh Gian) 통치 기간에 건립되었으며, 응우옌 통(Nguyen Thong) 교육감의 주도로 시작되었습니다.</li>
+				<li>남부 지역의 세 "반탄미에우" 중 하나이며, "남부의 꾸옥 뜨 지암(Quoc Tu Giam)"으로 불립니다.</li>
+				<li>건축: 곡선 지붕의 3층 대문, 입구 양쪽에는 키 큰 별나무들이 줄지어 있어 엄숙하고 조용한 공간을 조성합니다.</li>
+			</ul>	
+			<img src="/static/images/vanmieu1.jpg" class="detail-img" alt="반탄 미에우 빈롱 - 내부">
+			<p>주요 볼거리:</p>
+			<ul>
+			<li>국가 역사 문화 유적지.</li>
+			<li>매년 음력 2월 보름달을 기념하는 반탄미에우 축제는 전 세계에서 수많은 방문객을 끌어들입니다.</li>
+			<li>베트남 국민의 문화적 가치, 학문 정신, 그리고 스승을 존중하는 전통을 보존하는 곳입니다.</li>
+			</ul>
+			<p>추천:</p>
+			<ul>
+				<li>운영 시간: 매일 오전 7시부터 오후 5시까지.</li>
+				<li>신앙과 역사 유적지가 공존하는 곳이니, 방문 시에는 질서를 유지하고 적절한 복장을 착용해 주시기 바랍니다.</li>
+				<li>롱호 강변을 산책하며 관광을 즐기고, 휴식을 취하며 사진을 찍는 것도 좋습니다.</li>
+			</ul>
+			"""},
 			{ "title": "앙 파고다: 앙코르 자보레이(옛 짜빈)",
 			"desc": """
 			<p>앙 파고다는 짜빈에서 가장 오래되고 유명한 크메르 사원 중 하나로, 바옴 연못 옆에 위치해 있습니다. 이 사원은 여러 겹의 곡선 지붕, 정교하게 조각된 기둥, 그리고 눈에 띄는 금색으로 이루어진 남부 크메르 건축 양식의 특징을 보여줍니다.</p>
@@ -1602,7 +1702,7 @@ place_details_data = {
 				<li>다양한 자연: 섬의 대부분은 유네스코가 지정한 생물권 보호구역에 위치해 있으며, 숲, 산, 그리고 해양-염생 생태계가 어우러져 있습니다.</li>
 				<li>편리한 접근성 및 관광 개발: 현대적인 관광 인프라, 수많은 리조트, 그리고 엔터테인먼트 및 게임 시설이 있습니다.</li>
 			</ul>
-			<img src="/static/images/phuquoc.jpg" class="detail-img" alt="푸꾸옥 - 진주섬>
+			<img src="/static/images/phuquoc.jpg" class="detail-img" alt="푸꾸옥 - 진주섬">
 			<p>추천:</p>
 			<ul>
 				<li>가장 좋은 시기: 11월부터 4월까지의 건기 — 화창하고 잔잔한 바다에서 야외 및 해변 관광을 즐기기에 좋습니다.</li>
