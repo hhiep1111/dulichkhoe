@@ -134,15 +134,15 @@ content = {
 			}
 		],
         "places": [
-            {"name": "Cần Thơ", "img": "cantho.jpg",
+            {"name": "Can Tho", "img": "cantho.jpg",
              "desc": "Thủ phủ miền Tây, nổi tiếng với chợ nổi sông nước, miệt vườn trù phú và nét văn hóa miệt vườn thân tình. Trải nghiệm chợ nổi buổi sáng, thưởng thức bún riêu và trái cây trên ghe."},
             {"name": "An Giang", "img": "nuicamangiang.jpg",
              "desc": "Miền đất của núi non Thất Sơn, văn hóa Chăm – Khmer giao thoa, nổi tiếng với cảnh đẹp thiêng liêng và đời sống sông nước hiền hòa."},
-            {"name": "Cà Mau", "img": "muicamau.jpg",
+            {"name": "Ca Mau", "img": "muicamau.jpg",
             "desc": "Cà Mau là tỉnh cực Nam của Việt Nam, có ba mặt giáp biển, nổi bật với hệ sinh thái rừng ngập mặn, đầm phá, đảo nhỏ và điểm cực Nam thiêng liêng của Tổ quốc. Thiên nhiên hoang sơ, văn hóa sông nước và ẩm thực phong phú là những điểm hấp dẫn của du lịch Cà Mau"},
-            {"name": "Vĩnh Long", "img": "vinhlong.jpg",
+            {"name": "Vinh Long", "img": "vinhlong.jpg",
             "desc": "texttttttttttttttttttttttttttt"},
-            {"name": "Đồng Tháp", "img": "dongthap.jpg",
+            {"name": "Dong Thap", "img": "dongthap.jpg",
             "desc": "Đồng Tháp nổi bật với sen, làng hoa Sa Đéc, di tích Óc Eo Gò Tháp, cùng mô hình du lịch cộng đồng xanh, bền vững."}  
         ],
         "tips": [
@@ -528,15 +528,15 @@ content = {
 			"""}
 		],
         "places": [
-            {"name": "깐토", "img": "cantho.jpg",
+            {"name": "Can Tho·", "img": "cantho.jpg",
              "desc": "서부 지역의 수도로, 수상 시장, 풍성한 과수원, 그리고 정겨운 과수원 문화로 유명합니다. 아침 수상 시장을 경험하고, 배 위에서 당면 수프와 과일을 즐겨보세요."},
-            {"name": "안장", "img": "nuicamangiang.jpg",
+            {"name": "An Giang", "img": "nuicamangiang.jpg",
              "desc": "타트썬 산맥의 땅, 참족과 크메르족 문화가 혼합되어 있으며, 신성한 아름다움과 평화로운 강 생활로 유명합니다."},
-            {"name": "까마우", "img": "muicamau.jpg",
+            {"name": "Ca Mau", "img": "muicamau.jpg",
              "desc": "까마우는 베트남 최남단 성으로, 삼면이 바다에 접해 있으며, 맹그로브 생태계, 석호, 작은 섬들, 그리고 베트남 최남단의 성지로 유명합니다. 훼손되지 않은 자연, 강 문화, 그리고 풍부한 음식은 까마우 관광의 매력입니다."},
-            {"name": "빈롱", "img": "vinhlong.jpg",
+            {"name": "Vinh Long", "img": "vinhlong.jpg",
              "desc": "texttttttttttttttttttttttttttttttt"},
-            {"name": "동탑", "img": "dongthap.jpg",
+            {"name": "Dong Thap", "img": "dongthap.jpg",
              "desc": "동탑은 연꽃, 사덱 꽃 마을, 옥 에오 고탑 유적, 그리고 친환경적이고 지속 가능한 지역 사회 관광 모델로 유명합니다."}
         ],
         "tips": [
@@ -668,7 +668,7 @@ content = {
 }
 place_details_data = {
     "vi": {
-        "Cần Thơ": [
+        "Can Tho": [
         {   "title": "Bến Ninh Kiều – Biểu Tượng Thành Phố", 
             "desc": """
             <p>Biểu tượng của Cần Thơ bên dòng sông Hậu hiền hòa, là nơi tản bộ, ngắm cảnh và chụp ảnh tuyệt đẹp.</p>
@@ -746,7 +746,7 @@ place_details_data = {
                 </ul>
                 """}
          ],
-        "Cà Mau": [
+        "Ca Mau": [
             {   "title": "Mũi Cà Mau – Cột mốc cực Nam", 
                 "desc": """ 
                 <p>Mũi Cà Mau là điểm cực Nam của Tổ quốc, nơi dải đất Việt Nam vươn ra biển lớn. Đến đây, bạn có thể check-in tại cột mốc GPS 0001, biểu tượng con thuyền và ngắm khung cảnh rừng ngập mặn – biển trời mênh mông.</p>
@@ -809,7 +809,7 @@ place_details_data = {
                 </ul>
                 """}
         ],
-        "Vĩnh Long": [
+        "Vinh Long": [
             {   "title": "Chùa Âng: Angkorajaborey (Trà Vinh cũ)", 
                 "desc": """ 
                 <p>Chùa Âng là một trong những ngôi chùa Khmer cổ kính và nổi tiếng nhất Trà Vinh, nằm cạnh Ao Bà Om. Ngôi chùa mang đậm kiến trúc Khmer Nam Bộ với các mái cong nhiều lớp, cột trụ chạm khắc tinh xảo và tông vàng nổi bật.</p>
@@ -835,7 +835,7 @@ place_details_data = {
                 </ul>
                 """}
                 ],
-        "Đồng Tháp": [
+        "Đong Thap": [
             {   "title": "Đồng Sen Tháp Mười", 
                 "desc": """ 
                 <p>Đồng Sen Tháp Mười là một trong những cánh đồng sen lớn và đẹp nhất miền Tây, nổi tiếng với không gian mênh mông hoa sen nở rộ, mang đậm nét mộc mạc, thanh bình của vùng Đồng Tháp Mười.</p>
@@ -1296,7 +1296,7 @@ place_details_data = {
 			] 
 		},
     "kr": {
-		"깐토": [
+		"Can Tho": [
 			{ "title": "닌끼우 부두 - 도시의 상징",
 			"desc": """
 			<p>잔잔한 하우 강변에 위치한 칸토의 상징인 닌끼우 부두는 산책, 관광, 아름다운 사진 촬영을 즐기기에 좋은 곳입니다.</p>
@@ -1373,7 +1373,7 @@ place_details_data = {
 			</ul>
 			"""}
 			],
-			"까마우": [
+			"Ca Mau": [
 			{ "title": "까마우 곶 - 최남단 랜드마크",
 			"desc": """
 			<p>까마우 곶은 베트남 본토 최남단으로, 베트남 땅이 바다로 뻗어 있는 곳입니다. 이곳에 오시면 GPS 랜드마크 0001(배 심볼)에서 체크인하고 맹그로브 숲, 광활한 바다와 하늘의 풍경을 감상하실 수 있습니다.</p>
@@ -1435,7 +1435,7 @@ place_details_data = {
 			</ul>
 			"""}
 			], 
-			"빈롱": [
+			"Vinh Long": [
 			{ "title": "앙 파고다: 앙코르 자보레이(옛 짜빈)",
 			"desc": """
 			<p>앙 파고다는 짜빈에서 가장 오래되고 유명한 크메르 사원 중 하나로, 바옴 연못 옆에 위치해 있습니다. 이 사원은 여러 겹의 곡선 지붕, 정교하게 조각된 기둥, 그리고 눈에 띄는 금색으로 이루어진 남부 크메르 건축 양식의 특징을 보여줍니다.</p>
@@ -1461,7 +1461,7 @@ place_details_data = {
 			</ul>
 			"""}
 			], 
-			"동탑": [
+			"Dong Thap": [
 			{ "title": "동센탑무어이",
 			"desc": """
 			<p>동센탑무어이는 서부에서 가장 크고 아름다운 연꽃밭 중 하나로, 광활한 연꽃밭으로 유명하며, 동탑무어이만의 소박하고 평화로운 분위기를 자아냅니다.</p>
@@ -1506,7 +1506,7 @@ place_details_data = {
 			</ul>
 			"""}
 			], 
-			"안장": [
+			"An Giang": [
 			{ "title": "깜산(티엔깜손) - 서쪽의 지붕",
 			"desc": """
 			<p>메콩 삼각주에서 가장 높은 산으로, 일 년 내내 서늘한 기후와 다채로운 자연 경관을 자랑합니다. 영적인 요소, 역사적 요소, 전설적인 요소로 가득 차 있어 종종 "서쪽의 지붕"으로 비유됩니다.</p>
