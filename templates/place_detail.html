@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ place.name }}</title>
-    /* link rel="stylesheet" href="/static/style.css" */
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -95,22 +94,21 @@
 </header>
 
 <nav>
-    <a href="/?lang={{ lang }}">{{ menu.home }}</a> |
-    <a href="/tips?lang={{ lang }}">{{ menu.tips }}</a> |
-    <a href="/checklist?lang={{ lang }}">{{ menu.checklist }}</a> |
-    <a href="/food?lang={{ lang }}">{{ menu.food }}</a> |
-    <a href="/health?lang={{ lang }}">{{ menu.health }}</a> | 
-    <div class="dropdown">
-        <a href="#">{{ menu.lang }} ▼</a> |
-        <div class="dropdown-content">
-            <a href="/place/{{ place.name }}?lang=vi">Tiếng Việt</a>
-            <a href="/place/{{ place.name }}?lang=en">English</a>
-            <a href="/place/{{ place.name }}?lang=kr">한국어</a>
+        <a href="/?lang={{ lang }}">{{ data.menu.home }}</a> |
+        <a href="/tips?lang={{ lang }}">{{ data.menu.tips }}</a> |
+        <a href="/checklist?lang={{ lang }}">{{ data.menu.checklist }}</a> |
+        <a href="/food?lang={{ lang }}">{{ data.menu.food }}</a> |
+        <a href="/health?lang={{ lang }}">{{ data.menu.health }}</a> |
+        <div class="dropdown">
+            <a href="#">{{ data.menu.lang }} ▼</a> |
+            <div class="dropdown-content">
+                <a href="/?lang=vi">Tiếng Việt</a>
+                <a href="/?lang=en">English</a>
+                <a href="/?lang=kr">한국어</a>
+            </div>
         </div>
-    </div>
-
-    <a href="/about?lang={{ lang }}">{{ menu.about }}</a>
-</nav>
+        <a href="/about?lang={{ lang }}">{{ data.menu.about }}</a> |
+    </nav>
 
 <script>
 document.querySelector(".dropdown").addEventListener("mouseenter", function() {
