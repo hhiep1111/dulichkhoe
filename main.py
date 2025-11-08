@@ -141,7 +141,7 @@ content = {
             {"name": "Ca Mau", "img": "muicamau.jpg",
             "desc": "Cà Mau là tỉnh cực Nam của Việt Nam, có ba mặt giáp biển, nổi bật với hệ sinh thái rừng ngập mặn, đầm phá, đảo nhỏ và điểm cực Nam thiêng liêng của Tổ quốc. Thiên nhiên hoang sơ, văn hóa sông nước và ẩm thực phong phú là những điểm hấp dẫn của du lịch Cà Mau"},
             {"name": "Vinh Long", "img": "vinhlong.jpg",
-            "desc": "texttttttttttttttttttttttttttt"},
+            "desc": "Vĩnh Long nằm giữa sông Tiền và sông Hậu, là trung tâm của vùng sông nước miền Tây. Nơi đây nổi bật với hệ thống kênh rạch chằng chịt, vườn cây ăn trái trĩu quả, cùng không gian miệt vườn thanh bình."},
             {"name": "Dong Thap", "img": "dongthap.jpg",
             "desc": "Đồng Tháp nổi bật với sen, làng hoa Sa Đéc, di tích Óc Eo Gò Tháp, cùng mô hình du lịch cộng đồng xanh, bền vững."}  
         ],
@@ -810,6 +810,56 @@ place_details_data = {
                 """}
         ],
         "Vinh Long": [
+			{   "title": "Nhà cổ Cai Cường – di tích kiến trúc kiểu Pháp", 
+                "desc": """ 
+                <p>Nhà cổ Cai Cường là một trong những công trình kiến trúc cổ tiêu biểu ở miền Tây Nam Bộ, tọa lạc trên cù lao An Bình – vùng đất nổi tiếng với vẻ đẹp miệt vườn sông nước.</p>
+                <p>📍Vị trí: Số 38, ấp Bình Hòa, xã Bình Hòa Phước, huyện Long Hồ, tỉnh Vĩnh Long.</p>
+                <img src="/static/images/caicuong.jpg" class="detail-img" alt="Nhà cổ Cai Cường – di tích kiến trúc kiểu Pháp">
+				<p>Lịch sử & kiến trúc:</p>
+                <ul>
+                    <li>Ngôi nhà được xây dựng vào năm 1885 do gia đình ông Phạm Văn Bổn (còn gọi là “Cai Cường”) – một đại địa chủ miệt vườn – khởi công.</li>
+                    <li>Kiến trúc đặc biệt: xây theo hình chữ “Đinh” gồm hai nếp nhà vuông góc, mặt chính quay hướng Bắc nhìn ra rạch Cái Muối.</li>
+                    <li>Sự kết hợp kiến trúc Đông – Tây: ngoại thất mang hơi hướng phương Tây (Pháp) còn nội thất gỗ lim, mái ngói âm dương, mái vảy cá… đậm phong cách Việt Nam.</li>
+                </ul>					
+				<img src="/static/images/caicuong1.jpg" class="detail-img" alt="Nhà cổ Cai Cường – Nội thất">
+                <p>Điểm nổi bật:</p>
+                <ul>
+                    <li>Không chỉ là một di sản vật chất, nhà cổ Cai Cường còn phản ánh đời sống, văn hóa và phong thái của người Nam Bộ cuối thế kỷ XIX.</li>
+                    <li>Giữ được gần như nguyên vẹn các chi tiết gỗ lim, gạch men, hoa văn, mái ngói âm dương hơn trăm năm tuổi.</li>
+                    <li>Là điểm du lịch văn hóa – sinh thái đặc sắc khi kết hợp tham quan cùng vườn trái cây, trải nghiệm đời sống miệt vườn.</li>
+                </ul>
+                <p>Gợi ý:</p>
+                <ul>
+                    <li>Mặc dù không tìm được thông tin rất rõ ràng về giờ mở cửa chính xác, nhưng có ghi: phà An Bình hoạt động từ 4 giờ sáng đến 22 giờ tối.</li>
+                    <li>Khi tham quan, nên giữ gìn nguyên vẹn nội thất, không tự ý di chuyển vật dụng cổ để giữ bản chất ngôi nhà.</li>
+                    <li>Nên tới vào sáng sớm hoặc chiều muộn để tránh nắng gắt và ánh sáng đẹp cho chụp ảnh.</li>
+                </ul>
+                """},
+			{   "title": "Văn Thánh Miếu Vĩnh Long", 
+                "desc": """ 
+                <p>Văn Thánh Miếu Vĩnh Long được xem là “Quốc Tử Giám của Nam Bộ”. Đây là nơi thờ Khổng Tử và các bậc hiền triết Nho giáo, đồng thời là trung tâm giáo dục và sinh hoạt văn hóa của người dân Nam Kỳ xưa.</p>
+                <p>📍Vị trí: Tọa lạc tại đường Trần Phú, phường 4, thành phố Vĩnh Long, tỉnh Vĩnh Long.</p>
+                <img src="/static/images/vanmieu.jpg" class="detail-img" alt="Văn Thánh Miếu Vĩnh Long">
+				<p>Lịch sử & kiến trúc:</p>
+                <ul>
+                    <li>Được xây dựng trong khoảng năm 1864-1866 dưới thời triều Phan Thanh Giản và ông Nguyễn Thông (Đốc học) khởi xướng.</li>
+                    <li>Là một trong ba “Văn Thánh Miếu” tại vùng Nam Bộ, và được xem như “Quốc Tử Giám ở phương Nam”.</li>
+                    <li>Kiến trúc: cổng tam quan ba tầng mái cong, hai bên đường vào là hàng cây sao cao – tạo không gian uy nghiêm, tĩnh lặng.</li>
+                </ul>
+                <img src="/static/images/vanmieu1.jpg" class="detail-img" alt="Văn Thánh Miếu Vĩnh Long - bên trong">
+                <p>Điểm nổi bật:</p>
+                <ul>
+                    <li>Di tích lịch sử – văn hóa cấp quốc gia.</li>
+                    <li>Hằng năm tổ chức Lễ hội Văn Thánh Miếu (rằm tháng Hai âm lịch) thu hút đông đảo khách thập phương.</li>
+                    <liLà nơi lưu giữ giá trị văn hóa, tinh thần hiếu học và truyền thống tôn sư trọng đạo của người Việt.</li>
+                </ul>
+                <p>Gợi ý:</p>
+                <ul>
+                    <li>Giờ mở cửa: Từ khoảng 07:00 sáng đến 17:00 chiều hàng ngày.</li>
+                    <li>Vì là nơi thờ phụng + di tích lịch sử, nên khi tham quan hãy giữ trật tự, mặc trang phục phù hợp.</li>
+                    <li>Có thể kết hợp tham quan với dạo bộ quanh khu vực sông Long Hồ, thư giãn và chụp ảnh.</li>
+                </ul>
+                """},
             {   "title": "Chùa Âng: Angkorajaborey (Trà Vinh cũ)", 
                 "desc": """ 
                 <p>Chùa Âng là một trong những ngôi chùa Khmer cổ kính và nổi tiếng nhất Trà Vinh, nằm cạnh Ao Bà Om. Ngôi chùa mang đậm kiến trúc Khmer Nam Bộ với các mái cong nhiều lớp, cột trụ chạm khắc tinh xảo và tông vàng nổi bật.</p>
