@@ -210,25 +210,77 @@ content = {
         ],
         "food_list": [
         {    "id": "banhcong",
-             "title": "Bánh Cống Cần Thơ",
-             "img": "/static/images/cantho.jpg",
-             "short": "Giòn rụm, nhân tôm thịt thơm béo.",
+             "title": "Bánh Cống Sóc Trăng",
+             "img": "/static/images/banhcong.jpg",
+             "short": "Bánh cống Đại Tâm vàng ươm, thơm mùi bột gạo và tôm, phần nhân đậu xanh bùi béo – hương vị hài hòa, ăn hoài không ngán.",
              "desc": """
-                 <p>Bánh cống là món ăn dân dã nổi tiếng của Cần Thơ.</p>
-                 <img src="/static/images/chuadoi.jpg" class="detail-img"/>
-                 <p>📍 Địa chỉ gợi ý: Quán Bánh cống Đại Tâm</p>
-             """
-         },
+                 <p>Bánh Cống Đại Tâm là đặc sản trứ danh của huyện Mỹ Xuyên, tỉnh Sóc Trăng, đặc biệt là tại xã Đại Tâm – nơi có đông đồng bào Khmer sinh sống.</p>
+				 <p>Món bánh được đặt tên theo địa danh “Đại Tâm”, nơi khởi nguồn của nghề làm bánh cống truyền thống đã tồn tại hơn nửa thế kỷ.</p>
+				 <p>“Cống” là dụng cụ hình ống trụ (giống chiếc ly nhỏ) – được đổ bột và nhân vào, sau đó nhúng ngập trong chảo dầu nóng cho đến khi vàng đều.</p>
+                 <p>📍 Địa chỉ gợi ý:</p>
+				 <ul>
+				 <li>Bánh Cống Cô Út Đại Tâm: Ấp Đại Nghĩa, xã Đại Tâm, huyện Mỹ Xuyên, Sóc Trăng</li>
+				 <li>Bánh Cống Đại Tâm – Quán Sáu Dung: Xã Đại Tâm, huyện Mỹ Xuyên</li>
+				 </ul>
+             """},
         {    "id": "hutieu",
-             "title": "Hủ Tiếu Sa Đéc",
-             "img": "/static/images/dongthap.jpg",
-             "short": "Nước ngọt thanh, sợi dai, đậm vị miền Tây.",
+             "title": "Hủ Tiếu Mỹ Tho",
+             "img": "/static/images/hutieu.jpg",
+             "short": "Mỹ Tho nổi với hủ tiếu – sợi dai, nước dùng ngọt thanh, thường ăn sáng ở miền Tây.",
              "desc": """
-                 <p>Một trong những món hủ tiếu đặc sắc nhất miền Tây.</p>
-                 <img src="/static/images/chuaang.jpg" class="detail-img"/>
-                 <p>📍 Gợi ý: Khu ẩm thực chợ Xuân Khánh</p>
-             """
-         }
+                 <p>Hủ tiếu Mỹ Tho là món ăn đặc sản nổi tiếng của thành phố Mỹ Tho, tỉnh Tiền Giang, được xem là niềm tự hào ẩm thực của người dân nơi đây.</p>
+                 <p>Sợi hủ tiếu: làm từ gạo Gò Cát (một vùng trồng lúa nổi tiếng của Mỹ Tho). Sợi nhỏ, dai, có độ trong và thơm mùi gạo tự nhiên – khác hẳn với các loại hủ tiếu nơi khác.</p>
+            	 <p>Nước dùng: được ninh từ xương heo, mực khô, tôm khô trong nhiều giờ, cho vị ngọt thanh, trong veo chứ không béo gắt.</p>
+				 <p>📍 Địa chỉ gợi ý:</p>
+				 <ul>
+				 <li>Hủ Tiếu Mỹ Tho Chín Của: 44 Nam Kỳ Khởi Nghĩa, Phường 1, thành phố Mỹ Tho, Tiền Giang</li>
+				 <li>Hủ Tiếu Mỹ Tho Hương Quê: 63 Ấp Bắc, thành phố Mỹ Tho</li>
+				 </ul>
+			 """},
+			{    "id": "nemnuong",
+             "title": "Nem Nướng Cần Thơ",
+             "img": "/static/images/nemnuong.jpg",
+             "short": "Là món ăn biểu tượng của Cần Thơ, từng được vinh danh trong danh sách 100 món ăn ẩm thực Việt Nam tiêu biểu vùng Nam Bộ.",
+             "desc": """
+                 <p>Nem nướng Cần Thơ là món ăn đặc sản nổi tiếng của vùng Tây Đô, thường được nhắc cùng tên tuổi với nem nướng Ninh Hòa (Khánh Hòa) hay nem nướng Đà Lạt, nhưng lại mang hương vị riêng biệt, đặc trưng của miền Tây Nam Bộ.</p>
+                 <p>Thành phần chính: thịt heo nạc xay (thường pha một ít mỡ để không khô), trộn với tỏi, hành, tiêu, nước mắm, đường, sau đó nướng trên than hồng cho chín vàng đều, thơm lừng.</p>
+            	 <p>Ăn kèm: bánh hỏi, bánh tráng, bún tươi, rau sống (xà lách, húng quế, tía tô, diếp cá), chuối chát, khế chua, đồ chua (cà rốt, củ cải ngâm giấm).</p>
+				 <p>Điểm đặc biệt nhất: là nước chấm sệt (pha từ gan heo, tương hột, đậu phộng xay, nước cốt dừa, tỏi và ớt băm) – béo ngậy, thơm bùi, vị ngọt nhẹ đặc trưng miền Tây.</p>
+				 <p>📍 Địa chỉ gợi ý:</p>
+				 <ul>
+				 <li>Nem Nướng Thanh Vân: 17 Đại lộ Hòa Bình, phường Tân An, quận Ninh Kiều, Cần Thơ</li>
+				 <li>Nem Nướng Cái Răng: 45/3 Lý Tự Trọng, phường An Cư, quận Ninh Kiều</li>
+				 </ul>
+			 """},
+			{    "id": "banhxeo",
+             "title": "Bánh Xèo Củ Hủ Khóm - Hậu Giang",
+             "img": "/static/images/banhxeo.jpg",
+             "short": "Đã được công nhận là “Món ăn tiêu biểu của tỉnh Hậu Giang” trong chương trình xác lập 130 món đặc sản vùng ĐBSCL năm 2022.",
+             "desc": """
+                 <p>Bánh xèo củ hủ khóm là món ăn đặc trưng của vùng Phụng Hiệp – Hậu Giang, nơi nổi tiếng với vùng trồng khóm (dứa) lớn nhất miền Tây.</p>
+                 <p>Nguyên liệu chính: bột gạo xay pha nước cốt dừa, nghệ tươi (tạo màu vàng), tôm, thịt ba chỉ, củ hủ khóm, hành lá.</p>
+            	 <p>Củ hủ khóm: giòn sần sật, vị ngọt thanh tự nhiên, không gắt, rất “bắt miệng”.</p>
+				 <p>Nước chấm: nước mắm chua ngọt pha với tỏi, ớt, chanh – kèm rau sống các loại (rau thơm, lá xoài non, lá cách, diếp cá...).</p>
+				 <p>📍 Địa chỉ gợi ý:</p>
+				 <ul>
+				 <li>Quán Bánh xèo Củ Hủ Khóm Út Mười: Ấp Đông Bình, xã Tân Bình, huyện Phụng Hiệp, Hậu Giang</li>
+				 <li>Bánh xèo Sáu Xiện: Khu vực 3, phường 5, thành phố Vị Thanh, tỉnh Hậu Giang</li>
+				 </ul>
+			 """}, 
+			{    "id": "goicatrich",
+             "title": "Hủ Tiếu Mỹ Tho",
+             "img": "/static/images/goicatrich.jpg",
+             "short": "Gỏi cá trích Phú Quốc từng được Hiệp hội Du lịch Việt Nam bình chọn là một trong 50 món đặc sản nổi tiếng của Việt Nam.",
+             "desc": """
+                 <p>Gỏi cá trích là món ăn đặc sản nổi tiếng của Kiên Giang, đặc biệt phổ biến tại đảo Phú Quốc – nơi có nguồn hải sản tươi ngon quanh năm.</p>
+                 <p>Nguyên liệu chính: cá trích tươi sống (loại nhỏ, thịt trong, ít tanh), dừa nạo, hành tây, ớt, tỏi, chanh, gừng, rau thơm, đậu phộng rang.</p>
+            	 <p>Hương vị: chua nhẹ, béo của dừa, giòn của hành tây, cay của ớt, và ngọt tự nhiên từ cá tươi – tất cả hòa quyện tạo nên vị tươi mát, đậm đà, “ngon khó quên”.</p>
+				 <p>📍 Địa chỉ gợi ý:</p>
+				 <ul>
+				 <li>Nhà hàng Ra Khơi: 131 đường 30/4, thị trấn Dương Đông, Phú Quốc</li>
+				 <li>Nhà hàng Trùng Dương Marina: 136 đường 30/4, thị trấn Dương Đông, Phú Quốc</li>
+				 </ul>
+			 """}
     	],
 		"health_list": [
 			{"title": "Bệnh viện Đa khoa Trung ương Cần Thơ",
