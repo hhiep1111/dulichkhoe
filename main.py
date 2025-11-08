@@ -851,7 +851,7 @@ place_details_data = {
                 <ul>
                     <li>Di tích lịch sử – văn hóa cấp quốc gia.</li>
                     <li>Hằng năm tổ chức Lễ hội Văn Thánh Miếu (rằm tháng Hai âm lịch) thu hút đông đảo khách thập phương.</li>
-                    <liLà nơi lưu giữ giá trị văn hóa, tinh thần hiếu học và truyền thống tôn sư trọng đạo của người Việt.</li>
+                    <li>Là nơi lưu giữ giá trị văn hóa, tinh thần hiếu học và truyền thống tôn sư trọng đạo của người Việt.</li>
                 </ul>
                 <p>Gợi ý:</p>
                 <ul>
@@ -977,8 +977,7 @@ place_details_data = {
                     <li>Thiên nhiên đa dạng: Phần lớn đảo nằm trong khu bảo tồn sinh quyển do UNESCO công nhận, có rừng, núi, hệ sinh thái biển-mặn kết hợp.</li>
                     <li>Dễ tiếp cận & phát triển du lịch: Hạ tầng du lịch hiện đại, nhiều resort, trò chơi giải trí.</li>
                 </ul>
-				<img src="/static/images/phuquoc.jpg" class="detail-img" alt="Phú Quốc – Đảo Ngọc>
-				
+				<img src="/static/images/phuquoc.jpg" class="detail-img" alt="Phú Quốc – Đảo Ngọc">
                 <p>Gợi ý:</p>
                 <ul>
                     <li>Thời điểm đẹp nhất: mùa khô từ khoảng tháng 11 đến tháng 4 — trời nắng, biển êm, thuận tiện tham quan ngoài trời và biển.</li>
@@ -990,7 +989,7 @@ place_details_data = {
                 "desc": """ 
                 <p>Không khí chậm rãi, yên bình hơn nhiều so với Phú Quốc – phù hợp với du khách muốn thư giãn hoặc khám phá cảnh đẹp tự nhiên và văn hóa địa phương.</p>
                 <p>📍Vị trí: Thị xã Hà Tiên, Tỉnh Kiên Giang cách TP Rạch Giá khoảng 100km.</p>
-				<img src="/static/images/hatien.jpg" class="detail-img" alt="Rừng Tràm Trà Sư – Các loài Chim">
+				<img src="/static/images/hatien.jpg" class="detail-img" alt="Hà Tiên">
                 <p>Điểm nổi bật:</p>
                 <ul>
                     <li>Cảnh quan sơn thủy hữu tình hiếm có ở miền Tây (núi – biển – sông – hang động).</li>
