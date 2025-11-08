@@ -255,7 +255,7 @@ content = {
 			{    "id": "banhxeo",
              "title": "Bánh Xèo Củ Hủ Khóm - Hậu Giang",
              "img": "/static/images/banhxeo.jpg",
-             "short": "Đã được công nhận là “Món ăn tiêu biểu của tỉnh Hậu Giang” trong chương trình xác lập 130 món đặc sản vùng ĐBSCL năm 2022.",
+             "short": "Đã được công nhận là Mn tiêu bón ăiểu của tỉnh Hậu Giang trong chương trình xác lập 130 món đặc sản vùng ĐBSCL năm 2022.",
              "desc": """
                  <p>Bánh xèo củ hủ khóm là món ăn đặc trưng của vùng Phụng Hiệp – Hậu Giang, nơi nổi tiếng với vùng trồng khóm (dứa) lớn nhất miền Tây.</p>
                  <p>Nguyên liệu chính: bột gạo xay pha nước cốt dừa, nghệ tươi (tạo màu vàng), tôm, thịt ba chỉ, củ hủ khóm, hành lá.</p>
@@ -515,7 +515,7 @@ content = {
 			{ "id": "banhxeo",
 			"title": "Banh Xeo Cu Hu Khom - Hau Giang",
 			"img": "/static/images/banhxeo.jpg",
-			"short": "Recognized as "A typical dish of Hau Giang province" in the program to establish 130 specialties of the Mekong Delta in 2022.",
+			"short": "Recognized as A typical dish of Hau Giang province in the program to establish 130 specialties of the Mekong Delta in 2022.",
 			"desc": """
 			<p>Banh Xeo Cu Hu Khom is a typical dish of Phung Hiep - Hau Giang region, famous for the largest pineapple growing area in the West.</p>
 			<p>Main ingredients: ground rice flour mixed with coconut milk, fresh turmeric (to create yellow color), shrimp, pork belly, pineapple root, green onion.</p>
@@ -775,7 +775,7 @@ content = {
 			{ "id": "banhxeo",
 			"title": "하우장 반쎄오 꾸후콤 - 하우장",
 			"img": "/static/images/banhxeo.jpg",
-			"short": "하우장의 대표적인 요리로 알려져 있습니다. "2022년 메콩 삼각주 130개 특산품 개발 프로그램"에 "장성"이 선정되었습니다."
+			"short": "하우장의 대표적인 요리로 알려져 있습니다. 2022년 메콩 삼각주 130개 특산품 개발 프로그램에 장성이 선정되었습니다."
 			"desc": """
 			<p>반쎄오 꾸후콤(Banh Xeo Cu Hu Khom)은 서부 최대 파인애플 재배지로 유명한 풍히엡-하우장 지역의 대표적인 요리입니다.</p>
 			<p>주재료: 코코넛 밀크를 섞은 쌀가루, 신선한 강황(노란색을 내기 위해), 새우, 돼지고기 삼겹살, 파인애플 뿌리, 파.</p>
