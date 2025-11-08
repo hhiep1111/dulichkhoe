@@ -268,7 +268,7 @@ content = {
 				 </ul>
 			 """}, 
 			{    "id": "goicatrich",
-             "title": "Hủ Tiếu Mỹ Tho",
+             "title": "Gỏi Cá Trích - Kiên Giang",
              "img": "/static/images/goicatrich.jpg",
              "short": "Gỏi cá trích Phú Quốc từng được Hiệp hội Du lịch Việt Nam bình chọn là một trong 50 món đặc sản nổi tiếng của Việt Nam.",
              "desc": """
