@@ -468,6 +468,80 @@ content = {
                                           "Light jacket for sun protection", "Light cardigan or jacket", "Scarf",
                                           "Inflatable beach toys", "Beach toys & games"]},
         ], 
+			"food_list": [
+			{ "id": "banhcong",
+			"title": "Banh Cong Soc Trang",
+			"img": "/static/images/banhcong.jpg",
+			"short": "Banh Cong Dai Tam is a golden yellow cake, fragrant with the smell of rice flour and shrimp, the green bean filling is rich and fatty - a harmonious flavor, you can eat it forever without getting bored.",
+			"desc": """
+			<p>Banh Cong Dai Tam is a famous specialty of My Xuyen district, Soc Trang province, especially in Dai Tam commune - where many Khmer people live.</p>
+			<p>The cake is named after the place "Dai Tam", where the traditional cake making profession has existed for more than half a century.</p>
+			<p>"Cong" is a cylindrical tool (like a small cup) - poured with flour and filling, then dipped in a pan of hot oil until golden brown.</p>
+			<p>📍 Suggested address meaning:</p>
+			<ul>
+				<li>Banh Cong Co Ut Dai Tam: Ap Dai Nghia, Dai Tam Commune, My Xuyen District, Soc Trang</li>
+				<li>Banh Cong Dai Tam – Quan Sau Dung: Commune Dai Tam, My Xuyen District</li>
+			</ul>
+			"""},
+			{ "id": "hutieu",
+			"title": "Hu Tieu My Tho",
+			"img": "/static/images/hutieu.jpg",
+			"short": "My Tho is famous for hu tieu - chewy noodles, sweet broth, often eaten for breakfast in the West.",
+			"desc": """
+			<p>Hu Tieu My Tho is a famous specialty dish of My Tho city, Tien Giang province, considered the culinary pride of the people here.</p>
+			<p>Hu Tieu noodles: made from Go Cat rice (a famous rice growing area of ​​My Tho). Small, chewy noodles, clear and fragrant with natural rice aroma - different different from other types of noodles.</p>
+			<p>Broth: simmered from pork bones, dried squid, dried shrimp for many hours, giving a sweet, clear taste, not too fatty.</p>
+			<p>📍 Suggested address:</p>
+			<ul>
+				<li>My Tho Chin Cua Noodles: 44 Nam Ky Khoi Nghia, Ward 1, My Tho City, Tien Giang</li>
+				<li>My Tho Huong Que Noodles: 63 Ap Bac, My Tho City</li>
+			</ul>
+			"""},
+			{ "id": "nemnuong",
+			"title": "Nem Nuong Can Tho",
+			"img": "/static/images/nemnuong.jpg",
+			"short": "Is a symbolic dish of Can Tho, once honored in the list of 100 typical Vietnamese culinary dishes of the Southern region.",
+			"desc": """
+			<p>Nem Nuong Can Tho is A famous specialty dish of the Western region, often mentioned with the same name as Nem Nuong Ninh Hoa (Khanh Hoa) or Nem Nuong Da Lat, but with a unique flavor, typical of the Southwest region.</p>
+			<p>Main ingredients: ground lean pork (usually mixed with a little fat to avoid dryness), mixed with garlic, onion, pepper, fish sauce, sugar, then grilled over hot coals until golden brown and fragrant.</p>
+			<p>Accompaniments: rice vermicelli, rice paper, fresh vermicelli, raw vegetables (lettuce, basil, perilla, fish mint), green banana, sour star fruit, pickles (carrots, pickled radishes).</p>
+			<p>The most special point: the thick dipping sauce (mixed from pork liver, soy sauce, ground peanuts, coconut milk, garlic and chopped chili) - fatty, fragrant, slightly sweet, typical of the West.</p>
+			<p>📍 Suggested address:</p>
+			<ul>
+				<li>Thanh Van Grilled Spring Rolls: 17 Hoa Binh Avenue, Tan An Ward, Ninh Kieu District, Can Tho</li>
+				<li>Cai Rang Grilled Spring Rolls: 45/3 Ly Tu Trong, An Cu Ward, Ninh Kieu District</li>
+			</ul>
+			"""},
+			{ "id": "banhxeo",
+			"title": "Banh Xeo Cu Hu Khom - Hau Giang",
+			"img": "/static/images/banhxeo.jpg",
+			"short": "Recognized as "A typical dish of Hau Giang province" in the program to establish 130 specialties of the Mekong Delta in 2022.",
+			"desc": """
+			<p>Banh Xeo Cu Hu Khom is a typical dish of Phung Hiep - Hau Giang region, famous for the largest pineapple growing area in the West.</p>
+			<p>Main ingredients: ground rice flour mixed with coconut milk, fresh turmeric (to create yellow color), shrimp, pork belly, pineapple root, green onion.</p>
+			<p>Pomelo root: crunchy, natural sweetness, not harsh, very "appetizing".</p>
+			<p>Dipping sauce: sweet and sour fish sauce mixed with garlic, chili, lemon - with various raw vegetables (herbs, young mango leaves, cassia leaves, fish mint...).</p>
+			<p>📍 Suggested address:</p>
+			<ul>		
+				<li>Ut Muoi Cu Hu Khom Banh Xeo Restaurant: Dong Binh Hamlet, Tan Binh Commune, Phung Hiep District, Hau Giang</li>
+				<li>Sau Xien Banh Xeo: Area 3, Ward 5, Vi Thanh City, Hau Giang Province</li>
+			</ul>
+			"""},
+			{ "id": "goicatrich",
+			"title": "Gỏi Cá Herring - Kien Giang",
+			"img": "/static/images/goicatrich.jpg",
+			"short": "Phu Quoc herring salad was once voted by the Vietnam Tourism Association as one of the 50 famous specialties of Vietnam.",
+			"desc": """
+			<p>Herring salad is a famous specialty dish of Kien Giang, especially popular on Phu Quoc Island - where there is a source of fresh seafood all year round.</p>
+			<p>Main ingredients: fresh herring (small, clear meat, less fishy smell), grated coconut, onion, chili, garlic, lemon, ginger, herbs, roasted peanuts.</p>
+			<p>Taste: mild sourness, fatty coconut, crunchy onion, spicy chili, and natural sweetness from fresh fish - all blend together to create a fresh, rich, "unforgettable" taste.</p>
+			<p>📍 Suggested address:</p>
+			<ul>
+				<li>Ra Khoi Restaurant: 131 30/4 Street, Duong Dong Town, Phu Quoc</li>
+				<li>Truong Duong Marina Restaurant: 136 30/4 Street, Duong Dong Town, Phu Quoc</li>
+			</ul>
+			"""}
+			],
 		"health_list": [
 			{"title": "Can Tho Central General Hospital",
 			"decs": """
@@ -653,8 +727,82 @@ content = {
                                           "슬리퍼", "샌들", "선글라스", "사롱", "모자 또는 캡",
                                           "햇빛 차단용 가벼운 재킷", "가벼운 가디건 또는 재킷", "스카프",
                                           "비치용 에어토이", "비치용 장난감 및 게임"]},
-        ],
-		"health_list": [
+        ], 
+		"food_list": [
+			{ "id": "banhcong",
+			"title": "반꽁속짱",
+			"img": "/static/images/banhcong.jpg",
+			"short": "반꽁다이땀은 쌀가루와 새우 향이 가득한 황금빛 케이크입니다. 풋콩 속은 풍부하고 기름진 맛이 조화롭게 어우러져 질리지 않고 계속 먹을 수 있습니다.",
+			"desc": """
+			<p>반꽁다이땀은 속짱성 미쑤옌현, 특히 다이땀 마을의 유명한 특산품으로, 많은 크메르족이 거주합니다.</p>
+			<p>이 케이크는 반세기 이상 전통 케이크 제조가 이어져 온 "다이땀" 지역의 이름을 따서 명명되었습니다.</p>
+			<p>"콩"은 작은 컵처럼 생긴 원통형 도구로, 밀가루와 속을 채워 팬에 담가 굽습니다. 뜨거운 기름에 황금빛 갈색이 될 때까지 볶습니다.</p>
+			<p>📍 추천 주소 의미:</p>
+			<ul>
+				<li>반꽁꼬웃다이땀: 속짱, 미쑤옌군, 다이땀사(Ap Dai Nghia), 압다이응이아</li>
+				<li>반꽁다이땀 - 꽌사우중: 미쑤옌군, 다이땀사(Comune Dai Tam), 미쑤옌군</li>
+			</ul>
+			"""},
+			{ "id": "hutieu",
+			"title": "후띠에우미토",
+			"img": "/static/images/hutieu.jpg",
+			"short": "미토는 후띠에우(hu tieu)로 유명합니다. 후띠에우란 쫄깃한 국수와 달콤한 국물로, 서양에서는 아침 식사로 자주 먹습니다.",
+			"desc": """
+			<p>후띠에우미토는 띠엔장성, 미토시의 유명한 특선 요리로, 지역 주민들의 미식 자부심으로 여겨집니다. 여기.</p>
+			<p>후띠에우 국수: 미토의 유명한 쌀 생산지인 고깟 쌀로 만듭니다. 작고 쫄깃한 면발에 쌀 고유의 향이 은은하게 풍겨 나와 다른 종류의 국수와는 차별화됩니다.</p>
+			<p>육수: 돼지뼈, 마른 오징어, 마른 새우를 오랜 시간 끓여 달콤하고 맑은 맛을 내며, 너무 짜지 않습니다.</p>
+			<p>📍 추천 주소:</p>
+			<ul>
+				<li>미토 친꾸아 국수: 띠엔장성 미토시 1구 남끼코이응이아 44번지</li>
+				<li>미토 흐엉꾸에 국수: 미토시 압박 63번지</li>
+			</ul>
+			"""},
+			{ "id": "nemnuong",
+			"title": "넴느엉깐토",
+			"img": "/static/images/nemnuong.jpg",
+			"short": "베트남 남부 100대 요리에 선정된 적이 있는 깐토의 상징적인 음식입니다.",
+			"desc": """
+			<p>넴 느엉 깐토는 서부 지역의 유명한 특선 요리로, 넴 느엉 닌호아(칸 호아) 또는 넴 느엉 달랏과 같은 이름으로 자주 언급되지만, 남서부 지역의 독특한 풍미를 자랑합니다.</p>
+			<p>주재료: 다진 살코기(보통 건조함을 방지하기 위해 약간의 지방을 섞음)에 마늘, 양파, 후추, 피시 소스, 설탕을 넣고 뜨거운 숯불에 노릇노릇하고 향긋해질 때까지 굽습니다.</p>
+			<p>곁들임: 쌀국수, 쌀 종이, 생국수, 생채소(상추, 바질, 들깨, 피시 민트), 풋바나나, 신맛이 나는 스타프루트, 피클(당근, 절인 무).</p>
+			<p>가장 특별한 포인트: 돼지 간, 간장, 땅콩 가루, 코코넛 밀크, 마늘, 다진 고추를 섞어 만든 진한 디핑 소스는 기름지고 향긋하며 은은한 단맛이 나는 서양식 맛입니다.</p>
+			<p>📍 추천 주소:</p>
+			<ul>
+				<li>탄반 구이 스프링롤: 깐토 닌끼우 군 떤안 구 호아빈 거리 17번지</li>
+				<li>까이랑 구이 스프링롤: 닌끼우 군 안꾸 구 리뚜쫑 45/3번지</li>
+			</ul>
+			"""},
+			{ "id": "banhxeo",
+			"title": "하우장 반쎄오 꾸후콤 - 하우장",
+			"img": "/static/images/banhxeo.jpg",
+			"short": "하우장의 대표적인 요리로 알려져 있습니다. "2022년 메콩 삼각주 130개 특산품 개발 프로그램"에 "장성"이 선정되었습니다."
+			"desc": """
+			<p>반쎄오 꾸후콤(Banh Xeo Cu Hu Khom)은 서부 최대 파인애플 재배지로 유명한 풍히엡-하우장 지역의 대표적인 요리입니다.</p>
+			<p>주재료: 코코넛 밀크를 섞은 쌀가루, 신선한 강황(노란색을 내기 위해), 새우, 돼지고기 삼겹살, 파인애플 뿌리, 파.</p>
+			<p>포멜로 뿌리: 아삭하고 자연스러운 단맛으로 자극적이지 않아 매우 "맛있습니다".</p>
+			<p>소스: 마늘, 고추, 레몬을 섞은 새콤달콤한 생선 소스와 다양한 생야채(허브, 어린 망고 잎, 계피 잎, 피시 민트 등)를 곁들임.</p>
+			<p>📍 추천 주소:</p>
+			<ul>
+				<li>웃 무오이 꾸후콤 반쎄오 레스토랑: 동빈 마을 하우장성 풍히엡군 떤빈마을</li>
+				<li>사우시엔반쎄오: 하우장성 비탄시 5동 3구역</li>
+			</ul>
+			"""},
+			{ "id": "goicatrich",
+			"title": "끼엔장성 고이까 청어",
+			"img": "/static/images/goicatrich.jpg",
+			"short": "푸꾸옥 청어 샐러드는 베트남 관광협회에서 베트남 50대 특산품 중 하나로 선정한 적이 있습니다.",
+			"desc": """
+			<p>청어 샐러드는 끼엔장의 유명한 특산 요리로, 특히 일년 내내 신선한 해산물을 맛볼 수 있는 푸꾸옥 섬에서 인기가 높습니다.</p>
+			<p>주요 재료: 신선한 청어(작고 살이 투명하며 비린내가 적음), 코코넛 가루, 양파, 고추, 마늘, 레몬 생강, 허브, 구운 땅콩.</p>
+			<p>맛: 은은한 신맛, 탱글탱글한 코코넛, 아삭한 양파, 매콤한 고추, 그리고 신선한 생선의 자연스러운 단맛이 어우러져 신선하고 풍부하며 "잊을 수 없는" 맛을 선사합니다.</p>
+			<p>📍 추천 주소:</p>
+			<ul>
+				<li>라 코이 레스토랑: 푸꾸옥 즈엉 동 타운, 30/4번가 131번지</li>
+				<li>트엉 즈엉 마리나 레스토랑: 푸꾸옥 즈엉 동 타운, 30/4번가 136번지</li>
+			</ul>
+			"""}
+			],
+			"health_list": [
 			{"title": "Can Tho 중앙 종합병원",
 			"decs": """
 			<p>아니요. 315 Nguyen Van Linh, An Khanh Ward, Ninh Kieu District, Can Tho City</p>
