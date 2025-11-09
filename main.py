@@ -347,7 +347,7 @@ content = {
 		]
     },
     "en": {
-        "title": "Healthy Travel - Mekong Delta",
+        "title": "Travel Healing - Mekong Delta",
         "intro": "Explore Southern Vietnam: rivers, cuisine, and unique culture.",
         "menu": {"home": "Home", "about": "About", "tips": "Tips", "checklist": "Check-list", "lang": "Language", "food": "Cuisine", "health": "Medical Support"},
         "about": [
@@ -607,7 +607,7 @@ content = {
 		]
     },
     "kr": {
-        "title": "건강한 여행 - 메콩 델타",
+        "title": "Travel Healing - Mekong Delta",
         "intro": "남부 베트남 탐험: 강, 음식, 독특한 문화.",
         "menu": {"home": "홈", "about": "소개", "tips": "유의사항", "checklist": "체크리스트", "lang": "언어", "food": "음식", "health": "의료 지원"},
         "about": [
