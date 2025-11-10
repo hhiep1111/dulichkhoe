@@ -401,7 +401,7 @@ content = {
             {"name": "Ca Mau", "img": "muicamau.jpg",
              "desc": "Ca Mau is the southernmost province of Vietnam, bordering the sea on three sides, famous for its mangrove ecosystem, lagoons, small islands and the sacred southernmost point of the country. Unspoiled nature, river culture and rich cuisine are the attractions of Ca Mau tourism"},
             {"name": "Vinh Long", "img": "vinhlong.jpg",
-             "desc": "texttttttttttttttttttttttttttttt"},
+             "desc": "Vinh Long is located between the Tien and Hau rivers, the center of the Mekong Delta. This place stands out with its intricate canal system, fruit-laden orchards, and peaceful garden space."},
             {"name": "Dong Thap", "img": "dongthap.jpg",
              "desc": "Dong Thap is famous for lotus, Sa Dec flower village, Oc Eo Go Thap relic, and green, sustainable community tourism model."}
         ],
@@ -661,7 +661,7 @@ content = {
             {"name": "Ca Mau", "img": "muicamau.jpg",
              "desc": "까마우는 베트남 최남단 성으로, 삼면이 바다에 접해 있으며, 맹그로브 생태계, 석호, 작은 섬들, 그리고 베트남 최남단의 성지로 유명합니다. 훼손되지 않은 자연, 강 문화, 그리고 풍부한 음식은 까마우 관광의 매력입니다."},
             {"name": "Vinh Long", "img": "vinhlong.jpg",
-             "desc": "texttttttttttttttttttttttttttttttt"},
+             "desc": "빈롱은 티엔 강과 허우 강 사이에 위치하며, 메콩 삼각주의 중심지입니다. 이곳은 정교한 운하 시스템, 과일이 가득한 과수원, 그리고 평화로운 정원으로 유명합니다."},
             {"name": "Dong Thap", "img": "dongthap.jpg",
              "desc": "동탑은 연꽃, 사덱 꽃 마을, 옥 에오 고탑 유적, 그리고 친환경적이고 지속 가능한 지역 사회 관광 모델로 유명합니다."}
         ],
