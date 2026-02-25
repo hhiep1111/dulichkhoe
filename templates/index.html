@@ -510,6 +510,34 @@
         </div>
         {% endfor %}
     </div>
+{% elif page == "search" %}
+    <h2>
+        {{ "Kết quả tìm kiếm cho:" if lang=="vi" 
+           else ("Search results for:" if lang=="en" else "검색 결과:") }}
+        "{{ query }}"
+    </h2>
+
+    {% if results %}
+        {% for p in results %}
+        <div class="card">
+            <img src="/static/images/{{ p.img }}" alt="{{ p.name }}">
+            <div class="card-content">
+                <h2>{{ p.name }}</h2>
+                <p>{{ p.desc }}</p>
+                <div style="text-align: right; margin-top: 10px;">
+                    <a href="/place/{{ p.name }}?lang={{ lang }}"
+                       style="background:#EDC3D6; color:black; padding:8px 14px; border-radius:6px; text-decoration:none;">
+                       {{ "Chi tiết địa điểm" if lang=="vi" else ("View details" if lang=="en" else "자세히 보기") }}
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>
+            {{ "Không tìm thấy kết quả phù hợp." if lang=="vi"
+               else ("No results found." if lang=="en" else "검색 결과가 없습니다.") }}
+        </p>
     
     {% endif %}
 </section>  
