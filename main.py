@@ -2245,13 +2245,16 @@ async def search(request: Request, q: str = "", lang: str = "vi"):
                 results.append(place)
 
     return templates.TemplateResponse(
-        "search.html",
+        "index.html",
         {
             "request": request,
+            "data": data,
             "lang": lang,
-            "query": q,
             "results": results,
-            "data": data
+            "query": q,
+            "comments": [],
+            "is_admin": False,
+            "page": "search",
         }
     )
 # ---------------- COMMENT ----------------
