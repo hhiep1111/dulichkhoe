@@ -2233,7 +2233,7 @@ async def health(request: Request, lang: str = "vi"):
             "comments": comments,
             "is_admin": False,
         })
-----------search------------
+#----------search------------
 @app.get("/search", response_class=HTMLResponse)
 async def search(request: Request, q: str = "", lang: str = "vi"):
     data = content.get(lang, content["vi"])
