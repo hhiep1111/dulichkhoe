@@ -2233,6 +2233,28 @@ async def health(request: Request, lang: str = "vi"):
             "comments": comments,
             "is_admin": False,
         })
+----------search------------
+@app.get("/search", response_class=HTMLResponse)
+async def search(request: Request, q: str = "", lang: str = "vi"):
+    data = content.get(lang, content["vi"])
+    results = []
+
+    if q:
+        keyword = q.lower()
+        for place in data.get("places", []):
+            if keyword in place["name"].lower() or keyword in place.get("desc", "").lower():
+                results.append(place)
+
+    return templates.TemplateResponse(
+        "search.html",
+        {
+            "request": request,
+            "lang": lang,
+            "query": q,
+            "results": results,
+            "data": data
+        }
+    )
 # ---------------- COMMENT ----------------
 @app.post("/comment")
 async def comment(
