@@ -870,6 +870,10 @@ place_details_data = {
     "vi": {
         "Can Tho": [
         {   "title": "Bến Ninh Kiều – Biểu Tượng Thành Phố", 
+            "slug": "ben-ninh-kieu",
+            "lat": 10.035,
+            "lng": 105.788,
+            "img": "benninhkieu.jpg",
             "desc": """
             <p>Biểu tượng của Cần Thơ bên dòng sông Hậu hiền hòa, là nơi tản bộ, ngắm cảnh và chụp ảnh tuyệt đẹp.</p>
             <img src="/static/images/benninhkieu.jpg" class="detail-img" alt="Toàn cảnh bến Ninh Kiều">
@@ -2511,3 +2515,32 @@ async def place_detail(request: Request, name: str, lang: str = "vi"):
             "page": "place_detail"
         },
     )
+-----------------------------------------------------
+map_places = []
+
+for province in place_details_data["vi"]:
+    for p in place_details_data["vi"][province]:
+        map_places.append({
+            "title": p["title"],
+            "slug": p["slug"],
+            "lat": p["lat"],
+            "lng": p["lng"],
+            "img": p["img"]
+        })
+@app.get("/place/{slug}")
+async def place_detail(request: Request, slug: str, lang: str="vi"):
+
+    for province in place_details_data[lang]:
+        for p in place_details_data[lang][province]:
+            if p["slug"] == slug:
+                return templates.TemplateResponse(
+                    "place_detail.html",
+                    {
+                        "request": request,
+                        "place": p,
+                        "lang": lang
+                    }
+				)
+
+
+
