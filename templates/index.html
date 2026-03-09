@@ -336,7 +336,13 @@
         .search-box button:hover {
         opacity: 0.8;
         }
-        
+        #mekong-map {
+           width: 100%;
+           height: 500px;
+           margin-top: 30px;
+           border-radius: 10px;
+        }
+  
     </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KYB7Z8Y0DW"></script>
@@ -421,6 +427,13 @@
             </div>
         </div>
         {% endfor %}
+       <h2 style="text-align:center;margin-top:40px;">
+       🗺️ {{ "Bản đồ du lịch Đồng bằng sông Cửu Long" if lang=="vi"
+       else ("Mekong Delta Travel Map" if lang=="en" else "메콩 델타 지도") }}
+      </h2>
+
+       <div id="mekong-map"></div>
+
     
     {% elif page == "about" %}
     <h2>{{ "Giới thiệu" if lang=="vi" else ("About Me" if lang=="en" else "소개") }}</h2>
@@ -623,5 +636,53 @@
             <a href="/?lang=kr">KR</a>
         </p>
     </footer>
+
+<script>
+function initMap() {
+    const center = { lat: 10.2, lng: 105.7 };
+    const map = new google.maps.Map(document.getElementById("mekong-map"), {
+        zoom: 7,
+        center: center,
+    });
+    const locations = [
+
+        {name:"Bến Ninh Kiều", lat:10.0343, lng:105.7870},
+        {name:"Chợ nổi Cái Răng", lat:10.0359, lng:105.7885},
+        {name:"Chùa Dơi", lat:9.6037, lng:105.9739},
+        {name:"Lung Ngọc Hoàng", lat:9.9125, lng:105.7600},
+        {name:"Núi Cấm", lat:10.5200, lng:105.2000},
+        {name:"Rừng tràm Trà Sư", lat:10.4823, lng:105.0724},
+        {name:"Hà Tiên", lat:10.3833, lng:104.4833},
+        {name:"Phú Quốc", lat:10.2899, lng:103.9840},
+        {name:"Mũi Cà Mau", lat:8.6000, lng:104.7167},
+        {name:"U Minh Hạ", lat:9.3000, lng:104.9000},
+        {name:"Quan Âm Phật Đài", lat:9.2941, lng:105.7222},
+        {name:"Nhà cổ Cai Cường", lat:10.3500, lng:106.3500},
+        {name:"Văn Thánh Miếu Vĩnh Long", lat:10.2530, lng:105.9720},
+        {name:"Chùa Âng", lat:9.9347, lng:106.3450},
+        {name:"Khu di tích Đồng Khởi", lat:10.2333, lng:106.3750},
+        {name:"Đồng Sen Tháp Mười", lat:10.5500, lng:105.7500},
+        {name:"Làng hoa Sa Đéc", lat:10.3000, lng:105.7600},
+        {name:"Cù lao Thới Sơn", lat:10.3600, lng:106.3200},
+        {name:"Chùa Vĩnh Tràng", lat:10.3450, lng:106.3600}
+    ];
+    locations.forEach(loc => {
+        const marker = new google.maps.Marker({
+            position: {lat:loc.lat, lng:loc.lng},
+            map: map,
+            title: loc.name
+        });
+        const info = new google.maps.InfoWindow({
+            content: "<h3>"+loc.name+"</h3>"
+        });
+        marker.addListener("click", () => {
+            info.open(map, marker);
+        });
+    });
+}
+<script async
+src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+</script>
+
 </body>
 </html>
