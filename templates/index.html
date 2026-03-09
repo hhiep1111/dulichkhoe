@@ -640,6 +640,9 @@ var map = L.map('map').setView([10.1,105.8],7);
 
 L.tileLayer(
 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+{
+    attribution: '&copy; OpenStreetMap contributors'
+}
 ).addTo(map);
 
 var places = {{ map_places | tojson }};
@@ -649,12 +652,12 @@ places.forEach(function(p){
 var popup = `
 <b>${p.title}</b><br>
 <img src="/static/images/${p.img}" style="width:200px"><br>
-<a href="/place/${p.slug}?lang={{lang}}">
+<a href="/place/${p.slug}?lang={{ lang }}">
 Chi tiết địa điểm
 </a>
 `;
 
-L.marker([p.lat,p.lng])
+L.marker([p.lat, p.lng])
 .addTo(map)
 .bindPopup(popup);
 
