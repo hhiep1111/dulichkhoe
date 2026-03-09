@@ -871,8 +871,8 @@ place_details_data = {
         "Can Tho": [
         {   "title": "Bến Ninh Kiều – Biểu Tượng Thành Phố", 
             "slug": "ben-ninh-kieu",
-            "lat": "10.035",
-            "lng": "105.788",
+            "lat": 10.035,
+            "lng": 105.788,
             "img": "benninhkieu.jpg",
             "desc": """
             <p>Biểu tượng của Cần Thơ bên dòng sông Hậu hiền hòa, là nơi tản bộ, ngắm cảnh và chụp ảnh tuyệt đẹp.</p>
@@ -2102,7 +2102,9 @@ place_details_data = {
 # ---------------- HOME ----------------
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request, lang: str = "vi"):
+
     data = content.get(lang, content["vi"])
+
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
     c.execute("SELECT id, name, email, comment, img, token, status FROM comments WHERE status='active'")
@@ -2110,7 +2112,8 @@ async def home(request: Request, lang: str = "vi"):
     conn.close()
 
     comments = [dict_from_row(r) for r in rows]
-# thêm dữ liệu map
+
+    # thêm dữ liệu map
     map_places = []
 
     for province in place_details_data["vi"]:
@@ -2123,6 +2126,7 @@ async def home(request: Request, lang: str = "vi"):
                 "img": p.get("img",""),
                 "province": province
             })
+
     return templates.TemplateResponse(
         "index.html",
         {
@@ -2130,11 +2134,11 @@ async def home(request: Request, lang: str = "vi"):
             "data": data,
             "lang": lang,
             "comments": comments,
-            "is_admin": False,  # mặc định khách
+            "is_admin": False,
             "page": "home",
             "map_places": map_places,
         },
-    )
+	)
 # About page
 @app.get("/about", response_class=HTMLResponse)
 async def about(request: Request, lang: str = "vi"):
