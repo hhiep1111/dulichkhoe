@@ -336,13 +336,11 @@
         .search-box button:hover {
         opacity: 0.8;
         }
-        #mekong-map {
-           width: 100%;
-           height: 500px;
-           margin-top: 30px;
-           border-radius: 10px;
-        }
-  
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+       #map{
+         height:600px;
+         width:100%;
+       }  
     </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KYB7Z8Y0DW"></script>
@@ -427,14 +425,7 @@
             </div>
         </div>
         {% endfor %}
-       <h2 style="text-align:center;margin-top:40px;">
-       🗺️ {{ "Bản đồ du lịch Đồng bằng sông Cửu Long" if lang=="vi"
-       else ("Mekong Delta Travel Map" if lang=="en" else "메콩 델타 지도") }}
-      </h2>
-
-       <div id="mekong-map"></div>
-
-    
+    <div id="map"></div>
     {% elif page == "about" %}
     <h2>{{ "Giới thiệu" if lang=="vi" else ("About Me" if lang=="en" else "소개") }}</h2>
 
@@ -637,51 +628,48 @@
         </p>
     </footer>
 
-<script>
-function initMap() {
-    const center = { lat: 10.2, lng: 105.7 };
-    const map = new google.maps.Map(document.getElementById("mekong-map"), {
-        zoom: 7,
-        center: center,
-    });
-    const locations = [
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-        {name:"Bến Ninh Kiều", lat:10.0343, lng:105.7870},
-        {name:"Chợ nổi Cái Răng", lat:10.0359, lng:105.7885},
-        {name:"Chùa Dơi", lat:9.6037, lng:105.9739},
-        {name:"Lung Ngọc Hoàng", lat:9.9125, lng:105.7600},
-        {name:"Núi Cấm", lat:10.5200, lng:105.2000},
-        {name:"Rừng tràm Trà Sư", lat:10.4823, lng:105.0724},
-        {name:"Hà Tiên", lat:10.3833, lng:104.4833},
-        {name:"Phú Quốc", lat:10.2899, lng:103.9840},
-        {name:"Mũi Cà Mau", lat:8.6000, lng:104.7167},
-        {name:"U Minh Hạ", lat:9.3000, lng:104.9000},
-        {name:"Quan Âm Phật Đài", lat:9.2941, lng:105.7222},
-        {name:"Nhà cổ Cai Cường", lat:10.3500, lng:106.3500},
-        {name:"Văn Thánh Miếu Vĩnh Long", lat:10.2530, lng:105.9720},
-        {name:"Chùa Âng", lat:9.9347, lng:106.3450},
-        {name:"Khu di tích Đồng Khởi", lat:10.2333, lng:106.3750},
-        {name:"Đồng Sen Tháp Mười", lat:10.5500, lng:105.7500},
-        {name:"Làng hoa Sa Đéc", lat:10.3000, lng:105.7600},
-        {name:"Cù lao Thới Sơn", lat:10.3600, lng:106.3200},
-        {name:"Chùa Vĩnh Tràng", lat:10.3450, lng:106.3600}
-    ];
-    locations.forEach(loc => {
-        const marker = new google.maps.Marker({
-            position: {lat:loc.lat, lng:loc.lng},
-            map: map,
-            title: loc.name
-        });
-        const info = new google.maps.InfoWindow({
-            content: "<h3>"+loc.name+"</h3>"
-        });
-        marker.addListener("click", () => {
-            info.open(map, marker);
-        });
-    });
+<script>
+
+var map = L.map('map').setView([10.2,105.9],7);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+attribution:'© OpenStreetMap'
+}).addTo(map);
+
+var locations = [
+
+["Bến Ninh Kiều",10.035,105.788],
+["Chợ nổi Cái Răng",10.012,105.742],
+["Chùa Dơi",9.603,105.973],
+["Khu bảo tồn thiên nhiên Lung Ngọc Hoàng",9.762,105.650],
+["Núi Cấm",10.525,104.983],
+["Rừng Tràm Trà Sư",10.245,105.091],
+["Hà Tiên",10.383,104.487],
+["Phú Quốc",10.289,103.984],
+["Mũi Cà Mau",8.633,104.723],
+["Rừng ngập mặn U Minh Hạ",9.348,104.882],
+["Quan Âm Phật Đài",9.229,105.719],
+["Nhà cổ Cai Cường",10.277,105.961],
+["Văn Thánh Miếu Vĩnh Long",10.254,105.972],
+["Chùa Âng",9.935,106.334],
+["Khu di tích Đồng Khởi",10.242,106.373],
+["Đồng Sen Tháp Mười",10.543,105.833],
+["Làng hoa Sa Đéc",10.290,105.755],
+["Cù Lao Thái Sơn",10.342,106.348],
+["Chùa Vĩnh Tràng",10.361,106.353]
+
+];
+
+for (var i = 0; i < locations.length; i++) {
+
+L.marker([locations[i][1], locations[i][2]])
+.addTo(map)
+.bindPopup(locations[i][0]);
+
 }
-<script async
-src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+
 </script>
 
 </body>
