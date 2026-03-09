@@ -2182,7 +2182,7 @@ for province in place_details_data["vi"]:
                 "slug": p.get("slug",""),
                 "lat": p["lat"],
                 "lng": p["lng"],
-                "img": p.get("img",""),
+                "map_img": p.get("map_img",""),
                 "province": province
             })
 
