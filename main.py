@@ -893,6 +893,10 @@ place_details_data = {
             </ul>
             """},
         {   "title": "Chợ nổi Cái Răng – Biểu tượng miền Tây", 
+            "slug": "cho-cai-",
+            "lat": 10.012,
+            "lng": 105.742,
+            "img": "chocairang.jpg",
             "desc": """ 
             <p>Một trong những chợ nổi lớn nhất miền Tây, sôi động từ tờ mờ sáng, chuyên bán trái cây và đặc sản miền sông nước.</p>
             <p>Điểm nổi bật:</p>
@@ -910,6 +914,10 @@ place_details_data = {
             </ul>
             """},
             {   "title": "Chùa Dơi – Ngôi chùa Khmer độc đáo (Sóc Trăng cũ)", 
+                "slug": "chua-doi",
+                "lat": 9.603,
+                "lng": 105.973,
+                "img": "chuadoi.jpg",
                 "desc": """ 
                 <p>Ngôi chùa Khmer cổ kính hơn 400 năm, nổi tiếng với hàng ngàn con dơi treo mình trên những tán cây trong khuôn viên.</p>
                 <p>📍Vị trí: Phường 3, TP. Sóc Trăng, cách trung tâm khoảng 2 km.</p>
@@ -933,6 +941,10 @@ place_details_data = {
                 </ul>
                 """},
             {   "title": "Khu bảo tồn thiên nhiên Lung Ngọc Hoàng (Hậu Giang cũ)", 
+                "slug": "ben-ninh-kieu",
+                "lat": 10.035,
+                "lng": 105.788,
+                "img": "benninhkieu.jpg",
                 "desc": """ 
                 <p>Lung Ngọc Hoàng được xem là “lá phổi xanh” của miền Tây, sở hữu hệ sinh thái rừng ngập nước phong phú với kênh rạch dày đặc, thảm thực vật rậm tạp, không gian hoang sơ, mát lành, rất thích hợp cho du lịch sinh thái, đi xuồng khám phá rừng, ngắm chim và chụp ảnh cảnh rừng – sông tự nhiên.</p>
                 <p>📍Vị trí: Thuộc huyện Phụng Hiệp, tỉnh Hậu Giang.</p>
@@ -952,6 +964,10 @@ place_details_data = {
          ],
         "Ca Mau": [
             {   "title": "Mũi Cà Mau – Cột mốc cực Nam", 
+                "slug": "ben-ninh-kieu",
+                "lat": 10.035,
+                "lng": 105.788,
+                "img": "benninhkieu.jpg",
                 "desc": """ 
                 <p>Mũi Cà Mau là điểm cực Nam của Tổ quốc, nơi dải đất Việt Nam vươn ra biển lớn. Đến đây, bạn có thể check-in tại cột mốc GPS 0001, biểu tượng con thuyền và ngắm khung cảnh rừng ngập mặn – biển trời mênh mông.</p>
                 <p>📍Vị trí: Mũi Cà Mau nằm ở xã Đất Mũi, huyện Ngọc Hiển, tỉnh Cà Mau, thuộc cực Nam đất liền của Việt Nam.</p>
@@ -971,6 +987,10 @@ place_details_data = {
                 </ul>
                 """},
             {   "title": "Rừng ngập mặn U Minh Hạ", 
+                "slug": "ben-ninh-kieu",
+                "lat": 10.035,
+                "lng": 105.788,
+                "img": "benninhkieu.jpg",
                 "desc": """ 
                 <p>Rừng U Minh Hạ là hệ sinh thái rừng tràm – ngập mặn đặc trưng miền Tây, được ví như “lá phổi xanh” của Cà Mau. Không gian hoang sơ với kênh rạch chằng chịt, thảm thực vật dày đặc và nhiều loài chim thú quý hiếm.</p>
                 <p>📍Vị trí: Vườn Quốc gia U Minh Hạ nằm ở tỉnh Cà Mau, thuộc vùng rừng ngập mặn – rừng tràm.</p>
@@ -990,6 +1010,10 @@ place_details_data = {
                 </ul>
                 """},
             {"title": "Quan Âm Phật Đài (Mẹ Nam Hải)", 
+                "slug": "ben-ninh-kieu",
+                "lat": 10.035,
+                "lng": 105.788,
+                "img": "benninhkieu.jpg",
                 "desc": """ 
                 <p>Quan Âm Phật Đài (còn gọi là “Mẹ Nam Hải”) là một quần thể tâm linh lớn nằm ở ven biển tỉnh Bạc Liêu – miền Tây Nam Bộ. Đây không chỉ là nơi thờ tự của tín đồ Phật giáo mà còn là điểm đến du lịch tâm linh nổi bật với biểu tượng tượng Quán Thế Âm Bồ Tát hướng ra biển, mang ý nghĩa che chở và ban bình an cho người dân biển.</p>
                 <p>📍Vị trí: hóm Bờ Tây, phường Nhà Mát, thành phố Bạc Liêu, tỉnh Bạc Liêu. Nằm cách trung tâm thành phố Bạc Liêu khoảng 8 km về phía hướng ra biển.</p>
@@ -1015,6 +1039,10 @@ place_details_data = {
         ],
         "Vinh Long": [
 			{   "title": "Nhà cổ Cai Cường – di tích kiến trúc kiểu Pháp", 
+                "slug": "ben-ninh-kieu",
+                "lat": 10.035,
+                "lng": 105.788,
+                "img": "benninhkieu.jpg",
                 "desc": """ 
                 <p>Nhà cổ Cai Cường là một trong những công trình kiến trúc cổ tiêu biểu ở miền Tây Nam Bộ, tọa lạc trên cù lao An Bình – vùng đất nổi tiếng với vẻ đẹp miệt vườn sông nước.</p>
                 <p>📍Vị trí: Số 38, ấp Bình Hòa, xã Bình Hòa Phước, huyện Long Hồ, tỉnh Vĩnh Long.</p>
@@ -1040,6 +1068,10 @@ place_details_data = {
                 </ul>
                 """},
 			{   "title": "Văn Thánh Miếu Vĩnh Long", 
+                "slug": "ben-ninh-kieu",
+                "lat": 10.035,
+                "lng": 105.788,
+                "img": "benninhkieu.jpg",
                 "desc": """ 
                 <p>Văn Thánh Miếu Vĩnh Long được xem là “Quốc Tử Giám của Nam Bộ”. Đây là nơi thờ Khổng Tử và các bậc hiền triết Nho giáo, đồng thời là trung tâm giáo dục và sinh hoạt văn hóa của người dân Nam Kỳ xưa.</p>
                 <p>📍Vị trí: Tọa lạc tại đường Trần Phú, phường 4, thành phố Vĩnh Long, tỉnh Vĩnh Long.</p>
@@ -1065,6 +1097,10 @@ place_details_data = {
                 </ul>
                 """},
             {   "title": "Chùa Âng: Angkorajaborey (Trà Vinh cũ)", 
+                "slug": "ben-ninh-kieu",
+                "lat": 10.035,
+                "lng": 105.788,
+                "img": "benninhkieu.jpg",
                 "desc": """ 
                 <p>Chùa Âng là một trong những ngôi chùa Khmer cổ kính và nổi tiếng nhất Trà Vinh, nằm cạnh Ao Bà Om. Ngôi chùa mang đậm kiến trúc Khmer Nam Bộ với các mái cong nhiều lớp, cột trụ chạm khắc tinh xảo và tông vàng nổi bật.</p>
                 <p>📍Vị trí: Thuộc khóm 4, phường 8, thành phố Trà Vinh, tỉnh Trà Vinh.</p>
@@ -1088,7 +1124,11 @@ place_details_data = {
                     <li>Nếu muốn tìm hiểu sâu về văn hóa Khmer, hỏi hướng dẫn địa phương hoặc xem thông tin trước.</li>
                 </ul>
                 """}, 
-			{		"title": "Khu di tích Đồng Khởi (Bến Tre)", 
+			{	"title": "Khu di tích Đồng Khởi (Bến Tre)", 
+                "slug": "ben-ninh-kieu",
+                "lat": 10.035,
+                "lng": 105.788,
+                "img": "benninhkieu.jpg",
                 "desc": """ 
                 <p>Khu di tích Đồng Khởi tại Bến Tre là nơi ghi dấu phong trào Đồng Khởi lịch sử năm 1960, biểu tượng cho tinh thần bất khuất, kiên cường của người dân miền Nam trong công cuộc đấu tranh giành độc lập dân tộc. Khu di tích không chỉ có giá trị lịch sử to lớn mà còn là điểm đến giáo dục truyền thống cách mạng cho các thế hệ hôm nay.</p>
                 <p>📍Vị trí: Xã Định Thủy, huyện Mỏ Cày Nam, tỉnh Bến Tre.</p>
@@ -1109,6 +1149,10 @@ place_details_data = {
                 ],
         "Dong Thap": [
             {   "title": "Đồng Sen Tháp Mười", 
+                "slug": "ben-ninh-kieu",
+                "lat": 10.035,
+                "lng": 105.788,
+                "img": "benninhkieu.jpg", 
                 "desc": """ 
                 <p>Đồng Sen Tháp Mười là một trong những cánh đồng sen lớn và đẹp nhất miền Tây, nổi tiếng với không gian mênh mông hoa sen nở rộ, mang đậm nét mộc mạc, thanh bình của vùng Đồng Tháp Mười.</p>
                 <p>📍Vị trí: Xã Mỹ Hòa, huyện Tháp Mười, tỉnh Đồng Tháp. Cách TP. Cao Lãnh khoảng 40km</p>
@@ -1128,6 +1172,10 @@ place_details_data = {
                 </ul>
                 """},
         {		"title": "Làng Hoa Sa Đéc", 
+                "slug": "ben-ninh-kieu",
+                "lat": 10.035,
+                "lng": 105.788,
+                "img": "benninhkieu.jpg",
                 "desc": """ 
                 <p>Làng hoa Sa Đéc là “Thủ phủ hoa miền Tây”, nổi bật với hàng ngàn loài hoa kiểng được trồng trên giàn nổi độc đáo, là điểm du lịch văn hóa – sinh thái, chụp ảnh và mua hoa nổi tiếng quanh năm.</p>
                 <p>📍Vị trí: Phường Tân Quy Đông, TP. Sa Đéc, Đồng Tháp. Cách Cao Lãnh khoảng 30km.</p>
@@ -1152,6 +1200,10 @@ place_details_data = {
                 </ul>
                 """},
 			{	"title": "Cù lao Thới Sơn (Cồn Lân)", 
+                "slug": "ben-ninh-kieu",
+                "lat": 10.035,
+                "lng": 105.788,
+                "img": "benninhkieu.jpg",
                 "desc": """ 
                 <p>Cù Lao Thới Sơn nằm giữa dòng sông Tiền hiền hòa, là điểm du lịch sinh thái nổi tiếng với vườn cây trái xanh tươi, những con rạch nhỏ len lỏi và hoạt động du lịch cộng đồng hấp dẫn như đi xuồng ba lá, nghe đờn ca tài tử, thưởng thức đặc sản miệt vườn.</p>
                 <p>📍Vị trí: Nằm giữa sông Tiền, Xã Thới Sơn, thành phố Mỹ Tho, tỉnh Tiền Giang.</p>
@@ -1170,6 +1222,10 @@ place_details_data = {
                 </ul>
                 """},
 			{		"title": "Chùa Vĩnh Tràng (Tiền Giang)", 
+                "slug": "ben-ninh-kieu",
+                "lat": 10.035,
+                "lng": 105.788,
+                "img": "benninhkieu.jpg",
                 "desc": """ 
                 <p>Chùa Vĩnh Tràng – ngôi chùa cổ kính và lớn nhất Tiền Giang – mang trong mình nét kiến trúc độc đáo giao hòa giữa Á và Âu. Với không gian thanh tịnh, vườn cây xanh mát cùng những tượng Phật uy nghi, chùa là điểm dừng chân lý tưởng cho những ai muốn tìm lại sự bình yên và chiêm ngưỡng tinh hoa nghệ thuật kiến trúc.</p>
                 <p>📍Vị trí: Số 66 Nguyễn Trung Trực, phường 8, thành phố Mỹ Tho.</p>
@@ -1190,6 +1246,10 @@ place_details_data = {
                 """}
         ], "An Giang": [
             {   "title": "Núi Cấm (Thiên Cấm Sơn) – “Nóc nhà miền Tây”", 
+                "slug": "ben-ninh-kieu",
+                "lat": 10.035,
+                "lng": 105.788,
+                "img": "benninhkieu.jpg",
                 "desc": """ 
                 <p>Đỉnh núi cao nhất nhất vùng Đồng bằng sông Cửu Long, khí hậu mát mẻ quanh năm,cảnh quan thiên nhiên khá đa dạng .Mang đậm yếu tố tâm linh, lịch sử và truyền thuyết, thường được ví như “nóc nhà miền Tây.</p>
                 <p>📍Vị trí: Xã An Hảo, huyện Tịnh Biên,tỉnh An Giang.</p>
@@ -1208,6 +1268,10 @@ place_details_data = {
                 </ul>
                 """},
 			{   "title": "Rừng Tràm Trà Sư – Thiên đường mùa nước nổi", 
+                "slug": "ben-ninh-kieu",
+                "lat": 10.035,
+                "lng": 105.788,
+                "img": "benninhkieu.jpg",
                 "desc": """ 
                 <p>Thiên đường xanh với bèo phủ mặt nước tuyệt đẹp nơi sống của hàng trăm loài chim quý.</p>
                 <p>📍Vị trí: Xã Văn Giáo, huyện Tịnh Biên, cách Châu Đốc khoảng 30 km.</p>
@@ -1226,6 +1290,10 @@ place_details_data = {
                 </ul>
                 """},
 			{   "title": "Phú Quốc – Đảo Ngọc", 
+                "slug": "ben-ninh-kieu",
+                "lat": 10.035,
+                "lng": 105.788,
+                "img": "benninhkieu.jpg",
                 "desc": """ 
                 <p>Thiên đường nghỉ dưỡng biển nổi tiếng với Bãi biển trong xanh, resort sang trọng, hải sản tươi ngon.</p>
                 <p>📍Vị trí: Phú Quốc là đảo lớn nhất Việt Nam, thuộc tỉnh Kiên Giang, nằm trong vịnh Thái Lan, gần biên giới Campuchia.</p>
@@ -1244,6 +1312,10 @@ place_details_data = {
 				</ul>
                 """}, 
 			{   "title": "Hà Tiên – Thơ mộng hữu tình", 
+                "slug": "ben-ninh-kieu",
+                "lat": 10.035,
+                "lng": 105.788,
+                "img": "benninhkieu.jpg",
                 "desc": """ 
                 <p>Không khí chậm rãi, yên bình hơn nhiều so với Phú Quốc – phù hợp với du khách muốn thư giãn hoặc khám phá cảnh đẹp tự nhiên và văn hóa địa phương.</p>
                 <p>📍Vị trí: Thị xã Hà Tiên, Tỉnh Kiên Giang cách TP Rạch Giá khoảng 100km.</p>
