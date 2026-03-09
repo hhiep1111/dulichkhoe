@@ -340,6 +340,23 @@
        #map{
          height:400px;
          width:100%;
+       }
+      #chatbox{
+         position:fixed;
+         bottom:20px;
+         right:20px;
+         width:320px;
+         background:white;
+         border-radius:10px;
+         box-shadow:0 0 10px rgba(0,0,0,0.2);
+         padding:10px;
+         font-size:14px;
+       }
+
+       #chat-messages{
+          height:200px;
+          overflow-y:auto;
+          margin-bottom:10px;
        }  
     </style>
     <!-- Google tag (gtag.js) -->
@@ -664,5 +681,38 @@ L.marker([p.lat, p.lng])
 });
 
 </script>
+
+<div id="chatbox">
+    <div id="chat-header">AI Travel Guide</div>
+
+    <div id="chat-messages"></div>
+
+    <input id="chat-input" placeholder="Hỏi về du lịch..." />
+    <button onclick="sendMessage()">Gửi</button>
+</div>
+<script>
+async function sendMessage(){
+
+let input = document.getElementById("chat-input").value;
+
+let res = await fetch("/chat",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({
+message:input,
+lang:"{{ lang }}"
+})
+});
+
+let data = await res.json();
+
+document.getElementById("chat-messages").innerHTML +=
+"<p><b>Bạn:</b> "+input+"</p>";
+
+document.getElementById("chat-messages").innerHTML +=
+"<p><b>AI:</b> "+data.reply+"</p>";
+}
+</script>
+
 </body>
 </html>
