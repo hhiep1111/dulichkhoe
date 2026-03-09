@@ -631,14 +631,17 @@
             <a href="/?lang=kr">KR</a>
         </p>
     </footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
 <script>
 
 var map = L.map('map').setView([10.1,105.8],7);
 
 L.tileLayer(
-'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 {
-    attribution: '&copy; OpenStreetMap contributors'
+attribution: '&copy; OpenStreetMap contributors'
 }
 ).addTo(map);
 
@@ -661,6 +664,5 @@ L.marker([p.lat, p.lng])
 });
 
 </script>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </body>
 </html>
