@@ -2110,29 +2110,6 @@ async def home(request: Request, lang: str = "vi"):
     conn.close()
 
     comments = [dict_from_row(r) for r in rows]
-
-    return templates.TemplateResponse(
-        "index.html",
-        {
-            "request": request,
-            "data": data,
-            "lang": lang,
-            "comments": comments,
-            "is_admin": False,  # mặc định khách
-            "page": "home",
-        },
-    )
-# About page
-@app.get("/about", response_class=HTMLResponse)
-async def about(request: Request, lang: str = "vi"):
-    data = content.get(lang, content["vi"])
-    conn = sqlite3.connect(DB_FILE)
-    c = conn.cursor()
-    c.execute("SELECT id, name, email, comment, img, token, status FROM comments WHERE status='active'")
-    rows = c.fetchall()
-    conn.close()
-
-    comments = [dict_from_row(r) for r in rows]
 # thêm dữ liệu map
     map_places = []
 
@@ -2153,10 +2130,31 @@ async def about(request: Request, lang: str = "vi"):
             "data": data,
             "lang": lang,
             "comments": comments,
+            "is_admin": False,  # mặc định khách
+            "page": "home",
+            "map_places": map_places,
+        },
+    )
+# About page
+@app.get("/about", response_class=HTMLResponse)
+async def about(request: Request, lang: str = "vi"):
+    data = content.get(lang, content["vi"])
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    c.execute("SELECT id, name, email, comment, img, token, status FROM comments WHERE status='active'")
+    rows = c.fetchall()
+    conn.close()
+
+    comments = [dict_from_row(r) for r in rows]
+    return templates.TemplateResponse(
+        "index.html",
+        {
+            "request": request,
+            "data": data,
+            "lang": lang,
+            "comments": comments,
             "is_admin": False,
             "page": "about",   # 👈 quan trọng
-            "map_places": map_places,
-
         },
     )
 # Route cảnh báo
