@@ -2529,7 +2529,7 @@ async def place_detail(request: Request, name: str, lang: str = "vi"):
             "page": "place_detail"
         },
     )
------------------------------------------------------
+#-----------------------------------------------------
 @app.get("/place/{slug}")
 async def place_detail(request: Request, slug: str, lang: str="vi"):
 
