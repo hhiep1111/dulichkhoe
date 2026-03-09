@@ -2173,7 +2173,8 @@ place_details_data = {
 }
     # thêm dữ liệu map
 map_places = []
-    for province in place_details_data["vi"]:
+ 
+for province in place_details_data["vi"]:
         for p in place_details_data["vi"][province]:
             
              map_places.append({
