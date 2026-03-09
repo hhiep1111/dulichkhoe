@@ -2256,6 +2256,7 @@ async def warn(request: Request, lang: str = "vi"):
             "lang": lang,
             "comments": comments,
             "is_admin": False,
+            "map_places": map_places,
         },
     )
 # Route checklist
@@ -2279,6 +2280,7 @@ async def checklist(request: Request, lang: str = "vi"):
             "lang": lang,
             "comments": comments,
             "is_admin": False,
+            "map_places": map_places,
         })
 @app.get("/food", response_class=HTMLResponse)
 async def food(request: Request, lang: str = "vi"):
@@ -2302,6 +2304,8 @@ async def food(request: Request, lang: str = "vi"):
             "food_list": data.get("food_list", []),
             "comments": comments,
             "is_admin": False,
+            "map_places": map_places,
+
         })
 @app.get("/health", response_class=HTMLResponse)
 async def health(request: Request, lang: str = "vi"):
@@ -2325,6 +2329,7 @@ async def health(request: Request, lang: str = "vi"):
             "health_list": data.get("health_list", []),
             "comments": comments,
             "is_admin": False,
+            "map_places": map_places,
         })
 @app.get("/search", response_class=HTMLResponse)
 async def search(request: Request, q: str = "", lang: str = "vi"):
@@ -2348,6 +2353,7 @@ async def search(request: Request, q: str = "", lang: str = "vi"):
             "comments": [],
             "is_admin": False,
             "page": "search",
+            "map_places": map_places,
         }
     )
 # ---------------- COMMENT ----------------
