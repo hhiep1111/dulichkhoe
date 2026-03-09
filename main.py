@@ -2133,7 +2133,19 @@ async def about(request: Request, lang: str = "vi"):
     conn.close()
 
     comments = [dict_from_row(r) for r in rows]
+# thêm dữ liệu map
+    map_places = []
 
+    for province in place_details_data["vi"]:
+        for p in place_details_data["vi"][province]:
+            map_places.append({
+                "title": p["title"],
+                "slug": p["slug"],
+                "lat": p["lat"],
+                "lng": p["lng"],
+                "img": p["img"],
+                "province": province
+            })
     return templates.TemplateResponse(
         "index.html",
         {
@@ -2143,6 +2155,8 @@ async def about(request: Request, lang: str = "vi"):
             "comments": comments,
             "is_admin": False,
             "page": "about",   # 👈 quan trọng
+            "map_places": map_places,
+
         },
     )
 # Route cảnh báo
@@ -2516,17 +2530,6 @@ async def place_detail(request: Request, name: str, lang: str = "vi"):
         },
     )
 -----------------------------------------------------
-map_places = []
-
-for province in place_details_data["vi"]:
-    for p in place_details_data["vi"][province]:
-        map_places.append({
-            "title": p["title"],
-            "slug": p["slug"],
-            "lat": p["lat"],
-            "lng": p["lng"],
-            "img": p["img"]
-        })
 @app.get("/place/{slug}")
 async def place_detail(request: Request, slug: str, lang: str="vi"):
 
