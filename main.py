@@ -964,7 +964,7 @@ place_details_data = {
          ],
         "Ca Mau": [
             {   "title": "Mũi Cà Mau – Cột mốc cực Nam", 
-                "slug": "mui-ca-mau",
+                "slug": "Ca Mau",
                 "lat": 8.633,
                 "lng": 104.723,
                 "map_img": "muicamau.jpg",
@@ -987,7 +987,7 @@ place_details_data = {
                 </ul>
                 """},
             {   "title": "Rừng ngập mặn U Minh Hạ", 
-                "slug": "rung-ngap-man",
+                "slug": "Ca Mau",
                 "lat": 9.348,
                 "lng": 104.882,
                 "map_img": "rungngapman.jpg",
@@ -1010,7 +1010,7 @@ place_details_data = {
                 </ul>
                 """},
             {"title": "Quan Âm Phật Đài (Mẹ Nam Hải)", 
-                "slug": "quan-am-phat-dai",
+                "slug": "Ca Mau",
                 "lat": 9.229,
                 "lng": 105.719,
                 "map_img": "menamhai.jpg",
@@ -1039,7 +1039,7 @@ place_details_data = {
         ],
         "Vinh Long": [
 			{   "title": "Nhà cổ Cai Cường – di tích kiến trúc kiểu Pháp", 
-                "slug": "nha-co-cai-cuong",
+                "slug": "Vinh Long",
                 "lat": 10.277,
                 "lng": 105.961,
                 "map_img": "caicuong.jpg",
@@ -1068,7 +1068,7 @@ place_details_data = {
                 </ul>
                 """},
 			{   "title": "Văn Thánh Miếu Vĩnh Long", 
-                "slug": "van-thanh-mieu",
+                "slug": "Vinh Long",
                 "lat": 10.254,
                 "lng": 105.972,
                 "map_img": "vanmieu.jpg",
@@ -1097,7 +1097,7 @@ place_details_data = {
                 </ul>
                 """},
             {   "title": "Chùa Âng: Angkorajaborey (Trà Vinh cũ)", 
-                "slug": "chuaang",
+                "slug": "Vinh Long",
                 "lat": 9.935,
                 "lng": 106.334,
                 "map_img": "chuaang.jpg",
@@ -1125,7 +1125,7 @@ place_details_data = {
                 </ul>
                 """}, 
 			{	"title": "Khu di tích Đồng Khởi (Bến Tre)", 
-                "slug": "khu-di-tich-dong-khoi",
+                "slug": "Vinh Long",
                 "lat": 10.242,
                 "lng": 106.373,
                 "map_img": "dongkhoi.jpg",
@@ -1149,7 +1149,7 @@ place_details_data = {
                 ],
         "Dong Thap": [
             {   "title": "Đồng Sen Tháp Mười", 
-                "slug": "dong-sen",
+                "slug": "Dong Thap",
                 "lat": 10.543,
                 "lng": 105.833,
                 "map_img": "dongthap.jpg", 
@@ -1172,7 +1172,7 @@ place_details_data = {
                 </ul>
                 """},
         {		"title": "Làng Hoa Sa Đéc", 
-                "slug": "lang-hoa",
+                "slug": "Dong Thap",
                 "lat": 10.290,
                 "lng": 105.755,
                 "map_img": "langhoa.jpg",
@@ -1200,7 +1200,7 @@ place_details_data = {
                 </ul>
                 """},
 			{	"title": "Cù lao Thới Sơn (Cồn Lân)", 
-                "slug": "cu-lao-thoi-son",
+                "slug": "Dong Thap",
                 "lat": 10.342,
                 "lng": 106.348,
                 "map_img": "thoison.jpg",
@@ -1222,7 +1222,7 @@ place_details_data = {
                 </ul>
                 """},
 			{		"title": "Chùa Vĩnh Tràng (Tiền Giang)", 
-                "slug": "chua-ving-trang",
+                "slug": "Dong Thap",
                 "lat": 10.361,
                 "lng": 106.353,
                 "map_img": "chuavinhtrang1.jpg",
@@ -1246,7 +1246,7 @@ place_details_data = {
                 """}
         ], "An Giang": [
             {   "title": "Núi Cấm (Thiên Cấm Sơn) – “Nóc nhà miền Tây”", 
-                "slug": "nui-cam",
+                "slug": "An Giang",
                 "lat": 10.525,
                 "lng": 104.983,
                 "map_img": "nuicamangiang.jpg",
@@ -1268,7 +1268,7 @@ place_details_data = {
                 </ul>
                 """},
 			{   "title": "Rừng Tràm Trà Sư – Thiên đường mùa nước nổi", 
-                "slug": "rugn-tram",
+                "slug": "An Giang",
                 "lat": 10.245,
                 "lng": 105.091,
                 "map_img": "rungtram.jpg",
@@ -1290,7 +1290,7 @@ place_details_data = {
                 </ul>
                 """},
 			{   "title": "Phú Quốc – Đảo Ngọc", 
-                "slug": "phu-quoc",
+                "slug": "An Giang",
                 "lat": 10.289,
                 "lng": 103.984,
                 "map_img": "phuquoc.jpg",
@@ -1312,7 +1312,7 @@ place_details_data = {
 				</ul>
                 """}, 
 			{   "title": "Hà Tiên – Thơ mộng hữu tình", 
-                "slug": "ha-tien",
+                "slug": "An Giang",
                 "lat": 10.383,
                 "lng": 104.487,
                 "map_img": "hatien.jpg",
