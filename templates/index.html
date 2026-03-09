@@ -645,7 +645,7 @@ L.tileLayer(
 }
 ).addTo(map);
 
-var places = {{ map_places | tojson }};
+var places = {{ map_places|tojson }};
 
 places.forEach(function(p){
 
