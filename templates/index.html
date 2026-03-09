@@ -2,6 +2,7 @@
 <html lang="{{ lang }}">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ data.title }}</title>
     <style>
@@ -336,7 +337,6 @@
         .search-box button:hover {
         opacity: 0.8;
         }
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
        #map{
          height:200px;
          width:70%;
@@ -425,7 +425,11 @@
             </div>
         </div>
         {% endfor %}
+
+
     <div id="map"></div>
+
+
     {% elif page == "about" %}
     <h2>{{ "Giới thiệu" if lang=="vi" else ("About Me" if lang=="en" else "소개") }}</h2>
 
