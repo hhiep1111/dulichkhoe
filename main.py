@@ -11,6 +11,8 @@ from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
+from openai import OpenAI
+from pydantic import BaseModel
 
 app = FastAPI()
 
@@ -2630,6 +2632,43 @@ async def place_detail(request: Request, slug: str, lang: str = "vi"):
 
     # nếu không tìm thấy địa điểm
     raise HTTPException(status_code=404, detail="Place not found")
+#-------------------------------------------------
+client = OpenAI(api_key="OPENAI_API_KEY")
+
+class ChatRequest(BaseModel):
+    message: str
+    lang: str = "vi"
+
+@app.post("/chat")
+async def chat(req: ChatRequest):
+
+    places_text = str(place_details_data["vi"])
+
+    system_prompt = f"""
+Bạn là AI hướng dẫn du lịch cho website Dulichkhoe.
+
+Dữ liệu địa điểm:
+{places_text}
+
+Nhiệm vụ:
+- Gợi ý địa điểm du lịch miền Tây
+- Gợi ý lịch trình
+- Trả lời bằng ngôn ngữ: {req.lang}
 
 
+Quy tắc:
+- Nếu người dùng hỏi tỉnh → gợi ý địa điểm
+- Nếu hỏi lịch trình → tạo itinerary
+- Khi nhắc đến địa điểm phải thêm link dạng:
+/place/slug?lang={req.lang}
+"""
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[
+            {"role":"system","content":system_prompt},
+            {"role":"user","content":req.message}
+        ]
+    )
+
+    return {"reply": response.choices[0].message.content}
 
