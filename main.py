@@ -2118,7 +2118,8 @@ async def home(request: Request, lang: str = "vi"):
 
     for province in place_details_data["vi"]:
         for p in place_details_data["vi"][province]:
-            map_places.append({
+            
+             map_places.append({
                 "title": p["title"],
                 "slug": p.get("slug",""),
                 "lat": p["lat"],
