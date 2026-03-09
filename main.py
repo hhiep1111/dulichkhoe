@@ -870,7 +870,6 @@ place_details_data = {
     "vi": {
         "Can Tho": [
         {   "title": "Bến Ninh Kiều – Biểu Tượng Thành Phố", 
-            "slug": "ben-ninh-kieu",
             "lat": 10.035,
             "lng": 105.788,
             "img": "benninhkieu.jpg",
@@ -2117,7 +2116,6 @@ async def home(request: Request, lang: str = "vi"):
         for p in place_details_data["vi"][province]:
             map_places.append({
                 "title": p["title"],
-                "slug": p["slug"],
                 "lat": p["lat"],
                 "lng": p["lng"],
                 "img": p["img"],
