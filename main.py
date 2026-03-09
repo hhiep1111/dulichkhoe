@@ -2172,7 +2172,7 @@ place_details_data = {
 		}
 }
     # thêm dữ liệu map
-    map_places = []
+map_places = []
     for province in place_details_data["vi"]:
         for p in place_details_data["vi"][province]:
             
@@ -2184,6 +2184,7 @@ place_details_data = {
                 "img": p.get("img",""),
                 "province": province
             })
+
 
 # ---------------- HOME ----------------
 @app.get("/", response_class=HTMLResponse)
