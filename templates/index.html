@@ -338,7 +338,7 @@
         opacity: 0.8;
         }
        #map{
-         height:600px;
+         height:400px;
          width:100%;
        }  
     </style>
@@ -636,43 +636,29 @@
 
 <script>
 
-var map = L.map('map').setView([10.2,105.9],7);
+var map = L.map('map').setView([10.1,105.8],7);
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-attribution:'© OpenStreetMap'
-}).addTo(map);
+L.tileLayer(
+'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+).addTo(map);
 
-var locations = [
+var places = {{ map_places | tojson }};
 
-["Bến Ninh Kiều",10.035,105.788],
-["Chợ nổi Cái Răng",10.012,105.742],
-["Chùa Dơi",9.603,105.973],
-["Khu bảo tồn thiên nhiên Lung Ngọc Hoàng",9.762,105.650],
-["Núi Cấm",10.525,104.983],
-["Rừng Tràm Trà Sư",10.245,105.091],
-["Hà Tiên",10.383,104.487],
-["Phú Quốc",10.289,103.984],
-["Mũi Cà Mau",8.633,104.723],
-["Rừng ngập mặn U Minh Hạ",9.348,104.882],
-["Quan Âm Phật Đài",9.229,105.719],
-["Nhà cổ Cai Cường",10.277,105.961],
-["Văn Thánh Miếu Vĩnh Long",10.254,105.972],
-["Chùa Âng",9.935,106.334],
-["Khu di tích Đồng Khởi",10.242,106.373],
-["Đồng Sen Tháp Mười",10.543,105.833],
-["Làng hoa Sa Đéc",10.290,105.755],
-["Cù Lao Thái Sơn",10.342,106.348],
-["Chùa Vĩnh Tràng",10.361,106.353]
+places.forEach(function(p){
 
-];
+var popup = `
+<b>${p.title}</b><br>
+<img src="/static/images/${p.img}" style="width:200px"><br>
+<a href="/place/${p.slug}?lang={{lang}}">
+Chi tiết địa điểm
+</a>
+`;
 
-for (var i = 0; i < locations.length; i++) {
-
-L.marker([locations[i][1], locations[i][2]])
+L.marker([p.lat,p.lng])
 .addTo(map)
-.bindPopup(locations[i][0]);
+.bindPopup(popup);
 
-}
+});
 
 </script>
 
