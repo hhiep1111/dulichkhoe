@@ -2633,8 +2633,9 @@ async def place_detail(request: Request, slug: str, lang: str = "vi"):
     # nếu không tìm thấy địa điểm
     raise HTTPException(status_code=404, detail="Place not found")
 #-------------------------------------------------
-client = OpenAI(api_key="OPENAI_API_KEY")
-
+client = OpenAI(
+    api_key=os.getenv("OPENAI_API_KEY")
+)
 class ChatRequest(BaseModel):
     message: str
     lang: str = "vi"
