@@ -870,6 +870,7 @@ place_details_data = {
     "vi": {
         "Can Tho": [
         {   "title": "Bến Ninh Kiều – Biểu Tượng Thành Phố", 
+            "slug": "ben-ninh-kieu",
             "lat": 10.035,
             "lng": 105.788,
             "img": "benninhkieu.jpg",
@@ -2116,9 +2117,10 @@ async def home(request: Request, lang: str = "vi"):
         for p in place_details_data["vi"][province]:
             map_places.append({
                 "title": p["title"],
+                "slug": p.get("slug",""),
                 "lat": p["lat"],
                 "lng": p["lng"],
-                "img": p["img"],
+                "img": p.get("img",""),
                 "province": province
             })
     return templates.TemplateResponse(
@@ -2526,8 +2528,8 @@ async def place_detail(request: Request, name: str, lang: str = "vi"):
         },
     )
 #-----------------------------------------------------
-@app.get("/place/{slug}")
-async def place_detail(request: Request, slug: str, lang: str="vi"):
+@app.get("/place/{slug}", response_class=HTMLResponse)
+async def place_detail(request: Request, slug: str, lang: str = "vi"):
 
     for province in place_details_data[lang]:
         for p in place_details_data[lang][province]:
@@ -2539,7 +2541,10 @@ async def place_detail(request: Request, slug: str, lang: str="vi"):
                         "place": p,
                         "lang": lang
                     }
-				)
+                )
+
+    # nếu không tìm thấy địa điểm
+    raise HTTPException(status_code=404, detail="Place not found")
 
 
 
