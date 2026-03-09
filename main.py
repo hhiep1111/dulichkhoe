@@ -11,8 +11,8 @@ from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
-from openai import OpenAI
 from pydantic import BaseModel
+import google.generativeai as genai
 
 app = FastAPI()
 
@@ -2633,9 +2633,10 @@ async def place_detail(request: Request, slug: str, lang: str = "vi"):
     # nếu không tìm thấy địa điểm
     raise HTTPException(status_code=404, detail="Place not found")
 #-------------------------------------------------
-client = OpenAI(
-    api_key=os.getenv("OPENAI_API_KEY")
-)
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+
+##model = genai.GenerativeModel("gemini-1.5-flash")
+
 class ChatRequest(BaseModel):
     message: str
     lang: str = "vi"
@@ -2664,7 +2665,7 @@ Quy tắc:
 /place/slug?lang={req.lang}
 """
     response = client.chat.completions.create(
-        model="gpt-4o-mini",
+        model = genai.GenerativeModel("gemini-1.5-flash"),
         messages=[
             {"role":"system","content":system_prompt},
             {"role":"user","content":req.message}
