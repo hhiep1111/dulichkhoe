@@ -870,7 +870,7 @@ place_details_data = {
     "vi": {
         "Can Tho": [
         {   "title": "Bến Ninh Kiều – Biểu Tượng Thành Phố", 
-            "slug": "ben-ninh-kieu",
+            "slug": "Can Tho",
             "lat": 10.035,
             "lng": 105.788,
             "map_img": "benninhkieu.jpg",
@@ -893,7 +893,7 @@ place_details_data = {
             </ul>
             """},
         {   "title": "Chợ nổi Cái Răng – Biểu tượng miền Tây", 
-            "slug": "cho-cai-rang",
+            "slug": "Can Thơ",
             "lat": 10.012,
             "lng": 105.742,
             "map_img": "chocairang.jpg",
@@ -914,7 +914,7 @@ place_details_data = {
             </ul>
             """},
             {   "title": "Chùa Dơi – Ngôi chùa Khmer độc đáo (Sóc Trăng cũ)", 
-                "slug": "chua-doi",
+                "slug": "Can Tho",
                 "lat": 9.603,
                 "lng": 105.973,
                 "map_img": "chuadoi.jpg",
@@ -941,10 +941,10 @@ place_details_data = {
                 </ul>
                 """},
             {   "title": "Khu bảo tồn thiên nhiên Lung Ngọc Hoàng (Hậu Giang cũ)", 
-                "slug": "khu-bao-ton-thien-nhien-lung-ngoc-hoang",
+                "slug": "Can Tho",
                 "lat": 9.762,
                 "lng": 105.650,
-                "map_img": "lingngochoang.jpg",
+                "map_img": "lungngochoang.jpg",
                 "desc": """ 
                 <p>Lung Ngọc Hoàng được xem là “lá phổi xanh” của miền Tây, sở hữu hệ sinh thái rừng ngập nước phong phú với kênh rạch dày đặc, thảm thực vật rậm tạp, không gian hoang sơ, mát lành, rất thích hợp cho du lịch sinh thái, đi xuồng khám phá rừng, ngắm chim và chụp ảnh cảnh rừng – sông tự nhiên.</p>
                 <p>📍Vị trí: Thuộc huyện Phụng Hiệp, tỉnh Hậu Giang.</p>
