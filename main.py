@@ -871,8 +871,8 @@ place_details_data = {
         "Can Tho": [
         {   "title": "Bến Ninh Kiều – Biểu Tượng Thành Phố", 
             "slug": "ben-ninh-kieu",
-            "lat": 10.035,
-            "lng": 105.788,
+            "lat": "10.035",
+            "lng": "105.788",
             "img": "benninhkieu.jpg",
             "desc": """
             <p>Biểu tượng của Cần Thơ bên dòng sông Hậu hiền hòa, là nơi tản bộ, ngắm cảnh và chụp ảnh tuyệt đẹp.</p>
