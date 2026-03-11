@@ -2634,7 +2634,7 @@ async def place_detail(request: Request, slug: str, lang: str = "vi"):
     raise HTTPException(status_code=404, detail="Place not found")
 #-------------------------------------------------
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-model = genai.GenerativeModel("gemini-1.5-flash")
+model = genai.GenerativeModel("gemini-1.5-flash-latest")
 
 class ChatRequest(BaseModel):
     message: str
