@@ -165,7 +165,7 @@ content = {
                     "Giữ đồ có giá trị bên người (tiền, điện thoại, hộ chiếu).",
                     "Chọn phương tiện uy tín: taxi, xe công nghệ, hoặc phương tiện công cộng chính thống."
                 ]
-            },
+			},
             {
                 "title": "3. Khi lưu trú",
                 "img": "/static/images/3.jpg",
