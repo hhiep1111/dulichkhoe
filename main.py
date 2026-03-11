@@ -2669,11 +2669,13 @@ Quy tắc:
     prompt = system_prompt + "\nUser: " + req.message
 
     response = client.models.generate_content(
-    model="gemini-2.0-flash",
+    model="gemini-1.5-flash",
     contents=prompt
    )
     return {"reply": response.text}
 
+except Exception as e:
+     return {"reply": "AI hiện đang quá tải, vui lòng thử lại sau."}
     #response = client.chat.completions.create(
      #   model = genai.GenerativeModel("gemini-1.5-flash"),
       #  messages=[
