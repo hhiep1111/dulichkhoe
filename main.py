@@ -2668,17 +2668,17 @@ Quy tắc:
 /place/slug?lang={lang}
 """
     prompt = system_prompt + "\nUser: " + req.message
-   
+
     try:
-         response = client.models.generate_content(
+        response = client.models.generate_content(
             model="gemini-1.5-flash",
             contents=prompt
-       )
+        )
+
         return {"reply": response.text}
 
-
     except Exception as e:
-         return {"reply": "AI hiện đang quá tải, vui lòng thử lại sau."}
+        return {"reply": "AI hiện đang quá tải, vui lòng thử lại sau."}
     #response = client.chat.completions.create(
      #   model = genai.GenerativeModel("gemini-1.5-flash"),
       #  messages=[
