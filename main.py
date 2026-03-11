@@ -2641,6 +2641,7 @@ class ChatRequest(BaseModel):
 
 @app.post("/chat")
 async def chat(req: ChatRequest):
+   
     lang = req.lang
 
     if lang not in place_details_data:
@@ -2658,13 +2659,13 @@ Dữ liệu địa điểm:
 Nhiệm vụ:
 - Gợi ý địa điểm du lịch miền Tây
 - Gợi ý lịch trình
-- Trả lời bằng ngôn ngữ: {req.lang}
+- Trả lời bằng ngôn ngữ: {lang}
 
 Quy tắc:
 - Nếu người dùng hỏi tỉnh → gợi ý địa điểm
 - Nếu hỏi lịch trình → tạo itinerary
 - Khi nhắc đến địa điểm phải thêm link dạng:
-/place/slug?lang={req.lang}
+/place/slug?lang={lang}
 """
     prompt = system_prompt + "\nUser: " + req.message
    
