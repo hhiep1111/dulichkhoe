@@ -707,12 +707,16 @@ let labels = {
     en:"You",
     ko:"사용자"
 };
+let aiLabels = {
+    vi:"AI",
+    en:"AI",
+    ko:"AI"
+};
 
 let chatBox = document.getElementById("chat-messages");
 
 // hiển thị tin nhắn user
-chatBox.innerHTML +=
-"<p><b>"+labels[lang]+":</b> "+message+"</p>";
+chatBox.innerHTML += "<p><b>"+labels[lang]+":</b> "+message+"</p>";
 
 inputBox.value = "";
 
@@ -731,8 +735,7 @@ lang: lang
 let data = await res.json();
 
 // hiển thị tin nhắn AI
-chatBox.innerHTML +=
-"<p><b>"+aiLabels[lang]+":</b> "+data.reply+"</p>";
+chatBox.innerHTML += "<p><b>"+aiLabels[lang]+":</b> "+data.reply+"</p>";
 
 // auto scroll xuống cuối
 chatBox.scrollTop = chatBox.scrollHeight;
