@@ -12,8 +12,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from pydantic import BaseModel
-import google import genai
-
+from google import genai
 app = FastAPI()
 
 # Mount static & uploads
