@@ -693,26 +693,51 @@ L.marker([p.lat, p.lng])
 <script>
 async function sendMessage(){
 
-let input = document.getElementById("chat-input").value;
+let inputBox = document.getElementById("chat-input");
+let message = inputBox.value.trim();
 
+if(message === "") return;
+
+// lấy ngôn ngữ từ template
+let lang = "{{ lang }}";
+
+// label đa ngôn ngữ
+let labels = {
+    vi:"Bạn",
+    en:"You",
+    ko:"사용자"
+};
+
+let chatBox = document.getElementById("chat-messages");
+
+// hiển thị tin nhắn user
+chatBox.innerHTML +=
+"<p><b>"+labels[lang]+":</b> "+message+"</p>";
+
+inputBox.value = "";
+
+// gửi request đến backend
 let res = await fetch("/chat",{
 method:"POST",
-headers:{"Content-Type":"application/json"},
+headers:{
+"Content-Type":"application/json"
+},
 body:JSON.stringify({
-message:input,
-lang:"{{ lang }}"
+message: message,
+lang: lang
 })
 });
 
 let data = await res.json();
 
-document.getElementById("chat-messages").innerHTML +=
-"<p><b>Bạn:</b> "+input+"</p>";
+// hiển thị tin nhắn AI
+chatBox.innerHTML +=
+"<p><b>"+aiLabels[lang]+":</b> "+data.reply+"</p>";
 
-document.getElementById("chat-messages").innerHTML +=
-"<p><b>AI:</b> "+data.reply+"</p>";
+// auto scroll xuống cuối
+chatBox.scrollTop = chatBox.scrollHeight;
+
 }
 </script>
-
 </body>
 </html>
