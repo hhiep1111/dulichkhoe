@@ -2634,8 +2634,7 @@ async def place_detail(request: Request, slug: str, lang: str = "vi"):
     raise HTTPException(status_code=404, detail="Place not found")
 #-------------------------------------------------
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-
-##model = genai.GenerativeModel("gemini-1.5-flash")
+model = genai.GenerativeModel("gemini-1.5-flash")
 
 class ChatRequest(BaseModel):
     message: str
@@ -2643,9 +2642,14 @@ class ChatRequest(BaseModel):
 
 @app.post("/chat")
 async def chat(req: ChatRequest):
+    lang = req.lang
 
-    places_text = str(place_details_data["vi"])
+    if lang not in place_details_data:
+        lang = "vi"
 
+    places_text = str(place_details_data[lang])
+
+    #places_text = str(place_details_data["vi"])
     system_prompt = f"""
 Bạn là AI hướng dẫn du lịch cho website Dulichkhoe.
 
@@ -2664,13 +2668,22 @@ Quy tắc:
 - Khi nhắc đến địa điểm phải thêm link dạng:
 /place/slug?lang={req.lang}
 """
-    response = client.chat.completions.create(
-        model = genai.GenerativeModel("gemini-1.5-flash"),
-        messages=[
-            {"role":"system","content":system_prompt},
-            {"role":"user","content":req.message}
-        ]
-    )
+    prompt = system_prompt + "\nUser: " + req.message
 
-    return {"reply": response.choices[0].message.content}
+    response = model.generate_content(prompt)
+
+    return {
+        "reply": response.text,
+        "lang": lang
+	}
+
+    #response = client.chat.completions.create(
+     #   model = genai.GenerativeModel("gemini-1.5-flash"),
+      #  messages=[
+       #     {"role":"system","content":system_prompt},
+        #    {"role":"user","content":req.message}
+        #]
+    #)
+
+    #return {"reply": response.choices[0].message.content}
 
