@@ -785,7 +785,7 @@ L.marker([p.lat, p.lng])
 </script>
 
 <div id="chat-toggle" onclick="toggleChat()">
-<img src="/static/image/logo1.jpg">
+<img src="/static/images/logo1.jpg">
 </div>
 
 <div id="chatbox">
@@ -828,9 +828,9 @@ text = text.replace(/###/g,"")
 // xuống dòng đẹp
 text = text.replace(/\n/g,"<br>")
 
-// link clickable
+/*// link clickable
 text = text.replace(/(\/place\/[^\s]+)/g,
-'<a class="place-link" href="$1" target="_blank">Xem chi tiết</a>')
+'<a class="place-link" href="$1" target="_blank">Xem chi tiết</a>')*/
 
 return text
 }
