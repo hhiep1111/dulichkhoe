@@ -2673,11 +2673,10 @@ Quy tắc:
     
     try:
 
-        model = genai.GenerativeModel("gemini-2.0-flash")
-
-        response = model.generate_content(prompt)
-
-        reply = response.text
+        response = client.models.generate_content(
+            model="gemini-2.0-flash",
+            contents=prompt
+		)
 
         return {"reply": reply}
 
