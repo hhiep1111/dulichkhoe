@@ -2698,6 +2698,7 @@ Nhiệm vụ:
 
 Quy tắc:
 - Nếu không có link thì KHÔNG được tạo link.
+- Nếu người dùng hỏi về y tế -> đưa ra biện pháp tức thời đồng thời gợi ý cơ sở ý tế xung quay địa điểm ấy
 - Nếu người dùng hỏi tỉnh → gợi ý địa điểm
 - Nếu hỏi lịch trình → tạo itinerary
 """
