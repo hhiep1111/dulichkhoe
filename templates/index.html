@@ -682,13 +682,26 @@ L.marker([p.lat, p.lng])
 
 </script>
 
+<div id="chat-toggle" onclick="toggleChat()">
+<img src="/static/image/logo1.jpg">
+</div>
+
 <div id="chatbox">
-    <div id="chat-header">AI Travel Guide</div>
 
-    <div id="chat-messages"></div>
+<div id="chat-header">
+AI Travel Healing
+</div>
 
-    <input id="chat-input" placeholder="Hỏi về du lịch..." />
-    <button onclick="sendMessage()">Gửi</button>
+<div id="chat-messages"></div>
+
+<div id="chat-input-area">
+
+<input id="chat-input" placeholder="Hỏi về du lịch...">
+
+<button onclick="sendMessage()">Gửi</button>
+
+</div>
+
 </div>
 <script>
 async function sendMessage(){
