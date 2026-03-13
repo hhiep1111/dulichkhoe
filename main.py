@@ -2648,10 +2648,23 @@ def get_places_text(lang):
 
     for p in places:
 
+        # nếu là dict
+        if isinstance(p, dict):
+
+            name = p.get("name","")
+            province = p.get("province","")
+            slug = p.get("slug","")
+
+        else:
+            # nếu chỉ là string
+            name = str(p)
+            province = ""
+            slug = ""
+
         text += f"""
-Tên: {p["name"]}
-Tỉnh: {p["province"]}
-Link: /place/{p["slug"]}?lang={lang}
+Tên: {name}
+Tỉnh: {province}
+Link: /place/{slug}?lang={lang}
 
 """
 
