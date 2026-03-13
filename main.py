@@ -12,7 +12,9 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from pydantic import BaseModel
-from google import genai
+#from google import genai
+import google.generativeai as genai
+
 app = FastAPI()
 
 # Mount static & uploads
@@ -2632,8 +2634,8 @@ async def place_detail(request: Request, slug: str, lang: str = "vi"):
     # nếu không tìm thấy địa điểm
     raise HTTPException(status_code=404, detail="Place not found")
 #-------------------------------------------------
-client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
-
+#client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 class ChatRequest(BaseModel):
     message: str
@@ -2647,7 +2649,7 @@ async def chat(req: ChatRequest):
     if lang not in place_details_data:
         lang = "vi"
 
-    places_text = str(place_details_data[lang])
+    places_text = str(place_details_data[lang])[:4000]
 
     #places_text = str(place_details_data["vi"])
     system_prompt = f"""
@@ -2668,18 +2670,37 @@ Quy tắc:
 /place/slug?lang={lang}
 """
     prompt = system_prompt + "\nUser: " + req.message
-
+    
     try:
-        response = client.models.generate_content(
-            model="gemini-1.5-flash",
-            contents=prompt
-        )
 
-        return {"reply": response.text}
+        model = genai.GenerativeModel("gemini-1.5-flash")
+
+        response = model.generate_content(prompt)
+
+        reply = response.text
+
+        return {"reply": reply}
 
     except Exception as e:
-        return {"reply": "AI hiện đang quá tải, vui lòng thử lại sau."}
-    #response = client.chat.completions.create(
+
+        print("Gemini error:", e)
+
+        return {"reply": f"Lỗi AI: {str(e)}"}
+
+
+   # try:
+   #     response = client.models.generate_content(
+   #         model="gemini-1.5-flash",
+   #         contents=prompt
+   #     )
+
+   #     return {"reply": response.text}
+
+   # except Exception as e:
+   #    return {"reply": "AI hiện đang quá tải, vui lòng thử lại sau."}
+   
+
+ #response = client.chat.completions.create(
      #   model = genai.GenerativeModel("gemini-1.5-flash"),
       #  messages=[
        #     {"role":"system","content":system_prompt},
