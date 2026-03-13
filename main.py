@@ -2649,7 +2649,7 @@ async def chat(req: ChatRequest):
     if lang not in place_details_data:
         lang = "vi"
 
-    places_text = str(place_details_data[lang])[:4000]
+    places_text = str(place_details_data[lang])[:1000]
 
     #places_text = str(place_details_data["vi"])
     system_prompt = f"""
