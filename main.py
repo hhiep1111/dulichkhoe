@@ -2685,7 +2685,7 @@ async def chat(req: ChatRequest):
 
     #places_text = str(place_details_data["vi"])
     system_prompt = f"""
-Bạn là AI hướng dẫn du lịch cho website Dulichkhoe.
+Bạn là AI hướng dẫn du lịch cho website Du lịch Khỏe (Travel Healing).
 
 Dữ liệu địa điểm:
 {places_text}
@@ -2693,9 +2693,11 @@ Dữ liệu địa điểm:
 Nhiệm vụ:
 - Gợi ý địa điểm du lịch miền Tây
 - Gợi ý lịch trình
+- Trả lời ngắn gọn nhưng chi tiết và dễ hiểu
 - Trả lời bằng ngôn ngữ: {lang}
 
 Quy tắc:
+- Thêm hình ảnh liên quan để điểm càng tốt
 - CHỈ dùng link có trong danh sách (Can Tho, An Giang, Dong Thap, Ca Mau, Vinh).
 - Nếu không có link thì KHÔNG được tạo link.
 - Nếu người dùng hỏi tỉnh → gợi ý địa điểm
@@ -2705,7 +2707,7 @@ Quy tắc:
 slug sử dụng ký tự % thay cho khoảng trắng.
 
 Ví dụ:
-Can Tho → Can%
+Can Tho → Can%20Tho
 
 Không được dùng dấu -.
 
