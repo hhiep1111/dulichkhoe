@@ -391,7 +391,12 @@ gap:8px;
 
 .message{
 display:flex;
-gap:8px;
+align-items:flex-end;
+margin-bottom:10px;
+}
+
+.message.ai{
+justify-content:flex-start;
 }
 
 .message.user{
@@ -399,24 +404,29 @@ justify-content:flex-end;
 }
 
 .bubble{
-padding:10px;
-border-radius:15px;
 max-width:70%;
+padding:10px 14px;
+border-radius:14px;
+font-size:14px;
+line-height:1.5;
 }
 
 .user .bubble{
-background:#007bff;
+background:#1a73e8;
 color:white;
+border-bottom-right-radius:4px;
 }
 
 .ai .bubble{
-background:#f1f1f1;
+background:#f2f2f2;
+border-bottom-left-radius:4px;
 }
 
 .avatar{
-width:28px;
-height:28px;
+width:32px;
+height:32px;
 border-radius:50%;
+margin:0 6px;
 }
 
 #chat-input-area{
@@ -438,6 +448,18 @@ border:none;
 padding:10px;
 cursor:pointer;
 }
+.place-link{
+display:inline-block;
+margin-top:5px;
+color:#1a73e8;
+font-weight:600;
+text-decoration:none;
+}
+
+.place-link:hover{
+text-decoration:underline;
+}
+
     </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KYB7Z8Y0DW"></script>
@@ -799,13 +821,19 @@ box.style.display = "flex";
 
 function formatMessage(text){
 
+// bỏ markdown
+text = text.replace(/\*\*/g,"")
+text = text.replace(/###/g,"")
+
+// xuống dòng đẹp
+text = text.replace(/\n/g,"<br>")
+
 // link clickable
 text = text.replace(/(\/place\/[^\s]+)/g,
-'<a href="$1" target="_blank">$1</a>');
+'<a class="place-link" href="$1" target="_blank">Xem chi tiết</a>')
 
-return text;
+return text
 }
-
 
 async function sendMessage(){
 
@@ -824,7 +852,7 @@ input.value="";
 chat.innerHTML += `
 <div class="message user">
 <div class="bubble">${message}</div>
-<img class="avatar" src="/static/image/user.png">
+<img class="avatar" src="/static/images/user.jpg">
 </div>
 `;
 
@@ -851,7 +879,7 @@ let data = await res.json();
 
 chat.innerHTML += `
 <div class="message ai">
-<img class="avatar" src="/static/image/logo1.jpg">
+<img class="avatar" src="/static/images/logo1.jpg">
 <div class="bubble">${formatMessage(data.reply)}</div>
 </div>
 `;
