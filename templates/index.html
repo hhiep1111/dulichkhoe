@@ -341,23 +341,103 @@
          height:400px;
          width:100%;
        }
-      #chatbox{
-         position:fixed;
-         bottom:20px;
-         right:20px;
-         width:320px;
-         background:white;
-         border-radius:10px;
-         box-shadow:0 0 10px rgba(0,0,0,0.2);
-         padding:10px;
-         font-size:14px;
+      #chat-toggle{
+        position:fixed;
+        bottom:20px;
+        right:20px;
+        width:60px;
+        height:60px;
+        background:#0d3b66;
+        border-radius:50%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        cursor:pointer;
        }
 
-       #chat-messages{
-          height:200px;
-          overflow-y:auto;
-          margin-bottom:10px;
-       }  
+      #chat-toggle img{
+        width:30px;
+      }
+
+#chatbox{
+position:fixed;
+bottom:90px;
+right:20px;
+width:350px;
+height:450px;
+background:white;
+border-radius:12px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+display:none;
+flex-direction:column;
+overflow:hidden;
+}
+
+#chat-header{
+background:#0d3b66;
+color:white;
+padding:12px;
+font-weight:bold;
+}
+
+#chat-messages{
+flex:1;
+overflow-y:auto;
+padding:10px;
+display:flex;
+flex-direction:column;
+gap:8px;
+}
+
+.message{
+display:flex;
+gap:8px;
+}
+
+.message.user{
+justify-content:flex-end;
+}
+
+.bubble{
+padding:10px;
+border-radius:15px;
+max-width:70%;
+}
+
+.user .bubble{
+background:#007bff;
+color:white;
+}
+
+.ai .bubble{
+background:#f1f1f1;
+}
+
+.avatar{
+width:28px;
+height:28px;
+border-radius:50%;
+}
+
+#chat-input-area{
+display:flex;
+border-top:1px solid #ddd;
+}
+
+#chat-input{
+flex:1;
+padding:10px;
+border:none;
+outline:none;
+}
+
+button{
+background:#0d3b66;
+color:white;
+border:none;
+padding:10px;
+cursor:pointer;
+}
     </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KYB7Z8Y0DW"></script>
@@ -704,54 +784,79 @@ AI Travel Healing
 
 </div>
 <script>
+function toggleChat(){
+
+let box = document.getElementById("chatbox");
+
+if(box.style.display === "flex"){
+box.style.display = "none";
+}else{
+box.style.display = "flex";
+}
+
+}
+
+
+function formatMessage(text){
+
+// link clickable
+text = text.replace(/(\/place\/[^\s]+)/g,
+'<a href="$1" target="_blank">$1</a>');
+
+return text;
+}
+
+
 async function sendMessage(){
 
-let inputBox = document.getElementById("chat-input");
-let message = inputBox.value.trim();
+let input = document.getElementById("chat-input");
 
-if(message === "") return;
+let message = input.value.trim();
 
-// lấy ngôn ngữ từ template
+if(message==="") return;
+
 let lang = "{{ lang }}";
 
-// label đa ngôn ngữ
-let labels = {
-    vi:"Bạn",
-    en:"You",
-    ko:"사용자"
-};
-let aiLabels = {
-    vi:"AI",
-    en:"AI",
-    ko:"AI"
-};
+let chat = document.getElementById("chat-messages");
 
-let chatBox = document.getElementById("chat-messages");
+input.value="";
 
-// hiển thị tin nhắn user
-chatBox.innerHTML += "<p><b>"+labels[lang]+":</b> "+message+"</p>";
+chat.innerHTML += `
+<div class="message user">
+<div class="bubble">${message}</div>
+<img class="avatar" src="/static/image/user.png">
+</div>
+`;
 
-inputBox.value = "";
+chat.scrollTop = chat.scrollHeight;
 
-// gửi request đến backend
+
 let res = await fetch("/chat",{
+
 method:"POST",
+
 headers:{
 "Content-Type":"application/json"
 },
+
 body:JSON.stringify({
-message: message,
-lang: lang
+message:message,
+lang:lang
 })
+
 });
+
 
 let data = await res.json();
 
-// hiển thị tin nhắn AI
-chatBox.innerHTML += "<p><b>"+aiLabels[lang]+":</b> "+data.reply+"</p>";
+chat.innerHTML += `
+<div class="message ai">
+<img class="avatar" src="/static/image/logo1.jpg">
+<div class="bubble">${formatMessage(data.reply)}</div>
+</div>
+`;
 
-// auto scroll xuống cuối
-chatBox.scrollTop = chatBox.scrollHeight;
+chat.scrollTop = chat.scrollHeight;
 
 }
 </script>
