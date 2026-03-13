@@ -5,6 +5,6 @@ gunicorn
 python-multipart
 email-validator
 unidecode
-google-generativeai
+google-generativeai 
 pydantic
 
