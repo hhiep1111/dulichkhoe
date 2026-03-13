@@ -2640,8 +2640,25 @@ client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 class ChatRequest(BaseModel):
     message: str
     lang: str = "vi"
+def get_places_text(lang):
+
+    places = place_details_data.get(lang, [])
+
+    text = ""
+
+    for p in places:
+
+        text += f"""
+Tên: {p["name"]}
+Tỉnh: {p["province"]}
+Link: /place/{p["slug"]}?lang={lang}
+
+"""
+
+    return text[:3000]
 
 @app.post("/chat")
+
 async def chat(req: ChatRequest):
    
     lang = req.lang
@@ -2649,7 +2666,9 @@ async def chat(req: ChatRequest):
     if lang not in place_details_data:
         lang = "vi"
 
-    places_text = str(place_details_data[lang])[:1000]
+    places_text = get_places_text(lang)
+
+	#places_text = str(place_details_data[lang])[:1000]
 
     #places_text = str(place_details_data["vi"])
     system_prompt = f"""
