@@ -12,8 +12,8 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from pydantic import BaseModel
-#from google import genai
-import google.generativeai as genai
+from google import genai
+#import google.generativeai as genai
 
 app = FastAPI()
 
@@ -2634,8 +2634,8 @@ async def place_detail(request: Request, slug: str, lang: str = "vi"):
     # nếu không tìm thấy địa điểm
     raise HTTPException(status_code=404, detail="Place not found")
 #-------------------------------------------------
-#client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+#genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 class ChatRequest(BaseModel):
     message: str
@@ -2673,7 +2673,7 @@ Quy tắc:
     
     try:
 
-        model = genai.GenerativeModel("gemini-pro")
+        model = genai.GenerativeModel("gemini-2.0-flash")
 
         response = model.generate_content(prompt)
 
