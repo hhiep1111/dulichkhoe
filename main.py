@@ -2697,7 +2697,6 @@ Nhiệm vụ:
 - Trả lời bằng ngôn ngữ: {lang}
 
 Quy tắc:
-- Thêm hình ảnh liên quan để điểm càng tốt
 - Nếu không có link thì KHÔNG được tạo link.
 - Nếu người dùng hỏi tỉnh → gợi ý địa điểm
 - Nếu hỏi lịch trình → tạo itinerary
