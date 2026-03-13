@@ -12,8 +12,8 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from pydantic import BaseModel
-from google import genai
-#import google.generativeai as genai
+#from google import genai
+import google.generativeai as genai
 
 app = FastAPI()
 
