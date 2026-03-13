@@ -2698,19 +2698,9 @@ Nhiệm vụ:
 
 Quy tắc:
 - Thêm hình ảnh liên quan để điểm càng tốt
-- CHỈ dùng link có trong danh sách (Can Tho, An Giang, Dong Thap, Ca Mau, Vinh).
 - Nếu không có link thì KHÔNG được tạo link.
 - Nếu người dùng hỏi tỉnh → gợi ý địa điểm
 - Nếu hỏi lịch trình → tạo itinerary
-- Khi nhắc đến địa điểm phải thêm link dạng:
-/place/slug?lang={lang}
-slug sử dụng ký tự % thay cho khoảng trắng.
-
-Ví dụ:
-Can Tho → Can%20Tho
-
-Không được dùng dấu -.
-
 """
     prompt = system_prompt + "\nUser: " + req.message
     
