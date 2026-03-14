@@ -14,6 +14,7 @@ from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from pydantic import BaseModel
 from google import genai
 from datetime import datetime
+from zoneinfo import ZoneInfo
 #import google.generativeai as genai
 
 app = FastAPI()
@@ -2751,10 +2752,14 @@ def save_chat(message, reply, lang):
     conn = sqlite3.connect("chat_history.db")
     c = conn.cursor()
 
+    time_vn = datetime.now(
+        ZoneInfo("Asia/Ho_Chi_Minh")
+    ).strftime("%Y-%m-%d %H:%M:%S")
+
     c.execute("""
         INSERT INTO chat_history (message, reply, lang, time)
         VALUES (?, ?, ?, ?)
-    """, (message, reply, lang, datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
+    """, (message, reply, lang, time_vn))
 
     conn.commit()
     conn.close()
