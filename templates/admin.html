@@ -110,8 +110,10 @@ background:#f3f4f6;
 
 async function loadChatHistory(){
 
-let res = await fetch("/admin/chat-history")
+let res = await fetch("/admin/history")
 let data = await res.json()
+
+console.log(data)
 
 let table = document.querySelector("#chatTable tbody")
 
