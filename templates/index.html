@@ -788,7 +788,7 @@ L.marker([p.lat, p.lng])
 .bindPopup(popup);
 
 });
-
+#-------------------------------
 </script>
 
 <div id="chat-toggle" onclick="toggleChat()">
@@ -813,14 +813,44 @@ AI Travel Healing
 
 </div>
 <script>
+let greeted = false;
+
 function toggleChat(){
 
 let box = document.getElementById("chatbox");
+let chat = document.getElementById("chat-messages");
 
 if(box.style.display === "flex"){
 box.style.display = "none";
 }else{
+
 box.style.display = "flex";
+
+if(!greeted){
+
+chat.innerHTML += `
+<div class="message ai">
+<img class="avatar" src="/static/images/logo1.jpg">
+<div class="bubble">
+Xin chào 👋<br><br>
+Tôi là trợ lý du lịch của <b>Travel Healing</b>.<br>
+Tôi có thể giúp bạn khám phá Đồng bằng Sông Cửu Long.<br><br>
+
+Bạn có thể hỏi tôi về:<br>
+📍 Địa điểm du lịch nổi bật<br>
+🍜 Ẩm thực địa phương<br>
+🏥 Bệnh viện gần nhất<br>
+🧳 Checklist du lịch cần chuẩn bị
+</div>
+</div>
+`;
+
+chat.scrollTop = chat.scrollHeight;
+
+greeted = true;
+
+}
+
 }
 
 }
@@ -834,10 +864,6 @@ text = text.replace(/###/g,"")
 
 // xuống dòng đẹp
 text = text.replace(/\n/g,"<br>")
-
-/*// link clickable
-text = text.replace(/(\/place\/[^\s]+)/g,
-'<a class="place-link" href="$1" target="_blank">Xem chi tiết</a>')*/
 
 return text
 }
