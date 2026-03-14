@@ -2695,7 +2695,8 @@ Link: /place/{slug}?lang={lang}
 @app.post("/chat")
 
 async def chat(req: ChatRequest):
-   
+    
+    message = req.message
     lang = req.lang
 
     if lang not in place_details_data:
