@@ -2782,7 +2782,7 @@ def chat(req: ChatRequest):
     save_chat(message, reply, lang)
 
     return {"reply": reply}
------------------------------------------
+#-----------------------------------------
 @app.get("/history")
 def history():
 
