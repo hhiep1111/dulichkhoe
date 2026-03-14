@@ -2759,8 +2759,8 @@ def save_chat(message, reply, lang):
     conn.commit()
     conn.close()
 #-----------------------------------------
-@app.get("/history")
-def history():
+@app.get("/admin/history")
+def admin_chat_history():
 
     conn = sqlite3.connect("chat_history.db")
     c = conn.cursor()
