@@ -13,9 +13,31 @@ from fastapi.templating import Jinja2Templates
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from pydantic import BaseModel
 from google import genai
+from datetime import datetime
 #import google.generativeai as genai
 
 app = FastAPI()
+
+
+def init_db():
+    conn = sqlite3.connect("chat_history.db")
+    c = conn.cursor()
+
+    c.execute("""
+    CREATE TABLE IF NOT EXISTS chat_history(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        message TEXT,
+        reply TEXT,
+        lang TEXT,
+        time TEXT
+    )
+    """)
+
+    conn.commit()
+    conn.close()
+
+init_db()
+
 
 # Mount static & uploads
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -2633,6 +2655,20 @@ async def place_detail(request: Request, slug: str, lang: str = "vi"):
 
     # nếu không tìm thấy địa điểm
     raise HTTPException(status_code=404, detail="Place not found")
+#--------------------------------------------------------
+def save_chat(message, reply, lang):
+
+    conn = sqlite3.connect("chat_history.db")
+    c = conn.cursor()
+
+    c.execute("""
+        INSERT INTO chat_history (message, reply, lang, time)
+        VALUES (?, ?, ?, ?)
+    """, (message, reply, lang, datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
+
+    conn.commit()
+    conn.close()
+
 #-------------------------------------------------
 client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 #genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
@@ -2720,8 +2756,45 @@ Quy tắc:
         print("Gemini error:", e)
 
         return {"reply": f"Lỗi AI: {str(e)}"}
+#----------------------------------
+@app.post("/chat")
+def chat(req: ChatRequest):
 
+    message = req.message
+    lang = req.lang
 
+    places_text = get_places_text(lang)
+
+    prompt = f"""
+    User question: {message}
+    Places info:
+    {places_text}
+    """
+
+    response = client.models.generate_content(
+        model="gemini-2.0-flash",
+        contents=prompt
+    )
+
+    reply = response.text
+
+    # lưu lịch sử chat
+    save_chat(message, reply, lang)
+
+    return {"reply": reply}
+-----------------------------------------
+@app.get("/history")
+def history():
+
+    conn = sqlite3.connect("chat_history.db")
+    c = conn.cursor()
+
+    c.execute("SELECT * FROM chat_history ORDER BY id DESC")
+    rows = c.fetchall()
+
+    conn.close()
+
+    return {"history": rows}
    # try:
    #     response = client.models.generate_content(
    #         model="gemini-1.5-flash",
