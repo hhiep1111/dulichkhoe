@@ -2409,7 +2409,7 @@ async def comment(
     c = conn.cursor()
     c.execute(
         "INSERT INTO comments (id, name, email, comment, img, token, status, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-        (comment_id, name, email, comment, filename, token, "pending", datetime.datetime.utcnow()),
+        (comment_id, name, email, comment, filename, token, "pending", datetime.utcnow()),
     )
     conn.commit()
     conn.close()
