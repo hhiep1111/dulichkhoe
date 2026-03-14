@@ -1341,10 +1341,6 @@ place_details_data = {
     "en": {
         "Can Tho": [
             { "title": "Ninh Kieu Wharf - City Symbol",
-            "slug": "Can Tho",
-            "lat": 10.035,
-            "lng": 105.788,
-            "map_img": "benninhkieu.jpg",
             "desc": """
             <p>The symbol of Can Tho on the gentle Hau River, is a place to walk, sightsee and take beautiful photos.</p>
             <img src="/static/images/benninhkieu.jpg" class="detail-img" alt="Panoramic view of Ninh Kieu Wharf">
