@@ -25,7 +25,7 @@
             justify-content: center;
         }
         .logo {
-            width: 180px;
+            width: 160px;
             height: auto;
             border-radius: 10px;
         }
@@ -186,15 +186,34 @@
             margin-bottom: 15px;
         }
         @media (max-width: 800px) {
-            .checklist-grid {
-                grid-template-columns: 1fr;
-            }
-            header h1 {
-                font-size: 22px;
-            }
-            .card img {
-                height: 180px;
-            }
+
+header{
+padding: 30px 10px;     /* giảm chiều cao header */
+gap:20px;
+}
+
+.logo{
+width:110px;            /* logo nhỏ lại */
+}
+
+header h1{
+font-size:24px;         /* tiêu đề nhỏ hơn */
+text-align:center;
+}
+
+header p{
+font-size:14px;
+text-align:center;
+}
+
+.checklist-grid{
+grid-template-columns:1fr;
+}
+
+.card img{
+height:180px;
+}
+
         }
         footer {
             background: #0F172A;
@@ -457,16 +476,31 @@ border:none;
 padding:10px;
 cursor:pointer;
 }
-.place-link{
-display:inline-block;
-margin-top:5px;
-color:#1a73e8;
-font-weight:600;
-text-decoration:none;
+@media (max-width:768px){
+
+#chatbox{
+width:90%;          /* gần full màn hình */
+right:5%;
+bottom:80px;
+
+height:60vh;        /* cao 60% màn hình */
+border-radius:15px;
 }
 
-.place-link:hover{
-text-decoration:underline;
+#chat-messages{
+font-size:14px;
+padding:12px;
+}
+
+#chat-input{
+font-size:14px;
+}
+
+#chat-toggle img{
+width:60px;
+height:60px;
+}
+
 }
 
     </style>
