@@ -2655,20 +2655,6 @@ async def place_detail(request: Request, slug: str, lang: str = "vi"):
 
     # nếu không tìm thấy địa điểm
     raise HTTPException(status_code=404, detail="Place not found")
-#--------------------------------------------------------
-def save_chat(message, reply, lang):
-
-    conn = sqlite3.connect("chat_history.db")
-    c = conn.cursor()
-
-    c.execute("""
-        INSERT INTO chat_history (message, reply, lang, time)
-        VALUES (?, ?, ?, ?)
-    """, (message, reply, lang, datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
-
-    conn.commit()
-    conn.close()
-
 #-------------------------------------------------
 client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 #genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
@@ -2749,6 +2735,8 @@ Quy tắc:
 
         reply = response.text
 
+        save_chat(message, reply, lang)
+
         return {"reply": reply}
 
     except Exception as e:
@@ -2757,31 +2745,18 @@ Quy tắc:
 
         return {"reply": f"Lỗi AI: {str(e)}"}
 #----------------------------------
-@app.post("/chat")
-def chat(req: ChatRequest):
+def save_chat(message, reply, lang):
 
-    message = req.message
-    lang = req.lang
+    conn = sqlite3.connect("chat_history.db")
+    c = conn.cursor()
 
-    places_text = get_places_text(lang)
+    c.execute("""
+        INSERT INTO chat_history (message, reply, lang, time)
+        VALUES (?, ?, ?, ?)
+    """, (message, reply, lang, datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
 
-    prompt = f"""
-    User question: {message}
-    Places info:
-    {places_text}
-    """
-
-    response = client.models.generate_content(
-        model="gemini-2.0-flash",
-        contents=prompt
-    )
-
-    reply = response.text
-
-    # lưu lịch sử chat
-    save_chat(message, reply, lang)
-
-    return {"reply": reply}
+    conn.commit()
+    conn.close()
 #-----------------------------------------
 @app.get("/history")
 def history():
@@ -2789,12 +2764,24 @@ def history():
     conn = sqlite3.connect("chat_history.db")
     c = conn.cursor()
 
-    c.execute("SELECT * FROM chat_history ORDER BY id DESC")
+    c.execute("SELECT id,message,reply,lang,time FROM chat_history ORDER BY id DESC")
+
     rows = c.fetchall()
 
     conn.close()
 
-    return {"history": rows}
+    history = []
+
+    for r in rows:
+        history.append({
+            "id": r[0],
+            "message": r[1],
+            "reply": r[2],
+            "lang": r[3],
+            "time": r[4]
+        })
+
+    return {"history": history}
    # try:
    #     response = client.models.generate_content(
    #         model="gemini-1.5-flash",
