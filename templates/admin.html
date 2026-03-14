@@ -14,6 +14,27 @@
         img { max-width: 100px; }
         form { display: inline; }
         button { padding: 5px 10px; margin: 2px; cursor: pointer; }
+#chatTable{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+#chatTable th{
+background:#2563eb;
+color:white;
+padding:10px;
+}
+
+#chatTable td{
+border-bottom:1px solid #ddd;
+padding:8px;
+}
+
+#chatTable tr:hover{
+background:#f3f4f6;
+}
+
     </style>
 </head>
 <body>
@@ -71,5 +92,50 @@
         {% endfor %}
         </tbody>
     </table>
+<h2>Chat History</h2>
+
+<table id="chatTable">
+<thead>
+<tr>
+<th>ID</th>
+<th>Time</th>
+<th>User</th>
+<th>AI</th>
+</tr>
+</thead>
+
+<tbody></tbody>
+</table>
+<script>
+
+async function loadChatHistory(){
+
+let res = await fetch("/admin/chat-history")
+let data = await res.json()
+
+let table = document.querySelector("#chatTable tbody")
+
+table.innerHTML=""
+
+data.history.forEach(chat=>{
+
+let row = `
+<tr>
+<td>${chat.id}</td>
+<td>${chat.time}</td>
+<td>${chat.message}</td>
+<td>${chat.reply}</td>
+</tr>
+`
+
+table.innerHTML += row
+
+})
+
+}
+
+loadChatHistory()
+
+</script>
 </body>
 </html>
