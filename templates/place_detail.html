@@ -27,10 +27,39 @@
         }
 
         .logo {
-            width: 180px;
+            width: 160px;
             height: autopx;
             border-radius: 10px;
         }
+@media (max-width: 800px) {
+
+header{
+padding: 30px 10px;     /* giảm chiều cao header */
+gap:20px;
+}
+
+.logo{
+width:110px;            /* logo nhỏ lại */
+}
+
+header h1{
+font-size:24px;         /* tiêu đề nhỏ hơn */
+text-align:center;
+}
+
+header p{
+font-size:14px;
+text-align:center;
+}
+
+.checklist-grid{
+grid-template-columns:1fr;
+}
+
+.card img{
+height:180px;
+}
+
 
         nav {
             background-color: #0F172A;
